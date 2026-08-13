@@ -161,7 +161,16 @@ def main() -> None:
         raise ValueError("Pilot design contains duplicate cases")
     configure_standard_libero(args.libero_root, args.output.parent / "libero_standard_config")
 
+    import libero.libero as libero_module
     from libero.libero import benchmark
+
+    expected_assets = (args.libero_root / "libero" / "libero" / "assets").resolve()
+    # This LIBERO release's ``get_assets_path`` bypasses ``get_libero_path``
+    # and only checks site-packages or its private cache. Pin the cache to the
+    # same versioned checkout already validated by ``configure_standard_libero``.
+    libero_module._assets_path_cache = str(expected_assets)
+    if Path(libero_module.get_assets_path()).resolve() != expected_assets:
+        raise RuntimeError("LIBERO asset path did not resolve to the pinned checkout")
 
     from lerobot.envs.configs import LiberoEnv as LiberoEnvConfig
     from lerobot.envs.libero import TASK_SUITE_MAX_STEPS, LiberoEnv
