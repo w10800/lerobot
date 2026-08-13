@@ -6,6 +6,7 @@ import copy
 import hashlib
 import json
 import math
+import os
 import subprocess
 from collections import deque
 from pathlib import Path
@@ -13,6 +14,7 @@ from typing import Any
 
 import numpy as np
 import torch
+import yaml
 
 ARM_SPECS = {
     "base10": ("base", 10, None),
@@ -29,6 +31,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--base-revision", required=True)
     parser.add_argument("--snap-checkpoint", type=Path, required=True)
     parser.add_argument("--snap-revision", required=True)
+    parser.add_argument("--libero-root", type=Path, required=True)
     parser.add_argument("--execution-horizon", type=int, default=10)
     parser.add_argument("--noise-seed", type=int, default=20260813)
     parser.add_argument("--device", default="cuda")
@@ -120,6 +123,29 @@ def paired_summary(results: list[dict]) -> dict:
     return output
 
 
+def configure_standard_libero(root: Path, config_dir: Path) -> None:
+    package_parent = root / "libero"
+    benchmark_root = package_parent / "libero"
+    required = (
+        benchmark_root / "assets" / "scenes" / "libero_tabletop_base_style.xml",
+        benchmark_root / "bddl_files" / "libero_spatial",
+        benchmark_root / "init_files" / "libero_spatial",
+    )
+    missing = [str(path) for path in required if not path.exists()]
+    if missing:
+        raise FileNotFoundError(f"Pinned LIBERO checkout is incomplete: {missing}")
+    config_dir.mkdir(parents=True, exist_ok=True)
+    config = {
+        "benchmark_root": str(benchmark_root.resolve()),
+        "bddl_files": str((benchmark_root / "bddl_files").resolve()),
+        "init_states": str((benchmark_root / "init_files").resolve()),
+        "datasets": str((package_parent / "datasets").resolve()),
+        "assets": str((benchmark_root / "assets").resolve()),
+    }
+    (config_dir / "config.yaml").write_text(yaml.safe_dump(config, sort_keys=True))
+    os.environ["LIBERO_CONFIG_PATH"] = str(config_dir.resolve())
+
+
 def main() -> None:
     args = parse_args()
     if args.execution_horizon < 1:
@@ -133,6 +159,7 @@ def main() -> None:
     case_keys = [(case["suite"], case["task_id"], case["init_state_id"], case["env_seed"]) for case in cases]
     if len(case_keys) != len(set(case_keys)):
         raise ValueError("Pilot design contains duplicate cases")
+    configure_standard_libero(args.libero_root, args.output.parent / "libero_standard_config")
 
     from libero.libero import benchmark
 
@@ -313,6 +340,8 @@ def main() -> None:
         "design_sha256": file_sha256(args.design),
         "base_checkpoint_sha256": file_sha256(args.base_checkpoint / "model.safetensors"),
         "snap_checkpoint_sha256": file_sha256(args.snap_checkpoint / "model.safetensors"),
+        "libero_repository": str(args.libero_root.resolve()),
+        "libero_commit": git_value("-C", str(args.libero_root), "rev-parse", "HEAD"),
         "execution_horizon": args.execution_horizon,
         "noise_seed": args.noise_seed,
         "case_count": len(cases),
