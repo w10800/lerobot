@@ -162,6 +162,7 @@ def main() -> None:
         ("counterfactual", args.counterfactual_prompt, args.counterfactual_condition),
     )
     initial_hashes = None
+    initial_sim_state_sha256 = None
     results = []
     env = LiberoEnv(
         task_suite=suite,
@@ -184,17 +185,33 @@ def main() -> None:
         hard_reset=env_config.hard_reset,
     )
     try:
+        env.init_state_id = args.init_state_id
+        env.reset(seed=args.env_seed)
+        if env._env is None:
+            raise RuntimeError("LIBERO-CF inner environment was not initialized")
+        initial_sim_state = np.asarray(env._env.get_sim_state()).copy()
+        initial_sim_state_sha256 = hashlib.sha256(initial_sim_state.tobytes()).hexdigest()
+
         for branch_name, prompt, condition in branches:
             policy.reset()
             env.init_state_id = args.init_state_id
-            observation, _ = env.reset(seed=args.env_seed)
+            env.reset(seed=args.env_seed)
+            raw_observation = env._env.set_init_state(initial_sim_state)
+            observation = env._format_raw_obs(raw_observation)
             branch_hashes = observation_hashes(observation)
             if initial_hashes is None:
                 initial_hashes = branch_hashes
             elif branch_hashes != initial_hashes:
-                raise RuntimeError("LIBERO-CF branches did not start from byte-identical observations")
-            if env._env is None:
-                raise RuntimeError("LIBERO-CF inner environment was not initialized")
+                differing_keys = sorted(
+                    key
+                    for key in initial_hashes.keys() | branch_hashes.keys()
+                    if initial_hashes.get(key) != branch_hashes.get(key)
+                )
+                raise RuntimeError(
+                    "LIBERO-CF branches did not start from byte-identical observations; "
+                    f"differing keys: {differing_keys}"
+                )
+            env._env.clear_success_any_conditions()
             env._env.set_success_any_conditions([condition])
 
             action_hasher = hashlib.sha256()
@@ -263,6 +280,7 @@ def main() -> None:
         "execution_horizon": args.execution_horizon,
         "max_steps": args.max_steps,
         "device": args.device,
+        "initial_sim_state_sha256": initial_sim_state_sha256,
         "branches_share_exact_initial_observation": True,
         "results": results,
     }
