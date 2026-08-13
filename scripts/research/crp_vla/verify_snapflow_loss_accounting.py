@@ -30,6 +30,23 @@ def git_value(*args: str) -> str:
     return subprocess.check_output(["git", *args], text=True).strip()
 
 
+def ensure_training_batch_dimensions(batch: dict) -> dict:
+    """Add the outer batch dimension omitted by a single dataset sample."""
+    batch_size = batch[OBS_STATE].shape[0]
+    if batch_size != 1:
+        raise ValueError(f"The accounting fixture must contain one observation, got {batch_size}")
+    if batch[ACTION].ndim == 2:
+        batch[ACTION] = batch[ACTION].unsqueeze(0)
+    if batch[ACTION].ndim != 3 or batch[ACTION].shape[0] != batch_size:
+        raise ValueError(
+            f"Action shape {batch[ACTION].shape} is incompatible with observation batch {batch_size}"
+        )
+    actions_is_pad = batch.get("action_is_pad")
+    if isinstance(actions_is_pad, torch.Tensor) and actions_is_pad.ndim == 1:
+        batch["action_is_pad"] = actions_is_pad.unsqueeze(0)
+    return batch
+
+
 def main() -> None:
     args = parse_args()
     config = SmolVLAConfig.from_pretrained(args.checkpoint)
@@ -50,6 +67,7 @@ def main() -> None:
         key: value.to(args.device) if isinstance(value, torch.Tensor) else value
         for key, value in raw_batch.items()
     }
+    batch = ensure_training_batch_dimensions(batch)
     generator = torch.Generator(device=args.device).manual_seed(args.seed)
     prepared_action = policy.prepare_action(batch)
     noise = torch.randn(
