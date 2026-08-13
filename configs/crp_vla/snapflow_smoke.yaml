@@ -13,6 +13,8 @@ dataset:
 
 policy:
   path: checkpoints/smolvla_libero
+  load_vlm_weights: false
+  push_to_hub: false
   training_objective: snapflow
   use_target_time_embedding: true
   freeze_vision_encoder: true
