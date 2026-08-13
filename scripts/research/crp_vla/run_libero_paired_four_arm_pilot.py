@@ -34,6 +34,8 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--libero-root", type=Path, required=True)
     parser.add_argument("--execution-horizon", type=int, default=10)
     parser.add_argument("--noise-seed", type=int, default=20260813)
+    parser.add_argument("--bootstrap-repeats", type=int, default=10_000)
+    parser.add_argument("--bootstrap-seed", type=int, default=20260813)
     parser.add_argument("--device", default="cuda")
     parser.add_argument("--output", type=Path, required=True)
     return parser.parse_args()
@@ -93,7 +95,7 @@ def wilson_interval(successes: int, total: int, z: float = 1.959963984540054) ->
     return [center - half_width, center + half_width]
 
 
-def paired_summary(results: list[dict]) -> dict:
+def paired_summary(results: list[dict], bootstrap_repeats: int, bootstrap_seed: int) -> dict:
     by_case = {}
     for result in results:
         key = (result["suite"], result["task_id"], result["init_state_id"], result["env_seed"])
@@ -111,6 +113,17 @@ def paired_summary(results: list[dict]) -> dict:
             "wilson_ci95": wilson_interval(successes, len(values)),
         }
     for arm in ("base1", "snap10", "snap1"):
+        paired_differences = np.asarray(
+            [int(arms[arm]) - int(arms["base10"]) for arms in by_case.values()],
+            dtype=np.float64,
+        )
+        generator = np.random.default_rng(bootstrap_seed + list(ARM_SPECS).index(arm))
+        bootstrap_indices = generator.integers(
+            0,
+            len(paired_differences),
+            size=(bootstrap_repeats, len(paired_differences)),
+        )
+        bootstrap_means = paired_differences[bootstrap_indices].mean(axis=1)
         base_success_candidate_failure = sum(
             bool(arms["base10"]) and not bool(arms[arm]) for arms in by_case.values()
         )
@@ -121,6 +134,10 @@ def paired_summary(results: list[dict]) -> dict:
             "success_rate_difference": (
                 output["arm_success"][arm]["rate"] - output["arm_success"]["base10"]["rate"]
             ),
+            "paired_bootstrap_ci95": [
+                float(np.quantile(bootstrap_means, 0.025)),
+                float(np.quantile(bootstrap_means, 0.975)),
+            ],
             "base_success_candidate_failure": base_success_candidate_failure,
             "base_failure_candidate_success": base_failure_candidate_success,
             "discordant_pair_rate": (
@@ -158,6 +175,8 @@ def main() -> None:
     args = parse_args()
     if args.execution_horizon < 1:
         raise ValueError("execution-horizon must be positive")
+    if args.bootstrap_repeats < 1:
+        raise ValueError("bootstrap-repeats must be positive")
     if git_value("status", "--porcelain"):
         raise ValueError("Repository must be clean before the admitted paired pilot")
     design = json.loads(args.design.read_text())
@@ -170,6 +189,8 @@ def main() -> None:
     configure_standard_libero(args.libero_root, args.output.parent / "libero_standard_config")
     repository_commit = git_value("rev-parse", "HEAD")
     libero_commit = git_repository_value(args.libero_root, "rev-parse", "HEAD")
+    base_checkpoint_sha256 = file_sha256(args.base_checkpoint / "model.safetensors")
+    snap_checkpoint_sha256 = file_sha256(args.snap_checkpoint / "model.safetensors")
 
     import libero.libero as libero_module
     from libero.libero import benchmark
@@ -329,6 +350,22 @@ def main() -> None:
                         "action_stream_sha256": action_hasher.hexdigest(),
                     }
                 )
+                partial = {
+                    "schema_version": 1,
+                    "status": "RUNNING_PARTIAL",
+                    "repository_commit": repository_commit,
+                    "repository_dirty": False,
+                    "libero_commit": libero_commit,
+                    "design_sha256": file_sha256(args.design),
+                    "base_checkpoint_sha256": base_checkpoint_sha256,
+                    "snap_checkpoint_sha256": snap_checkpoint_sha256,
+                    "completed_rollout_count": len(results),
+                    "planned_rollout_count": len(cases) * len(ARM_SPECS),
+                    "results": results,
+                }
+                partial_path = args.output.with_suffix(".partial.json")
+                partial_path.parent.mkdir(parents=True, exist_ok=True)
+                partial_path.write_text(json.dumps(partial, indent=2, sort_keys=True) + "\n")
                 print(
                     f"completed_case={case_index + 1}/{len(cases)} arm={arm} success={int(success)} steps={steps_run}",
                     flush=True,
@@ -357,15 +394,17 @@ def main() -> None:
         "repository_dirty": False,
         "design": str(args.design.resolve()),
         "design_sha256": file_sha256(args.design),
-        "base_checkpoint_sha256": file_sha256(args.base_checkpoint / "model.safetensors"),
-        "snap_checkpoint_sha256": file_sha256(args.snap_checkpoint / "model.safetensors"),
+        "base_checkpoint_sha256": base_checkpoint_sha256,
+        "snap_checkpoint_sha256": snap_checkpoint_sha256,
         "libero_repository": str(args.libero_root.resolve()),
         "libero_commit": libero_commit,
         "execution_horizon": args.execution_horizon,
         "noise_seed": args.noise_seed,
+        "bootstrap_repeats": args.bootstrap_repeats,
+        "bootstrap_seed": args.bootstrap_seed,
         "case_count": len(cases),
         "rollout_count": len(results),
-        "summary": paired_summary(results),
+        "summary": paired_summary(results, args.bootstrap_repeats, args.bootstrap_seed),
         "results": results,
     }
     args.output.parent.mkdir(parents=True, exist_ok=True)

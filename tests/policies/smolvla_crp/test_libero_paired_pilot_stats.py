@@ -23,8 +23,9 @@ def test_paired_summary_counts_discordant_outcomes():
                     "success": success,
                 }
             )
-    summary = MODULE.paired_summary(results)
+    summary = MODULE.paired_summary(results, bootstrap_repeats=100, bootstrap_seed=0)
     assert summary["arm_success"]["base10"]["rate"] == 0.5
     assert summary["paired_vs_base10"]["base1"]["base_success_candidate_failure"] == 1
     assert summary["paired_vs_base10"]["base1"]["base_failure_candidate_success"] == 1
     assert summary["paired_vs_base10"]["base1"]["discordant_pair_rate"] == 1.0
+    assert summary["paired_vs_base10"]["base1"]["paired_bootstrap_ci95"] == [-1.0, 1.0]
