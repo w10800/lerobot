@@ -25,6 +25,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--dataset-root", type=Path, required=True)
     parser.add_argument("--episode", type=int, default=0)
     parser.add_argument("--sample-index", type=int, default=0)
+    parser.add_argument("--task-override", help="Condition text; all non-language inputs remain unchanged")
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--manifest", type=Path)
     return parser.parse_args()
@@ -87,6 +88,9 @@ def main() -> None:
         preprocessor_overrides={"device_processor": {"device": "cpu"}},
     )
     raw = dataset[args.sample_index]
+    source_task = raw.get("task")
+    if args.task_override is not None:
+        raw["task"] = args.task_override
     # Match ``lerobot_train._preprocess_dataset_batch``. Dataset loading keeps
     # images as compact uint8 tensors, while SmolVLA expects float32 in [0, 1].
     for camera_key in metadata.camera_keys:
@@ -123,6 +127,8 @@ def main() -> None:
         "dataset_revision": args.dataset_revision,
         "episode": args.episode,
         "sample_index_within_selection": args.sample_index,
+        "source_task": source_task,
+        "effective_task": args.task_override if args.task_override is not None else source_task,
         "dataset_fps": metadata.fps,
         "delta_timestamps": delta_timestamps,
         "batch_file": str(args.output.resolve()),

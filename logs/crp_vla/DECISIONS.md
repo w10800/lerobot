@@ -37,3 +37,10 @@
 - Decision: use an explicit uv-managed Python 3.12 environment on the A100 host and treat 40GB as a hard measured memory boundary.
 - Reason: the project tooling targets Python 3.12, while automatic resolution selected unclassified Python 3.14; the assigned A100 is the 40GB PCIe variant.
 - Consequence: benchmark the registered configuration unchanged and stop for a logged decision if it exceeds memory, rather than silently reducing the workload.
+
+## D-007 — teacher-response filter for diagnostic pairs
+
+- Date: 2026-08-13
+- Decision: before inspecting the response sweep, require the 10-NFE teacher's normalized action-chunk response L2 norm to be at least `0.05` for a pair to enter aggregate compression-gap analysis.
+- Reason: pairs to which the teacher is effectively condition-blind cannot identify response retention; `0.05` is a provisional engineering floor in normalized action space, not a field standard.
+- Consequence: report both input and retained counts, never tune this threshold after seeing method labels, and keep below-threshold records as validity failures rather than deleting them.

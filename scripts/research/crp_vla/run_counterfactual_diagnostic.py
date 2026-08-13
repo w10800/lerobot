@@ -2,7 +2,9 @@
 """Run a strict matched-noise teacher/student counterfactual diagnostic."""
 
 import argparse
+import hashlib
 import json
+import subprocess
 from pathlib import Path
 
 import numpy as np
@@ -29,6 +31,11 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--student-target-time", type=float)
     parser.add_argument("--noise-seed", type=int, required=True)
     parser.add_argument("--device", default="cuda")
+    parser.add_argument("--task-group", required=True)
+    parser.add_argument("--task-id", required=True)
+    parser.add_argument("--intervention-type", required=True)
+    parser.add_argument("--factual-condition", required=True)
+    parser.add_argument("--counterfactual-condition", required=True)
     return parser.parse_args()
 
 
@@ -54,6 +61,19 @@ def scalar_metrics(metrics: dict) -> dict[str, float | list[float]]:
         "global": {key: float(value.detach().cpu()) for key, value in metrics["global"].items()},
         "horizon": {key: value.detach().cpu().tolist() for key, value in metrics["horizon"].items()},
     }
+
+
+def file_sha256(path: Path) -> str:
+    return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+def git_value(*args: str) -> str:
+    return subprocess.check_output(["git", *args], text=True).strip()
+
+
+def checkpoint_hash(checkpoint: str) -> str | None:
+    path = Path(checkpoint) / "model.safetensors"
+    return file_sha256(path) if path.is_file() else None
 
 
 def main() -> None:
@@ -89,6 +109,19 @@ def main() -> None:
     metrics = compute_response_metrics(
         teacher_factual, teacher_counterfactual, student_factual, student_counterfactual
     )
+    serialized_metrics = scalar_metrics(metrics)
+    serialized_metrics["global"]["factual_action_mse"] = float(
+        torch.mean((student_factual - teacher_factual) ** 2).detach().cpu()
+    )
+    serialized_metrics["global"]["counterfactual_action_mse"] = float(
+        torch.mean((student_counterfactual - teacher_counterfactual) ** 2).detach().cpu()
+    )
+    serialized_metrics["global"]["teacher_response_norm"] = float(
+        torch.linalg.vector_norm(teacher_factual - teacher_counterfactual).detach().cpu()
+    )
+    serialized_metrics["global"]["student_response_norm"] = float(
+        torch.linalg.vector_norm(student_factual - student_counterfactual).detach().cpu()
+    )
 
     args.output_prefix.parent.mkdir(parents=True, exist_ok=True)
     archive_path = args.output_prefix.with_suffix(".npz")
@@ -103,23 +136,35 @@ def main() -> None:
     metadata = {
         "schema_version": 1,
         "status": "ANALYZED",
+        "repository_commit": git_value("rev-parse", "HEAD"),
+        "repository_dirty": bool(git_value("status", "--porcelain")),
+        "task_group": args.task_group,
+        "task_id": args.task_id,
+        "intervention_type": args.intervention_type,
+        "factual_condition": args.factual_condition,
+        "counterfactual_condition": args.counterfactual_condition,
         "teacher": {
             "checkpoint": args.teacher_checkpoint,
             "revision": args.teacher_revision,
             "num_steps": args.teacher_steps,
+            "model_sha256": checkpoint_hash(args.teacher_checkpoint),
         },
         "student": {
             "checkpoint": args.student_checkpoint,
             "revision": args.student_revision,
             "num_steps": args.student_steps,
             "target_time": args.student_target_time,
+            "model_sha256": checkpoint_hash(args.student_checkpoint),
         },
         "noise_seed": args.noise_seed,
         "noise_sha256": tensor_sha256(noise),
         "factual_batch": str(args.factual_batch.resolve()),
+        "factual_batch_sha256": file_sha256(args.factual_batch),
         "counterfactual_batch": str(args.counterfactual_batch.resolve()),
+        "counterfactual_batch_sha256": file_sha256(args.counterfactual_batch),
         "action_archive": str(archive_path.resolve()),
-        "metrics": scalar_metrics(metrics),
+        "action_archive_sha256": file_sha256(archive_path),
+        "metrics": serialized_metrics,
     }
     metadata_path.write_text(json.dumps(metadata, indent=2, sort_keys=True) + "\n")
 
