@@ -160,11 +160,20 @@ def main() -> None:
             task_id=args.task_id,
             task_suite_name=args.suite,
             episode_length=args.max_steps,
-            observation_width=256,
-            observation_height=256,
+            camera_name=env_config.camera_name,
+            obs_type=env_config.obs_type,
+            render_mode=env_config.render_mode,
+            observation_width=env_config.observation_width,
+            observation_height=env_config.observation_height,
+            init_states=env_config.init_states,
             episode_index=args.init_state_id,
             n_envs=1,
             num_steps_wait=10,
+            camera_name_mapping=env_config.camera_name_mapping,
+            control_freq=env_config.fps,
+            control_mode=env_config.control_mode,
+            is_libero_plus=env_config.is_libero_plus,
+            hard_reset=env_config.hard_reset,
         )
         try:
             policy.reset()
