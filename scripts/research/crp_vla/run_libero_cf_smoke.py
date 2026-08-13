@@ -66,8 +66,14 @@ def configure_libero_cf(root: Path, config_dir: Path) -> None:
     (config_dir / "config.yaml").write_text(yaml.safe_dump(config, sort_keys=True))
     os.environ["LIBERO_CONFIG_PATH"] = str(config_dir.resolve())
 
+    # LIBERO-CF's unused legacy vector-env module still imports ``gym`` during
+    # package initialization. The active environment uses the compatible API
+    # exposed by Gymnasium, so provide an import alias without installing an
+    # obsolete Gym release into the locked training environment.
+    import gymnasium
     import libero
 
+    sys.modules.setdefault("gym", gymnasium)
     path = str(package_parent.resolve())
     if path not in libero.__path__:
         libero.__path__.insert(0, path)
