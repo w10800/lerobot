@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "status": "SMOKE",
+  "date": "2026-08-13",
+  "host": "macOS arm64 CPU",
+  "checkpoint_revision": "31d453f7edd78c839a8bbc39744a292686daf0de",
+  "checkpoint_model_sha256": "9a9f6413e42c0f332fccbce9a0dc796af2790f82cf002f791cdbf7e01e1afca8",
+  "input_class": "synthetic processed tensor batch; not a scientific LIBERO sample",
+  "results": {
+    "multi_nfe_exact_repeatability": {
+      "10": true,
+      "5": true,
+      "2": true,
+      "1": true
+    },
+    "velocity_api_exact_equivalence": true,
+    "velocity_api_max_abs_error": 0.0,
+    "target_time_zero_init_exact_equivalence": true,
+    "target_time_zero_init_max_abs_error": 0.0,
+    "snapflow_forward_shape": [1, 50, 32],
+    "snapflow_forward_finite": true,
+    "snapflow_target_requires_grad": false,
+    "focused_tests": "11 passed",
+    "combined_relevant_tests": "24 passed, 4 skipped",
+    "ruff": "passed"
+  },
+  "not_verified": [
+    "CUDA latency",
+    "real LIBERO action hashes",
+    "closed-loop LIBERO or LIBERO-CF success",
+    "compression-induced conditional-response gap",
+    "formal SnapFlow or CRP training"
+  ]
+}
