@@ -96,6 +96,15 @@ def observation_hashes(observation: dict[str, Any]) -> dict[str, str]:
     return hashes
 
 
+def add_batch_dimension(value: Any) -> Any:
+    """Match the vector-environment observation contract for one direct env."""
+    if isinstance(value, dict):
+        return {key: add_batch_dimension(item) for key, item in value.items()}
+    if isinstance(value, np.ndarray):
+        return np.expand_dims(value, axis=0)
+    return value
+
+
 def main() -> None:
     args = parse_args()
     if args.num_steps < 1 or args.execution_horizon < 1 or args.max_steps < 1:
@@ -193,7 +202,7 @@ def main() -> None:
             truncated = False
             steps_run = 0
             for step in range(args.max_steps):
-                batch = preprocess_observation(observation)
+                batch = preprocess_observation(add_batch_dimension(observation))
                 batch["task"] = [prompt]
                 batch = env_preprocessor(batch)
                 batch = preprocessor(batch)
