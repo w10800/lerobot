@@ -47,6 +47,14 @@ def git_value(*args: str) -> str:
     return subprocess.check_output(["git", *args], text=True).strip()
 
 
+def git_repository_value(repository: Path, *args: str) -> str:
+    resolved = repository.resolve()
+    return subprocess.check_output(
+        ["git", "-c", f"safe.directory={resolved}", "-C", str(resolved), *args],
+        text=True,
+    ).strip()
+
+
 def tensor_sha256(value: torch.Tensor) -> str:
     return hashlib.sha256(value.detach().cpu().contiguous().numpy().tobytes()).hexdigest()
 
@@ -160,6 +168,8 @@ def main() -> None:
     if len(case_keys) != len(set(case_keys)):
         raise ValueError("Pilot design contains duplicate cases")
     configure_standard_libero(args.libero_root, args.output.parent / "libero_standard_config")
+    repository_commit = git_value("rev-parse", "HEAD")
+    libero_commit = git_repository_value(args.libero_root, "rev-parse", "HEAD")
 
     import libero.libero as libero_module
     from libero.libero import benchmark
@@ -343,14 +353,14 @@ def main() -> None:
     output = {
         "schema_version": 1,
         "status": "PILOT_ANALYZED",
-        "repository_commit": git_value("rev-parse", "HEAD"),
+        "repository_commit": repository_commit,
         "repository_dirty": False,
         "design": str(args.design.resolve()),
         "design_sha256": file_sha256(args.design),
         "base_checkpoint_sha256": file_sha256(args.base_checkpoint / "model.safetensors"),
         "snap_checkpoint_sha256": file_sha256(args.snap_checkpoint / "model.safetensors"),
         "libero_repository": str(args.libero_root.resolve()),
-        "libero_commit": git_value("-C", str(args.libero_root), "rev-parse", "HEAD"),
+        "libero_commit": libero_commit,
         "execution_horizon": args.execution_horizon,
         "noise_seed": args.noise_seed,
         "case_count": len(cases),
