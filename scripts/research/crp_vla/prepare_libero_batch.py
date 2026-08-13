@@ -87,11 +87,26 @@ def main() -> None:
         preprocessor_overrides={"device_processor": {"device": "cpu"}},
     )
     raw = dataset[args.sample_index]
+    # Match ``lerobot_train._preprocess_dataset_batch``. Dataset loading keeps
+    # images as compact uint8 tensors, while SmolVLA expects float32 in [0, 1].
+    for camera_key in metadata.camera_keys:
+        value = raw.get(camera_key)
+        if isinstance(value, torch.Tensor) and value.dtype == torch.uint8:
+            raw[camera_key] = value.to(dtype=torch.float32) / 255.0
     processed = preprocessor(raw)
     batch = {
         key: value.detach().to(device="cpu").contiguous() if isinstance(value, torch.Tensor) else value
         for key, value in processed.items()
     }
+    present_image_keys = [key for key in config.image_features if key in batch]
+    if not present_image_keys:
+        raise ValueError(f"No configured image feature survived preprocessing: {config.image_features}")
+    for image_key in present_image_keys:
+        image = batch[image_key]
+        if not isinstance(image, torch.Tensor) or not image.is_floating_point():
+            raise TypeError(f"Expected floating-point image tensor for {image_key}, got {type(image)}")
+        if image.numel() and (image.min().item() < 0.0 or image.max().item() > 1.0):
+            raise ValueError(f"Expected {image_key} in [0, 1] after preprocessing")
 
     args.output.parent.mkdir(parents=True, exist_ok=True)
     torch.save(batch, args.output)
