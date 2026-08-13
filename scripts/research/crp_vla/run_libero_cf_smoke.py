@@ -163,29 +163,30 @@ def main() -> None:
     )
     initial_hashes = None
     results = []
-    for branch_name, prompt, condition in branches:
-        env = LiberoEnv(
-            task_suite=suite,
-            task_id=args.task_id,
-            task_suite_name=args.suite,
-            episode_length=args.max_steps,
-            camera_name=env_config.camera_name,
-            obs_type=env_config.obs_type,
-            render_mode=env_config.render_mode,
-            observation_width=env_config.observation_width,
-            observation_height=env_config.observation_height,
-            init_states=env_config.init_states,
-            episode_index=args.init_state_id,
-            n_envs=1,
-            num_steps_wait=10,
-            camera_name_mapping=env_config.camera_name_mapping,
-            control_freq=env_config.fps,
-            control_mode=env_config.control_mode,
-            is_libero_plus=env_config.is_libero_plus,
-            hard_reset=env_config.hard_reset,
-        )
-        try:
+    env = LiberoEnv(
+        task_suite=suite,
+        task_id=args.task_id,
+        task_suite_name=args.suite,
+        episode_length=args.max_steps,
+        camera_name=env_config.camera_name,
+        obs_type=env_config.obs_type,
+        render_mode=env_config.render_mode,
+        observation_width=env_config.observation_width,
+        observation_height=env_config.observation_height,
+        init_states=env_config.init_states,
+        episode_index=args.init_state_id,
+        n_envs=1,
+        num_steps_wait=10,
+        camera_name_mapping=env_config.camera_name_mapping,
+        control_freq=env_config.fps,
+        control_mode=env_config.control_mode,
+        is_libero_plus=env_config.is_libero_plus,
+        hard_reset=env_config.hard_reset,
+    )
+    try:
+        for branch_name, prompt, condition in branches:
             policy.reset()
+            env.init_state_id = args.init_state_id
             observation, _ = env.reset(seed=args.env_seed)
             branch_hashes = observation_hashes(observation)
             if initial_hashes is None:
@@ -241,8 +242,8 @@ def main() -> None:
                     "initial_observation_hashes": branch_hashes,
                 }
             )
-        finally:
-            env.close()
+    finally:
+        env.close()
 
     output = {
         "schema_version": 1,
