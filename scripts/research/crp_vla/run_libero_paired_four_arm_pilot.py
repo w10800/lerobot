@@ -161,7 +161,12 @@ def main() -> None:
         "base": load_policy(args.base_checkpoint, args.base_revision),
         "snap": load_policy(args.snap_checkpoint, args.snap_revision),
     }
-    suites = {name: factory() for name, factory in benchmark.get_benchmark_dict().items()}
+    benchmark_factories = benchmark.get_benchmark_dict()
+    requested_suites = sorted({case["suite"] for case in cases})
+    unknown_suites = [name for name in requested_suites if name not in benchmark_factories]
+    if unknown_suites:
+        raise ValueError(f"Unknown suites: {unknown_suites}")
+    suites = {name: benchmark_factories[name]() for name in requested_suites}
     results = []
     for case_index, case in enumerate(cases):
         suite_name = case["suite"]
