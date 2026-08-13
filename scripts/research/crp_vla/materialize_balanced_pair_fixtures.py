@@ -10,6 +10,13 @@ from typing import Any
 
 import torch
 
+SOURCE_TASK_ALIASES = {
+    "open the middle layer of the drawer": "open the middle drawer of the cabinet",
+    "open the top layer of the drawer and put the bowl inside": (
+        "open the top drawer and put the bowl inside"
+    ),
+}
+
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser()
@@ -42,15 +49,38 @@ def load_catalog(path: Path) -> list[dict]:
     return records
 
 
-def select_episode(episodes: Any, source_task: str) -> tuple[int, int]:
+def select_episode(
+    episodes: Any,
+    episode_task_indices: dict[int, int],
+    task_index: int,
+) -> tuple[int, int]:
     matches = [
         (int(row["episode_index"]), int(row["length"]))
         for row in episodes
-        if source_task in row["tasks"]
+        if episode_task_indices.get(int(row["episode_index"])) == task_index
     ]
     if not matches:
-        raise ValueError(f"No episode contains exact source task {source_task!r}")
+        raise ValueError(f"No episode contains task index {task_index}")
     return min(matches)
+
+
+def build_episode_task_indices(dataset_root: Path) -> dict[int, int]:
+    import pyarrow.parquet as pq
+
+    mapping = {}
+    for path in sorted((dataset_root / "data").rglob("*.parquet")):
+        table = pq.read_table(path, columns=["episode_index", "task_index"])
+        episodes = table.column("episode_index").to_pylist()
+        tasks = table.column("task_index").to_pylist()
+        for episode, task in zip(episodes, tasks, strict=True):
+            episode = int(episode)
+            task = int(task)
+            previous = mapping.setdefault(episode, task)
+            if previous != task:
+                raise ValueError(f"Episode {episode} contains multiple task indices")
+    if not mapping:
+        raise ValueError(f"No Parquet episode/task records found under {dataset_root / 'data'}")
+    return mapping
 
 
 def preprocess_raw(raw: dict, task: str, camera_keys: list[str], preprocessor) -> dict:
@@ -135,9 +165,21 @@ def main() -> None:
         preprocessor_overrides={"device_processor": {"device": "cpu"}},
     )
 
+    episode_task_indices = build_episode_task_indices(args.dataset_root)
+    source_tasks = sorted({record["source_task"] for record in records})
+    resolved_source_tasks = {
+        source_task: SOURCE_TASK_ALIASES.get(source_task, source_task) for source_task in source_tasks
+    }
+    task_indices = {
+        source_task: metadata.get_task_index(resolved_source_tasks[source_task])
+        for source_task in source_tasks
+    }
+    missing = [source_task for source_task, task_index in task_indices.items() if task_index is None]
+    if missing:
+        raise ValueError(f"Catalog source tasks are absent from the pinned dataset: {missing}")
     selections = {
-        source_task: select_episode(metadata.episodes, source_task)
-        for source_task in sorted({record["source_task"] for record in records})
+        source_task: select_episode(metadata.episodes, episode_task_indices, int(task_indices[source_task]))
+        for source_task in source_tasks
     }
     datasets = {
         episode: LeRobotDataset(
@@ -157,10 +199,11 @@ def main() -> None:
         episode, episode_length = selections[record["source_task"]]
         sample_index = episode_length // 2
         raw = datasets[episode][sample_index]
-        if raw["task"] != record["source_task"]:
+        resolved_source_task = resolved_source_tasks[record["source_task"]]
+        if raw["task"] != resolved_source_task:
             raise ValueError(
                 f"Selected frame task mismatch for {record['pair_id']}: "
-                f"{raw['task']!r} != {record['source_task']!r}"
+                f"{raw['task']!r} != {resolved_source_task!r}"
             )
         factual = preprocess_raw(
             raw,
@@ -187,6 +230,8 @@ def main() -> None:
         outputs.append(
             {
                 **record,
+                "dataset_source_task": resolved_source_task,
+                "dataset_task_index": int(task_indices[record["source_task"]]),
                 "episode": episode,
                 "episode_length": episode_length,
                 "sample_index_within_selection": sample_index,
