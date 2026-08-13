@@ -72,6 +72,7 @@ from ..common.vla_utils import (
 )
 from ..pretrained import PreTrainedPolicy
 from ..rtc.modeling_rtc import RTCProcessor
+from ..smolvla_crp.loss_accounting import reduce_action_loss
 from ..smolvla_crp.snapflow_loss import compute_snapflow_losses
 from ..smolvla_crp.target_time import ZeroInitTargetTimeMLP
 from ..utils import (
@@ -301,13 +302,12 @@ class SmolVLAPolicy(PreTrainedPolicy):
         actions = self.prepare_action(batch)
         actions_is_pad = batch.get("action_is_pad")
         loss_dict = {}
+        snapflow = None
         if self.config.training_objective == "snapflow":
             snapflow = self.model.forward_snapflow(
                 images, img_masks, lang_tokens, lang_masks, state, actions, noise, time
             )
             losses = snapflow.combined
-            loss_dict["loss/fm"] = snapflow.flow_matching.mean().item()
-            loss_dict["loss/shortcut"] = snapflow.shortcut.mean().item()
         else:
             losses = self.model.forward(
                 images, img_masks, lang_tokens, lang_masks, state, actions, noise, time
@@ -342,6 +342,34 @@ class SmolVLAPolicy(PreTrainedPolicy):
                 num_valid = ((~actions_is_pad).sum() * losses.shape[-1]).clamp_min(1)
                 loss = losses.sum() / num_valid
             loss_dict["loss"] = loss.item()
+            if snapflow is not None:
+                fm = reduce_action_loss(
+                    snapflow.flow_matching,
+                    action_dim=original_action_dim,
+                    actions_is_pad=actions_is_pad,
+                )
+                shortcut = reduce_action_loss(
+                    snapflow.shortcut,
+                    action_dim=original_action_dim,
+                    actions_is_pad=actions_is_pad,
+                )
+                weighted_fm = self.config.snapflow_alpha * fm
+                weighted_shortcut = (
+                    (1.0 - self.config.snapflow_alpha)
+                    * self.config.snapflow_shortcut_weight
+                    * shortcut
+                )
+                accounted = weighted_fm + weighted_shortcut
+                loss_dict.update(
+                    {
+                        "loss/fm": fm.item(),
+                        "loss/shortcut": shortcut.item(),
+                        "loss/fm_weighted": weighted_fm.item(),
+                        "loss/shortcut_weighted": weighted_shortcut.item(),
+                        "loss/accounted_total": accounted.item(),
+                        "loss/accounting_residual": abs(loss.detach().item() - accounted.detach().item()),
+                    }
+                )
             return loss, loss_dict
 
     def prepare_images(self, batch):

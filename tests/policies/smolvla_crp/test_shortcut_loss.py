@@ -1,5 +1,7 @@
+import pytest
 import torch
 
+from lerobot.policies.smolvla_crp.loss_accounting import reduce_action_loss
 from lerobot.policies.smolvla_crp.snapflow_loss import compute_snapflow_losses
 
 
@@ -58,3 +60,38 @@ def test_only_student_and_fm_paths_contribute_gradients():
     output.combined.mean().backward()
     assert predictor.scale.grad is not None
     assert torch.isfinite(predictor.scale.grad)
+
+
+def test_reduced_components_reconstruct_total_with_padding_and_action_crop():
+    predictor = ScalarVelocity()
+    actions = torch.zeros(2, 3, 4)
+    noise = torch.ones_like(actions)
+    alpha = 0.5
+    shortcut_weight = 0.1
+    output = compute_snapflow_losses(
+        predictor,
+        actions,
+        noise,
+        torch.tensor([0.25, 0.75]),
+        alpha=alpha,
+        shortcut_weight=shortcut_weight,
+        prediction_clamp=None,
+    )
+    actions_is_pad = torch.tensor([[False, False, True], [False, True, True]])
+    reduced_total = reduce_action_loss(
+        output.combined, action_dim=2, actions_is_pad=actions_is_pad
+    )
+    reduced_fm = reduce_action_loss(
+        output.flow_matching, action_dim=2, actions_is_pad=actions_is_pad
+    )
+    reduced_shortcut = reduce_action_loss(
+        output.shortcut, action_dim=2, actions_is_pad=actions_is_pad
+    )
+    accounted = alpha * reduced_fm + (1.0 - alpha) * shortcut_weight * reduced_shortcut
+    assert torch.allclose(reduced_total, accounted, atol=1e-7, rtol=0.0)
+
+
+def test_loss_reducer_rejects_mismatched_padding_shape():
+    losses = torch.ones(2, 3, 4)
+    with pytest.raises(ValueError, match="does not match"):
+        reduce_action_loss(losses, action_dim=2, actions_is_pad=torch.zeros(2, 2, dtype=torch.bool))
