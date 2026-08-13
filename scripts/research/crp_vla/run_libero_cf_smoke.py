@@ -39,7 +39,10 @@ def parse_args() -> argparse.Namespace:
 
 
 def git_value(*args: str, cwd: Path | None = None) -> str:
-    return subprocess.check_output(["git", *args], cwd=cwd, text=True).strip()
+    command = ["git"]
+    if cwd is not None:
+        command.extend(["-c", f"safe.directory={cwd.resolve()}"])
+    return subprocess.check_output([*command, *args], cwd=cwd, text=True).strip()
 
 
 def file_sha256(path: Path) -> str:
