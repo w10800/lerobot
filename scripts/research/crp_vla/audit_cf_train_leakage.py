@@ -7,7 +7,6 @@ import json
 import re
 from pathlib import Path
 
-
 REQUIRED_FIELDS = {
     "schema_version",
     "pair_id",

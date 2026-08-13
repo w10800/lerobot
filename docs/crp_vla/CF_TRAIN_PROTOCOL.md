@@ -43,4 +43,3 @@ frame selector, factual and counterfactual prompts, noise seed/hash, teacher
 checkpoint revision/hash/NFE, action archive hash, dataset revision, and the
 combined normalization-config hash. Records below the pre-registered teacher
 response threshold remain listed as rejected records.
-

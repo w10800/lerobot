@@ -54,8 +54,7 @@ def main() -> None:
         records.append(
             {
                 "pair_id": (
-                    f"{diagnostic['task_group']}:{diagnostic['task_id']}:"
-                    f"{diagnostic['intervention_type']}"
+                    f"{diagnostic['task_group']}:{diagnostic['task_id']}:{diagnostic['intervention_type']}"
                 ),
                 "dataset": factual["dataset"],
                 "dataset_revision": factual["dataset_revision"],
