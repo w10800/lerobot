@@ -10,6 +10,11 @@ dataset:
   revision: a1aaacb7f6cd6ee5fb43120f673cebb0cfea7dd4
   root: artifacts/crp_vla/cache/libero
   return_uint8: true
+  use_imagenet_stats: false
+
+rename_map:
+  observation.images.image: observation.images.camera1
+  observation.images.image2: observation.images.camera2
 
 policy:
   path: checkpoints/smolvla_libero
