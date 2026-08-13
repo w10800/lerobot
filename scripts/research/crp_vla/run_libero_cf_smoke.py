@@ -2,6 +2,7 @@
 """Run two LIBERO-CF conditions from one initial state with a SmolVLA policy."""
 
 import argparse
+import copy
 import hashlib
 import json
 import os
@@ -161,8 +162,6 @@ def main() -> None:
         ("factual", args.factual_prompt, args.factual_condition),
         ("counterfactual", args.counterfactual_prompt, args.counterfactual_condition),
     )
-    initial_hashes = None
-    initial_sim_state_sha256 = None
     results = []
     env = LiberoEnv(
         task_suite=suite,
@@ -191,26 +190,34 @@ def main() -> None:
             raise RuntimeError("LIBERO-CF inner environment was not initialized")
         initial_sim_state = np.asarray(env._env.get_sim_state()).copy()
         initial_sim_state_sha256 = hashlib.sha256(initial_sim_state.tobytes()).hexdigest()
+        canonical_raw_observation = env._env.set_init_state(initial_sim_state)
+        canonical_observation = env._format_raw_obs(canonical_raw_observation)
+        initial_hashes = observation_hashes(canonical_observation)
 
         for branch_name, prompt, condition in branches:
             policy.reset()
             env.init_state_id = args.init_state_id
             env.reset(seed=args.env_seed)
             raw_observation = env._env.set_init_state(initial_sim_state)
-            observation = env._format_raw_obs(raw_observation)
+            restored_observation = env._format_raw_obs(raw_observation)
+            restored_sim_state = np.asarray(env._env.get_sim_state())
+            restored_sim_state_sha256 = hashlib.sha256(restored_sim_state.tobytes()).hexdigest()
+            if restored_sim_state_sha256 != initial_sim_state_sha256:
+                raise RuntimeError("LIBERO-CF branch did not restore the exact simulator state")
+            restored_hashes = observation_hashes(restored_observation)
+            restored_mismatch_keys = sorted(
+                key
+                for key in initial_hashes.keys() | restored_hashes.keys()
+                if initial_hashes.get(key) != restored_hashes.get(key)
+            )
+
+            # EGL can render a different wrist-camera byte sequence from the
+            # exact same MuJoCo state. Replay one canonical observation at t=0
+            # so the condition is the only policy-input difference.
+            observation = copy.deepcopy(canonical_observation)
             branch_hashes = observation_hashes(observation)
-            if initial_hashes is None:
-                initial_hashes = branch_hashes
-            elif branch_hashes != initial_hashes:
-                differing_keys = sorted(
-                    key
-                    for key in initial_hashes.keys() | branch_hashes.keys()
-                    if initial_hashes.get(key) != branch_hashes.get(key)
-                )
-                raise RuntimeError(
-                    "LIBERO-CF branches did not start from byte-identical observations; "
-                    f"differing keys: {differing_keys}"
-                )
+            if branch_hashes != initial_hashes:
+                raise RuntimeError("Canonical initial observation replay was not byte-identical")
             env._env.clear_success_any_conditions()
             env._env.set_success_any_conditions([condition])
 
@@ -257,13 +264,14 @@ def main() -> None:
                     "action_stream_sha256": action_hasher.hexdigest(),
                     "noise_sha256_per_replan": noise_hashes,
                     "initial_observation_hashes": branch_hashes,
+                    "restored_raw_observation_mismatched_keys": restored_mismatch_keys,
                 }
             )
     finally:
         env.close()
 
     output = {
-        "schema_version": 1,
+        "schema_version": 2,
         "status": "SMOKE",
         "repository_commit": git_value("rev-parse", "HEAD"),
         "repository_dirty": bool(git_value("status", "--porcelain")),
@@ -282,6 +290,7 @@ def main() -> None:
         "device": args.device,
         "initial_sim_state_sha256": initial_sim_state_sha256,
         "branches_share_exact_initial_observation": True,
+        "initial_observation_replayed_from_canonical_snapshot": True,
         "results": results,
     }
     args.output.parent.mkdir(parents=True, exist_ok=True)
