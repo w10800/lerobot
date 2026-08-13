@@ -8,6 +8,8 @@ save_freq: 1000
 dataset:
   repo_id: lerobot/libero
   revision: a1aaacb7f6cd6ee5fb43120f673cebb0cfea7dd4
+  root: artifacts/crp_vla/cache/libero
+  return_uint8: true
 
 policy:
   path: checkpoints/smolvla_libero
@@ -25,5 +27,7 @@ policy:
   snapflow_prediction_clamp: 20.0
 
 output_dir: outputs/crp_vla/snapflow_smoke_1k
+accelerator:
+  mixed_precision: bf16
 wandb:
   enable: false
