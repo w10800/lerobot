@@ -30,3 +30,10 @@
 - Date: 2026-08-13
 - Decision: all proposed effects and thresholds remain `UNVERIFIED` until reproduced locally. Paper claims are attributed as external evidence.
 - Reason: prevent plans or reported literature results from being mistaken for project results.
+
+## D-006 — target-host interpreter and memory boundary
+
+- Date: 2026-08-13
+- Decision: use an explicit uv-managed Python 3.12 environment on the A100 host and treat 40GB as a hard measured memory boundary.
+- Reason: the project tooling targets Python 3.12, while automatic resolution selected unclassified Python 3.14; the assigned A100 is the 40GB PCIe variant.
+- Consequence: benchmark the registered configuration unchanged and stop for a logged decision if it exceeds memory, rather than silently reducing the workload.

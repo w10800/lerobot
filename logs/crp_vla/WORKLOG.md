@@ -22,3 +22,12 @@ Append entries; do not rewrite history to make failed attempts disappear.
 - Local verification: `10 passed` for CRP-specific tests; `14 passed, 4 skipped` for shared flow-matching and SmolVLA processor compatibility; Ruff check passed after formatting.
 - Remaining mandatory verification: real checkpoint action equivalence and 10/5/2/1 hashes on Linux/CUDA, real multi-task/multi-seed compression diagnostics, and closed-loop LIBERO/LIBERO-CF smoke tests.
 - Additional local real-checkpoint smoke checks passed on a synthetic processed batch: exact repeatability at 10/5/2/1 NFE; exact legacy/refactored velocity equivalence; exact zero-init target-time equivalence; finite SnapFlow forward with detached shortcut target. See `local_smoke_summary.json`.
+
+## 2026-08-13 — A100 pretraining-gate deployment
+
+- Synchronized commit `1558f5bb842273255d96b5d511ed4b3939806523` and all five pinned submodules to the target Linux host; the remote worktree was clean after restoring tracked Git LFS test pointers omitted by the first transfer filter.
+- VERIFIED target device: NVIDIA A100-PCIE-40GB, 40,960 MiB, driver 570.211.01, idle at audit time. This differs from the planned 80GB device and is recorded as R-012/D-006.
+- Installed the locked SmolVLA, LIBERO, test, and development environment with uv-managed Python 3.12.13. PyTorch 2.11.0+cu128 reported CUDA available and identified the target GPU; `libero` and `lerobot` imports passed.
+- Downloaded `lerobot/smolvla_libero` at revision `31d453f7edd78c839a8bbc39744a292686daf0de` through the reachable Hugging Face mirror. VERIFIED model SHA-256: `9a9f6413e42c0f332fccbce9a0dc796af2790f82cf002f791cdbf7e01e1afca8`.
+- Added a deterministic batch-preparation CLI that records the pinned LIBERO revision, selected episode/sample, resolved delta timestamps, tensor shapes/dtypes/hashes, repository state, and serialized-batch hash.
+- Status: remote environment and checkpoint VERIFIED; real LIBERO fixture and CUDA engineering gate pending.

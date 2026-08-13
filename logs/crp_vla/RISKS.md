@@ -13,3 +13,4 @@
 | R-009 | SnapFlow official implementation is unavailable | medium | reproduce only from the paper; record formula-level assumptions and tests | confirmed as of 2026-08-13 |
 | R-010 | Large artifacts enter Git | medium | ignore rules plus manifests/hashes only | mitigated |
 | R-011 | SnapFlow paper states three action-expert forwards per step but equations require FM, two detached target calls, and a distinct one-step student call | medium | equation-faithful four-call implementation; benchmark memory/throughput before formal training; revisit if official code appears | open |
+| R-012 | Assigned target GPU is an A100 PCIe 40GB rather than the planned 80GB device | high | preserve registered algorithms and first benchmark peak memory; stop on OOM instead of silently changing batch size or objective | open |
