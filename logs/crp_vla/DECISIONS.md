@@ -97,3 +97,12 @@
 - Selection boundary: freeze `artifacts/crp_vla/maturation/CHECKPOINT_SELECTION_PROTOCOL.md` before execution. Selection may use only stability, the frozen ordinary factual validation fixture, and replay-v2 development Snap-1 success. LIBERO-CF, condition-response/CRP metrics, and any confirmation set are forbidden.
 - Unchanged evidence: D-011's original Formal LIBERO Gate remains FAIL; the existing 1k checkpoint remains a pilot. This decision does not retrospectively pass it.
 - Consequence: D-011/D-012 are overridden only for this baseline-maturation run. CRP, CAG, factual KD, response-preserving losses, hyperparameter sweeps, confirmation evaluation, and all new-method training remain HOLD. Stop after selecting and documenting one checkpoint.
+
+## D-014 — SELECT the 20k mature SnapFlow development candidate; formal gate unchanged
+
+- Date: 2026-08-15
+- Status: **SELECTED for development / not confirmed**.
+- Decision: select the uninterrupted maturation trajectory's 20,000-step checkpoint under the D-013 preregistered rule. It passed stability and factual eligibility, then uniquely maximized eligible replay-v2 development Snap-1 success at `32/40`.
+- Verified evidence: all six registered checkpoints completed the same frozen 40-case Snap-10/Snap-2/Snap-1 replay, all 720 rollout records were `COMPLETED`, and all 720 trace-manifest paths and content hashes were unique and recomputed successfully. The 20k factual loss is `0.0734668181`; its Snap-10/Snap-2/Snap-1 successes are `30/32/32` of 40, and its model SHA-256 is `3523ff36091fdba82a97b798621b4ecee141554fcfe418816a6fbb1cf95f2b53`.
+- Evidence boundary: this is a development-selected baseline candidate, not a confirmation result and not a replacement for D-011's failed Formal LIBERO Gate. The frozen development cases were used for selection and cannot serve as confirmation evidence.
+- Consequence: the D-013 baseline-maturation authorization is complete and stops here. Any disjoint confirmation evaluation requires separate authorization. CRP, CAG, factual KD, response-preserving losses, hyperparameter sweeps, LIBERO-CF training, and all new-method training remain HOLD.
