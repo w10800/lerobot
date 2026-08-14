@@ -562,7 +562,7 @@ def main() -> None:
                 trace_rows = []
                 predicted_chunks = []
                 executed_actions = []
-                events = make_event_state(initial_poses)
+                events = make_event_state(initial_poses, semantics)
                 success = False
                 termination_reason = "MAX_STEPS"
                 replan_index = -1

@@ -96,6 +96,20 @@ def test_task_semantics_parses_manipulated_object_and_receptacle(tmp_path):
     assert "In mug_1" in semantics["goal_expression"]
 
 
+def test_event_state_uses_parsed_task_semantics():
+    semantics = {
+        "manipulated_object": "mug_1",
+        "receptacle_or_fixture": "bowl_1",
+    }
+    events = RUNNER.make_event_state({"mug_1": {"pos": [0, 0, 0]}}, semantics)
+    assert events["first_target_contact"] == {
+        "available": True,
+        "observed": False,
+        "target": "mug_1",
+    }
+    assert events["first_receptacle_entry"]["target"] == "bowl_1"
+
+
 def write_numeric_trace(tmp_path: Path, arm: str, actions: np.ndarray) -> dict:
     numeric = tmp_path / f"{arm}.npz"
     np.savez_compressed(numeric, predicted_chunks=np.zeros((1, 50, 32)), executed_actions=actions)

@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "attempt_id": "replay-v2-phase-a-001",
+  "status": "INFRASTRUCTURE_FAILURE",
+  "repository_commit": "fed58b5329d0621a1661810b68f72d7e43b57718",
+  "failure_stage": "event_state_initialization_after_first_capsule_before_first_rollout",
+  "completed_cases": 0,
+  "completed_rollouts": 0,
+  "planned_rollouts": 48,
+  "exception_type": "TypeError",
+  "exception": "make_event_state() missing 1 required positional argument: 'semantics'",
+  "root_cause": "The runner parsed task semantics and changed make_event_state to require them, but one runtime call site still used the old one-argument signature.",
+  "captured_but_unadmitted_capsule": {
+    "case": "libero_spatial-task00-init03-seed0",
+    "sha256_manifest_sha256": "23fdee270a9e73474f8c017a575f3520c556a6f3609a1029b0002d3571d7d65d"
+  },
+  "admission": "No rollout result is admitted. The failed-attempt capsule is archived and is not reused by the replacement run.",
+  "replacement_attempt": "replay-v2-phase-a-002"
+}
