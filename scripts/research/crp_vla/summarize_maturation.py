@@ -49,18 +49,19 @@ def all_finite(value: Any) -> bool:
     return True
 
 
-def step_label(step: int) -> str:
-    return f"{step // 1000}K"
-
-
 def parse_training_metrics(log_text: str) -> tuple[dict[int, dict[str, float]], list[str]]:
     metrics: dict[int, dict[str, float]] = {}
-    for step in REGISTERED_STEPS:
-        matches = [line for line in log_text.splitlines() if f"step:{step_label(step)} " in line]
-        if not matches:
+    # MetricsTracker intentionally renders large steps with zero-decimal SI labels, so e.g.
+    # every 50-step record from 1000 through 1450 is displayed as ``step:1K``. This frozen run
+    # is uninterrupted and logs every 50 steps; recover the exact step from record order rather
+    # than treating the rounded display label as an identifier.
+    metric_lines = [line for line in log_text.splitlines() if "ot_train.py:769 step:" in line]
+    for record_index, line in enumerate(metric_lines, start=1):
+        step = record_index * 50
+        if step not in REGISTERED_STEPS:
             continue
         values = {}
-        for name, raw in re.findall(r"([^\s:]+):([-+0-9.eE]+)", matches[-1]):
+        for name, raw in re.findall(r"([^\s:]+):([-+0-9.eE]+)", line):
             with contextlib.suppress(ValueError):
                 values[name] = float(raw)
         metrics[step] = values

@@ -9,10 +9,18 @@ SPEC.loader.exec_module(MODULE)
 
 
 def test_training_metric_parser_reads_registered_step_and_sub_losses():
-    text = (
-        "INFO step:1K smpl:4K loss:0.123 grdn:0.456 loss/fm:0.111 "
-        "loss/shortcut:0.120 loss/accounted_total:0.123\n"
+    lines = [
+        f"INFO ot_train.py:769 step:{step} loss:0.999 grdn:0.999 loss/fm:0.999"
+        for step in range(50, 1000, 50)
+    ]
+    # The exact 1k record has the same rounded label as later records; record order is the
+    # immutable identifier for this uninterrupted log_freq=50 run.
+    lines.append(
+        "INFO ot_train.py:769 step:1K smpl:4K loss:0.123 grdn:0.456 loss/fm:0.111 "
+        "loss/shortcut:0.120 loss/accounted_total:0.123"
     )
+    lines.append("INFO ot_train.py:769 step:1K loss:0.777 grdn:0.777 loss/fm:0.777")
+    text = "\n".join(lines)
     metrics, failures = MODULE.parse_training_metrics(text)
     assert metrics[1000]["loss/fm"] == 0.111
     assert metrics[1000]["grdn"] == 0.456
