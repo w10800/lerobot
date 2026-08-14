@@ -42,7 +42,24 @@ def load_batch(path: Path, expected_sha256: str, device: str) -> dict[str, Any]:
     batch = torch.load(path, map_location="cpu", weights_only=True)
     if not isinstance(batch, dict) or OBS_STATE not in batch or ACTION not in batch:
         raise ValueError(f"Invalid factual fixture: {path}")
-    return {key: value.to(device) if isinstance(value, torch.Tensor) else value for key, value in batch.items()}
+    batch = {
+        key: value.to(device) if isinstance(value, torch.Tensor) else value for key, value in batch.items()
+    }
+    return ensure_action_batch_dimension(batch)
+
+
+def ensure_action_batch_dimension(batch: dict[str, Any]) -> dict[str, Any]:
+    """Align dataset action fields with already-batched processed observations."""
+    if batch[OBS_STATE].ndim < 2 or batch[OBS_STATE].shape[0] != 1:
+        raise ValueError(f"Expected one processed observation, got {batch[OBS_STATE].shape}")
+    if batch[ACTION].ndim == 2:
+        batch[ACTION] = batch[ACTION].unsqueeze(0)
+    if batch[ACTION].ndim != 3 or batch[ACTION].shape[0] != 1:
+        raise ValueError(f"Expected one action chunk, got {batch[ACTION].shape}")
+    action_pad = batch.get("action_is_pad")
+    if isinstance(action_pad, torch.Tensor) and action_pad.ndim == 1:
+        batch["action_is_pad"] = action_pad.unsqueeze(0)
+    return batch
 
 
 def fixed_noise_time(policy: Any, batch: dict[str, Any], seed: int) -> tuple[torch.Tensor, torch.Tensor]:

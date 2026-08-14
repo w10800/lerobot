@@ -42,3 +42,15 @@ def test_fixed_noise_and_time_are_seed_deterministic():
     right = MODULE.fixed_noise_time(Policy(), batch, 7)
     assert torch.equal(left[0], right[0])
     assert torch.equal(left[1], right[1])
+
+
+def test_fixture_action_fields_gain_batch_dimension_without_double_batching_observations():
+    batch = {
+        "observation.state": torch.zeros(1, 8),
+        "action": torch.zeros(50, 7),
+        "action_is_pad": torch.zeros(50, dtype=torch.bool),
+    }
+    result = MODULE.ensure_action_batch_dimension(batch)
+    assert result["observation.state"].shape == (1, 8)
+    assert result["action"].shape == (1, 50, 7)
+    assert result["action_is_pad"].shape == (1, 50)
