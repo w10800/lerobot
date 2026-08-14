@@ -60,18 +60,33 @@ def parse_training_metrics(log_text: str) -> tuple[dict[int, dict[str, float]], 
         step = record_index * 50
         if step not in REGISTERED_STEPS:
             continue
+        metric_text = line.split("ot_train.py:769 ", maxsplit=1)[1]
         values = {}
-        for name, raw in re.findall(r"([^\s:]+):([-+0-9.eE]+)", line):
+        for name, raw in re.findall(r"([^\s:]+):([-+0-9.eE]+)", metric_text):
             with contextlib.suppress(ValueError):
                 values[name] = float(raw)
+        values["step"] = step
         metrics[step] = values
+    # TorchCodec emits embedded tracebacks while probing unsupported FFmpeg ABIs, then the
+    # dataset layer explicitly and successfully falls back to PyAV. Remove only a complete,
+    # self-identifying fallback block; an incomplete block or any unrelated traceback remains
+    # a fatal training-log signal.
+    failure_scan_text = re.sub(
+        r"WARNING:lerobot\.utils\.import_utils:Could not load libtorchcodec.*?"
+        r"Falling back to 'pyav' as a default decoder\.",
+        "",
+        log_text,
+        flags=re.DOTALL,
+    )
     failure_patterns = {
         "traceback": r"\bTraceback \(most recent call last\)",
-        "exception": r"\b(?:Exception|Error):",
+        "exception": r"\b(?:\w*Error|Exception):",
         "oom": r"out of memory|CUDA OOM",
         "non_finite": r"(?<![A-Za-z])(?:nan|inf)(?![A-Za-z])",
     }
-    failures = [name for name, pattern in failure_patterns.items() if re.search(pattern, log_text, re.I)]
+    failures = [
+        name for name, pattern in failure_patterns.items() if re.search(pattern, failure_scan_text, re.I)
+    ]
     return metrics, failures
 
 
