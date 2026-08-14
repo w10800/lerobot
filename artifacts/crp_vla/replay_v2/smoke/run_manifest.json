@@ -1,0 +1,5152 @@
+{
+  "arm_order": [
+    "base10",
+    "base2",
+    "base1",
+    "snap10",
+    "snap2",
+    "snap1"
+  ],
+  "arm_specs": {
+    "base1": [
+      "base",
+      1,
+      null
+    ],
+    "base10": [
+      "base",
+      10,
+      null
+    ],
+    "base2": [
+      "base",
+      2,
+      null
+    ],
+    "snap1": [
+      "snap",
+      1,
+      0.0
+    ],
+    "snap10": [
+      "snap",
+      10,
+      null
+    ],
+    "snap2": [
+      "snap",
+      2,
+      null
+    ]
+  },
+  "base_checkpoint_sha256": "9a9f6413e42c0f332fccbce9a0dc796af2790f82cf002f791cdbf7e01e1afca8",
+  "case_count": 8,
+  "crp_training_hold": true,
+  "design": "/root/crp-vla/configs/crp_vla/replay_v2_smoke.json",
+  "design_sha256": "c7c5e4ee1ddb8a6263dde6c5ad1707cedcfde30d30f356857598b8f0fd1d3cb0",
+  "environment_fingerprint": {
+    "cuda_device": "NVIDIA A100-PCIE-40GB",
+    "cuda_runtime": "12.8",
+    "libero_commit": "8460457bfca6e0ef2e856bc104e2c60b023ef2a7",
+    "mujoco": "3.8.1",
+    "mujoco_py": null,
+    "nvidia_smi": "NVIDIA A100-PCIE-40GB, GPU-704a22f6-0065-1169-012c-ad8becde82b7, 570.211.01, 40960 MiB",
+    "platform": "Linux-5.15.0-56-generic-x86_64-with-glibc2.35",
+    "python": "3.12.13",
+    "renderer": {
+      "EGL_DEVICE_ID": null,
+      "MUJOCO_GL": "egl",
+      "PYOPENGL_PLATFORM": "egl"
+    },
+    "robosuite": "1.4.0",
+    "torch": "2.11.0+cu128"
+  },
+  "formal_gate_unchanged": true,
+  "libero_commit": "8460457bfca6e0ef2e856bc104e2c60b023ef2a7",
+  "phase": "smoke",
+  "repository_commit": "0b43f50f9e05bc0bfe7affa20368925e8f0b9d8c",
+  "repository_dirty": false,
+  "results": [
+    {
+      "action_stream_sha256": "9d82679adabac639d9f942bdab6cdedf8097b51310afc4eb3f4145487be41b42",
+      "arm": "base10",
+      "canonical_input_sha256": "c772fa7e53cdfa6e96d6b04b78d8abd869a670b85912016fb72a6e14d84d1847",
+      "capsule_path": "/root/crp-vla/artifacts/crp_vla/replay_v2/capsules/smoke/libero_spatial-task00-init03-seed0",
+      "capsule_sha256": "480004edf0a715129cdfe871959b7a1db94621910a8ba6c6e3664618fc9205bb",
+      "checkpoint": "base",
+      "env_seed": 0,
+      "evaluator_sha256": "97c984f12331527626812ec19967ef399e545535b3571becf044db2417ae9d71",
+      "events": {
+        "collision": {
+          "available": true,
+          "observed": false
+        },
+        "first_gripper_close": {
+          "available": true,
+          "command": 1.0096166133880615,
+          "observed": true,
+          "step": 40
+        },
+        "first_object_lift": {
+          "available": true,
+          "body": "akita_black_bowl_1_main",
+          "delta_z": 0.03172584274161938,
+          "observed": true,
+          "step": 56
+        },
+        "first_receptacle_entry": {
+          "available": true,
+          "evidence": "LIBERO success predicate first became true",
+          "observed": true,
+          "step": 81,
+          "target": "plate_1"
+        },
+        "first_target_contact": {
+          "available": true,
+          "contact": {
+            "candidate_object": "akita_black_bowl_1_g20",
+            "distance": -0.0027162850527623775,
+            "left": "akita_black_bowl_1_g20",
+            "position": [
+              -0.06365063357492573,
+              0.15105676264918816,
+              0.9474288087884658
+            ],
+            "right": "gripper0_hand_collision"
+          },
+          "observed": true,
+          "step": 43,
+          "target": "akita_black_bowl_1"
+        },
+        "object_dropped": {
+          "available": true,
+          "observed": false
+        }
+      },
+      "execution_horizon": 10,
+      "failure_classification": {
+        "category": null,
+        "evidence": {
+          "success": true
+        }
+      },
+      "init_state_id": 3,
+      "initial_sim_state_sha256": "dee22dac829610a11fbcc6d46a8013da09fe6136043462f37b5a24ae6a185eb2",
+      "latency_ms_per_replan": [
+        742.161631,
+        265.382562,
+        266.714811,
+        256.659006,
+        255.659427,
+        255.854061,
+        267.729642,
+        261.317969,
+        260.226919
+      ],
+      "nfe": 10,
+      "noise_schedule_sha256": "ab81b21edd127509b161970905af3357d95e2da842e9b1a12932199237680853",
+      "phase": "smoke",
+      "status": "COMPLETED",
+      "steps_run": 82,
+      "success": true,
+      "success_timestep": 82,
+      "suite": "libero_spatial",
+      "target_time": null,
+      "task": "pick up the black bowl between the plate and the ramekin and place it on the plate",
+      "task_id": 0,
+      "termination_reason": "SUCCESS",
+      "trace_manifest": {
+        "path": "/root/crp-vla/artifacts/crp_vla/replay_v2/smoke/traces/libero_spatial-task00-init03-seed0/base10.sha256.json",
+        "sha256": "ecb0dafa0095212180d1365dd07effba25eb011ce22f33fadbf88fbc23d8db40"
+      },
+      "used_noise_prefix_length": 9
+    },
+    {
+      "action_stream_sha256": "377371aa767b4452a9456f0d014d8a154702ebf33dda5ad60058f287593dd0f5",
+      "arm": "base2",
+      "canonical_input_sha256": "c772fa7e53cdfa6e96d6b04b78d8abd869a670b85912016fb72a6e14d84d1847",
+      "capsule_path": "/root/crp-vla/artifacts/crp_vla/replay_v2/capsules/smoke/libero_spatial-task00-init03-seed0",
+      "capsule_sha256": "480004edf0a715129cdfe871959b7a1db94621910a8ba6c6e3664618fc9205bb",
+      "checkpoint": "base",
+      "env_seed": 0,
+      "evaluator_sha256": "97c984f12331527626812ec19967ef399e545535b3571becf044db2417ae9d71",
+      "events": {
+        "collision": {
+          "available": true,
+          "observed": false
+        },
+        "first_gripper_close": {
+          "available": true,
+          "command": 0.6629269123077393,
+          "observed": true,
+          "step": 39
+        },
+        "first_object_lift": {
+          "available": true,
+          "body": "akita_black_bowl_1_main",
+          "delta_z": 0.038038956013207836,
+          "observed": true,
+          "step": 56
+        },
+        "first_receptacle_entry": {
+          "available": true,
+          "evidence": "LIBERO success predicate first became true",
+          "observed": true,
+          "step": 79,
+          "target": "plate_1"
+        },
+        "first_target_contact": {
+          "available": true,
+          "contact": {
+            "candidate_object": "akita_black_bowl_1_g20",
+            "distance": -0.0014561703118102247,
+            "left": "akita_black_bowl_1_g20",
+            "position": [
+              -0.06283485646925892,
+              0.15153195575193523,
+              0.9490990713534978
+            ],
+            "right": "gripper0_hand_collision"
+          },
+          "observed": true,
+          "step": 43,
+          "target": "akita_black_bowl_1"
+        },
+        "object_dropped": {
+          "available": true,
+          "observed": false
+        }
+      },
+      "execution_horizon": 10,
+      "failure_classification": {
+        "category": null,
+        "evidence": {
+          "success": true
+        }
+      },
+      "init_state_id": 3,
+      "initial_sim_state_sha256": "dee22dac829610a11fbcc6d46a8013da09fe6136043462f37b5a24ae6a185eb2",
+      "latency_ms_per_replan": [
+        122.322756,
+        120.351996,
+        115.276161,
+        112.331976,
+        112.004959,
+        116.059876,
+        112.037452,
+        116.205448
+      ],
+      "nfe": 2,
+      "noise_schedule_sha256": "ab81b21edd127509b161970905af3357d95e2da842e9b1a12932199237680853",
+      "phase": "smoke",
+      "status": "COMPLETED",
+      "steps_run": 80,
+      "success": true,
+      "success_timestep": 80,
+      "suite": "libero_spatial",
+      "target_time": null,
+      "task": "pick up the black bowl between the plate and the ramekin and place it on the plate",
+      "task_id": 0,
+      "termination_reason": "SUCCESS",
+      "trace_manifest": {
+        "path": "/root/crp-vla/artifacts/crp_vla/replay_v2/smoke/traces/libero_spatial-task00-init03-seed0/base2.sha256.json",
+        "sha256": "ddef6bc09e77f35f4840e74ea69f6f0dac0c629ea37c272a4bdea34fa0c7b2be"
+      },
+      "used_noise_prefix_length": 8
+    },
+    {
+      "action_stream_sha256": "ebeefab505e8308319061ae20b2ba29761acf9b6947f597cb0aafa8533a5c075",
+      "arm": "base1",
+      "canonical_input_sha256": "c772fa7e53cdfa6e96d6b04b78d8abd869a670b85912016fb72a6e14d84d1847",
+      "capsule_path": "/root/crp-vla/artifacts/crp_vla/replay_v2/capsules/smoke/libero_spatial-task00-init03-seed0",
+      "capsule_sha256": "480004edf0a715129cdfe871959b7a1db94621910a8ba6c6e3664618fc9205bb",
+      "checkpoint": "base",
+      "env_seed": 0,
+      "evaluator_sha256": "97c984f12331527626812ec19967ef399e545535b3571becf044db2417ae9d71",
+      "events": {
+        "collision": {
+          "available": true,
+          "observed": false
+        },
+        "first_gripper_close": {
+          "available": true,
+          "command": 0.9140115976333618,
+          "observed": true,
+          "step": 39
+        },
+        "first_object_lift": {
+          "available": true,
+          "body": "akita_black_bowl_1_main",
+          "delta_z": 0.037112049185421436,
+          "observed": true,
+          "step": 55
+        },
+        "first_receptacle_entry": {
+          "available": true,
+          "evidence": "LIBERO success predicate first became true",
+          "observed": true,
+          "step": 81,
+          "target": "plate_1"
+        },
+        "first_target_contact": {
+          "available": true,
+          "contact": {
+            "candidate_object": "akita_black_bowl_1_g20",
+            "distance": -0.0019602709258686314,
+            "left": "akita_black_bowl_1_g20",
+            "position": [
+              -0.06332654442334204,
+              0.1511890207319388,
+              0.9483273961036436
+            ],
+            "right": "gripper0_hand_collision"
+          },
+          "observed": true,
+          "step": 43,
+          "target": "akita_black_bowl_1"
+        },
+        "object_dropped": {
+          "available": true,
+          "observed": false
+        }
+      },
+      "execution_horizon": 10,
+      "failure_classification": {
+        "category": null,
+        "evidence": {
+          "success": true
+        }
+      },
+      "init_state_id": 3,
+      "initial_sim_state_sha256": "dee22dac829610a11fbcc6d46a8013da09fe6136043462f37b5a24ae6a185eb2",
+      "latency_ms_per_replan": [
+        102.023318,
+        97.748098,
+        97.045405,
+        105.780976,
+        97.830345,
+        102.077453,
+        107.171056,
+        103.768551,
+        99.474768
+      ],
+      "nfe": 1,
+      "noise_schedule_sha256": "ab81b21edd127509b161970905af3357d95e2da842e9b1a12932199237680853",
+      "phase": "smoke",
+      "status": "COMPLETED",
+      "steps_run": 82,
+      "success": true,
+      "success_timestep": 82,
+      "suite": "libero_spatial",
+      "target_time": null,
+      "task": "pick up the black bowl between the plate and the ramekin and place it on the plate",
+      "task_id": 0,
+      "termination_reason": "SUCCESS",
+      "trace_manifest": {
+        "path": "/root/crp-vla/artifacts/crp_vla/replay_v2/smoke/traces/libero_spatial-task00-init03-seed0/base1.sha256.json",
+        "sha256": "f189faed035080a096d42935ce47a89ebbba5bbe5fdda6e509f6c343b4bba145"
+      },
+      "used_noise_prefix_length": 9
+    },
+    {
+      "action_stream_sha256": "63168be566991933a83506959d8d47ae7bc64ccf2a78ad49ccf4f9ab9e5b95d7",
+      "arm": "snap10",
+      "canonical_input_sha256": "c772fa7e53cdfa6e96d6b04b78d8abd869a670b85912016fb72a6e14d84d1847",
+      "capsule_path": "/root/crp-vla/artifacts/crp_vla/replay_v2/capsules/smoke/libero_spatial-task00-init03-seed0",
+      "capsule_sha256": "480004edf0a715129cdfe871959b7a1db94621910a8ba6c6e3664618fc9205bb",
+      "checkpoint": "snap",
+      "env_seed": 0,
+      "evaluator_sha256": "97c984f12331527626812ec19967ef399e545535b3571becf044db2417ae9d71",
+      "events": {
+        "collision": {
+          "available": true,
+          "observed": false
+        },
+        "first_gripper_close": {
+          "available": true,
+          "command": 1.0231751203536987,
+          "observed": true,
+          "step": 39
+        },
+        "first_object_lift": {
+          "available": true,
+          "body": "akita_black_bowl_1_main",
+          "delta_z": 0.03238752475996132,
+          "observed": true,
+          "step": 55
+        },
+        "first_receptacle_entry": {
+          "available": true,
+          "evidence": "LIBERO success predicate first became true",
+          "observed": true,
+          "step": 81,
+          "target": "plate_1"
+        },
+        "first_target_contact": {
+          "available": true,
+          "contact": {
+            "candidate_object": "akita_black_bowl_1_g20",
+            "distance": -0.0002529132484533258,
+            "left": "akita_black_bowl_1_g20",
+            "position": [
+              -0.06210348472693932,
+              0.15163574253451534,
+              0.9504040663333271
+            ],
+            "right": "gripper0_hand_collision"
+          },
+          "observed": true,
+          "step": 42,
+          "target": "akita_black_bowl_1"
+        },
+        "object_dropped": {
+          "available": true,
+          "observed": false
+        }
+      },
+      "execution_horizon": 10,
+      "failure_classification": {
+        "category": null,
+        "evidence": {
+          "success": true
+        }
+      },
+      "init_state_id": 3,
+      "initial_sim_state_sha256": "dee22dac829610a11fbcc6d46a8013da09fe6136043462f37b5a24ae6a185eb2",
+      "latency_ms_per_replan": [
+        295.019417,
+        272.930782,
+        271.715691,
+        278.737334,
+        274.486499,
+        269.288115,
+        267.118085,
+        261.528632,
+        262.047733
+      ],
+      "nfe": 10,
+      "noise_schedule_sha256": "ab81b21edd127509b161970905af3357d95e2da842e9b1a12932199237680853",
+      "phase": "smoke",
+      "status": "COMPLETED",
+      "steps_run": 82,
+      "success": true,
+      "success_timestep": 82,
+      "suite": "libero_spatial",
+      "target_time": null,
+      "task": "pick up the black bowl between the plate and the ramekin and place it on the plate",
+      "task_id": 0,
+      "termination_reason": "SUCCESS",
+      "trace_manifest": {
+        "path": "/root/crp-vla/artifacts/crp_vla/replay_v2/smoke/traces/libero_spatial-task00-init03-seed0/snap10.sha256.json",
+        "sha256": "f7822620b005032044fef30ea67c7260c217898d43f6e8233b916149e61accc1"
+      },
+      "used_noise_prefix_length": 9
+    },
+    {
+      "action_stream_sha256": "71ca6e38e28c1d44d0610e1d5e47a6ac2b1d969f336756f318e5f567465c17db",
+      "arm": "snap2",
+      "canonical_input_sha256": "c772fa7e53cdfa6e96d6b04b78d8abd869a670b85912016fb72a6e14d84d1847",
+      "capsule_path": "/root/crp-vla/artifacts/crp_vla/replay_v2/capsules/smoke/libero_spatial-task00-init03-seed0",
+      "capsule_sha256": "480004edf0a715129cdfe871959b7a1db94621910a8ba6c6e3664618fc9205bb",
+      "checkpoint": "snap",
+      "env_seed": 0,
+      "evaluator_sha256": "97c984f12331527626812ec19967ef399e545535b3571becf044db2417ae9d71",
+      "events": {
+        "collision": {
+          "available": true,
+          "observed": false
+        },
+        "first_gripper_close": {
+          "available": true,
+          "command": 1.0237118005752563,
+          "observed": true,
+          "step": 39
+        },
+        "first_object_lift": {
+          "available": true,
+          "body": "akita_black_bowl_1_main",
+          "delta_z": 0.03673209593297766,
+          "observed": true,
+          "step": 55
+        },
+        "first_receptacle_entry": {
+          "available": true,
+          "evidence": "LIBERO success predicate first became true",
+          "observed": true,
+          "step": 82,
+          "target": "plate_1"
+        },
+        "first_target_contact": {
+          "available": true,
+          "contact": {
+            "candidate_object": "akita_black_bowl_1_g20",
+            "distance": -0.0020081924885333754,
+            "left": "akita_black_bowl_1_g20",
+            "position": [
+              -0.06459055069900899,
+              0.1518891031036633,
+              0.9502723832693079
+            ],
+            "right": "gripper0_hand_collision"
+          },
+          "observed": true,
+          "step": 43,
+          "target": "akita_black_bowl_1"
+        },
+        "object_dropped": {
+          "available": true,
+          "observed": false
+        }
+      },
+      "execution_horizon": 10,
+      "failure_classification": {
+        "category": null,
+        "evidence": {
+          "success": true
+        }
+      },
+      "init_state_id": 3,
+      "initial_sim_state_sha256": "dee22dac829610a11fbcc6d46a8013da09fe6136043462f37b5a24ae6a185eb2",
+      "latency_ms_per_replan": [
+        109.991822,
+        114.307034,
+        118.775009,
+        122.994379,
+        115.728959,
+        114.979805,
+        118.281069,
+        115.224404,
+        114.03065
+      ],
+      "nfe": 2,
+      "noise_schedule_sha256": "ab81b21edd127509b161970905af3357d95e2da842e9b1a12932199237680853",
+      "phase": "smoke",
+      "status": "COMPLETED",
+      "steps_run": 83,
+      "success": true,
+      "success_timestep": 83,
+      "suite": "libero_spatial",
+      "target_time": null,
+      "task": "pick up the black bowl between the plate and the ramekin and place it on the plate",
+      "task_id": 0,
+      "termination_reason": "SUCCESS",
+      "trace_manifest": {
+        "path": "/root/crp-vla/artifacts/crp_vla/replay_v2/smoke/traces/libero_spatial-task00-init03-seed0/snap2.sha256.json",
+        "sha256": "20db7b58470c266533677162d185514d2e8d0eb4d6891fec842cbda84d192399"
+      },
+      "used_noise_prefix_length": 9
+    },
+    {
+      "action_stream_sha256": "fd103d9e8336da55a4ab9cff7c4a561fe675092ff524916f9c3becd982e398ee",
+      "arm": "snap1",
+      "canonical_input_sha256": "c772fa7e53cdfa6e96d6b04b78d8abd869a670b85912016fb72a6e14d84d1847",
+      "capsule_path": "/root/crp-vla/artifacts/crp_vla/replay_v2/capsules/smoke/libero_spatial-task00-init03-seed0",
+      "capsule_sha256": "480004edf0a715129cdfe871959b7a1db94621910a8ba6c6e3664618fc9205bb",
+      "checkpoint": "snap",
+      "env_seed": 0,
+      "evaluator_sha256": "97c984f12331527626812ec19967ef399e545535b3571becf044db2417ae9d71",
+      "events": {
+        "collision": {
+          "available": true,
+          "observed": false
+        },
+        "first_gripper_close": {
+          "available": true,
+          "command": 1.0248610973358154,
+          "observed": true,
+          "step": 39
+        },
+        "first_object_lift": {
+          "available": true,
+          "body": "akita_black_bowl_1_main",
+          "delta_z": 0.03701951932873804,
+          "observed": true,
+          "step": 55
+        },
+        "first_receptacle_entry": {
+          "available": true,
+          "evidence": "LIBERO success predicate first became true",
+          "observed": true,
+          "step": 81,
+          "target": "plate_1"
+        },
+        "first_target_contact": {
+          "available": true,
+          "contact": {
+            "candidate_object": "akita_black_bowl_1_g21",
+            "distance": -0.0008612479242148348,
+            "left": "akita_black_bowl_1_g21",
+            "position": [
+              -0.05853520806273467,
+              0.15125461619543834,
+              0.9500006753383816
+            ],
+            "right": "gripper0_hand_collision"
+          },
+          "observed": true,
+          "step": 42,
+          "target": "akita_black_bowl_1"
+        },
+        "object_dropped": {
+          "available": true,
+          "observed": false
+        }
+      },
+      "execution_horizon": 10,
+      "failure_classification": {
+        "category": null,
+        "evidence": {
+          "success": true
+        }
+      },
+      "init_state_id": 3,
+      "initial_sim_state_sha256": "dee22dac829610a11fbcc6d46a8013da09fe6136043462f37b5a24ae6a185eb2",
+      "latency_ms_per_replan": [
+        103.699783,
+        106.608801,
+        99.751373,
+        99.540236,
+        99.76103,
+        99.19358,
+        103.03934,
+        102.208483,
+        101.666811
+      ],
+      "nfe": 1,
+      "noise_schedule_sha256": "ab81b21edd127509b161970905af3357d95e2da842e9b1a12932199237680853",
+      "phase": "smoke",
+      "status": "COMPLETED",
+      "steps_run": 82,
+      "success": true,
+      "success_timestep": 82,
+      "suite": "libero_spatial",
+      "target_time": 0.0,
+      "task": "pick up the black bowl between the plate and the ramekin and place it on the plate",
+      "task_id": 0,
+      "termination_reason": "SUCCESS",
+      "trace_manifest": {
+        "path": "/root/crp-vla/artifacts/crp_vla/replay_v2/smoke/traces/libero_spatial-task00-init03-seed0/snap1.sha256.json",
+        "sha256": "ac2c2c2c7a150463a33ca34b55612b51d301fa5da4855e7058fe34debb301f24"
+      },
+      "used_noise_prefix_length": 9
+    },
+    {
+      "action_stream_sha256": "21715042d4930958134d3dbf073a58d6a2ba0f8e2c7d2a5fbf9422be804175bb",
+      "arm": "base10",
+      "canonical_input_sha256": "f33dda5fd8c19de1a2d8ce1ce2300a7459cd98e3aac874b5eaaf00ad80064062",
+      "capsule_path": "/root/crp-vla/artifacts/crp_vla/replay_v2/capsules/smoke/libero_spatial-task05-init03-seed0",
+      "capsule_sha256": "8a2fe72a830771e5d4dc80ef4dbad43f6a7bf29bd93353f9cb15c034c8d61463",
+      "checkpoint": "base",
+      "env_seed": 0,
+      "evaluator_sha256": "97c984f12331527626812ec19967ef399e545535b3571becf044db2417ae9d71",
+      "events": {
+        "collision": {
+          "available": true,
+          "observed": false
+        },
+        "first_gripper_close": {
+          "available": true,
+          "command": 1.0071088075637817,
+          "observed": true,
+          "step": 42
+        },
+        "first_object_lift": {
+          "available": true,
+          "observed": false
+        },
+        "first_receptacle_entry": {
+          "available": true,
+          "observed": false,
+          "target": "plate_1"
+        },
+        "first_target_contact": {
+          "available": true,
+          "contact": {
+            "candidate_object": "akita_black_bowl_1_g25",
+            "distance": -0.00015755068448405722,
+            "left": "akita_black_bowl_1_g25",
+            "position": [
+              -0.15881583153036485,
+              0.14336084093356452,
+              0.9918965823971257
+            ],
+            "right": "gripper0_finger1_collision"
+          },
+          "observed": true,
+          "step": 34,
+          "target": "akita_black_bowl_1"
+        },
+        "object_dropped": {
+          "available": true,
+          "observed": false
+        }
+      },
+      "execution_horizon": 10,
+      "failure_classification": {
+        "category": "GRASP_FAILURE",
+        "evidence": {
+          "first_gripper_close": {
+            "available": true,
+            "command": 1.0071088075637817,
+            "observed": true,
+            "step": 42
+          },
+          "first_object_lift": {
+            "available": true,
+            "observed": false
+          },
+          "first_target_contact": {
+            "available": true,
+            "contact": {
+              "candidate_object": "akita_black_bowl_1_g25",
+              "distance": -0.00015755068448405722,
+              "left": "akita_black_bowl_1_g25",
+              "position": [
+                -0.15881583153036485,
+                0.14336084093356452,
+                0.9918965823971257
+              ],
+              "right": "gripper0_finger1_collision"
+            },
+            "observed": true,
+            "step": 34,
+            "target": "akita_black_bowl_1"
+          }
+        }
+      },
+      "init_state_id": 3,
+      "initial_sim_state_sha256": "b51fd264ee546d6e2bdf718e9732df302d9d7b596af31dece6fb5bb87b8a3c3e",
+      "latency_ms_per_replan": [
+        281.394571,
+        262.916256,
+        259.559004,
+        262.525743,
+        258.473891,
+        259.364696,
+        255.439738,
+        256.215027,
+        253.622034,
+        251.362682,
+        260.448727,
+        255.448837,
+        254.116004,
+        255.060042,
+        266.51104,
+        256.561533,
+        265.918785,
+        253.373962,
+        251.3543,
+        250.59278,
+        252.767862,
+        250.857179,
+        251.523803,
+        259.061782,
+        262.645574,
+        268.908926,
+        270.368382,
+        266.558499
+      ],
+      "nfe": 10,
+      "noise_schedule_sha256": "d946b93020d36e98e548fd3bcc9cfe46e0d196043860c91c7e3b0074ab8d8faf",
+      "phase": "smoke",
+      "status": "COMPLETED",
+      "steps_run": 280,
+      "success": false,
+      "success_timestep": null,
+      "suite": "libero_spatial",
+      "target_time": null,
+      "task": "pick up the black bowl on the ramekin and place it on the plate",
+      "task_id": 5,
+      "termination_reason": "MAX_STEPS",
+      "trace_manifest": {
+        "path": "/root/crp-vla/artifacts/crp_vla/replay_v2/smoke/traces/libero_spatial-task05-init03-seed0/base10.sha256.json",
+        "sha256": "4e6a3a0cde062a61309da144e7a52b32933b815f8a96732d966bda4cdd9a6620"
+      },
+      "used_noise_prefix_length": 28
+    },
+    {
+      "action_stream_sha256": "dfc173fceafdcdf362774cca9f65dfc995f33dd7e5163b33719848ba1a2cc3b1",
+      "arm": "base2",
+      "canonical_input_sha256": "f33dda5fd8c19de1a2d8ce1ce2300a7459cd98e3aac874b5eaaf00ad80064062",
+      "capsule_path": "/root/crp-vla/artifacts/crp_vla/replay_v2/capsules/smoke/libero_spatial-task05-init03-seed0",
+      "capsule_sha256": "8a2fe72a830771e5d4dc80ef4dbad43f6a7bf29bd93353f9cb15c034c8d61463",
+      "checkpoint": "base",
+      "env_seed": 0,
+      "evaluator_sha256": "97c984f12331527626812ec19967ef399e545535b3571becf044db2417ae9d71",
+      "events": {
+        "collision": {
+          "available": true,
+          "observed": false
+        },
+        "first_gripper_close": {
+          "available": true,
+          "command": 1.0442733764648438,
+          "observed": true,
+          "step": 41
+        },
+        "first_object_lift": {
+          "available": true,
+          "body": "akita_black_bowl_1_main",
+          "delta_z": 0.035021864627863275,
+          "observed": true,
+          "step": 218
+        },
+        "first_receptacle_entry": {
+          "available": true,
+          "observed": false,
+          "target": "plate_1"
+        },
+        "first_target_contact": {
+          "available": true,
+          "contact": {
+            "candidate_object": "akita_black_bowl_1_g9",
+            "distance": -0.00078592529540337,
+            "left": "akita_black_bowl_1_g9",
+            "position": [
+              -0.23196845136520625,
+              0.1341736981704734,
+              0.9496619732280807
+            ],
+            "right": "gripper0_finger1_collision"
+          },
+          "observed": true,
+          "step": 87,
+          "target": "akita_black_bowl_1"
+        },
+        "object_dropped": {
+          "available": true,
+          "body": "akita_black_bowl_1_main",
+          "delta_z": -0.010764508563217978,
+          "lift_step": 218,
+          "observed": true,
+          "step": 279
+        }
+      },
+      "execution_horizon": 10,
+      "failure_classification": {
+        "category": "OBJECT_DROPPED",
+        "evidence": {
+          "available": true,
+          "body": "akita_black_bowl_1_main",
+          "delta_z": -0.010764508563217978,
+          "lift_step": 218,
+          "observed": true,
+          "step": 279
+        }
+      },
+      "init_state_id": 3,
+      "initial_sim_state_sha256": "b51fd264ee546d6e2bdf718e9732df302d9d7b596af31dece6fb5bb87b8a3c3e",
+      "latency_ms_per_replan": [
+        122.129666,
+        114.28006,
+        114.13716,
+        115.24384,
+        113.850692,
+        113.762364,
+        112.603383,
+        120.437025,
+        120.109366,
+        119.343119,
+        114.634727,
+        114.165712,
+        112.408396,
+        115.208238,
+        111.488577,
+        111.536238,
+        113.613127,
+        115.699993,
+        119.836542,
+        120.195103,
+        112.845232,
+        112.85361,
+        112.126739,
+        112.027477,
+        112.264261,
+        119.836821,
+        113.240209,
+        112.750256
+      ],
+      "nfe": 2,
+      "noise_schedule_sha256": "d946b93020d36e98e548fd3bcc9cfe46e0d196043860c91c7e3b0074ab8d8faf",
+      "phase": "smoke",
+      "status": "COMPLETED",
+      "steps_run": 280,
+      "success": false,
+      "success_timestep": null,
+      "suite": "libero_spatial",
+      "target_time": null,
+      "task": "pick up the black bowl on the ramekin and place it on the plate",
+      "task_id": 5,
+      "termination_reason": "MAX_STEPS",
+      "trace_manifest": {
+        "path": "/root/crp-vla/artifacts/crp_vla/replay_v2/smoke/traces/libero_spatial-task05-init03-seed0/base2.sha256.json",
+        "sha256": "0c955c987f047747958a1f1ad71bc93069ccc8791e38a5244195753d050fb129"
+      },
+      "used_noise_prefix_length": 28
+    },
+    {
+      "action_stream_sha256": "6aa856412e2f53a955905efbe8e1d7ada99e4d87d44b8fd72c93b570f00c4d4a",
+      "arm": "base1",
+      "canonical_input_sha256": "f33dda5fd8c19de1a2d8ce1ce2300a7459cd98e3aac874b5eaaf00ad80064062",
+      "capsule_path": "/root/crp-vla/artifacts/crp_vla/replay_v2/capsules/smoke/libero_spatial-task05-init03-seed0",
+      "capsule_sha256": "8a2fe72a830771e5d4dc80ef4dbad43f6a7bf29bd93353f9cb15c034c8d61463",
+      "checkpoint": "base",
+      "env_seed": 0,
+      "evaluator_sha256": "97c984f12331527626812ec19967ef399e545535b3571becf044db2417ae9d71",
+      "events": {
+        "collision": {
+          "available": true,
+          "observed": false
+        },
+        "first_gripper_close": {
+          "available": true,
+          "command": 1.1048190593719482,
+          "observed": true,
+          "step": 42
+        },
+        "first_object_lift": {
+          "available": true,
+          "observed": false
+        },
+        "first_receptacle_entry": {
+          "available": true,
+          "observed": false,
+          "target": "plate_1"
+        },
+        "first_target_contact": {
+          "available": true,
+          "contact": {
+            "candidate_object": "akita_black_bowl_1_g8",
+            "distance": -0.0011586280945159089,
+            "left": "akita_black_bowl_1_g8",
+            "position": [
+              -0.23113433873525735,
+              0.14880469297847226,
+              0.9670024089084344
+            ],
+            "right": "gripper0_finger1_collision"
+          },
+          "observed": true,
+          "step": 94,
+          "target": "akita_black_bowl_1"
+        },
+        "object_dropped": {
+          "available": true,
+          "observed": false
+        }
+      },
+      "execution_horizon": 10,
+      "failure_classification": {
+        "category": "GRASP_FAILURE",
+        "evidence": {
+          "first_gripper_close": {
+            "available": true,
+            "command": 1.1048190593719482,
+            "observed": true,
+            "step": 42
+          },
+          "first_object_lift": {
+            "available": true,
+            "observed": false
+          },
+          "first_target_contact": {
+            "available": true,
+            "contact": {
+              "candidate_object": "akita_black_bowl_1_g8",
+              "distance": -0.0011586280945159089,
+              "left": "akita_black_bowl_1_g8",
+              "position": [
+                -0.23113433873525735,
+                0.14880469297847226,
+                0.9670024089084344
+              ],
+              "right": "gripper0_finger1_collision"
+            },
+            "observed": true,
+            "step": 94,
+            "target": "akita_black_bowl_1"
+          }
+        }
+      },
+      "init_state_id": 3,
+      "initial_sim_state_sha256": "b51fd264ee546d6e2bdf718e9732df302d9d7b596af31dece6fb5bb87b8a3c3e",
+      "latency_ms_per_replan": [
+        101.574157,
+        101.699535,
+        106.888336,
+        100.870563,
+        100.345313,
+        103.004848,
+        101.394588,
+        101.876587,
+        105.480788,
+        99.924198,
+        106.562751,
+        101.842117,
+        106.701958,
+        109.329866,
+        105.690207,
+        99.890466,
+        105.969723,
+        99.370589,
+        97.912687,
+        101.423237,
+        99.022646,
+        101.284638,
+        103.176752,
+        99.74473,
+        101.577301,
+        104.343417,
+        99.687186,
+        99.612974
+      ],
+      "nfe": 1,
+      "noise_schedule_sha256": "d946b93020d36e98e548fd3bcc9cfe46e0d196043860c91c7e3b0074ab8d8faf",
+      "phase": "smoke",
+      "status": "COMPLETED",
+      "steps_run": 280,
+      "success": false,
+      "success_timestep": null,
+      "suite": "libero_spatial",
+      "target_time": null,
+      "task": "pick up the black bowl on the ramekin and place it on the plate",
+      "task_id": 5,
+      "termination_reason": "MAX_STEPS",
+      "trace_manifest": {
+        "path": "/root/crp-vla/artifacts/crp_vla/replay_v2/smoke/traces/libero_spatial-task05-init03-seed0/base1.sha256.json",
+        "sha256": "004e5accd3caf0f483434b00e742ddb7374d29f458a8e8b0c7c080b7d25f95b9"
+      },
+      "used_noise_prefix_length": 28
+    },
+    {
+      "action_stream_sha256": "c3ff121859623ffab10b53ad3c37f2228f44d7f384c1a64c7308e57fed47fbe3",
+      "arm": "snap10",
+      "canonical_input_sha256": "f33dda5fd8c19de1a2d8ce1ce2300a7459cd98e3aac874b5eaaf00ad80064062",
+      "capsule_path": "/root/crp-vla/artifacts/crp_vla/replay_v2/capsules/smoke/libero_spatial-task05-init03-seed0",
+      "capsule_sha256": "8a2fe72a830771e5d4dc80ef4dbad43f6a7bf29bd93353f9cb15c034c8d61463",
+      "checkpoint": "snap",
+      "env_seed": 0,
+      "evaluator_sha256": "97c984f12331527626812ec19967ef399e545535b3571becf044db2417ae9d71",
+      "events": {
+        "collision": {
+          "available": true,
+          "observed": false
+        },
+        "first_gripper_close": {
+          "available": true,
+          "command": 1.0185390710830688,
+          "observed": true,
+          "step": 42
+        },
+        "first_object_lift": {
+          "available": true,
+          "body": "akita_black_bowl_1_main",
+          "delta_z": 0.034681934907078826,
+          "observed": true,
+          "step": 149
+        },
+        "first_receptacle_entry": {
+          "available": true,
+          "observed": false,
+          "target": "plate_1"
+        },
+        "first_target_contact": {
+          "available": true,
+          "contact": {
+            "candidate_object": "akita_black_bowl_1_g25",
+            "distance": -0.0010067309710273017,
+            "left": "akita_black_bowl_1_g25",
+            "position": [
+              -0.1831145165296727,
+              0.13103609150007584,
+              0.9949644610844379
+            ],
+            "right": "gripper0_hand_collision"
+          },
+          "observed": true,
+          "step": 36,
+          "target": "akita_black_bowl_1"
+        },
+        "object_dropped": {
+          "available": true,
+          "body": "akita_black_bowl_1_main",
+          "delta_z": -0.03763542409859599,
+          "lift_step": 149,
+          "observed": true,
+          "step": 279
+        }
+      },
+      "execution_horizon": 10,
+      "failure_classification": {
+        "category": "OBJECT_DROPPED",
+        "evidence": {
+          "available": true,
+          "body": "akita_black_bowl_1_main",
+          "delta_z": -0.03763542409859599,
+          "lift_step": 149,
+          "observed": true,
+          "step": 279
+        }
+      },
+      "init_state_id": 3,
+      "initial_sim_state_sha256": "b51fd264ee546d6e2bdf718e9732df302d9d7b596af31dece6fb5bb87b8a3c3e",
+      "latency_ms_per_replan": [
+        285.491255,
+        261.169681,
+        261.099421,
+        260.561455,
+        259.377372,
+        259.389128,
+        259.238992,
+        268.518989,
+        274.596177,
+        265.730243,
+        263.991781,
+        261.404341,
+        262.58102,
+        267.234487,
+        268.56709,
+        259.789654,
+        256.52106,
+        256.246703,
+        261.661273,
+        257.319592,
+        262.609,
+        321.863732,
+        281.365305,
+        263.987957,
+        264.567937,
+        264.120945,
+        268.531085,
+        267.154152
+      ],
+      "nfe": 10,
+      "noise_schedule_sha256": "d946b93020d36e98e548fd3bcc9cfe46e0d196043860c91c7e3b0074ab8d8faf",
+      "phase": "smoke",
+      "status": "COMPLETED",
+      "steps_run": 280,
+      "success": false,
+      "success_timestep": null,
+      "suite": "libero_spatial",
+      "target_time": null,
+      "task": "pick up the black bowl on the ramekin and place it on the plate",
+      "task_id": 5,
+      "termination_reason": "MAX_STEPS",
+      "trace_manifest": {
+        "path": "/root/crp-vla/artifacts/crp_vla/replay_v2/smoke/traces/libero_spatial-task05-init03-seed0/snap10.sha256.json",
+        "sha256": "6f84d14c3ec065303be3b6440c0ecc2bab6be289dbf3d514a38dabaed89d1ba5"
+      },
+      "used_noise_prefix_length": 28
+    },
+    {
+      "action_stream_sha256": "a1f61731825dfa3ee8e53ed3c153cfa21b9227d6044f435e40bb789033b2f014",
+      "arm": "snap2",
+      "canonical_input_sha256": "f33dda5fd8c19de1a2d8ce1ce2300a7459cd98e3aac874b5eaaf00ad80064062",
+      "capsule_path": "/root/crp-vla/artifacts/crp_vla/replay_v2/capsules/smoke/libero_spatial-task05-init03-seed0",
+      "capsule_sha256": "8a2fe72a830771e5d4dc80ef4dbad43f6a7bf29bd93353f9cb15c034c8d61463",
+      "checkpoint": "snap",
+      "env_seed": 0,
+      "evaluator_sha256": "97c984f12331527626812ec19967ef399e545535b3571becf044db2417ae9d71",
+      "events": {
+        "collision": {
+          "available": true,
+          "observed": false
+        },
+        "first_gripper_close": {
+          "available": true,
+          "command": 0.3595984876155853,
+          "observed": true,
+          "step": 39
+        },
+        "first_object_lift": {
+          "available": true,
+          "observed": false
+        },
+        "first_receptacle_entry": {
+          "available": true,
+          "observed": false,
+          "target": "plate_1"
+        },
+        "first_target_contact": {
+          "available": true,
+          "contact": {
+            "candidate_object": "akita_black_bowl_1_g24",
+            "distance": -0.00042284945677317315,
+            "left": "akita_black_bowl_1_g24",
+            "position": [
+              -0.1870841489393748,
+              0.12027697456104938,
+              0.9962089893664836
+            ],
+            "right": "gripper0_hand_collision"
+          },
+          "observed": true,
+          "step": 36,
+          "target": "akita_black_bowl_1"
+        },
+        "object_dropped": {
+          "available": true,
+          "observed": false
+        }
+      },
+      "execution_horizon": 10,
+      "failure_classification": {
+        "category": "GRASP_FAILURE",
+        "evidence": {
+          "first_gripper_close": {
+            "available": true,
+            "command": 0.3595984876155853,
+            "observed": true,
+            "step": 39
+          },
+          "first_object_lift": {
+            "available": true,
+            "observed": false
+          },
+          "first_target_contact": {
+            "available": true,
+            "contact": {
+              "candidate_object": "akita_black_bowl_1_g24",
+              "distance": -0.00042284945677317315,
+              "left": "akita_black_bowl_1_g24",
+              "position": [
+                -0.1870841489393748,
+                0.12027697456104938,
+                0.9962089893664836
+              ],
+              "right": "gripper0_hand_collision"
+            },
+            "observed": true,
+            "step": 36,
+            "target": "akita_black_bowl_1"
+          }
+        }
+      },
+      "init_state_id": 3,
+      "initial_sim_state_sha256": "b51fd264ee546d6e2bdf718e9732df302d9d7b596af31dece6fb5bb87b8a3c3e",
+      "latency_ms_per_replan": [
+        122.740817,
+        113.219467,
+        112.433295,
+        112.35094,
+        112.314239,
+        113.745891,
+        121.485712,
+        121.010108,
+        114.22878,
+        115.053295,
+        113.236687,
+        112.320504,
+        112.309781,
+        112.332963,
+        112.279868,
+        118.379311,
+        114.719758,
+        114.683776,
+        112.33732,
+        112.355888,
+        112.522468,
+        112.655736,
+        121.032688,
+        121.153152,
+        113.505447,
+        113.746223,
+        113.500048,
+        113.53556
+      ],
+      "nfe": 2,
+      "noise_schedule_sha256": "d946b93020d36e98e548fd3bcc9cfe46e0d196043860c91c7e3b0074ab8d8faf",
+      "phase": "smoke",
+      "status": "COMPLETED",
+      "steps_run": 280,
+      "success": false,
+      "success_timestep": null,
+      "suite": "libero_spatial",
+      "target_time": null,
+      "task": "pick up the black bowl on the ramekin and place it on the plate",
+      "task_id": 5,
+      "termination_reason": "MAX_STEPS",
+      "trace_manifest": {
+        "path": "/root/crp-vla/artifacts/crp_vla/replay_v2/smoke/traces/libero_spatial-task05-init03-seed0/snap2.sha256.json",
+        "sha256": "ed4a99bc167d4ea72a64a170910adad4c6680db32775d9ec36105feecab07ddf"
+      },
+      "used_noise_prefix_length": 28
+    },
+    {
+      "action_stream_sha256": "ecf248abef77e89d6fdc8d9530b34d2c5d4113d75b5bb4a71cfccb650bc777b4",
+      "arm": "snap1",
+      "canonical_input_sha256": "f33dda5fd8c19de1a2d8ce1ce2300a7459cd98e3aac874b5eaaf00ad80064062",
+      "capsule_path": "/root/crp-vla/artifacts/crp_vla/replay_v2/capsules/smoke/libero_spatial-task05-init03-seed0",
+      "capsule_sha256": "8a2fe72a830771e5d4dc80ef4dbad43f6a7bf29bd93353f9cb15c034c8d61463",
+      "checkpoint": "snap",
+      "env_seed": 0,
+      "evaluator_sha256": "97c984f12331527626812ec19967ef399e545535b3571becf044db2417ae9d71",
+      "events": {
+        "collision": {
+          "available": true,
+          "observed": false
+        },
+        "first_gripper_close": {
+          "available": true,
+          "command": 0.8860030174255371,
+          "observed": true,
+          "step": 39
+        },
+        "first_object_lift": {
+          "available": true,
+          "observed": false
+        },
+        "first_receptacle_entry": {
+          "available": true,
+          "observed": false,
+          "target": "plate_1"
+        },
+        "first_target_contact": {
+          "available": true,
+          "contact": {
+            "candidate_object": "akita_black_bowl_1_g25",
+            "distance": -0.0005678332619011654,
+            "left": "akita_black_bowl_1_g25",
+            "position": [
+              -0.18057966740788345,
+              0.14155228217194932,
+              0.9982995683114075
+            ],
+            "right": "gripper0_hand_collision"
+          },
+          "observed": true,
+          "step": 35,
+          "target": "akita_black_bowl_1"
+        },
+        "object_dropped": {
+          "available": true,
+          "observed": false
+        }
+      },
+      "execution_horizon": 10,
+      "failure_classification": {
+        "category": "GRASP_FAILURE",
+        "evidence": {
+          "first_gripper_close": {
+            "available": true,
+            "command": 0.8860030174255371,
+            "observed": true,
+            "step": 39
+          },
+          "first_object_lift": {
+            "available": true,
+            "observed": false
+          },
+          "first_target_contact": {
+            "available": true,
+            "contact": {
+              "candidate_object": "akita_black_bowl_1_g25",
+              "distance": -0.0005678332619011654,
+              "left": "akita_black_bowl_1_g25",
+              "position": [
+                -0.18057966740788345,
+                0.14155228217194932,
+                0.9982995683114075
+              ],
+              "right": "gripper0_hand_collision"
+            },
+            "observed": true,
+            "step": 35,
+            "target": "akita_black_bowl_1"
+          }
+        }
+      },
+      "init_state_id": 3,
+      "initial_sim_state_sha256": "b51fd264ee546d6e2bdf718e9732df302d9d7b596af31dece6fb5bb87b8a3c3e",
+      "latency_ms_per_replan": [
+        103.364699,
+        105.310812,
+        100.263011,
+        103.477016,
+        100.059723,
+        100.036291,
+        102.405122,
+        101.079713,
+        100.781358,
+        102.178541,
+        99.95987,
+        99.993548,
+        99.793834,
+        99.510073,
+        104.3941,
+        102.867763,
+        102.566389,
+        102.966388,
+        99.826218,
+        101.857992,
+        102.187543,
+        102.565651,
+        102.262287,
+        101.993102,
+        101.766634,
+        106.602552,
+        106.91157,
+        101.138142
+      ],
+      "nfe": 1,
+      "noise_schedule_sha256": "d946b93020d36e98e548fd3bcc9cfe46e0d196043860c91c7e3b0074ab8d8faf",
+      "phase": "smoke",
+      "status": "COMPLETED",
+      "steps_run": 280,
+      "success": false,
+      "success_timestep": null,
+      "suite": "libero_spatial",
+      "target_time": 0.0,
+      "task": "pick up the black bowl on the ramekin and place it on the plate",
+      "task_id": 5,
+      "termination_reason": "MAX_STEPS",
+      "trace_manifest": {
+        "path": "/root/crp-vla/artifacts/crp_vla/replay_v2/smoke/traces/libero_spatial-task05-init03-seed0/snap1.sha256.json",
+        "sha256": "fc9d9fcd8a879fe815b12a179e21a0d477c47550923c87feb39756f9b57bde74"
+      },
+      "used_noise_prefix_length": 28
+    },
+    {
+      "action_stream_sha256": "071824af00fad0c33304c55e4f1b5e7a6de01853c5fd832efbfddc540614fcec",
+      "arm": "base10",
+      "canonical_input_sha256": "8231419b79de4ebe75371ac5c91f384a520dcbfb4eb48af6c64e663f5b136e9b",
+      "capsule_path": "/root/crp-vla/artifacts/crp_vla/replay_v2/capsules/smoke/libero_object-task00-init03-seed0",
+      "capsule_sha256": "249d5265a8c5c0d039e6e9a99efd96db2d64535b95f06ef6d1885da6fbcc3be8",
+      "checkpoint": "base",
+      "env_seed": 0,
+      "evaluator_sha256": "97c984f12331527626812ec19967ef399e545535b3571becf044db2417ae9d71",
+      "events": {
+        "collision": {
+          "available": true,
+          "observed": false
+        },
+        "first_gripper_close": {
+          "available": true,
+          "command": 0.9840889573097229,
+          "observed": true,
+          "step": 50
+        },
+        "first_object_lift": {
+          "available": true,
+          "body": "alphabet_soup_1_main",
+          "delta_z": 0.038645887304640664,
+          "observed": true,
+          "step": 59
+        },
+        "first_receptacle_entry": {
+          "available": true,
+          "evidence": "LIBERO success predicate first became true",
+          "observed": true,
+          "step": 138,
+          "target": "basket_1"
+        },
+        "first_target_contact": {
+          "available": true,
+          "contact": {
+            "candidate_object": "alphabet_soup_1_g4",
+            "distance": -0.0006280309631475704,
+            "left": "alphabet_soup_1_g4",
+            "position": [
+              -0.13274363900686748,
+              -0.2683544903203976,
+              0.07484175701493559
+            ],
+            "right": "gripper0_hand_collision"
+          },
+          "observed": true,
+          "step": 51,
+          "target": "alphabet_soup_1"
+        },
+        "object_dropped": {
+          "available": true,
+          "observed": false
+        }
+      },
+      "execution_horizon": 10,
+      "failure_classification": {
+        "category": null,
+        "evidence": {
+          "success": true
+        }
+      },
+      "init_state_id": 3,
+      "initial_sim_state_sha256": "9cea5e96e7d994fcfa1ccebae5977a8620f1df1dacf4753df8f2418978018c5a",
+      "latency_ms_per_replan": [
+        294.918126,
+        276.71797,
+        270.775892,
+        263.379423,
+        258.890916,
+        263.703344,
+        269.073323,
+        272.896003,
+        276.084858,
+        265.477767,
+        256.030124,
+        259.430556,
+        261.727864,
+        259.25057
+      ],
+      "nfe": 10,
+      "noise_schedule_sha256": "ac030f2070d397cfcf595c48dae2dfe1f4832376a909f15d572fa2f2e4111316",
+      "phase": "smoke",
+      "status": "COMPLETED",
+      "steps_run": 139,
+      "success": true,
+      "success_timestep": 139,
+      "suite": "libero_object",
+      "target_time": null,
+      "task": "pick up the alphabet soup and place it in the basket",
+      "task_id": 0,
+      "termination_reason": "SUCCESS",
+      "trace_manifest": {
+        "path": "/root/crp-vla/artifacts/crp_vla/replay_v2/smoke/traces/libero_object-task00-init03-seed0/base10.sha256.json",
+        "sha256": "9c1f651545bb8f3694827efa94f453732135f552d7fe1a6bbc9fc44036186da6"
+      },
+      "used_noise_prefix_length": 14
+    },
+    {
+      "action_stream_sha256": "9150428f252ffa6dba46465f9fd011dbae6c35d3c1db676d63af4baab9b2a3f6",
+      "arm": "base2",
+      "canonical_input_sha256": "8231419b79de4ebe75371ac5c91f384a520dcbfb4eb48af6c64e663f5b136e9b",
+      "capsule_path": "/root/crp-vla/artifacts/crp_vla/replay_v2/capsules/smoke/libero_object-task00-init03-seed0",
+      "capsule_sha256": "249d5265a8c5c0d039e6e9a99efd96db2d64535b95f06ef6d1885da6fbcc3be8",
+      "checkpoint": "base",
+      "env_seed": 0,
+      "evaluator_sha256": "97c984f12331527626812ec19967ef399e545535b3571becf044db2417ae9d71",
+      "events": {
+        "collision": {
+          "available": true,
+          "observed": false
+        },
+        "first_gripper_close": {
+          "available": true,
+          "command": 0.9795593619346619,
+          "observed": true,
+          "step": 50
+        },
+        "first_object_lift": {
+          "available": true,
+          "body": "alphabet_soup_1_main",
+          "delta_z": 0.03880791391514796,
+          "observed": true,
+          "step": 59
+        },
+        "first_receptacle_entry": {
+          "available": true,
+          "evidence": "LIBERO success predicate first became true",
+          "observed": true,
+          "step": 139,
+          "target": "basket_1"
+        },
+        "first_target_contact": {
+          "available": true,
+          "contact": {
+            "candidate_object": "alphabet_soup_1_g4",
+            "distance": -0.000367490501105655,
+            "left": "alphabet_soup_1_g4",
+            "position": [
+              -0.1302843620428661,
+              -0.26871973153541207,
+              0.07523270536103333
+            ],
+            "right": "gripper0_hand_collision"
+          },
+          "observed": true,
+          "step": 51,
+          "target": "alphabet_soup_1"
+        },
+        "object_dropped": {
+          "available": true,
+          "observed": false
+        }
+      },
+      "execution_horizon": 10,
+      "failure_classification": {
+        "category": null,
+        "evidence": {
+          "success": true
+        }
+      },
+      "init_state_id": 3,
+      "initial_sim_state_sha256": "9cea5e96e7d994fcfa1ccebae5977a8620f1df1dacf4753df8f2418978018c5a",
+      "latency_ms_per_replan": [
+        122.273086,
+        120.695736,
+        120.90099,
+        121.060784,
+        115.008622,
+        114.05437,
+        114.358057,
+        112.161322,
+        112.761,
+        116.681275,
+        113.179755,
+        113.401185,
+        113.488169,
+        113.056304
+      ],
+      "nfe": 2,
+      "noise_schedule_sha256": "ac030f2070d397cfcf595c48dae2dfe1f4832376a909f15d572fa2f2e4111316",
+      "phase": "smoke",
+      "status": "COMPLETED",
+      "steps_run": 140,
+      "success": true,
+      "success_timestep": 140,
+      "suite": "libero_object",
+      "target_time": null,
+      "task": "pick up the alphabet soup and place it in the basket",
+      "task_id": 0,
+      "termination_reason": "SUCCESS",
+      "trace_manifest": {
+        "path": "/root/crp-vla/artifacts/crp_vla/replay_v2/smoke/traces/libero_object-task00-init03-seed0/base2.sha256.json",
+        "sha256": "837a444e024723b7a52751abc4493b8ff33b384d600373a8f3cf8ba51208fa5e"
+      },
+      "used_noise_prefix_length": 14
+    },
+    {
+      "action_stream_sha256": "73724afcf7c117fe42b111aea26a5df260aca453769122f79a639a6b456f993d",
+      "arm": "base1",
+      "canonical_input_sha256": "8231419b79de4ebe75371ac5c91f384a520dcbfb4eb48af6c64e663f5b136e9b",
+      "capsule_path": "/root/crp-vla/artifacts/crp_vla/replay_v2/capsules/smoke/libero_object-task00-init03-seed0",
+      "capsule_sha256": "249d5265a8c5c0d039e6e9a99efd96db2d64535b95f06ef6d1885da6fbcc3be8",
+      "checkpoint": "base",
+      "env_seed": 0,
+      "evaluator_sha256": "97c984f12331527626812ec19967ef399e545535b3571becf044db2417ae9d71",
+      "events": {
+        "collision": {
+          "available": true,
+          "observed": false
+        },
+        "first_gripper_close": {
+          "available": true,
+          "command": 1.0257092714309692,
+          "observed": true,
+          "step": 50
+        },
+        "first_object_lift": {
+          "available": true,
+          "body": "alphabet_soup_1_main",
+          "delta_z": 0.03647038215421132,
+          "observed": true,
+          "step": 59
+        },
+        "first_receptacle_entry": {
+          "available": true,
+          "evidence": "LIBERO success predicate first became true",
+          "observed": true,
+          "step": 139,
+          "target": "basket_1"
+        },
+        "first_target_contact": {
+          "available": true,
+          "contact": {
+            "candidate_object": "alphabet_soup_1_g4",
+            "distance": -0.0007374329668258355,
+            "left": "alphabet_soup_1_g4",
+            "position": [
+              -0.12702475067596028,
+              -0.26918734243811493,
+              0.07471375655810172
+            ],
+            "right": "gripper0_hand_collision"
+          },
+          "observed": true,
+          "step": 50,
+          "target": "alphabet_soup_1"
+        },
+        "object_dropped": {
+          "available": true,
+          "observed": false
+        }
+      },
+      "execution_horizon": 10,
+      "failure_classification": {
+        "category": null,
+        "evidence": {
+          "success": true
+        }
+      },
+      "init_state_id": 3,
+      "initial_sim_state_sha256": "9cea5e96e7d994fcfa1ccebae5977a8620f1df1dacf4753df8f2418978018c5a",
+      "latency_ms_per_replan": [
+        101.768367,
+        100.99014,
+        98.930878,
+        97.52104,
+        96.710856,
+        96.696033,
+        96.827022,
+        97.130541,
+        100.066066,
+        98.046055,
+        97.906572,
+        99.136216,
+        99.125114,
+        103.584535
+      ],
+      "nfe": 1,
+      "noise_schedule_sha256": "ac030f2070d397cfcf595c48dae2dfe1f4832376a909f15d572fa2f2e4111316",
+      "phase": "smoke",
+      "status": "COMPLETED",
+      "steps_run": 140,
+      "success": true,
+      "success_timestep": 140,
+      "suite": "libero_object",
+      "target_time": null,
+      "task": "pick up the alphabet soup and place it in the basket",
+      "task_id": 0,
+      "termination_reason": "SUCCESS",
+      "trace_manifest": {
+        "path": "/root/crp-vla/artifacts/crp_vla/replay_v2/smoke/traces/libero_object-task00-init03-seed0/base1.sha256.json",
+        "sha256": "3d0c968800148203afbee2fad7e64913c226d7277244a5996b8ced0283cffe86"
+      },
+      "used_noise_prefix_length": 14
+    },
+    {
+      "action_stream_sha256": "852f742d432854bdc8a50dbf8205c271f7119a712fd14b1c941f84b234a18ba2",
+      "arm": "snap10",
+      "canonical_input_sha256": "8231419b79de4ebe75371ac5c91f384a520dcbfb4eb48af6c64e663f5b136e9b",
+      "capsule_path": "/root/crp-vla/artifacts/crp_vla/replay_v2/capsules/smoke/libero_object-task00-init03-seed0",
+      "capsule_sha256": "249d5265a8c5c0d039e6e9a99efd96db2d64535b95f06ef6d1885da6fbcc3be8",
+      "checkpoint": "snap",
+      "env_seed": 0,
+      "evaluator_sha256": "97c984f12331527626812ec19967ef399e545535b3571becf044db2417ae9d71",
+      "events": {
+        "collision": {
+          "available": true,
+          "observed": false
+        },
+        "first_gripper_close": {
+          "available": true,
+          "command": 0.9964137673377991,
+          "observed": true,
+          "step": 50
+        },
+        "first_object_lift": {
+          "available": true,
+          "body": "alphabet_soup_1_main",
+          "delta_z": 0.03465797634228471,
+          "observed": true,
+          "step": 59
+        },
+        "first_receptacle_entry": {
+          "available": true,
+          "evidence": "LIBERO success predicate first became true",
+          "observed": true,
+          "step": 138,
+          "target": "basket_1"
+        },
+        "first_target_contact": {
+          "available": true,
+          "contact": {
+            "candidate_object": "alphabet_soup_1_g13",
+            "distance": -4.035883778613688e-05,
+            "left": "gripper0_finger1_pad_collision",
+            "position": [
+              -0.11600423742110662,
+              -0.27480845213336236,
+              0.042043490109324975
+            ],
+            "right": "alphabet_soup_1_g13"
+          },
+          "observed": true,
+          "step": 51,
+          "target": "alphabet_soup_1"
+        },
+        "object_dropped": {
+          "available": true,
+          "observed": false
+        }
+      },
+      "execution_horizon": 10,
+      "failure_classification": {
+        "category": null,
+        "evidence": {
+          "success": true
+        }
+      },
+      "init_state_id": 3,
+      "initial_sim_state_sha256": "9cea5e96e7d994fcfa1ccebae5977a8620f1df1dacf4753df8f2418978018c5a",
+      "latency_ms_per_replan": [
+        281.318908,
+        259.888459,
+        259.951995,
+        261.557351,
+        258.371667,
+        258.220345,
+        254.336355,
+        254.420592,
+        254.061992,
+        266.9351,
+        264.661326,
+        257.101155,
+        257.368361,
+        257.276957
+      ],
+      "nfe": 10,
+      "noise_schedule_sha256": "ac030f2070d397cfcf595c48dae2dfe1f4832376a909f15d572fa2f2e4111316",
+      "phase": "smoke",
+      "status": "COMPLETED",
+      "steps_run": 139,
+      "success": true,
+      "success_timestep": 139,
+      "suite": "libero_object",
+      "target_time": null,
+      "task": "pick up the alphabet soup and place it in the basket",
+      "task_id": 0,
+      "termination_reason": "SUCCESS",
+      "trace_manifest": {
+        "path": "/root/crp-vla/artifacts/crp_vla/replay_v2/smoke/traces/libero_object-task00-init03-seed0/snap10.sha256.json",
+        "sha256": "066b3806528cb8db6c3f45db9b85fedf24494e3b69af5b96c4adea84b6c16067"
+      },
+      "used_noise_prefix_length": 14
+    },
+    {
+      "action_stream_sha256": "7a80fb54281805fcaf0765c36701df68cd6958ce8373f39e0f643d4e86d99a39",
+      "arm": "snap2",
+      "canonical_input_sha256": "8231419b79de4ebe75371ac5c91f384a520dcbfb4eb48af6c64e663f5b136e9b",
+      "capsule_path": "/root/crp-vla/artifacts/crp_vla/replay_v2/capsules/smoke/libero_object-task00-init03-seed0",
+      "capsule_sha256": "249d5265a8c5c0d039e6e9a99efd96db2d64535b95f06ef6d1885da6fbcc3be8",
+      "checkpoint": "snap",
+      "env_seed": 0,
+      "evaluator_sha256": "97c984f12331527626812ec19967ef399e545535b3571becf044db2417ae9d71",
+      "events": {
+        "collision": {
+          "available": true,
+          "observed": false
+        },
+        "first_gripper_close": {
+          "available": true,
+          "command": 0.9802495837211609,
+          "observed": true,
+          "step": 50
+        },
+        "first_object_lift": {
+          "available": true,
+          "body": "alphabet_soup_1_main",
+          "delta_z": 0.036279166852739034,
+          "observed": true,
+          "step": 59
+        },
+        "first_receptacle_entry": {
+          "available": true,
+          "evidence": "LIBERO success predicate first became true",
+          "observed": true,
+          "step": 139,
+          "target": "basket_1"
+        },
+        "first_target_contact": {
+          "available": true,
+          "contact": {
+            "candidate_object": "alphabet_soup_1_g3",
+            "distance": -0.000640442799450925,
+            "left": "alphabet_soup_1_g3",
+            "position": [
+              -0.10260758189862014,
+              -0.2554319444774652,
+              0.07544661346558323
+            ],
+            "right": "gripper0_hand_collision"
+          },
+          "observed": true,
+          "step": 50,
+          "target": "alphabet_soup_1"
+        },
+        "object_dropped": {
+          "available": true,
+          "observed": false
+        }
+      },
+      "execution_horizon": 10,
+      "failure_classification": {
+        "category": null,
+        "evidence": {
+          "success": true
+        }
+      },
+      "init_state_id": 3,
+      "initial_sim_state_sha256": "9cea5e96e7d994fcfa1ccebae5977a8620f1df1dacf4753df8f2418978018c5a",
+      "latency_ms_per_replan": [
+        123.688967,
+        122.039157,
+        113.86475,
+        113.152019,
+        113.245209,
+        113.095191,
+        113.273986,
+        113.200273,
+        117.174934,
+        114.488213,
+        113.808294,
+        113.000303,
+        113.558827,
+        113.207338
+      ],
+      "nfe": 2,
+      "noise_schedule_sha256": "ac030f2070d397cfcf595c48dae2dfe1f4832376a909f15d572fa2f2e4111316",
+      "phase": "smoke",
+      "status": "COMPLETED",
+      "steps_run": 140,
+      "success": true,
+      "success_timestep": 140,
+      "suite": "libero_object",
+      "target_time": null,
+      "task": "pick up the alphabet soup and place it in the basket",
+      "task_id": 0,
+      "termination_reason": "SUCCESS",
+      "trace_manifest": {
+        "path": "/root/crp-vla/artifacts/crp_vla/replay_v2/smoke/traces/libero_object-task00-init03-seed0/snap2.sha256.json",
+        "sha256": "7f26bf864be834c2664b5892be1d61c2d984cca331bb36924aac0f7ef5be1a6d"
+      },
+      "used_noise_prefix_length": 14
+    },
+    {
+      "action_stream_sha256": "c071044ec8ff27abbb9ed327744bdf8b779a45f3548dc6b2dbf1e30b6cec18ab",
+      "arm": "snap1",
+      "canonical_input_sha256": "8231419b79de4ebe75371ac5c91f384a520dcbfb4eb48af6c64e663f5b136e9b",
+      "capsule_path": "/root/crp-vla/artifacts/crp_vla/replay_v2/capsules/smoke/libero_object-task00-init03-seed0",
+      "capsule_sha256": "249d5265a8c5c0d039e6e9a99efd96db2d64535b95f06ef6d1885da6fbcc3be8",
+      "checkpoint": "snap",
+      "env_seed": 0,
+      "evaluator_sha256": "97c984f12331527626812ec19967ef399e545535b3571becf044db2417ae9d71",
+      "events": {
+        "collision": {
+          "available": true,
+          "observed": false
+        },
+        "first_gripper_close": {
+          "available": true,
+          "command": 1.0146703720092773,
+          "observed": true,
+          "step": 50
+        },
+        "first_object_lift": {
+          "available": true,
+          "body": "alphabet_soup_1_main",
+          "delta_z": 0.03739310840100714,
+          "observed": true,
+          "step": 59
+        },
+        "first_receptacle_entry": {
+          "available": true,
+          "evidence": "LIBERO success predicate first became true",
+          "observed": true,
+          "step": 137,
+          "target": "basket_1"
+        },
+        "first_target_contact": {
+          "available": true,
+          "contact": {
+            "candidate_object": "alphabet_soup_1_g4",
+            "distance": -0.00011617651681885805,
+            "left": "alphabet_soup_1_g4",
+            "position": [
+              -0.10232424563054471,
+              -0.26838533197848174,
+              0.06969094998997592
+            ],
+            "right": "gripper0_finger1_collision"
+          },
+          "observed": true,
+          "step": 46,
+          "target": "alphabet_soup_1"
+        },
+        "object_dropped": {
+          "available": true,
+          "observed": false
+        }
+      },
+      "execution_horizon": 10,
+      "failure_classification": {
+        "category": null,
+        "evidence": {
+          "success": true
+        }
+      },
+      "init_state_id": 3,
+      "initial_sim_state_sha256": "9cea5e96e7d994fcfa1ccebae5977a8620f1df1dacf4753df8f2418978018c5a",
+      "latency_ms_per_replan": [
+        102.332986,
+        101.010162,
+        100.722121,
+        98.201187,
+        98.006578,
+        98.057203,
+        97.987114,
+        98.123611,
+        99.565354,
+        100.793322,
+        100.706482,
+        101.002491,
+        98.860618,
+        99.294054
+      ],
+      "nfe": 1,
+      "noise_schedule_sha256": "ac030f2070d397cfcf595c48dae2dfe1f4832376a909f15d572fa2f2e4111316",
+      "phase": "smoke",
+      "status": "COMPLETED",
+      "steps_run": 138,
+      "success": true,
+      "success_timestep": 138,
+      "suite": "libero_object",
+      "target_time": 0.0,
+      "task": "pick up the alphabet soup and place it in the basket",
+      "task_id": 0,
+      "termination_reason": "SUCCESS",
+      "trace_manifest": {
+        "path": "/root/crp-vla/artifacts/crp_vla/replay_v2/smoke/traces/libero_object-task00-init03-seed0/snap1.sha256.json",
+        "sha256": "586f9849f2cbca1332bf02029e478508894dccb68b9007e59ca2d2eed2849cee"
+      },
+      "used_noise_prefix_length": 14
+    },
+    {
+      "action_stream_sha256": "38ecae9c3081cf4eb3b96b72f9e8fce6b0b98938818898639817ca77514e52ec",
+      "arm": "base10",
+      "canonical_input_sha256": "43aad408c295ebe315dab1578693adbc08422fe275c8605655fecc0398445b22",
+      "capsule_path": "/root/crp-vla/artifacts/crp_vla/replay_v2/capsules/smoke/libero_object-task05-init03-seed0",
+      "capsule_sha256": "5ad21a310e22ff9792ea31b7abf1885703b2caf5c85c5395a8f4480e1ca8ae95",
+      "checkpoint": "base",
+      "env_seed": 0,
+      "evaluator_sha256": "97c984f12331527626812ec19967ef399e545535b3571becf044db2417ae9d71",
+      "events": {
+        "collision": {
+          "available": true,
+          "observed": false
+        },
+        "first_gripper_close": {
+          "available": true,
+          "command": 0.9848276972770691,
+          "observed": true,
+          "step": 58
+        },
+        "first_object_lift": {
+          "available": true,
+          "observed": false
+        },
+        "first_receptacle_entry": {
+          "available": true,
+          "observed": false,
+          "target": "basket_1"
+        },
+        "first_target_contact": {
+          "available": true,
+          "contact": {
+            "candidate_object": "tomato_sauce_1_g5",
+            "distance": -0.0011456224147896187,
+            "left": "tomato_sauce_1_g5",
+            "position": [
+              0.06859193316785833,
+              -0.07761545254741757,
+              0.07445062580176162
+            ],
+            "right": "gripper0_finger2_collision"
+          },
+          "observed": true,
+          "step": 45,
+          "target": "tomato_sauce_1"
+        },
+        "object_dropped": {
+          "available": true,
+          "observed": false
+        }
+      },
+      "execution_horizon": 10,
+      "failure_classification": {
+        "category": "GRASP_FAILURE",
+        "evidence": {
+          "first_gripper_close": {
+            "available": true,
+            "command": 0.9848276972770691,
+            "observed": true,
+            "step": 58
+          },
+          "first_object_lift": {
+            "available": true,
+            "observed": false
+          },
+          "first_target_contact": {
+            "available": true,
+            "contact": {
+              "candidate_object": "tomato_sauce_1_g5",
+              "distance": -0.0011456224147896187,
+              "left": "tomato_sauce_1_g5",
+              "position": [
+                0.06859193316785833,
+                -0.07761545254741757,
+                0.07445062580176162
+              ],
+              "right": "gripper0_finger2_collision"
+            },
+            "observed": true,
+            "step": 45,
+            "target": "tomato_sauce_1"
+          }
+        }
+      },
+      "init_state_id": 3,
+      "initial_sim_state_sha256": "0ed7c3497e902d00f06d110a3b297c258e3bc0968ea3e2de51cffb00d0abc583",
+      "latency_ms_per_replan": [
+        284.773246,
+        268.850324,
+        257.752249,
+        257.49186,
+        258.198045,
+        259.403948,
+        258.679261,
+        258.20664,
+        269.593922,
+        291.591004,
+        279.86955,
+        275.728557,
+        272.975921,
+        273.347918,
+        273.386949,
+        268.974933,
+        263.298764,
+        258.688561,
+        277.375071,
+        271.746477,
+        266.846487,
+        267.907709,
+        263.786796,
+        264.121438,
+        269.82048,
+        268.056788,
+        263.063714,
+        265.287996
+      ],
+      "nfe": 10,
+      "noise_schedule_sha256": "0cbec979ff62bd58b630b9e98f6d3617d35af21348f364a61e2e173bd2c8cb50",
+      "phase": "smoke",
+      "status": "COMPLETED",
+      "steps_run": 280,
+      "success": false,
+      "success_timestep": null,
+      "suite": "libero_object",
+      "target_time": null,
+      "task": "pick up the tomato sauce and place it in the basket",
+      "task_id": 5,
+      "termination_reason": "MAX_STEPS",
+      "trace_manifest": {
+        "path": "/root/crp-vla/artifacts/crp_vla/replay_v2/smoke/traces/libero_object-task05-init03-seed0/base10.sha256.json",
+        "sha256": "8ac45223e8229bbe67d7feeeee2e46f3778770920e8c900cf9b73dd4befa0899"
+      },
+      "used_noise_prefix_length": 28
+    },
+    {
+      "action_stream_sha256": "6a5cd0b3169bfa30ba9f1413b52329e263cea365b35a02f57028f3179d24b5cf",
+      "arm": "base2",
+      "canonical_input_sha256": "43aad408c295ebe315dab1578693adbc08422fe275c8605655fecc0398445b22",
+      "capsule_path": "/root/crp-vla/artifacts/crp_vla/replay_v2/capsules/smoke/libero_object-task05-init03-seed0",
+      "capsule_sha256": "5ad21a310e22ff9792ea31b7abf1885703b2caf5c85c5395a8f4480e1ca8ae95",
+      "checkpoint": "base",
+      "env_seed": 0,
+      "evaluator_sha256": "97c984f12331527626812ec19967ef399e545535b3571becf044db2417ae9d71",
+      "events": {
+        "collision": {
+          "available": true,
+          "observed": false
+        },
+        "first_gripper_close": {
+          "available": true,
+          "command": 0.9692506194114685,
+          "observed": true,
+          "step": 58
+        },
+        "first_object_lift": {
+          "available": true,
+          "observed": false
+        },
+        "first_receptacle_entry": {
+          "available": true,
+          "observed": false,
+          "target": "basket_1"
+        },
+        "first_target_contact": {
+          "available": true,
+          "contact": {
+            "candidate_object": "tomato_sauce_1_g5",
+            "distance": -0.0017192979197622757,
+            "left": "tomato_sauce_1_g5",
+            "position": [
+              0.06897405144993747,
+              -0.07752521352409508,
+              0.07411361380255875
+            ],
+            "right": "gripper0_finger2_collision"
+          },
+          "observed": true,
+          "step": 45,
+          "target": "tomato_sauce_1"
+        },
+        "object_dropped": {
+          "available": true,
+          "observed": false
+        }
+      },
+      "execution_horizon": 10,
+      "failure_classification": {
+        "category": "GRASP_FAILURE",
+        "evidence": {
+          "first_gripper_close": {
+            "available": true,
+            "command": 0.9692506194114685,
+            "observed": true,
+            "step": 58
+          },
+          "first_object_lift": {
+            "available": true,
+            "observed": false
+          },
+          "first_target_contact": {
+            "available": true,
+            "contact": {
+              "candidate_object": "tomato_sauce_1_g5",
+              "distance": -0.0017192979197622757,
+              "left": "tomato_sauce_1_g5",
+              "position": [
+                0.06897405144993747,
+                -0.07752521352409508,
+                0.07411361380255875
+              ],
+              "right": "gripper0_finger2_collision"
+            },
+            "observed": true,
+            "step": 45,
+            "target": "tomato_sauce_1"
+          }
+        }
+      },
+      "init_state_id": 3,
+      "initial_sim_state_sha256": "0ed7c3497e902d00f06d110a3b297c258e3bc0968ea3e2de51cffb00d0abc583",
+      "latency_ms_per_replan": [
+        121.842553,
+        117.467274,
+        111.28957,
+        110.827365,
+        110.926431,
+        110.91397,
+        110.807274,
+        114.873378,
+        113.493421,
+        113.242496,
+        118.001733,
+        112.711849,
+        114.361263,
+        116.072746,
+        114.459575,
+        115.646627,
+        115.102622,
+        114.648391,
+        114.815542,
+        112.363321,
+        115.230041,
+        112.305126,
+        121.01295,
+        122.243305,
+        115.547931,
+        115.618857,
+        114.53287,
+        112.602546
+      ],
+      "nfe": 2,
+      "noise_schedule_sha256": "0cbec979ff62bd58b630b9e98f6d3617d35af21348f364a61e2e173bd2c8cb50",
+      "phase": "smoke",
+      "status": "COMPLETED",
+      "steps_run": 280,
+      "success": false,
+      "success_timestep": null,
+      "suite": "libero_object",
+      "target_time": null,
+      "task": "pick up the tomato sauce and place it in the basket",
+      "task_id": 5,
+      "termination_reason": "MAX_STEPS",
+      "trace_manifest": {
+        "path": "/root/crp-vla/artifacts/crp_vla/replay_v2/smoke/traces/libero_object-task05-init03-seed0/base2.sha256.json",
+        "sha256": "fee4d70ae8238228d8ec067f13f438d167251dd34d82f789d74a48f2b755257a"
+      },
+      "used_noise_prefix_length": 28
+    },
+    {
+      "action_stream_sha256": "c9cdd15b41ae6073bde0ddb35a6b5442f3723ae6252ef2c16906d9f94b98676f",
+      "arm": "base1",
+      "canonical_input_sha256": "43aad408c295ebe315dab1578693adbc08422fe275c8605655fecc0398445b22",
+      "capsule_path": "/root/crp-vla/artifacts/crp_vla/replay_v2/capsules/smoke/libero_object-task05-init03-seed0",
+      "capsule_sha256": "5ad21a310e22ff9792ea31b7abf1885703b2caf5c85c5395a8f4480e1ca8ae95",
+      "checkpoint": "base",
+      "env_seed": 0,
+      "evaluator_sha256": "97c984f12331527626812ec19967ef399e545535b3571becf044db2417ae9d71",
+      "events": {
+        "collision": {
+          "available": true,
+          "observed": false
+        },
+        "first_gripper_close": {
+          "available": true,
+          "command": 0.5645437240600586,
+          "observed": true,
+          "step": 57
+        },
+        "first_object_lift": {
+          "available": true,
+          "body": "tomato_sauce_1_main",
+          "delta_z": 0.0396873416720378,
+          "observed": true,
+          "step": 129
+        },
+        "first_receptacle_entry": {
+          "available": true,
+          "evidence": "LIBERO success predicate first became true",
+          "observed": true,
+          "step": 193,
+          "target": "basket_1"
+        },
+        "first_target_contact": {
+          "available": true,
+          "contact": {
+            "candidate_object": "tomato_sauce_1_g5",
+            "distance": -0.0011446337164863433,
+            "left": "tomato_sauce_1_g5",
+            "position": [
+              0.06622793815255024,
+              -0.07762231443344592,
+              0.07444641563065031
+            ],
+            "right": "gripper0_finger2_collision"
+          },
+          "observed": true,
+          "step": 44,
+          "target": "tomato_sauce_1"
+        },
+        "object_dropped": {
+          "available": true,
+          "observed": false
+        }
+      },
+      "execution_horizon": 10,
+      "failure_classification": {
+        "category": null,
+        "evidence": {
+          "success": true
+        }
+      },
+      "init_state_id": 3,
+      "initial_sim_state_sha256": "0ed7c3497e902d00f06d110a3b297c258e3bc0968ea3e2de51cffb00d0abc583",
+      "latency_ms_per_replan": [
+        93.891089,
+        101.159347,
+        101.026765,
+        99.377452,
+        98.95397,
+        98.643275,
+        98.48707,
+        98.600919,
+        98.223047,
+        99.870211,
+        98.052505,
+        98.316533,
+        95.972118,
+        97.113061,
+        97.069517,
+        95.907116,
+        95.750684,
+        100.674499,
+        100.174022,
+        100.212998
+      ],
+      "nfe": 1,
+      "noise_schedule_sha256": "0cbec979ff62bd58b630b9e98f6d3617d35af21348f364a61e2e173bd2c8cb50",
+      "phase": "smoke",
+      "status": "COMPLETED",
+      "steps_run": 194,
+      "success": true,
+      "success_timestep": 194,
+      "suite": "libero_object",
+      "target_time": null,
+      "task": "pick up the tomato sauce and place it in the basket",
+      "task_id": 5,
+      "termination_reason": "SUCCESS",
+      "trace_manifest": {
+        "path": "/root/crp-vla/artifacts/crp_vla/replay_v2/smoke/traces/libero_object-task05-init03-seed0/base1.sha256.json",
+        "sha256": "81d441b307c64df87b5fda551001d36cb86831ec63d34f104368c279b859cf84"
+      },
+      "used_noise_prefix_length": 20
+    },
+    {
+      "action_stream_sha256": "5d055a1a330131735b0daf3466aba7d5d4f2fd3c895df3dbde4a9e53c86c2f5b",
+      "arm": "snap10",
+      "canonical_input_sha256": "43aad408c295ebe315dab1578693adbc08422fe275c8605655fecc0398445b22",
+      "capsule_path": "/root/crp-vla/artifacts/crp_vla/replay_v2/capsules/smoke/libero_object-task05-init03-seed0",
+      "capsule_sha256": "5ad21a310e22ff9792ea31b7abf1885703b2caf5c85c5395a8f4480e1ca8ae95",
+      "checkpoint": "snap",
+      "env_seed": 0,
+      "evaluator_sha256": "97c984f12331527626812ec19967ef399e545535b3571becf044db2417ae9d71",
+      "events": {
+        "collision": {
+          "available": true,
+          "observed": false
+        },
+        "first_gripper_close": {
+          "available": true,
+          "command": 1.0051746368408203,
+          "observed": true,
+          "step": 58
+        },
+        "first_object_lift": {
+          "available": true,
+          "observed": false
+        },
+        "first_receptacle_entry": {
+          "available": true,
+          "observed": false,
+          "target": "basket_1"
+        },
+        "first_target_contact": {
+          "available": true,
+          "contact": {
+            "candidate_object": "tomato_sauce_1_g1",
+            "distance": -8.498399483951578e-05,
+            "left": "tomato_sauce_1_g1",
+            "position": [
+              0.06816903889528883,
+              -0.08297502898552606,
+              0.0732581014501556
+            ],
+            "right": "gripper0_finger2_collision"
+          },
+          "observed": true,
+          "step": 46,
+          "target": "tomato_sauce_1"
+        },
+        "object_dropped": {
+          "available": true,
+          "observed": false
+        }
+      },
+      "execution_horizon": 10,
+      "failure_classification": {
+        "category": "GRASP_FAILURE",
+        "evidence": {
+          "first_gripper_close": {
+            "available": true,
+            "command": 1.0051746368408203,
+            "observed": true,
+            "step": 58
+          },
+          "first_object_lift": {
+            "available": true,
+            "observed": false
+          },
+          "first_target_contact": {
+            "available": true,
+            "contact": {
+              "candidate_object": "tomato_sauce_1_g1",
+              "distance": -8.498399483951578e-05,
+              "left": "tomato_sauce_1_g1",
+              "position": [
+                0.06816903889528883,
+                -0.08297502898552606,
+                0.0732581014501556
+              ],
+              "right": "gripper0_finger2_collision"
+            },
+            "observed": true,
+            "step": 46,
+            "target": "tomato_sauce_1"
+          }
+        }
+      },
+      "init_state_id": 3,
+      "initial_sim_state_sha256": "0ed7c3497e902d00f06d110a3b297c258e3bc0968ea3e2de51cffb00d0abc583",
+      "latency_ms_per_replan": [
+        281.887495,
+        266.763515,
+        262.462697,
+        261.76507,
+        258.256671,
+        258.987497,
+        258.540147,
+        261.533306,
+        266.998465,
+        266.035649,
+        263.454229,
+        262.161533,
+        261.078453,
+        260.819366,
+        261.673816,
+        259.078035,
+        259.344123,
+        258.904107,
+        262.658383,
+        270.805546,
+        261.916905,
+        255.752758,
+        255.978116,
+        255.696775,
+        255.32105,
+        264.819346,
+        257.097205,
+        256.43988
+      ],
+      "nfe": 10,
+      "noise_schedule_sha256": "0cbec979ff62bd58b630b9e98f6d3617d35af21348f364a61e2e173bd2c8cb50",
+      "phase": "smoke",
+      "status": "COMPLETED",
+      "steps_run": 280,
+      "success": false,
+      "success_timestep": null,
+      "suite": "libero_object",
+      "target_time": null,
+      "task": "pick up the tomato sauce and place it in the basket",
+      "task_id": 5,
+      "termination_reason": "MAX_STEPS",
+      "trace_manifest": {
+        "path": "/root/crp-vla/artifacts/crp_vla/replay_v2/smoke/traces/libero_object-task05-init03-seed0/snap10.sha256.json",
+        "sha256": "9445ec0476a59428dd3f6f12293c8d41e720f3fe6ded25e5ba8bfb2b13792df7"
+      },
+      "used_noise_prefix_length": 28
+    },
+    {
+      "action_stream_sha256": "2b386ab61bb08df4f2b3dbb8d58544a092eb474bcbb955833881a0ceae68eade",
+      "arm": "snap2",
+      "canonical_input_sha256": "43aad408c295ebe315dab1578693adbc08422fe275c8605655fecc0398445b22",
+      "capsule_path": "/root/crp-vla/artifacts/crp_vla/replay_v2/capsules/smoke/libero_object-task05-init03-seed0",
+      "capsule_sha256": "5ad21a310e22ff9792ea31b7abf1885703b2caf5c85c5395a8f4480e1ca8ae95",
+      "checkpoint": "snap",
+      "env_seed": 0,
+      "evaluator_sha256": "97c984f12331527626812ec19967ef399e545535b3571becf044db2417ae9d71",
+      "events": {
+        "collision": {
+          "available": true,
+          "observed": false
+        },
+        "first_gripper_close": {
+          "available": true,
+          "command": 0.9844370484352112,
+          "observed": true,
+          "step": 58
+        },
+        "first_object_lift": {
+          "available": true,
+          "observed": false
+        },
+        "first_receptacle_entry": {
+          "available": true,
+          "observed": false,
+          "target": "basket_1"
+        },
+        "first_target_contact": {
+          "available": true,
+          "contact": {
+            "candidate_object": "tomato_sauce_1_g5",
+            "distance": -0.0011087258630635558,
+            "left": "tomato_sauce_1_g5",
+            "position": [
+              0.07005129038080372,
+              -0.08091315136205633,
+              0.07450207752578786
+            ],
+            "right": "gripper0_finger2_collision"
+          },
+          "observed": true,
+          "step": 45,
+          "target": "tomato_sauce_1"
+        },
+        "object_dropped": {
+          "available": true,
+          "observed": false
+        }
+      },
+      "execution_horizon": 10,
+      "failure_classification": {
+        "category": "GRASP_FAILURE",
+        "evidence": {
+          "first_gripper_close": {
+            "available": true,
+            "command": 0.9844370484352112,
+            "observed": true,
+            "step": 58
+          },
+          "first_object_lift": {
+            "available": true,
+            "observed": false
+          },
+          "first_target_contact": {
+            "available": true,
+            "contact": {
+              "candidate_object": "tomato_sauce_1_g5",
+              "distance": -0.0011087258630635558,
+              "left": "tomato_sauce_1_g5",
+              "position": [
+                0.07005129038080372,
+                -0.08091315136205633,
+                0.07450207752578786
+              ],
+              "right": "gripper0_finger2_collision"
+            },
+            "observed": true,
+            "step": 45,
+            "target": "tomato_sauce_1"
+          }
+        }
+      },
+      "init_state_id": 3,
+      "initial_sim_state_sha256": "0ed7c3497e902d00f06d110a3b297c258e3bc0968ea3e2de51cffb00d0abc583",
+      "latency_ms_per_replan": [
+        97.915752,
+        114.750577,
+        112.198461,
+        112.075043,
+        112.086718,
+        111.106529,
+        111.231256,
+        111.186475,
+        111.094807,
+        112.027331,
+        119.913317,
+        115.466194,
+        112.75231,
+        112.569887,
+        112.583175,
+        111.891779,
+        115.05776,
+        111.857656,
+        112.023941,
+        111.908311,
+        117.883245,
+        111.881468,
+        111.816818,
+        111.838091,
+        111.778053,
+        112.061704,
+        112.098759,
+        118.720138
+      ],
+      "nfe": 2,
+      "noise_schedule_sha256": "0cbec979ff62bd58b630b9e98f6d3617d35af21348f364a61e2e173bd2c8cb50",
+      "phase": "smoke",
+      "status": "COMPLETED",
+      "steps_run": 280,
+      "success": false,
+      "success_timestep": null,
+      "suite": "libero_object",
+      "target_time": null,
+      "task": "pick up the tomato sauce and place it in the basket",
+      "task_id": 5,
+      "termination_reason": "MAX_STEPS",
+      "trace_manifest": {
+        "path": "/root/crp-vla/artifacts/crp_vla/replay_v2/smoke/traces/libero_object-task05-init03-seed0/snap2.sha256.json",
+        "sha256": "c93915203d04b70e0a6276c7ca23815f8eb4ed8ec456d2a9e0db4ff836a115e9"
+      },
+      "used_noise_prefix_length": 28
+    },
+    {
+      "action_stream_sha256": "703fcc4c96312ccd822635a0ae43edbe480a975e794f8dbcfe749d46d46a2ce2",
+      "arm": "snap1",
+      "canonical_input_sha256": "43aad408c295ebe315dab1578693adbc08422fe275c8605655fecc0398445b22",
+      "capsule_path": "/root/crp-vla/artifacts/crp_vla/replay_v2/capsules/smoke/libero_object-task05-init03-seed0",
+      "capsule_sha256": "5ad21a310e22ff9792ea31b7abf1885703b2caf5c85c5395a8f4480e1ca8ae95",
+      "checkpoint": "snap",
+      "env_seed": 0,
+      "evaluator_sha256": "97c984f12331527626812ec19967ef399e545535b3571becf044db2417ae9d71",
+      "events": {
+        "collision": {
+          "available": true,
+          "observed": false
+        },
+        "first_gripper_close": {
+          "available": true,
+          "command": 0.12235670536756516,
+          "observed": true,
+          "step": 57
+        },
+        "first_object_lift": {
+          "available": true,
+          "observed": false
+        },
+        "first_receptacle_entry": {
+          "available": true,
+          "observed": false,
+          "target": "basket_1"
+        },
+        "first_target_contact": {
+          "available": true,
+          "contact": {
+            "candidate_object": "tomato_sauce_1_g5",
+            "distance": -0.0012739369642413864,
+            "left": "tomato_sauce_1_g5",
+            "position": [
+              0.06721948136354938,
+              -0.07764714586191673,
+              0.07436595702259555
+            ],
+            "right": "gripper0_finger2_collision"
+          },
+          "observed": true,
+          "step": 44,
+          "target": "tomato_sauce_1"
+        },
+        "object_dropped": {
+          "available": true,
+          "observed": false
+        }
+      },
+      "execution_horizon": 10,
+      "failure_classification": {
+        "category": "GRASP_FAILURE",
+        "evidence": {
+          "first_gripper_close": {
+            "available": true,
+            "command": 0.12235670536756516,
+            "observed": true,
+            "step": 57
+          },
+          "first_object_lift": {
+            "available": true,
+            "observed": false
+          },
+          "first_target_contact": {
+            "available": true,
+            "contact": {
+              "candidate_object": "tomato_sauce_1_g5",
+              "distance": -0.0012739369642413864,
+              "left": "tomato_sauce_1_g5",
+              "position": [
+                0.06721948136354938,
+                -0.07764714586191673,
+                0.07436595702259555
+              ],
+              "right": "gripper0_finger2_collision"
+            },
+            "observed": true,
+            "step": 44,
+            "target": "tomato_sauce_1"
+          }
+        }
+      },
+      "init_state_id": 3,
+      "initial_sim_state_sha256": "0ed7c3497e902d00f06d110a3b297c258e3bc0968ea3e2de51cffb00d0abc583",
+      "latency_ms_per_replan": [
+        94.322021,
+        98.31658,
+        100.440267,
+        108.435987,
+        106.315573,
+        106.768242,
+        111.412467,
+        103.12783,
+        100.21605,
+        100.105639,
+        101.52306,
+        107.028934,
+        105.538849,
+        103.42771,
+        101.519674,
+        101.404904,
+        105.628031,
+        101.02458,
+        121.494365,
+        102.74979,
+        107.886431,
+        101.463221,
+        100.313721,
+        99.987316,
+        100.384491,
+        104.724444,
+        99.966579,
+        102.814388
+      ],
+      "nfe": 1,
+      "noise_schedule_sha256": "0cbec979ff62bd58b630b9e98f6d3617d35af21348f364a61e2e173bd2c8cb50",
+      "phase": "smoke",
+      "status": "COMPLETED",
+      "steps_run": 280,
+      "success": false,
+      "success_timestep": null,
+      "suite": "libero_object",
+      "target_time": 0.0,
+      "task": "pick up the tomato sauce and place it in the basket",
+      "task_id": 5,
+      "termination_reason": "MAX_STEPS",
+      "trace_manifest": {
+        "path": "/root/crp-vla/artifacts/crp_vla/replay_v2/smoke/traces/libero_object-task05-init03-seed0/snap1.sha256.json",
+        "sha256": "fe99e6f3df09e0e5d80a4a45e0d4a7fd1ba7706c50b363c6e03aecee997f999c"
+      },
+      "used_noise_prefix_length": 28
+    },
+    {
+      "action_stream_sha256": "a416b5e698191908dde40b13f297213de3d90bce27b0d98bf90cf9687365ab72",
+      "arm": "base10",
+      "canonical_input_sha256": "673ecc7b7cef4744bb00d79561f6a390d668edb218c9ee48d5a1e72bd3dca8cd",
+      "capsule_path": "/root/crp-vla/artifacts/crp_vla/replay_v2/capsules/smoke/libero_goal-task00-init03-seed0",
+      "capsule_sha256": "7b4110e5ffd9188e863a2dd9d5f6808f611fa4e3387a4c0d74703631b2c88b7d",
+      "checkpoint": "base",
+      "env_seed": 0,
+      "evaluator_sha256": "97c984f12331527626812ec19967ef399e545535b3571becf044db2417ae9d71",
+      "events": {
+        "collision": {
+          "available": true,
+          "observed": false
+        },
+        "first_gripper_close": {
+          "available": true,
+          "observed": false
+        },
+        "first_object_lift": {
+          "available": true,
+          "observed": false
+        },
+        "first_receptacle_entry": {
+          "available": false,
+          "evidence": "LIBERO success predicate first became true",
+          "observed": true,
+          "step": 122,
+          "target": null
+        },
+        "first_target_contact": {
+          "available": true,
+          "observed": false,
+          "target": "wooden_cabinet_1_middle_region"
+        },
+        "object_dropped": {
+          "available": true,
+          "observed": false
+        }
+      },
+      "execution_horizon": 10,
+      "failure_classification": {
+        "category": null,
+        "evidence": {
+          "success": true
+        }
+      },
+      "init_state_id": 3,
+      "initial_sim_state_sha256": "ff2949e760577c53aec3f3e604c5a462a2cce7cdb95488233d9dd94a97857c88",
+      "latency_ms_per_replan": [
+        283.073897,
+        261.481758,
+        260.39361,
+        258.73314,
+        276.316623,
+        266.21318,
+        280.543432,
+        258.748322,
+        258.183969,
+        266.362915,
+        268.449997,
+        259.847072,
+        254.576474
+      ],
+      "nfe": 10,
+      "noise_schedule_sha256": "26651d93adc90b4f3bbf51d224eda85a402fdfd42a656f11b99634737f83ea1d",
+      "phase": "smoke",
+      "status": "COMPLETED",
+      "steps_run": 123,
+      "success": true,
+      "success_timestep": 123,
+      "suite": "libero_goal",
+      "target_time": null,
+      "task": "open the middle drawer of the cabinet",
+      "task_id": 0,
+      "termination_reason": "SUCCESS",
+      "trace_manifest": {
+        "path": "/root/crp-vla/artifacts/crp_vla/replay_v2/smoke/traces/libero_goal-task00-init03-seed0/base10.sha256.json",
+        "sha256": "452e07e6a01fc6a5982e137563f90293b00fecb7057547536925a2858b7491eb"
+      },
+      "used_noise_prefix_length": 13
+    },
+    {
+      "action_stream_sha256": "cf4e2982a92ea2f246a57d70fc81aecff66b7b5c6eacee8bd562ac4b2a824de8",
+      "arm": "base2",
+      "canonical_input_sha256": "673ecc7b7cef4744bb00d79561f6a390d668edb218c9ee48d5a1e72bd3dca8cd",
+      "capsule_path": "/root/crp-vla/artifacts/crp_vla/replay_v2/capsules/smoke/libero_goal-task00-init03-seed0",
+      "capsule_sha256": "7b4110e5ffd9188e863a2dd9d5f6808f611fa4e3387a4c0d74703631b2c88b7d",
+      "checkpoint": "base",
+      "env_seed": 0,
+      "evaluator_sha256": "97c984f12331527626812ec19967ef399e545535b3571becf044db2417ae9d71",
+      "events": {
+        "collision": {
+          "available": true,
+          "observed": false
+        },
+        "first_gripper_close": {
+          "available": true,
+          "observed": false
+        },
+        "first_object_lift": {
+          "available": true,
+          "observed": false
+        },
+        "first_receptacle_entry": {
+          "available": false,
+          "evidence": "LIBERO success predicate first became true",
+          "observed": true,
+          "step": 123,
+          "target": null
+        },
+        "first_target_contact": {
+          "available": true,
+          "observed": false,
+          "target": "wooden_cabinet_1_middle_region"
+        },
+        "object_dropped": {
+          "available": true,
+          "observed": false
+        }
+      },
+      "execution_horizon": 10,
+      "failure_classification": {
+        "category": null,
+        "evidence": {
+          "success": true
+        }
+      },
+      "init_state_id": 3,
+      "initial_sim_state_sha256": "ff2949e760577c53aec3f3e604c5a462a2cce7cdb95488233d9dd94a97857c88",
+      "latency_ms_per_replan": [
+        121.848736,
+        120.33533,
+        120.124504,
+        118.45349,
+        112.464498,
+        110.777212,
+        111.079432,
+        113.624996,
+        111.184837,
+        111.695748,
+        115.849043,
+        120.018116,
+        120.974184
+      ],
+      "nfe": 2,
+      "noise_schedule_sha256": "26651d93adc90b4f3bbf51d224eda85a402fdfd42a656f11b99634737f83ea1d",
+      "phase": "smoke",
+      "status": "COMPLETED",
+      "steps_run": 124,
+      "success": true,
+      "success_timestep": 124,
+      "suite": "libero_goal",
+      "target_time": null,
+      "task": "open the middle drawer of the cabinet",
+      "task_id": 0,
+      "termination_reason": "SUCCESS",
+      "trace_manifest": {
+        "path": "/root/crp-vla/artifacts/crp_vla/replay_v2/smoke/traces/libero_goal-task00-init03-seed0/base2.sha256.json",
+        "sha256": "b5d13bff52e2c1e304fec3c54917dc8afc362c2fa8850101861ee95ebc365ad2"
+      },
+      "used_noise_prefix_length": 13
+    },
+    {
+      "action_stream_sha256": "ed557154ded3839ff579f79de5cc1f732df232471b99be8a31807bf0ee37543f",
+      "arm": "base1",
+      "canonical_input_sha256": "673ecc7b7cef4744bb00d79561f6a390d668edb218c9ee48d5a1e72bd3dca8cd",
+      "capsule_path": "/root/crp-vla/artifacts/crp_vla/replay_v2/capsules/smoke/libero_goal-task00-init03-seed0",
+      "capsule_sha256": "7b4110e5ffd9188e863a2dd9d5f6808f611fa4e3387a4c0d74703631b2c88b7d",
+      "checkpoint": "base",
+      "env_seed": 0,
+      "evaluator_sha256": "97c984f12331527626812ec19967ef399e545535b3571becf044db2417ae9d71",
+      "events": {
+        "collision": {
+          "available": true,
+          "observed": false
+        },
+        "first_gripper_close": {
+          "available": true,
+          "observed": false
+        },
+        "first_object_lift": {
+          "available": true,
+          "observed": false
+        },
+        "first_receptacle_entry": {
+          "available": false,
+          "evidence": "LIBERO success predicate first became true",
+          "observed": true,
+          "step": 123,
+          "target": null
+        },
+        "first_target_contact": {
+          "available": true,
+          "observed": false,
+          "target": "wooden_cabinet_1_middle_region"
+        },
+        "object_dropped": {
+          "available": true,
+          "observed": false
+        }
+      },
+      "execution_horizon": 10,
+      "failure_classification": {
+        "category": null,
+        "evidence": {
+          "success": true
+        }
+      },
+      "init_state_id": 3,
+      "initial_sim_state_sha256": "ff2949e760577c53aec3f3e604c5a462a2cce7cdb95488233d9dd94a97857c88",
+      "latency_ms_per_replan": [
+        101.858448,
+        99.271928,
+        98.94881,
+        98.075354,
+        95.744215,
+        95.761771,
+        96.202075,
+        95.891187,
+        95.623669,
+        97.13234,
+        101.202775,
+        100.558831,
+        98.317371
+      ],
+      "nfe": 1,
+      "noise_schedule_sha256": "26651d93adc90b4f3bbf51d224eda85a402fdfd42a656f11b99634737f83ea1d",
+      "phase": "smoke",
+      "status": "COMPLETED",
+      "steps_run": 124,
+      "success": true,
+      "success_timestep": 124,
+      "suite": "libero_goal",
+      "target_time": null,
+      "task": "open the middle drawer of the cabinet",
+      "task_id": 0,
+      "termination_reason": "SUCCESS",
+      "trace_manifest": {
+        "path": "/root/crp-vla/artifacts/crp_vla/replay_v2/smoke/traces/libero_goal-task00-init03-seed0/base1.sha256.json",
+        "sha256": "b580347b5c25b27c99be0ae512645dad70a9d80947ada51b4a3b2a843804f50b"
+      },
+      "used_noise_prefix_length": 13
+    },
+    {
+      "action_stream_sha256": "e50ebd75487d87fd13cac9fa8fcd710af91b1af8d076676f5da541e0dc034984",
+      "arm": "snap10",
+      "canonical_input_sha256": "673ecc7b7cef4744bb00d79561f6a390d668edb218c9ee48d5a1e72bd3dca8cd",
+      "capsule_path": "/root/crp-vla/artifacts/crp_vla/replay_v2/capsules/smoke/libero_goal-task00-init03-seed0",
+      "capsule_sha256": "7b4110e5ffd9188e863a2dd9d5f6808f611fa4e3387a4c0d74703631b2c88b7d",
+      "checkpoint": "snap",
+      "env_seed": 0,
+      "evaluator_sha256": "97c984f12331527626812ec19967ef399e545535b3571becf044db2417ae9d71",
+      "events": {
+        "collision": {
+          "available": true,
+          "observed": false
+        },
+        "first_gripper_close": {
+          "available": true,
+          "observed": false
+        },
+        "first_object_lift": {
+          "available": true,
+          "observed": false
+        },
+        "first_receptacle_entry": {
+          "available": false,
+          "evidence": "LIBERO success predicate first became true",
+          "observed": true,
+          "step": 121,
+          "target": null
+        },
+        "first_target_contact": {
+          "available": true,
+          "observed": false,
+          "target": "wooden_cabinet_1_middle_region"
+        },
+        "object_dropped": {
+          "available": true,
+          "observed": false
+        }
+      },
+      "execution_horizon": 10,
+      "failure_classification": {
+        "category": null,
+        "evidence": {
+          "success": true
+        }
+      },
+      "init_state_id": 3,
+      "initial_sim_state_sha256": "ff2949e760577c53aec3f3e604c5a462a2cce7cdb95488233d9dd94a97857c88",
+      "latency_ms_per_replan": [
+        279.902845,
+        266.019319,
+        265.06407,
+        261.596953,
+        257.299852,
+        258.131067,
+        256.590798,
+        261.133327,
+        256.249219,
+        265.38719,
+        257.290306,
+        257.413887,
+        259.938869
+      ],
+      "nfe": 10,
+      "noise_schedule_sha256": "26651d93adc90b4f3bbf51d224eda85a402fdfd42a656f11b99634737f83ea1d",
+      "phase": "smoke",
+      "status": "COMPLETED",
+      "steps_run": 122,
+      "success": true,
+      "success_timestep": 122,
+      "suite": "libero_goal",
+      "target_time": null,
+      "task": "open the middle drawer of the cabinet",
+      "task_id": 0,
+      "termination_reason": "SUCCESS",
+      "trace_manifest": {
+        "path": "/root/crp-vla/artifacts/crp_vla/replay_v2/smoke/traces/libero_goal-task00-init03-seed0/snap10.sha256.json",
+        "sha256": "fe5a18e91ff7bb82f7a04e7ee60f01bd9a1f434d80a568e3048ce8c5931908b6"
+      },
+      "used_noise_prefix_length": 13
+    },
+    {
+      "action_stream_sha256": "7cad01b30a8adda1ea142bd25f486eab3accc835ae0805b8a566dd0a80db8af1",
+      "arm": "snap2",
+      "canonical_input_sha256": "673ecc7b7cef4744bb00d79561f6a390d668edb218c9ee48d5a1e72bd3dca8cd",
+      "capsule_path": "/root/crp-vla/artifacts/crp_vla/replay_v2/capsules/smoke/libero_goal-task00-init03-seed0",
+      "capsule_sha256": "7b4110e5ffd9188e863a2dd9d5f6808f611fa4e3387a4c0d74703631b2c88b7d",
+      "checkpoint": "snap",
+      "env_seed": 0,
+      "evaluator_sha256": "97c984f12331527626812ec19967ef399e545535b3571becf044db2417ae9d71",
+      "events": {
+        "collision": {
+          "available": true,
+          "observed": false
+        },
+        "first_gripper_close": {
+          "available": true,
+          "observed": false
+        },
+        "first_object_lift": {
+          "available": true,
+          "observed": false
+        },
+        "first_receptacle_entry": {
+          "available": false,
+          "evidence": "LIBERO success predicate first became true",
+          "observed": true,
+          "step": 123,
+          "target": null
+        },
+        "first_target_contact": {
+          "available": true,
+          "observed": false,
+          "target": "wooden_cabinet_1_middle_region"
+        },
+        "object_dropped": {
+          "available": true,
+          "observed": false
+        }
+      },
+      "execution_horizon": 10,
+      "failure_classification": {
+        "category": null,
+        "evidence": {
+          "success": true
+        }
+      },
+      "init_state_id": 3,
+      "initial_sim_state_sha256": "ff2949e760577c53aec3f3e604c5a462a2cce7cdb95488233d9dd94a97857c88",
+      "latency_ms_per_replan": [
+        118.504823,
+        113.078505,
+        112.253998,
+        112.096576,
+        115.822973,
+        112.699876,
+        113.313549,
+        117.490162,
+        115.522813,
+        115.813869,
+        115.571513,
+        114.309473,
+        116.757629
+      ],
+      "nfe": 2,
+      "noise_schedule_sha256": "26651d93adc90b4f3bbf51d224eda85a402fdfd42a656f11b99634737f83ea1d",
+      "phase": "smoke",
+      "status": "COMPLETED",
+      "steps_run": 124,
+      "success": true,
+      "success_timestep": 124,
+      "suite": "libero_goal",
+      "target_time": null,
+      "task": "open the middle drawer of the cabinet",
+      "task_id": 0,
+      "termination_reason": "SUCCESS",
+      "trace_manifest": {
+        "path": "/root/crp-vla/artifacts/crp_vla/replay_v2/smoke/traces/libero_goal-task00-init03-seed0/snap2.sha256.json",
+        "sha256": "638c4538a5ef95339f9f2d62252b83b0226721702a5033a25466c759db14fef2"
+      },
+      "used_noise_prefix_length": 13
+    },
+    {
+      "action_stream_sha256": "11b46906c9c64aed33c1df278a367fe0720a5c057ff037cb13f901b787e95b18",
+      "arm": "snap1",
+      "canonical_input_sha256": "673ecc7b7cef4744bb00d79561f6a390d668edb218c9ee48d5a1e72bd3dca8cd",
+      "capsule_path": "/root/crp-vla/artifacts/crp_vla/replay_v2/capsules/smoke/libero_goal-task00-init03-seed0",
+      "capsule_sha256": "7b4110e5ffd9188e863a2dd9d5f6808f611fa4e3387a4c0d74703631b2c88b7d",
+      "checkpoint": "snap",
+      "env_seed": 0,
+      "evaluator_sha256": "97c984f12331527626812ec19967ef399e545535b3571becf044db2417ae9d71",
+      "events": {
+        "collision": {
+          "available": true,
+          "observed": false
+        },
+        "first_gripper_close": {
+          "available": true,
+          "observed": false
+        },
+        "first_object_lift": {
+          "available": true,
+          "observed": false
+        },
+        "first_receptacle_entry": {
+          "available": false,
+          "evidence": "LIBERO success predicate first became true",
+          "observed": true,
+          "step": 128,
+          "target": null
+        },
+        "first_target_contact": {
+          "available": true,
+          "observed": false,
+          "target": "wooden_cabinet_1_middle_region"
+        },
+        "object_dropped": {
+          "available": true,
+          "observed": false
+        }
+      },
+      "execution_horizon": 10,
+      "failure_classification": {
+        "category": null,
+        "evidence": {
+          "success": true
+        }
+      },
+      "init_state_id": 3,
+      "initial_sim_state_sha256": "ff2949e760577c53aec3f3e604c5a462a2cce7cdb95488233d9dd94a97857c88",
+      "latency_ms_per_replan": [
+        103.399443,
+        107.174835,
+        105.116409,
+        100.493688,
+        99.154767,
+        99.28533,
+        100.737816,
+        100.754324,
+        100.38788,
+        101.427759,
+        102.837575,
+        103.990747,
+        103.282435
+      ],
+      "nfe": 1,
+      "noise_schedule_sha256": "26651d93adc90b4f3bbf51d224eda85a402fdfd42a656f11b99634737f83ea1d",
+      "phase": "smoke",
+      "status": "COMPLETED",
+      "steps_run": 129,
+      "success": true,
+      "success_timestep": 129,
+      "suite": "libero_goal",
+      "target_time": 0.0,
+      "task": "open the middle drawer of the cabinet",
+      "task_id": 0,
+      "termination_reason": "SUCCESS",
+      "trace_manifest": {
+        "path": "/root/crp-vla/artifacts/crp_vla/replay_v2/smoke/traces/libero_goal-task00-init03-seed0/snap1.sha256.json",
+        "sha256": "90d4a8d04290ca0707cdd47e852508db630324321e6f5b66881336e35b826428"
+      },
+      "used_noise_prefix_length": 13
+    },
+    {
+      "action_stream_sha256": "6ae62a81099d695a906dbb251606a030ca76258e8bac3a74ab09123d92474bf8",
+      "arm": "base10",
+      "canonical_input_sha256": "169d9d3e37b753b1fb1272656e3c488671c46f92646f41c9fa8af0b4912e3e75",
+      "capsule_path": "/root/crp-vla/artifacts/crp_vla/replay_v2/capsules/smoke/libero_goal-task05-init03-seed0",
+      "capsule_sha256": "7af2857da940427f2ca8fcec3c7e1f0e82a297e6dc0de18e8e10642798f82036",
+      "checkpoint": "base",
+      "env_seed": 0,
+      "evaluator_sha256": "97c984f12331527626812ec19967ef399e545535b3571becf044db2417ae9d71",
+      "events": {
+        "collision": {
+          "available": true,
+          "observed": false
+        },
+        "first_gripper_close": {
+          "available": true,
+          "observed": false
+        },
+        "first_object_lift": {
+          "available": true,
+          "observed": false
+        },
+        "first_receptacle_entry": {
+          "available": true,
+          "evidence": "LIBERO success predicate first became true",
+          "observed": true,
+          "step": 135,
+          "target": "main_table_stove_front_region"
+        },
+        "first_target_contact": {
+          "available": true,
+          "contact": {
+            "candidate_object": "plate_1_g4",
+            "distance": -0.0032019209207313657,
+            "left": "plate_1_g4",
+            "position": [
+              0.027806629449270787,
+              0.029991561222135976,
+              0.9143754488264695
+            ],
+            "right": "gripper0_finger2_collision"
+          },
+          "observed": true,
+          "step": 41,
+          "target": "plate_1"
+        },
+        "object_dropped": {
+          "available": true,
+          "observed": false
+        }
+      },
+      "execution_horizon": 10,
+      "failure_classification": {
+        "category": null,
+        "evidence": {
+          "success": true
+        }
+      },
+      "init_state_id": 3,
+      "initial_sim_state_sha256": "b8215521b4fa949340fd1b62adcccfe48d52b93185594f0dcc62117cc7192308",
+      "latency_ms_per_replan": [
+        281.879628,
+        259.578505,
+        268.616258,
+        258.921082,
+        268.59823,
+        263.876534,
+        263.943344,
+        288.324461,
+        279.201055,
+        278.345062,
+        269.149348,
+        277.592487,
+        268.056898,
+        275.186155
+      ],
+      "nfe": 10,
+      "noise_schedule_sha256": "e75c8cb013f13e3afec7afeb13a3818e56c0dcd0cfbec1d35eff94a0e7fd52e5",
+      "phase": "smoke",
+      "status": "COMPLETED",
+      "steps_run": 136,
+      "success": true,
+      "success_timestep": 136,
+      "suite": "libero_goal",
+      "target_time": null,
+      "task": "push the plate to the front of the stove",
+      "task_id": 5,
+      "termination_reason": "SUCCESS",
+      "trace_manifest": {
+        "path": "/root/crp-vla/artifacts/crp_vla/replay_v2/smoke/traces/libero_goal-task05-init03-seed0/base10.sha256.json",
+        "sha256": "355722d4f6542c8921ed52fbc46b55bfb13dd9596f7530a2074fd593d61a8353"
+      },
+      "used_noise_prefix_length": 14
+    },
+    {
+      "action_stream_sha256": "1ccf37d98f61873e620808f3f005ef7f629baa2f9ce729656fbbca8828be1fe5",
+      "arm": "base2",
+      "canonical_input_sha256": "169d9d3e37b753b1fb1272656e3c488671c46f92646f41c9fa8af0b4912e3e75",
+      "capsule_path": "/root/crp-vla/artifacts/crp_vla/replay_v2/capsules/smoke/libero_goal-task05-init03-seed0",
+      "capsule_sha256": "7af2857da940427f2ca8fcec3c7e1f0e82a297e6dc0de18e8e10642798f82036",
+      "checkpoint": "base",
+      "env_seed": 0,
+      "evaluator_sha256": "97c984f12331527626812ec19967ef399e545535b3571becf044db2417ae9d71",
+      "events": {
+        "collision": {
+          "available": true,
+          "observed": false
+        },
+        "first_gripper_close": {
+          "available": true,
+          "observed": false
+        },
+        "first_object_lift": {
+          "available": true,
+          "observed": false
+        },
+        "first_receptacle_entry": {
+          "available": true,
+          "evidence": "LIBERO success predicate first became true",
+          "observed": true,
+          "step": 150,
+          "target": "main_table_stove_front_region"
+        },
+        "first_target_contact": {
+          "available": true,
+          "contact": {
+            "candidate_object": "plate_1_g1",
+            "distance": -0.0013049208596540899,
+            "left": "plate_1_g1",
+            "position": [
+              0.04265489057496313,
+              -0.05963286223050476,
+              0.9178850957509714
+            ],
+            "right": "gripper0_finger1_collision"
+          },
+          "observed": true,
+          "step": 41,
+          "target": "plate_1"
+        },
+        "object_dropped": {
+          "available": true,
+          "observed": false
+        }
+      },
+      "execution_horizon": 10,
+      "failure_classification": {
+        "category": null,
+        "evidence": {
+          "success": true
+        }
+      },
+      "init_state_id": 3,
+      "initial_sim_state_sha256": "b8215521b4fa949340fd1b62adcccfe48d52b93185594f0dcc62117cc7192308",
+      "latency_ms_per_replan": [
+        121.956797,
+        127.514668,
+        121.973835,
+        121.772284,
+        123.747599,
+        116.669027,
+        115.463982,
+        119.010288,
+        114.237438,
+        117.809926,
+        114.639226,
+        113.544088,
+        117.877709,
+        118.227609,
+        116.826227,
+        115.362721
+      ],
+      "nfe": 2,
+      "noise_schedule_sha256": "e75c8cb013f13e3afec7afeb13a3818e56c0dcd0cfbec1d35eff94a0e7fd52e5",
+      "phase": "smoke",
+      "status": "COMPLETED",
+      "steps_run": 151,
+      "success": true,
+      "success_timestep": 151,
+      "suite": "libero_goal",
+      "target_time": null,
+      "task": "push the plate to the front of the stove",
+      "task_id": 5,
+      "termination_reason": "SUCCESS",
+      "trace_manifest": {
+        "path": "/root/crp-vla/artifacts/crp_vla/replay_v2/smoke/traces/libero_goal-task05-init03-seed0/base2.sha256.json",
+        "sha256": "59a58d37ed22cf7aa8937c85f14a5892e244aadafcba00bf4c85503cdcd9577e"
+      },
+      "used_noise_prefix_length": 16
+    },
+    {
+      "action_stream_sha256": "00de18d25c584b45db7f67814e3403dd14a7c992828bf001b1a38346296c37ab",
+      "arm": "base1",
+      "canonical_input_sha256": "169d9d3e37b753b1fb1272656e3c488671c46f92646f41c9fa8af0b4912e3e75",
+      "capsule_path": "/root/crp-vla/artifacts/crp_vla/replay_v2/capsules/smoke/libero_goal-task05-init03-seed0",
+      "capsule_sha256": "7af2857da940427f2ca8fcec3c7e1f0e82a297e6dc0de18e8e10642798f82036",
+      "checkpoint": "base",
+      "env_seed": 0,
+      "evaluator_sha256": "97c984f12331527626812ec19967ef399e545535b3571becf044db2417ae9d71",
+      "events": {
+        "collision": {
+          "available": true,
+          "observed": false
+        },
+        "first_gripper_close": {
+          "available": true,
+          "observed": false
+        },
+        "first_object_lift": {
+          "available": true,
+          "observed": false
+        },
+        "first_receptacle_entry": {
+          "available": true,
+          "evidence": "LIBERO success predicate first became true",
+          "observed": true,
+          "step": 160,
+          "target": "main_table_stove_front_region"
+        },
+        "first_target_contact": {
+          "available": true,
+          "contact": {
+            "candidate_object": "plate_1_g1",
+            "distance": -0.000892796412964132,
+            "left": "plate_1_g1",
+            "position": [
+              0.037434169293801556,
+              -0.04560985911969696,
+              0.9079665519081924
+            ],
+            "right": "gripper0_finger1_collision"
+          },
+          "observed": true,
+          "step": 42,
+          "target": "plate_1"
+        },
+        "object_dropped": {
+          "available": true,
+          "observed": false
+        }
+      },
+      "execution_horizon": 10,
+      "failure_classification": {
+        "category": null,
+        "evidence": {
+          "success": true
+        }
+      },
+      "init_state_id": 3,
+      "initial_sim_state_sha256": "b8215521b4fa949340fd1b62adcccfe48d52b93185594f0dcc62117cc7192308",
+      "latency_ms_per_replan": [
+        101.870861,
+        99.496488,
+        99.172478,
+        98.598754,
+        98.806131,
+        101.111381,
+        98.191905,
+        99.745215,
+        98.996522,
+        98.500216,
+        98.232577,
+        101.034452,
+        98.053034,
+        100.25995,
+        97.94359,
+        96.072598,
+        95.71078
+      ],
+      "nfe": 1,
+      "noise_schedule_sha256": "e75c8cb013f13e3afec7afeb13a3818e56c0dcd0cfbec1d35eff94a0e7fd52e5",
+      "phase": "smoke",
+      "status": "COMPLETED",
+      "steps_run": 161,
+      "success": true,
+      "success_timestep": 161,
+      "suite": "libero_goal",
+      "target_time": null,
+      "task": "push the plate to the front of the stove",
+      "task_id": 5,
+      "termination_reason": "SUCCESS",
+      "trace_manifest": {
+        "path": "/root/crp-vla/artifacts/crp_vla/replay_v2/smoke/traces/libero_goal-task05-init03-seed0/base1.sha256.json",
+        "sha256": "23640e4fd382e213972ce78faf96a17e389bd4b1128c8d1c018cf12e43f6a856"
+      },
+      "used_noise_prefix_length": 17
+    },
+    {
+      "action_stream_sha256": "2a0e680447f91e8f8ffeadd21b4a2ae577d27a8058d31f1c7de1e3150509b1b4",
+      "arm": "snap10",
+      "canonical_input_sha256": "169d9d3e37b753b1fb1272656e3c488671c46f92646f41c9fa8af0b4912e3e75",
+      "capsule_path": "/root/crp-vla/artifacts/crp_vla/replay_v2/capsules/smoke/libero_goal-task05-init03-seed0",
+      "capsule_sha256": "7af2857da940427f2ca8fcec3c7e1f0e82a297e6dc0de18e8e10642798f82036",
+      "checkpoint": "snap",
+      "env_seed": 0,
+      "evaluator_sha256": "97c984f12331527626812ec19967ef399e545535b3571becf044db2417ae9d71",
+      "events": {
+        "collision": {
+          "available": true,
+          "observed": false
+        },
+        "first_gripper_close": {
+          "available": true,
+          "observed": false
+        },
+        "first_object_lift": {
+          "available": true,
+          "observed": false
+        },
+        "first_receptacle_entry": {
+          "available": true,
+          "evidence": "LIBERO success predicate first became true",
+          "observed": true,
+          "step": 145,
+          "target": "main_table_stove_front_region"
+        },
+        "first_target_contact": {
+          "available": true,
+          "contact": {
+            "candidate_object": "plate_1_g5",
+            "distance": -0.0005825102193101674,
+            "left": "plate_1_g5",
+            "position": [
+              0.0415254617378441,
+              0.03241584570290317,
+              0.9174386380794239
+            ],
+            "right": "gripper0_finger2_collision"
+          },
+          "observed": true,
+          "step": 40,
+          "target": "plate_1"
+        },
+        "object_dropped": {
+          "available": true,
+          "observed": false
+        }
+      },
+      "execution_horizon": 10,
+      "failure_classification": {
+        "category": null,
+        "evidence": {
+          "success": true
+        }
+      },
+      "init_state_id": 3,
+      "initial_sim_state_sha256": "b8215521b4fa949340fd1b62adcccfe48d52b93185594f0dcc62117cc7192308",
+      "latency_ms_per_replan": [
+        283.208638,
+        266.400461,
+        261.808677,
+        261.384401,
+        264.998708,
+        265.540336,
+        265.206116,
+        261.185029,
+        263.429518,
+        265.133224,
+        274.528127,
+        267.745638,
+        260.06207,
+        259.64431,
+        258.996852
+      ],
+      "nfe": 10,
+      "noise_schedule_sha256": "e75c8cb013f13e3afec7afeb13a3818e56c0dcd0cfbec1d35eff94a0e7fd52e5",
+      "phase": "smoke",
+      "status": "COMPLETED",
+      "steps_run": 146,
+      "success": true,
+      "success_timestep": 146,
+      "suite": "libero_goal",
+      "target_time": null,
+      "task": "push the plate to the front of the stove",
+      "task_id": 5,
+      "termination_reason": "SUCCESS",
+      "trace_manifest": {
+        "path": "/root/crp-vla/artifacts/crp_vla/replay_v2/smoke/traces/libero_goal-task05-init03-seed0/snap10.sha256.json",
+        "sha256": "38edf49ac62a2ec54ebf04b2beb07b1e176ca6b302f32c6ff36b889983d23d54"
+      },
+      "used_noise_prefix_length": 15
+    },
+    {
+      "action_stream_sha256": "37062c9d311e89748e91abde7a3f4a227a2ce7032b4793ce29b03757d33755fe",
+      "arm": "snap2",
+      "canonical_input_sha256": "169d9d3e37b753b1fb1272656e3c488671c46f92646f41c9fa8af0b4912e3e75",
+      "capsule_path": "/root/crp-vla/artifacts/crp_vla/replay_v2/capsules/smoke/libero_goal-task05-init03-seed0",
+      "capsule_sha256": "7af2857da940427f2ca8fcec3c7e1f0e82a297e6dc0de18e8e10642798f82036",
+      "checkpoint": "snap",
+      "env_seed": 0,
+      "evaluator_sha256": "97c984f12331527626812ec19967ef399e545535b3571becf044db2417ae9d71",
+      "events": {
+        "collision": {
+          "available": true,
+          "observed": false
+        },
+        "first_gripper_close": {
+          "available": true,
+          "observed": false
+        },
+        "first_object_lift": {
+          "available": true,
+          "observed": false
+        },
+        "first_receptacle_entry": {
+          "available": true,
+          "evidence": "LIBERO success predicate first became true",
+          "observed": true,
+          "step": 122,
+          "target": "main_table_stove_front_region"
+        },
+        "first_target_contact": {
+          "available": true,
+          "contact": {
+            "candidate_object": "plate_1_g4",
+            "distance": -0.0035615856929413535,
+            "left": "plate_1_g4",
+            "position": [
+              0.027955403842439074,
+              0.03080044934217637,
+              0.914240550606687
+            ],
+            "right": "gripper0_finger2_collision"
+          },
+          "observed": true,
+          "step": 41,
+          "target": "plate_1"
+        },
+        "object_dropped": {
+          "available": true,
+          "observed": false
+        }
+      },
+      "execution_horizon": 10,
+      "failure_classification": {
+        "category": null,
+        "evidence": {
+          "success": true
+        }
+      },
+      "init_state_id": 3,
+      "initial_sim_state_sha256": "b8215521b4fa949340fd1b62adcccfe48d52b93185594f0dcc62117cc7192308",
+      "latency_ms_per_replan": [
+        122.788538,
+        121.605416,
+        121.282941,
+        116.560486,
+        112.996136,
+        112.842809,
+        112.342562,
+        112.44556,
+        116.18337,
+        112.912402,
+        112.243378,
+        112.226167,
+        112.695939
+      ],
+      "nfe": 2,
+      "noise_schedule_sha256": "e75c8cb013f13e3afec7afeb13a3818e56c0dcd0cfbec1d35eff94a0e7fd52e5",
+      "phase": "smoke",
+      "status": "COMPLETED",
+      "steps_run": 123,
+      "success": true,
+      "success_timestep": 123,
+      "suite": "libero_goal",
+      "target_time": null,
+      "task": "push the plate to the front of the stove",
+      "task_id": 5,
+      "termination_reason": "SUCCESS",
+      "trace_manifest": {
+        "path": "/root/crp-vla/artifacts/crp_vla/replay_v2/smoke/traces/libero_goal-task05-init03-seed0/snap2.sha256.json",
+        "sha256": "b2bad978c8ed0b6d1d8ddc57a8cdefaca7ad5a0ec5885c084afd543bd430d2bc"
+      },
+      "used_noise_prefix_length": 13
+    },
+    {
+      "action_stream_sha256": "28ca6ffc75836789b0933c9a32c2e45a2f65613fd70961484fb18d28f434801e",
+      "arm": "snap1",
+      "canonical_input_sha256": "169d9d3e37b753b1fb1272656e3c488671c46f92646f41c9fa8af0b4912e3e75",
+      "capsule_path": "/root/crp-vla/artifacts/crp_vla/replay_v2/capsules/smoke/libero_goal-task05-init03-seed0",
+      "capsule_sha256": "7af2857da940427f2ca8fcec3c7e1f0e82a297e6dc0de18e8e10642798f82036",
+      "checkpoint": "snap",
+      "env_seed": 0,
+      "evaluator_sha256": "97c984f12331527626812ec19967ef399e545535b3571becf044db2417ae9d71",
+      "events": {
+        "collision": {
+          "available": true,
+          "observed": false
+        },
+        "first_gripper_close": {
+          "available": true,
+          "observed": false
+        },
+        "first_object_lift": {
+          "available": true,
+          "observed": false
+        },
+        "first_receptacle_entry": {
+          "available": true,
+          "evidence": "LIBERO success predicate first became true",
+          "observed": true,
+          "step": 172,
+          "target": "main_table_stove_front_region"
+        },
+        "first_target_contact": {
+          "available": true,
+          "contact": {
+            "candidate_object": "plate_1_g1",
+            "distance": -0.0007030215756360702,
+            "left": "plate_1_g1",
+            "position": [
+              0.039072092034923324,
+              -0.04862549825262942,
+              0.907679926233764
+            ],
+            "right": "gripper0_finger1_collision"
+          },
+          "observed": true,
+          "step": 42,
+          "target": "plate_1"
+        },
+        "object_dropped": {
+          "available": true,
+          "observed": false
+        }
+      },
+      "execution_horizon": 10,
+      "failure_classification": {
+        "category": null,
+        "evidence": {
+          "success": true
+        }
+      },
+      "init_state_id": 3,
+      "initial_sim_state_sha256": "b8215521b4fa949340fd1b62adcccfe48d52b93185594f0dcc62117cc7192308",
+      "latency_ms_per_replan": [
+        102.68622,
+        99.319229,
+        97.25892,
+        97.98175,
+        97.352058,
+        96.912582,
+        96.898847,
+        101.337566,
+        99.211318,
+        98.357848,
+        98.269709,
+        98.146099,
+        98.180537,
+        98.902383,
+        101.477998,
+        101.241095,
+        100.937962,
+        100.902171
+      ],
+      "nfe": 1,
+      "noise_schedule_sha256": "e75c8cb013f13e3afec7afeb13a3818e56c0dcd0cfbec1d35eff94a0e7fd52e5",
+      "phase": "smoke",
+      "status": "COMPLETED",
+      "steps_run": 173,
+      "success": true,
+      "success_timestep": 173,
+      "suite": "libero_goal",
+      "target_time": 0.0,
+      "task": "push the plate to the front of the stove",
+      "task_id": 5,
+      "termination_reason": "SUCCESS",
+      "trace_manifest": {
+        "path": "/root/crp-vla/artifacts/crp_vla/replay_v2/smoke/traces/libero_goal-task05-init03-seed0/snap1.sha256.json",
+        "sha256": "9dcdcaaf8ab56614f36b555e65fa39dd249198e9c6d8f62654bd6a89501fb43a"
+      },
+      "used_noise_prefix_length": 18
+    },
+    {
+      "action_stream_sha256": "78adf23a81c1fc22774f8be657f0b0a16bcf13d65fcc5b7f26fd618f84648fbb",
+      "arm": "base10",
+      "canonical_input_sha256": "120ea246d693a0a29be6365860448498af2cef9c54e0d88cac14b1cbc38c3791",
+      "capsule_path": "/root/crp-vla/artifacts/crp_vla/replay_v2/capsules/smoke/libero_10-task00-init03-seed0",
+      "capsule_sha256": "45d73371febc5587787669b40a78a226ac20de5e9208f2cd8cd41d5c62a749aa",
+      "checkpoint": "base",
+      "env_seed": 0,
+      "evaluator_sha256": "97c984f12331527626812ec19967ef399e545535b3571becf044db2417ae9d71",
+      "events": {
+        "collision": {
+          "available": true,
+          "observed": false
+        },
+        "first_gripper_close": {
+          "available": true,
+          "command": 1.0034797191619873,
+          "observed": true,
+          "step": 63
+        },
+        "first_object_lift": {
+          "available": true,
+          "body": "alphabet_soup_1_main",
+          "delta_z": 0.03308572705462226,
+          "observed": true,
+          "step": 76
+        },
+        "first_receptacle_entry": {
+          "available": true,
+          "evidence": "LIBERO success predicate first became true",
+          "observed": true,
+          "step": 269,
+          "target": "tomato_sauce_1"
+        },
+        "first_target_contact": {
+          "available": true,
+          "contact": {
+            "candidate_object": "alphabet_soup_1_g3",
+            "distance": -0.0007595593216265448,
+            "left": "alphabet_soup_1_g3",
+            "position": [
+              -0.08729796375089272,
+              -0.1492876500255288,
+              0.5116278696826433
+            ],
+            "right": "gripper0_hand_collision"
+          },
+          "observed": true,
+          "step": 56,
+          "target": "alphabet_soup_1"
+        },
+        "object_dropped": {
+          "available": true,
+          "observed": false
+        }
+      },
+      "execution_horizon": 10,
+      "failure_classification": {
+        "category": null,
+        "evidence": {
+          "success": true
+        }
+      },
+      "init_state_id": 3,
+      "initial_sim_state_sha256": "328707dff88846fa583a82945c7541739e3e6ebdd385e94d23a14417244d2e40",
+      "latency_ms_per_replan": [
+        284.829589,
+        262.648666,
+        252.858691,
+        253.153172,
+        254.69464,
+        257.873931,
+        265.068971,
+        259.863955,
+        258.840531,
+        255.608442,
+        255.047819,
+        254.703975,
+        254.464246,
+        253.129107,
+        256.288419,
+        253.113517,
+        257.071108,
+        262.306688,
+        261.345245,
+        259.644623,
+        276.40051,
+        275.432749,
+        269.708541,
+        278.386013,
+        281.579586,
+        275.706667,
+        262.668776
+      ],
+      "nfe": 10,
+      "noise_schedule_sha256": "9c71a4cb6deefaee7c6e45f750f53e107d3520d3cfcee0e7a8e26c1fe85ff637",
+      "phase": "smoke",
+      "status": "COMPLETED",
+      "steps_run": 270,
+      "success": true,
+      "success_timestep": 270,
+      "suite": "libero_10",
+      "target_time": null,
+      "task": "put both the alphabet soup and the tomato sauce in the basket",
+      "task_id": 0,
+      "termination_reason": "SUCCESS",
+      "trace_manifest": {
+        "path": "/root/crp-vla/artifacts/crp_vla/replay_v2/smoke/traces/libero_10-task00-init03-seed0/base10.sha256.json",
+        "sha256": "4cfea5ae155dcaf7b8e6c95d5361f606009affeee65589bb59f99e6b348508e9"
+      },
+      "used_noise_prefix_length": 27
+    },
+    {
+      "action_stream_sha256": "491f9faf9966d727f3cde03cbd5770959cac766b40a18d0fb4ae3c4cec1ed3a6",
+      "arm": "base2",
+      "canonical_input_sha256": "120ea246d693a0a29be6365860448498af2cef9c54e0d88cac14b1cbc38c3791",
+      "capsule_path": "/root/crp-vla/artifacts/crp_vla/replay_v2/capsules/smoke/libero_10-task00-init03-seed0",
+      "capsule_sha256": "45d73371febc5587787669b40a78a226ac20de5e9208f2cd8cd41d5c62a749aa",
+      "checkpoint": "base",
+      "env_seed": 0,
+      "evaluator_sha256": "97c984f12331527626812ec19967ef399e545535b3571becf044db2417ae9d71",
+      "events": {
+        "collision": {
+          "available": true,
+          "observed": false
+        },
+        "first_gripper_close": {
+          "available": true,
+          "command": 1.0134581327438354,
+          "observed": true,
+          "step": 59
+        },
+        "first_object_lift": {
+          "available": true,
+          "body": "alphabet_soup_1_main",
+          "delta_z": 0.037670853552443095,
+          "observed": true,
+          "step": 73
+        },
+        "first_receptacle_entry": {
+          "available": true,
+          "evidence": "LIBERO success predicate first became true",
+          "observed": true,
+          "step": 270,
+          "target": "tomato_sauce_1"
+        },
+        "first_target_contact": {
+          "available": true,
+          "contact": {
+            "candidate_object": "alphabet_soup_1_g19",
+            "distance": -2.565564823331591e-05,
+            "left": "alphabet_soup_1_g19",
+            "position": [
+              -0.09333795239234334,
+              -0.1392215185657819,
+              0.5119679431595378
+            ],
+            "right": "gripper0_hand_collision"
+          },
+          "observed": true,
+          "step": 56,
+          "target": "alphabet_soup_1"
+        },
+        "object_dropped": {
+          "available": true,
+          "observed": false
+        }
+      },
+      "execution_horizon": 10,
+      "failure_classification": {
+        "category": null,
+        "evidence": {
+          "success": true
+        }
+      },
+      "init_state_id": 3,
+      "initial_sim_state_sha256": "328707dff88846fa583a82945c7541739e3e6ebdd385e94d23a14417244d2e40",
+      "latency_ms_per_replan": [
+        122.067027,
+        124.588755,
+        119.181232,
+        112.475002,
+        113.336808,
+        113.395554,
+        113.18544,
+        118.206518,
+        122.243911,
+        121.799084,
+        123.030238,
+        118.357982,
+        120.409001,
+        113.96177,
+        113.908011,
+        112.289341,
+        113.061603,
+        115.871386,
+        118.618368,
+        122.70705,
+        121.15453,
+        119.357955,
+        117.461619,
+        119.146432,
+        116.505001,
+        126.586678,
+        123.774705,
+        118.921984
+      ],
+      "nfe": 2,
+      "noise_schedule_sha256": "9c71a4cb6deefaee7c6e45f750f53e107d3520d3cfcee0e7a8e26c1fe85ff637",
+      "phase": "smoke",
+      "status": "COMPLETED",
+      "steps_run": 271,
+      "success": true,
+      "success_timestep": 271,
+      "suite": "libero_10",
+      "target_time": null,
+      "task": "put both the alphabet soup and the tomato sauce in the basket",
+      "task_id": 0,
+      "termination_reason": "SUCCESS",
+      "trace_manifest": {
+        "path": "/root/crp-vla/artifacts/crp_vla/replay_v2/smoke/traces/libero_10-task00-init03-seed0/base2.sha256.json",
+        "sha256": "25b8632291db14de0bbb24011bb7aadf678ccce4bbfa59577acf43dda5dedda8"
+      },
+      "used_noise_prefix_length": 28
+    },
+    {
+      "action_stream_sha256": "735bda57925f08818c704c7d9409595b190e5e935db9873134562b3acde2fe1f",
+      "arm": "base1",
+      "canonical_input_sha256": "120ea246d693a0a29be6365860448498af2cef9c54e0d88cac14b1cbc38c3791",
+      "capsule_path": "/root/crp-vla/artifacts/crp_vla/replay_v2/capsules/smoke/libero_10-task00-init03-seed0",
+      "capsule_sha256": "45d73371febc5587787669b40a78a226ac20de5e9208f2cd8cd41d5c62a749aa",
+      "checkpoint": "base",
+      "env_seed": 0,
+      "evaluator_sha256": "97c984f12331527626812ec19967ef399e545535b3571becf044db2417ae9d71",
+      "events": {
+        "collision": {
+          "available": true,
+          "observed": false
+        },
+        "first_gripper_close": {
+          "available": true,
+          "command": 0.4871059060096741,
+          "observed": true,
+          "step": 58
+        },
+        "first_object_lift": {
+          "available": true,
+          "body": "alphabet_soup_1_main",
+          "delta_z": 0.03526761186872246,
+          "observed": true,
+          "step": 71
+        },
+        "first_receptacle_entry": {
+          "available": true,
+          "evidence": "LIBERO success predicate first became true",
+          "observed": true,
+          "step": 273,
+          "target": "tomato_sauce_1"
+        },
+        "first_target_contact": {
+          "available": true,
+          "contact": {
+            "candidate_object": "alphabet_soup_1_g6",
+            "distance": -4.763003333937854e-05,
+            "left": "gripper0_finger1_pad_collision",
+            "position": [
+              -0.1061034515214133,
+              -0.1966965413264208,
+              0.49944920040576657
+            ],
+            "right": "alphabet_soup_1_g6"
+          },
+          "observed": true,
+          "step": 55,
+          "target": "alphabet_soup_1"
+        },
+        "object_dropped": {
+          "available": true,
+          "observed": false
+        }
+      },
+      "execution_horizon": 10,
+      "failure_classification": {
+        "category": null,
+        "evidence": {
+          "success": true
+        }
+      },
+      "init_state_id": 3,
+      "initial_sim_state_sha256": "328707dff88846fa583a82945c7541739e3e6ebdd385e94d23a14417244d2e40",
+      "latency_ms_per_replan": [
+        93.568162,
+        95.785626,
+        94.797686,
+        93.450155,
+        98.883353,
+        102.012239,
+        99.246721,
+        99.167344,
+        100.370168,
+        100.252653,
+        101.598324,
+        100.691537,
+        102.109631,
+        100.880553,
+        99.858512,
+        99.599832,
+        98.492716,
+        98.693946,
+        98.665869,
+        98.506514,
+        96.559026,
+        96.983978,
+        101.196061,
+        98.192267,
+        102.512795,
+        100.923265,
+        101.25241,
+        101.343793
+      ],
+      "nfe": 1,
+      "noise_schedule_sha256": "9c71a4cb6deefaee7c6e45f750f53e107d3520d3cfcee0e7a8e26c1fe85ff637",
+      "phase": "smoke",
+      "status": "COMPLETED",
+      "steps_run": 274,
+      "success": true,
+      "success_timestep": 274,
+      "suite": "libero_10",
+      "target_time": null,
+      "task": "put both the alphabet soup and the tomato sauce in the basket",
+      "task_id": 0,
+      "termination_reason": "SUCCESS",
+      "trace_manifest": {
+        "path": "/root/crp-vla/artifacts/crp_vla/replay_v2/smoke/traces/libero_10-task00-init03-seed0/base1.sha256.json",
+        "sha256": "cf1b093fddfbaf23db950c392a572d1209b5eccc57ccc7bb020622360c35f9cd"
+      },
+      "used_noise_prefix_length": 28
+    },
+    {
+      "action_stream_sha256": "6fbd268a97640cf4c5a52626c0dfff89220de515c9481d7b274883b942c7570c",
+      "arm": "snap10",
+      "canonical_input_sha256": "120ea246d693a0a29be6365860448498af2cef9c54e0d88cac14b1cbc38c3791",
+      "capsule_path": "/root/crp-vla/artifacts/crp_vla/replay_v2/capsules/smoke/libero_10-task00-init03-seed0",
+      "capsule_sha256": "45d73371febc5587787669b40a78a226ac20de5e9208f2cd8cd41d5c62a749aa",
+      "checkpoint": "snap",
+      "env_seed": 0,
+      "evaluator_sha256": "97c984f12331527626812ec19967ef399e545535b3571becf044db2417ae9d71",
+      "events": {
+        "collision": {
+          "available": true,
+          "observed": false
+        },
+        "first_gripper_close": {
+          "available": true,
+          "command": 1.0114799737930298,
+          "observed": true,
+          "step": 64
+        },
+        "first_object_lift": {
+          "available": true,
+          "body": "alphabet_soup_1_main",
+          "delta_z": 0.03118116070892868,
+          "observed": true,
+          "step": 76
+        },
+        "first_receptacle_entry": {
+          "available": true,
+          "evidence": "LIBERO success predicate first became true",
+          "observed": true,
+          "step": 269,
+          "target": "tomato_sauce_1"
+        },
+        "first_target_contact": {
+          "available": true,
+          "contact": {
+            "candidate_object": "alphabet_soup_1_g3",
+            "distance": -0.0011252881578338895,
+            "left": "alphabet_soup_1_g3",
+            "position": [
+              -0.08710357607682914,
+              -0.1493388177855544,
+              0.5114606468706472
+            ],
+            "right": "gripper0_hand_collision"
+          },
+          "observed": true,
+          "step": 56,
+          "target": "alphabet_soup_1"
+        },
+        "object_dropped": {
+          "available": true,
+          "observed": false
+        }
+      },
+      "execution_horizon": 10,
+      "failure_classification": {
+        "category": null,
+        "evidence": {
+          "success": true
+        }
+      },
+      "init_state_id": 3,
+      "initial_sim_state_sha256": "328707dff88846fa583a82945c7541739e3e6ebdd385e94d23a14417244d2e40",
+      "latency_ms_per_replan": [
+        281.855619,
+        267.763402,
+        260.848965,
+        257.531844,
+        255.345714,
+        256.96316,
+        269.612894,
+        269.952602,
+        270.033097,
+        271.548025,
+        280.157712,
+        271.524489,
+        266.301195,
+        261.004037,
+        260.941237,
+        260.911502,
+        272.647262,
+        259.81542,
+        260.269195,
+        260.014003,
+        272.803241,
+        267.125451,
+        259.763009,
+        259.663953,
+        261.091171,
+        258.341257,
+        258.209756
+      ],
+      "nfe": 10,
+      "noise_schedule_sha256": "9c71a4cb6deefaee7c6e45f750f53e107d3520d3cfcee0e7a8e26c1fe85ff637",
+      "phase": "smoke",
+      "status": "COMPLETED",
+      "steps_run": 270,
+      "success": true,
+      "success_timestep": 270,
+      "suite": "libero_10",
+      "target_time": null,
+      "task": "put both the alphabet soup and the tomato sauce in the basket",
+      "task_id": 0,
+      "termination_reason": "SUCCESS",
+      "trace_manifest": {
+        "path": "/root/crp-vla/artifacts/crp_vla/replay_v2/smoke/traces/libero_10-task00-init03-seed0/snap10.sha256.json",
+        "sha256": "2b743b214ba07fb2bd9507d215655fee63706d19fab3f6ae140fdc542aea49db"
+      },
+      "used_noise_prefix_length": 27
+    },
+    {
+      "action_stream_sha256": "5b275c408836d08f0f4297d9111b54f8102ff5e8a8849ea73ff5a8342b92c363",
+      "arm": "snap2",
+      "canonical_input_sha256": "120ea246d693a0a29be6365860448498af2cef9c54e0d88cac14b1cbc38c3791",
+      "capsule_path": "/root/crp-vla/artifacts/crp_vla/replay_v2/capsules/smoke/libero_10-task00-init03-seed0",
+      "capsule_sha256": "45d73371febc5587787669b40a78a226ac20de5e9208f2cd8cd41d5c62a749aa",
+      "checkpoint": "snap",
+      "env_seed": 0,
+      "evaluator_sha256": "97c984f12331527626812ec19967ef399e545535b3571becf044db2417ae9d71",
+      "events": {
+        "collision": {
+          "available": true,
+          "observed": false
+        },
+        "first_gripper_close": {
+          "available": true,
+          "command": 1.0162005424499512,
+          "observed": true,
+          "step": 59
+        },
+        "first_object_lift": {
+          "available": true,
+          "body": "alphabet_soup_1_main",
+          "delta_z": 0.03389535308485475,
+          "observed": true,
+          "step": 73
+        },
+        "first_receptacle_entry": {
+          "available": true,
+          "evidence": "LIBERO success predicate first became true",
+          "observed": true,
+          "step": 271,
+          "target": "tomato_sauce_1"
+        },
+        "first_target_contact": {
+          "available": true,
+          "contact": {
+            "candidate_object": "alphabet_soup_1_g3",
+            "distance": -0.000804742203550101,
+            "left": "alphabet_soup_1_g3",
+            "position": [
+              -0.0835575416700891,
+              -0.1492421532736682,
+              0.5124188145142023
+            ],
+            "right": "gripper0_hand_collision"
+          },
+          "observed": true,
+          "step": 55,
+          "target": "alphabet_soup_1"
+        },
+        "object_dropped": {
+          "available": true,
+          "observed": false
+        }
+      },
+      "execution_horizon": 10,
+      "failure_classification": {
+        "category": null,
+        "evidence": {
+          "success": true
+        }
+      },
+      "init_state_id": 3,
+      "initial_sim_state_sha256": "328707dff88846fa583a82945c7541739e3e6ebdd385e94d23a14417244d2e40",
+      "latency_ms_per_replan": [
+        119.015161,
+        118.014363,
+        117.267308,
+        113.40225,
+        112.528296,
+        112.566625,
+        112.644726,
+        112.52269,
+        120.100857,
+        115.645181,
+        112.648805,
+        112.413314,
+        115.750613,
+        113.691455,
+        116.779195,
+        113.260981,
+        113.114334,
+        112.434442,
+        112.491461,
+        113.183467,
+        113.367742,
+        120.567399,
+        118.518609,
+        115.683812,
+        113.842811,
+        112.683156,
+        112.693669,
+        112.511935
+      ],
+      "nfe": 2,
+      "noise_schedule_sha256": "9c71a4cb6deefaee7c6e45f750f53e107d3520d3cfcee0e7a8e26c1fe85ff637",
+      "phase": "smoke",
+      "status": "COMPLETED",
+      "steps_run": 272,
+      "success": true,
+      "success_timestep": 272,
+      "suite": "libero_10",
+      "target_time": null,
+      "task": "put both the alphabet soup and the tomato sauce in the basket",
+      "task_id": 0,
+      "termination_reason": "SUCCESS",
+      "trace_manifest": {
+        "path": "/root/crp-vla/artifacts/crp_vla/replay_v2/smoke/traces/libero_10-task00-init03-seed0/snap2.sha256.json",
+        "sha256": "9328df52135f2fd6627ed68b51784b6f5c90588d5ae397bf2c199293896ef9be"
+      },
+      "used_noise_prefix_length": 28
+    },
+    {
+      "action_stream_sha256": "669400cbf5e8a54147297ee19556db359b2867bc70d1a492c681db0b8d750771",
+      "arm": "snap1",
+      "canonical_input_sha256": "120ea246d693a0a29be6365860448498af2cef9c54e0d88cac14b1cbc38c3791",
+      "capsule_path": "/root/crp-vla/artifacts/crp_vla/replay_v2/capsules/smoke/libero_10-task00-init03-seed0",
+      "capsule_sha256": "45d73371febc5587787669b40a78a226ac20de5e9208f2cd8cd41d5c62a749aa",
+      "checkpoint": "snap",
+      "env_seed": 0,
+      "evaluator_sha256": "97c984f12331527626812ec19967ef399e545535b3571becf044db2417ae9d71",
+      "events": {
+        "collision": {
+          "available": true,
+          "observed": false
+        },
+        "first_gripper_close": {
+          "available": true,
+          "command": 0.821699857711792,
+          "observed": true,
+          "step": 58
+        },
+        "first_object_lift": {
+          "available": true,
+          "body": "alphabet_soup_1_main",
+          "delta_z": 0.03594331065267681,
+          "observed": true,
+          "step": 73
+        },
+        "first_receptacle_entry": {
+          "available": true,
+          "evidence": "LIBERO success predicate first became true",
+          "observed": true,
+          "step": 296,
+          "target": "tomato_sauce_1"
+        },
+        "first_target_contact": {
+          "available": true,
+          "contact": {
+            "candidate_object": "alphabet_soup_1_g4",
+            "distance": -7.240265894538077e-05,
+            "left": "alphabet_soup_1_g4",
+            "position": [
+              -0.09625259994559811,
+              -0.19339654005907056,
+              0.49071566165260055
+            ],
+            "right": "gripper0_finger1_collision"
+          },
+          "observed": true,
+          "step": 52,
+          "target": "alphabet_soup_1"
+        },
+        "object_dropped": {
+          "available": true,
+          "observed": false
+        }
+      },
+      "execution_horizon": 10,
+      "failure_classification": {
+        "category": null,
+        "evidence": {
+          "success": true
+        }
+      },
+      "init_state_id": 3,
+      "initial_sim_state_sha256": "328707dff88846fa583a82945c7541739e3e6ebdd385e94d23a14417244d2e40",
+      "latency_ms_per_replan": [
+        104.071438,
+        105.132795,
+        99.875304,
+        102.016664,
+        106.40562,
+        104.462207,
+        103.053974,
+        100.649106,
+        104.827411,
+        105.46538,
+        106.57113,
+        107.947857,
+        102.289477,
+        102.326965,
+        101.916413,
+        100.287596,
+        100.318718,
+        101.427818,
+        104.273287,
+        107.103397,
+        101.265893,
+        100.250334,
+        102.859262,
+        99.986676,
+        121.998316,
+        104.560304,
+        103.76029,
+        102.87859,
+        101.922246,
+        101.203942
+      ],
+      "nfe": 1,
+      "noise_schedule_sha256": "9c71a4cb6deefaee7c6e45f750f53e107d3520d3cfcee0e7a8e26c1fe85ff637",
+      "phase": "smoke",
+      "status": "COMPLETED",
+      "steps_run": 297,
+      "success": true,
+      "success_timestep": 297,
+      "suite": "libero_10",
+      "target_time": 0.0,
+      "task": "put both the alphabet soup and the tomato sauce in the basket",
+      "task_id": 0,
+      "termination_reason": "SUCCESS",
+      "trace_manifest": {
+        "path": "/root/crp-vla/artifacts/crp_vla/replay_v2/smoke/traces/libero_10-task00-init03-seed0/snap1.sha256.json",
+        "sha256": "391ff5c0c57c6912a7f9aefddb5dab128cd184adbb1504984cfca9f5c83bc4d9"
+      },
+      "used_noise_prefix_length": 30
+    },
+    {
+      "action_stream_sha256": "727a2f825e6c697cc13da1bc5af8be9b95e337fa6065d5dd36a9c77e828b7fac",
+      "arm": "base10",
+      "canonical_input_sha256": "d73ccac38f6d3616e5dcfd5ba0a193905a47910db68afd33d8d341dfde9e4191",
+      "capsule_path": "/root/crp-vla/artifacts/crp_vla/replay_v2/capsules/smoke/libero_10-task05-init03-seed0",
+      "capsule_sha256": "60340028c0d9cf413d00fe737c9c3e71cabd0d7ee17803e09eab0c1a9a70b05c",
+      "checkpoint": "base",
+      "env_seed": 0,
+      "evaluator_sha256": "97c984f12331527626812ec19967ef399e545535b3571becf044db2417ae9d71",
+      "events": {
+        "collision": {
+          "available": true,
+          "observed": false
+        },
+        "first_gripper_close": {
+          "available": true,
+          "command": 1.0024561882019043,
+          "observed": true,
+          "step": 53
+        },
+        "first_object_lift": {
+          "available": true,
+          "body": "black_book_1_main",
+          "delta_z": 0.031171002140395365,
+          "observed": true,
+          "step": 69
+        },
+        "first_receptacle_entry": {
+          "available": true,
+          "evidence": "LIBERO success predicate first became true",
+          "observed": true,
+          "step": 192,
+          "target": "desk_caddy_1"
+        },
+        "first_target_contact": {
+          "available": true,
+          "contact": {
+            "candidate_object": "black_book_1_g1",
+            "distance": -0.0011444704830769223,
+            "left": "black_book_1_g1",
+            "position": [
+              -0.19202091987259035,
+              0.1417850914772961,
+              1.0189532421168317
+            ],
+            "right": "gripper0_hand_collision"
+          },
+          "observed": true,
+          "step": 56,
+          "target": "black_book_1"
+        },
+        "object_dropped": {
+          "available": true,
+          "observed": false
+        }
+      },
+      "execution_horizon": 10,
+      "failure_classification": {
+        "category": null,
+        "evidence": {
+          "success": true
+        }
+      },
+      "init_state_id": 3,
+      "initial_sim_state_sha256": "a3fbbb5e76eb6c68ed1d0674093b78b4c3137ff8c47cb2e53d35b96420bcca5e",
+      "latency_ms_per_replan": [
+        281.343378,
+        260.765009,
+        258.483947,
+        261.033281,
+        260.912345,
+        258.817302,
+        258.095927,
+        264.259019,
+        258.376365,
+        256.553028,
+        255.82669,
+        261.73237,
+        259.157751,
+        281.345208,
+        257.818707,
+        253.528101,
+        259.301917,
+        254.019749,
+        254.852527,
+        266.087609
+      ],
+      "nfe": 10,
+      "noise_schedule_sha256": "74f95cfbbbc86b02644a56ba184a608eda20cfc205a55ce4f32916f58e349987",
+      "phase": "smoke",
+      "status": "COMPLETED",
+      "steps_run": 193,
+      "success": true,
+      "success_timestep": 193,
+      "suite": "libero_10",
+      "target_time": null,
+      "task": "pick up the book and place it in the back compartment of the caddy",
+      "task_id": 5,
+      "termination_reason": "SUCCESS",
+      "trace_manifest": {
+        "path": "/root/crp-vla/artifacts/crp_vla/replay_v2/smoke/traces/libero_10-task05-init03-seed0/base10.sha256.json",
+        "sha256": "7fb6f570294eb307f4e5c6acd56480395a0fd3e86eabb627fd6132a95ee1de00"
+      },
+      "used_noise_prefix_length": 20
+    },
+    {
+      "action_stream_sha256": "5e8b934403e25d59850c40ad00838c03c069d96111ec06f786845799fbcff4ad",
+      "arm": "base2",
+      "canonical_input_sha256": "d73ccac38f6d3616e5dcfd5ba0a193905a47910db68afd33d8d341dfde9e4191",
+      "capsule_path": "/root/crp-vla/artifacts/crp_vla/replay_v2/capsules/smoke/libero_10-task05-init03-seed0",
+      "capsule_sha256": "60340028c0d9cf413d00fe737c9c3e71cabd0d7ee17803e09eab0c1a9a70b05c",
+      "checkpoint": "base",
+      "env_seed": 0,
+      "evaluator_sha256": "97c984f12331527626812ec19967ef399e545535b3571becf044db2417ae9d71",
+      "events": {
+        "collision": {
+          "available": true,
+          "observed": false
+        },
+        "first_gripper_close": {
+          "available": true,
+          "command": 0.9924058318138123,
+          "observed": true,
+          "step": 53
+        },
+        "first_object_lift": {
+          "available": true,
+          "body": "black_book_1_main",
+          "delta_z": 0.035789780779107105,
+          "observed": true,
+          "step": 69
+        },
+        "first_receptacle_entry": {
+          "available": true,
+          "evidence": "LIBERO success predicate first became true",
+          "observed": true,
+          "step": 197,
+          "target": "desk_caddy_1"
+        },
+        "first_target_contact": {
+          "available": true,
+          "contact": {
+            "candidate_object": "black_book_1_g1",
+            "distance": -0.0008320476825515039,
+            "left": "black_book_1_g1",
+            "position": [
+              -0.19414773505168104,
+              0.1422830825961282,
+              1.0191456108576613
+            ],
+            "right": "gripper0_hand_collision"
+          },
+          "observed": true,
+          "step": 56,
+          "target": "black_book_1"
+        },
+        "object_dropped": {
+          "available": true,
+          "observed": false
+        }
+      },
+      "execution_horizon": 10,
+      "failure_classification": {
+        "category": null,
+        "evidence": {
+          "success": true
+        }
+      },
+      "init_state_id": 3,
+      "initial_sim_state_sha256": "a3fbbb5e76eb6c68ed1d0674093b78b4c3137ff8c47cb2e53d35b96420bcca5e",
+      "latency_ms_per_replan": [
+        101.258093,
+        119.056896,
+        111.076782,
+        111.0718,
+        109.602216,
+        109.715775,
+        109.584813,
+        109.54791,
+        109.817438,
+        110.449087,
+        114.834021,
+        111.980634,
+        110.630247,
+        110.671067,
+        110.691215,
+        110.452209,
+        110.589164,
+        111.090586,
+        114.497351,
+        118.34885
+      ],
+      "nfe": 2,
+      "noise_schedule_sha256": "74f95cfbbbc86b02644a56ba184a608eda20cfc205a55ce4f32916f58e349987",
+      "phase": "smoke",
+      "status": "COMPLETED",
+      "steps_run": 198,
+      "success": true,
+      "success_timestep": 198,
+      "suite": "libero_10",
+      "target_time": null,
+      "task": "pick up the book and place it in the back compartment of the caddy",
+      "task_id": 5,
+      "termination_reason": "SUCCESS",
+      "trace_manifest": {
+        "path": "/root/crp-vla/artifacts/crp_vla/replay_v2/smoke/traces/libero_10-task05-init03-seed0/base2.sha256.json",
+        "sha256": "9bf8df9f798c0e1ef04d4022628da151e3165aeee85a5ca36cf91c86f3895bd9"
+      },
+      "used_noise_prefix_length": 20
+    },
+    {
+      "action_stream_sha256": "882b3b58b607400be9759a6d927cf1d657351c29ce8af8c8c27170fb95a887ef",
+      "arm": "base1",
+      "canonical_input_sha256": "d73ccac38f6d3616e5dcfd5ba0a193905a47910db68afd33d8d341dfde9e4191",
+      "capsule_path": "/root/crp-vla/artifacts/crp_vla/replay_v2/capsules/smoke/libero_10-task05-init03-seed0",
+      "capsule_sha256": "60340028c0d9cf413d00fe737c9c3e71cabd0d7ee17803e09eab0c1a9a70b05c",
+      "checkpoint": "base",
+      "env_seed": 0,
+      "evaluator_sha256": "97c984f12331527626812ec19967ef399e545535b3571becf044db2417ae9d71",
+      "events": {
+        "collision": {
+          "available": true,
+          "observed": false
+        },
+        "first_gripper_close": {
+          "available": true,
+          "command": 0.9909808039665222,
+          "observed": true,
+          "step": 53
+        },
+        "first_object_lift": {
+          "available": true,
+          "body": "black_book_1_main",
+          "delta_z": 0.03239557088103484,
+          "observed": true,
+          "step": 70
+        },
+        "first_receptacle_entry": {
+          "available": true,
+          "evidence": "LIBERO success predicate first became true",
+          "observed": true,
+          "step": 194,
+          "target": "desk_caddy_1"
+        },
+        "first_target_contact": {
+          "available": true,
+          "contact": {
+            "candidate_object": "black_book_1_g1",
+            "distance": -0.0009278675196817352,
+            "left": "black_book_1_g1",
+            "position": [
+              -0.1914275905334673,
+              0.14161272951433773,
+              1.019059390210453
+            ],
+            "right": "gripper0_hand_collision"
+          },
+          "observed": true,
+          "step": 56,
+          "target": "black_book_1"
+        },
+        "object_dropped": {
+          "available": true,
+          "observed": false
+        }
+      },
+      "execution_horizon": 10,
+      "failure_classification": {
+        "category": null,
+        "evidence": {
+          "success": true
+        }
+      },
+      "init_state_id": 3,
+      "initial_sim_state_sha256": "a3fbbb5e76eb6c68ed1d0674093b78b4c3137ff8c47cb2e53d35b96420bcca5e",
+      "latency_ms_per_replan": [
+        93.327118,
+        97.547996,
+        96.757564,
+        96.882694,
+        99.549013,
+        98.823017,
+        96.824301,
+        102.607109,
+        100.956042,
+        100.264669,
+        98.425094,
+        98.481746,
+        97.337607,
+        98.878335,
+        96.361404,
+        96.788483,
+        96.144107,
+        96.680739,
+        100.731812,
+        99.239847
+      ],
+      "nfe": 1,
+      "noise_schedule_sha256": "74f95cfbbbc86b02644a56ba184a608eda20cfc205a55ce4f32916f58e349987",
+      "phase": "smoke",
+      "status": "COMPLETED",
+      "steps_run": 195,
+      "success": true,
+      "success_timestep": 195,
+      "suite": "libero_10",
+      "target_time": null,
+      "task": "pick up the book and place it in the back compartment of the caddy",
+      "task_id": 5,
+      "termination_reason": "SUCCESS",
+      "trace_manifest": {
+        "path": "/root/crp-vla/artifacts/crp_vla/replay_v2/smoke/traces/libero_10-task05-init03-seed0/base1.sha256.json",
+        "sha256": "8bd1258859f8d51523031ff127ef81be45d08eb6cb5d7736715aa6191599c29d"
+      },
+      "used_noise_prefix_length": 20
+    },
+    {
+      "action_stream_sha256": "87d3fd1d5ae2bf89635389a2cfa4acf0bba836d4b60e2ca7a6b3d9a38e40ca4d",
+      "arm": "snap10",
+      "canonical_input_sha256": "d73ccac38f6d3616e5dcfd5ba0a193905a47910db68afd33d8d341dfde9e4191",
+      "capsule_path": "/root/crp-vla/artifacts/crp_vla/replay_v2/capsules/smoke/libero_10-task05-init03-seed0",
+      "capsule_sha256": "60340028c0d9cf413d00fe737c9c3e71cabd0d7ee17803e09eab0c1a9a70b05c",
+      "checkpoint": "snap",
+      "env_seed": 0,
+      "evaluator_sha256": "97c984f12331527626812ec19967ef399e545535b3571becf044db2417ae9d71",
+      "events": {
+        "collision": {
+          "available": true,
+          "observed": false
+        },
+        "first_gripper_close": {
+          "available": true,
+          "command": 0.9887223839759827,
+          "observed": true,
+          "step": 52
+        },
+        "first_object_lift": {
+          "available": true,
+          "body": "black_book_1_main",
+          "delta_z": 0.03753003605243466,
+          "observed": true,
+          "step": 69
+        },
+        "first_receptacle_entry": {
+          "available": true,
+          "evidence": "LIBERO success predicate first became true",
+          "observed": true,
+          "step": 194,
+          "target": "desk_caddy_1"
+        },
+        "first_target_contact": {
+          "available": true,
+          "contact": {
+            "candidate_object": "black_book_1_g1",
+            "distance": -0.00054480966039994,
+            "left": "black_book_1_g1",
+            "position": [
+              -0.191561289783175,
+              0.1412831189928782,
+              1.0193055014084083
+            ],
+            "right": "gripper0_hand_collision"
+          },
+          "observed": true,
+          "step": 55,
+          "target": "black_book_1"
+        },
+        "object_dropped": {
+          "available": true,
+          "observed": false
+        }
+      },
+      "execution_horizon": 10,
+      "failure_classification": {
+        "category": null,
+        "evidence": {
+          "success": true
+        }
+      },
+      "init_state_id": 3,
+      "initial_sim_state_sha256": "a3fbbb5e76eb6c68ed1d0674093b78b4c3137ff8c47cb2e53d35b96420bcca5e",
+      "latency_ms_per_replan": [
+        289.212505,
+        276.381667,
+        271.013976,
+        263.129769,
+        267.350569,
+        263.97151,
+        265.142252,
+        263.042747,
+        266.144427,
+        262.083095,
+        259.680918,
+        262.57487,
+        260.340979,
+        260.239239,
+        262.994901,
+        269.805857,
+        263.233348,
+        262.49426,
+        259.828752,
+        271.4931
+      ],
+      "nfe": 10,
+      "noise_schedule_sha256": "74f95cfbbbc86b02644a56ba184a608eda20cfc205a55ce4f32916f58e349987",
+      "phase": "smoke",
+      "status": "COMPLETED",
+      "steps_run": 195,
+      "success": true,
+      "success_timestep": 195,
+      "suite": "libero_10",
+      "target_time": null,
+      "task": "pick up the book and place it in the back compartment of the caddy",
+      "task_id": 5,
+      "termination_reason": "SUCCESS",
+      "trace_manifest": {
+        "path": "/root/crp-vla/artifacts/crp_vla/replay_v2/smoke/traces/libero_10-task05-init03-seed0/snap10.sha256.json",
+        "sha256": "055a39672790ad27da4668eb6b71909707498a903071895e6dd373c87998def9"
+      },
+      "used_noise_prefix_length": 20
+    },
+    {
+      "action_stream_sha256": "8329d10ba9eb4819ab40300879c549fb3418113cde1c7b5096042121fb9a316e",
+      "arm": "snap2",
+      "canonical_input_sha256": "d73ccac38f6d3616e5dcfd5ba0a193905a47910db68afd33d8d341dfde9e4191",
+      "capsule_path": "/root/crp-vla/artifacts/crp_vla/replay_v2/capsules/smoke/libero_10-task05-init03-seed0",
+      "capsule_sha256": "60340028c0d9cf413d00fe737c9c3e71cabd0d7ee17803e09eab0c1a9a70b05c",
+      "checkpoint": "snap",
+      "env_seed": 0,
+      "evaluator_sha256": "97c984f12331527626812ec19967ef399e545535b3571becf044db2417ae9d71",
+      "events": {
+        "collision": {
+          "available": true,
+          "observed": false
+        },
+        "first_gripper_close": {
+          "available": true,
+          "command": 1.0076676607131958,
+          "observed": true,
+          "step": 53
+        },
+        "first_object_lift": {
+          "available": true,
+          "body": "black_book_1_main",
+          "delta_z": 0.032143732198053,
+          "observed": true,
+          "step": 69
+        },
+        "first_receptacle_entry": {
+          "available": true,
+          "evidence": "LIBERO success predicate first became true",
+          "observed": true,
+          "step": 198,
+          "target": "desk_caddy_1"
+        },
+        "first_target_contact": {
+          "available": true,
+          "contact": {
+            "candidate_object": "black_book_1_g1",
+            "distance": -0.0011302449124807185,
+            "left": "black_book_1_g1",
+            "position": [
+              -0.19384872024869124,
+              0.14213233527249056,
+              1.0189747565813372
+            ],
+            "right": "gripper0_hand_collision"
+          },
+          "observed": true,
+          "step": 55,
+          "target": "black_book_1"
+        },
+        "object_dropped": {
+          "available": true,
+          "observed": false
+        }
+      },
+      "execution_horizon": 10,
+      "failure_classification": {
+        "category": null,
+        "evidence": {
+          "success": true
+        }
+      },
+      "init_state_id": 3,
+      "initial_sim_state_sha256": "a3fbbb5e76eb6c68ed1d0674093b78b4c3137ff8c47cb2e53d35b96420bcca5e",
+      "latency_ms_per_replan": [
+        122.890211,
+        113.048859,
+        113.04047,
+        119.26841,
+        112.650601,
+        112.168769,
+        112.383796,
+        113.153347,
+        112.386892,
+        115.341326,
+        126.53233,
+        112.380396,
+        145.895882,
+        122.530958,
+        122.197998,
+        119.037033,
+        123.735926,
+        123.495829,
+        126.537571,
+        123.372967
+      ],
+      "nfe": 2,
+      "noise_schedule_sha256": "74f95cfbbbc86b02644a56ba184a608eda20cfc205a55ce4f32916f58e349987",
+      "phase": "smoke",
+      "status": "COMPLETED",
+      "steps_run": 199,
+      "success": true,
+      "success_timestep": 199,
+      "suite": "libero_10",
+      "target_time": null,
+      "task": "pick up the book and place it in the back compartment of the caddy",
+      "task_id": 5,
+      "termination_reason": "SUCCESS",
+      "trace_manifest": {
+        "path": "/root/crp-vla/artifacts/crp_vla/replay_v2/smoke/traces/libero_10-task05-init03-seed0/snap2.sha256.json",
+        "sha256": "09aa86d5360072a166e86a910e10c7c555702ef1438942fa3a719fca0708dfca"
+      },
+      "used_noise_prefix_length": 20
+    },
+    {
+      "action_stream_sha256": "c7e3ba778b8f39fa01bc0bbf294fe1c466cacc9a7a75b2a491606d7276638093",
+      "arm": "snap1",
+      "canonical_input_sha256": "d73ccac38f6d3616e5dcfd5ba0a193905a47910db68afd33d8d341dfde9e4191",
+      "capsule_path": "/root/crp-vla/artifacts/crp_vla/replay_v2/capsules/smoke/libero_10-task05-init03-seed0",
+      "capsule_sha256": "60340028c0d9cf413d00fe737c9c3e71cabd0d7ee17803e09eab0c1a9a70b05c",
+      "checkpoint": "snap",
+      "env_seed": 0,
+      "evaluator_sha256": "97c984f12331527626812ec19967ef399e545535b3571becf044db2417ae9d71",
+      "events": {
+        "collision": {
+          "available": true,
+          "observed": false
+        },
+        "first_gripper_close": {
+          "available": true,
+          "command": 0.9151930809020996,
+          "observed": true,
+          "step": 52
+        },
+        "first_object_lift": {
+          "available": true,
+          "body": "black_book_1_main",
+          "delta_z": 0.035308726264558166,
+          "observed": true,
+          "step": 69
+        },
+        "first_receptacle_entry": {
+          "available": true,
+          "evidence": "LIBERO success predicate first became true",
+          "observed": true,
+          "step": 194,
+          "target": "desk_caddy_1"
+        },
+        "first_target_contact": {
+          "available": true,
+          "contact": {
+            "candidate_object": "black_book_1_g1",
+            "distance": -0.0012333778423555704,
+            "left": "black_book_1_g1",
+            "position": [
+              -0.19128041761479642,
+              0.1414727854889805,
+              1.01890709432692
+            ],
+            "right": "gripper0_hand_collision"
+          },
+          "observed": true,
+          "step": 55,
+          "target": "black_book_1"
+        },
+        "object_dropped": {
+          "available": true,
+          "observed": false
+        }
+      },
+      "execution_horizon": 10,
+      "failure_classification": {
+        "category": null,
+        "evidence": {
+          "success": true
+        }
+      },
+      "init_state_id": 3,
+      "initial_sim_state_sha256": "a3fbbb5e76eb6c68ed1d0674093b78b4c3137ff8c47cb2e53d35b96420bcca5e",
+      "latency_ms_per_replan": [
+        109.2544,
+        103.334409,
+        101.059777,
+        100.193079,
+        101.530701,
+        98.4846,
+        103.741929,
+        99.036523,
+        98.627263,
+        109.122656,
+        107.888682,
+        106.174123,
+        99.477723,
+        99.453717,
+        98.696465,
+        104.921656,
+        97.524571,
+        97.470005,
+        97.818027,
+        103.869666
+      ],
+      "nfe": 1,
+      "noise_schedule_sha256": "74f95cfbbbc86b02644a56ba184a608eda20cfc205a55ce4f32916f58e349987",
+      "phase": "smoke",
+      "status": "COMPLETED",
+      "steps_run": 195,
+      "success": true,
+      "success_timestep": 195,
+      "suite": "libero_10",
+      "target_time": 0.0,
+      "task": "pick up the book and place it in the back compartment of the caddy",
+      "task_id": 5,
+      "termination_reason": "SUCCESS",
+      "trace_manifest": {
+        "path": "/root/crp-vla/artifacts/crp_vla/replay_v2/smoke/traces/libero_10-task05-init03-seed0/snap1.sha256.json",
+        "sha256": "15d338287ad8b31a2e8e0e75e55eb9e5adf080bb7d615abdc2337a99912865bb"
+      },
+      "used_noise_prefix_length": 20
+    }
+  ],
+  "rollout_count": 48,
+  "run_finished_ns": 1786684806353282876,
+  "run_started_ns": 1786684295940351372,
+  "schema_version": 2,
+  "snap_checkpoint_sha256": "cab2b0be849969729f43c59200df5e42e11060299c5f9447053c9725680c9604",
+  "status": "INFRASTRUCTURE_SMOKE_PASSED"
+}

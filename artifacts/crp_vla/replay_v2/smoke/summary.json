@@ -1,0 +1,15 @@
+{
+  "admission": {
+    "all_capsules_verified": true,
+    "all_six_arm_invariants_verified": true,
+    "infrastructure_exception_count": 0
+  },
+  "case_count": 8,
+  "crp_training_hold": true,
+  "formal_gate_unchanged": true,
+  "manifest_sha256": "2ec51cad19d80f1051fc5e380069794a7cf75ff512c2d5b1b1f3debb321ae390",
+  "phase": "smoke",
+  "rollout_count": 48,
+  "schema_version": 2,
+  "status": "SMOKE_ADMITTED"
+}
