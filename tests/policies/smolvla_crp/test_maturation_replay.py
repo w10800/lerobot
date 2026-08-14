@@ -59,3 +59,26 @@ def test_trace_root_is_checkpoint_scoped():
         "artifacts/crp_vla/maturation/replay/traces/step_003000"
     )
     assert MODULE.checkpoint_trace_root(output, 3000) != MODULE.checkpoint_trace_root(output, 5000)
+
+
+def test_checkpoint_processors_match_frozen_snap_manifest_not_base_normalization():
+    snap_manifest = {
+        "policy_postprocessor_step_0_unnormalizer_processor.safetensors": "snap-post",
+        "policy_preprocessor_step_5_normalizer_processor.safetensors": "snap-pre",
+    }
+    metadata = {
+        "normalization_version": {
+            "policy_postprocessor_step_0_unnormalizer_processor.safetensors": "base-post",
+            "policy_preprocessor_step_5_normalizer_processor.safetensors": "base-pre",
+        },
+        "policy_processor_versions": {"snap": snap_manifest},
+    }
+    MODULE.validate_checkpoint_processors(metadata, snap_manifest)
+    with pytest.raises(ValueError, match="frozen Snap processor manifest"):
+        MODULE.validate_checkpoint_processors(metadata, metadata["normalization_version"])
+
+
+def test_checkpoint_processors_require_an_exact_manifest():
+    metadata = {"policy_processor_versions": {"snap": {"normalizer": "digest"}}}
+    with pytest.raises(ValueError, match="frozen Snap processor manifest"):
+        MODULE.validate_checkpoint_processors(metadata, {"normalizer": "digest", "extra": "digest"})

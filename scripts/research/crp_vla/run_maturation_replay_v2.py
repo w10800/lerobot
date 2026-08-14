@@ -66,6 +66,12 @@ def checkpoint_trace_root(output: Path, checkpoint_step: int) -> Path:
     return output.parent / "traces" / f"step_{checkpoint_step:06d}"
 
 
+def validate_checkpoint_processors(metadata: dict[str, Any], checkpoint_processors: dict[str, str]) -> None:
+    expected = metadata.get("policy_processor_versions", {}).get("snap")
+    if not isinstance(expected, dict) or checkpoint_processors != expected:
+        raise ValueError("Checkpoint processor manifest does not match frozen Snap processor manifest")
+
+
 def validate_capsule_metadata(metadata: dict[str, Any], case: dict[str, Any]) -> None:
     expected = {
         "phase": "development",
@@ -131,9 +137,7 @@ def main() -> None:
         capsule_dir = args.capsule_root / slug
         metadata, payload = load_capsule(capsule_dir, args.device)
         validate_capsule_metadata(metadata, case)
-        for filename, digest in metadata["normalization_version"].items():
-            if "normalizer" in filename and checkpoint_processors.get(filename) != digest:
-                raise ValueError(f"Checkpoint normalization mismatch for {filename}")
+        validate_checkpoint_processors(metadata, checkpoint_processors)
         suite_name = case["suite"]
         task_id = int(case["task_id"])
         init_state_id = int(case["init_state_id"])
