@@ -152,6 +152,9 @@ class TrainPipelineConfig(HubMixin):
     # Checkpoint is saved every `save_freq` training iterations and after the last training step.
     # A non-positive value disables periodic saving, keeping only the final checkpoint.
     save_freq: int = 20_000
+    # Optional exact checkpoint steps. When provided, these replace periodic ``save_freq``
+    # checkpoints; the final training step is still always saved.
+    save_steps: list[int] | None = None
     # Model-artifact format inside checkpoints; non-default values require a sharded run.
     checkpoint_format: CheckpointFormat = CheckpointFormat.SAFETENSORS
     use_policy_training_preset: bool = True
@@ -317,6 +320,13 @@ class TrainPipelineConfig(HubMixin):
 
         if self.eval_steps > 0 and self.dataset.eval_split == 0.0:
             raise ValueError("eval_steps > 0 requires dataset.eval_split > 0.0 to hold out eval data.")
+        if self.save_steps is not None:
+            if not self.save_steps:
+                raise ValueError("save_steps must be null or contain at least one step")
+            if self.save_steps != sorted(set(self.save_steps)):
+                raise ValueError("save_steps must be strictly increasing and unique")
+            if any(step < 1 or step > self.steps for step in self.save_steps):
+                raise ValueError("save_steps entries must lie in [1, steps]")
 
         # Remote runs auto-generate the repo_id in submit_to_hf (the policy may only be
         # resolved here, from --policy.path), so don't demand it up front for them.

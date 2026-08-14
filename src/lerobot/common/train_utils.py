@@ -102,14 +102,20 @@ def get_step_checkpoint_dir(output_dir: Path, total_steps: int, step: int) -> Pa
     return output_dir / CHECKPOINTS_DIR / step_identifier
 
 
-def should_save_checkpoint(step: int, save_freq: int, total_steps: int) -> bool:
+def should_save_checkpoint(
+    step: int,
+    save_freq: int,
+    total_steps: int,
+    save_steps: list[int] | None = None,
+) -> bool:
     """Whether a checkpoint should be saved at ``step``.
 
-    A checkpoint is saved every ``save_freq`` steps and always after the final step. A
-    non-positive ``save_freq`` disables periodic saving (only the final checkpoint is
-    written), mirroring how ``log_freq``/``eval_freq`` treat non-positive values and
-    avoiding a ``ZeroDivisionError`` from ``step % 0``.
+    When ``save_steps`` is provided, only those exact steps and the final step are saved.
+    Otherwise a checkpoint is saved every ``save_freq`` steps and after the final step.
+    A non-positive ``save_freq`` disables periodic saving.
     """
+    if save_steps is not None:
+        return step in save_steps or step == total_steps
     return (save_freq > 0 and step % save_freq == 0) or step == total_steps
 
 

@@ -44,3 +44,56 @@
 - Decision: before inspecting the response sweep, require the 10-NFE teacher's normalized action-chunk response L2 norm to be at least `0.05` for a pair to enter aggregate compression-gap analysis.
 - Reason: pairs to which the teacher is effectively condition-blind cannot identify response retention; `0.05` is a provisional engineering floor in normalized action space, not a field standard.
 - Consequence: report both input and retained counts, never tune this threshold after seeing method labels, and keep below-threshold records as validity failures rather than deleting them.
+
+## D-008 — formal-training gate remains NO-GO after the A100 smoke
+
+- Date: 2026-08-13
+- Decision: keep formal SnapFlow and CRP training blocked. The 1k-step SnapFlow run is admitted only as an engineering smoke and diagnostic checkpoint.
+- Verified evidence: the A100 training path completed 1,000 steps without NaN, OOM, or data errors; all six registered offline pairs passed the pre-declared teacher-response threshold; the conditional-response gap remained after the 1k smoke, with mixed task-group behavior.
+- Missing decisive evidence: no registered ordinary-LIBERO rollout set yet establishes that the 10-NFE teacher and 1-NFE student differ in standard success by no more than about three percentage points. The offline effect also has only two task groups, two intervention classes, and three action-noise seeds, and the SnapFlow smoke improved one group while degrading the other.
+- Consequence: do not launch the 3k/5k/10k/30k sequence or CRP sweep. First run a registered, adequately replicated ordinary-LIBERO teacher/student comparison and log its immutable rollout manifest; then revisit the continuation rule without changing its thresholds after seeing results.
+
+## D-009 — replace project-level NO-GO wording with CRP Training HOLD / Baseline Evaluation GO
+
+- Date: 2026-08-13
+- Decision: engineering implementation and the SnapFlow reproduction path are GO; baseline attribution/evaluation is GO; formal CRP and 3k+ SnapFlow training remain HOLD.
+- Verified evidence: loss accounting closes with zero residual; stable latency establishes a 3.49× 10→1 median speedup; 40 semantic pairs × 3 matched-noise seeds complete the four-arm attribution; and a 3-case ordinary-LIBERO paired pilot completes with immutable state/input/noise/action provenance.
+- Scientific interpretation: Base 10→1 has a substantial offline conditional-response gap. The 1k SnapFlow checkpoint does not enlarge the within-checkpoint reduction gap and slightly reduces it on aggregate. Snap-1 nevertheless shows small final response-direction/amplitude shifts relative to Base-1 because training drift and reduction interact. The earlier two-pair action-fit/response-decoupling signal is only partially reproduced and is not a general causal result.
+- Remaining gate: the ordinary-LIBERO pilot has only three paired cases and confidence intervals too wide to establish the predeclared approximately 3-point non-inferiority condition.
+- Consequence: continue replicated baseline evaluation and mechanism diagnostics; do not start 3k/5k/30k SnapFlow or CRP training until a new decision explicitly admits the ordinary-LIBERO gate.
+
+## D-010 — freeze the 100-case ordinary-LIBERO paired gate
+
+- Date: 2026-08-13
+- Decision: expand the successful 3-case engineering pilot to exactly 100 task/init-state cases before inspecting additional rollout outcomes. Cover all 40 tasks in `libero_spatial`, `libero_object`, `libero_goal`, and `libero_10` with init states 0/1, plus init state 2 for task IDs 0–4 in every suite.
+- Primary comparison: Snap-1 minus Base-10 paired success difference, with a non-inferiority margin of `-0.03`. Report the 95% paired case bootstrap interval and both discordant directions; Base-1 and Snap-10 remain mandatory attribution arms.
+- Admission rule: the formal gate can pass only if the lower 95% interval bound is at least `-0.03`, provenance/invariant checks pass, and no task/suite-level catastrophic regression is hidden by the aggregate. A point estimate alone cannot pass.
+- Durability: write a partial manifest after every arm so a simulator or provenance failure cannot erase completed rollout evidence. Partial manifests are not final results and are never silently resumed.
+
+## D-011 — ordinary-LIBERO non-inferiority gate fails; formal training remains HOLD
+
+- Date: 2026-08-14
+- Decision: mark the D-010 gate FAIL and keep 3k/5k/30k SnapFlow plus CRP training blocked.
+- Verified result: all 100 cases and 400 rollouts completed at clean remote commit `bc0a9b3d79cf3ce77a17eaf76785be901e36981e`. Base-10/Base-1/Snap-10/Snap-1 success was `86/83/84/81%`. Snap-1 minus Base-10 was `-5%` with case-level paired bootstrap 95% interval `[-13%, +2%]`; negative/positive discordance counts were 10/5.
+- Gate evaluation: the lower interval bound is below the frozen `-3%` margin, so non-inferiority is not established. No suite crossed the `<=-10%` catastrophic threshold, but spatial and object each had a `-8%` Snap-1 point difference and task-level negative clusters exist.
+- Interpretation: the 1k checkpoint is not an admissible mature baseline for the project's intended “ordinary success preserved” phenomenon. Snap-10 also differs from Base-10, so training drift and reduction effects must remain separate.
+- Consequence: do not reinterpret the failed gate as authorization to train. A future mature-baseline training proposal requires an explicit contract amendment and preregistration before execution, followed by the same frozen ordinary-LIBERO gate; CRP remains HOLD regardless.
+
+## D-012 — PROPOSED mature-baseline operating contract; no training authorization
+
+- Date: 2026-08-14
+- Status: **PROPOSED**, not APPROVED and not GO.
+- Proposed decision: permanently archive the 1k checkpoint, convert the current 100 cases to development/diagnostic use, preregister a disjoint 1,880-case confirmation set, and evaluate one checkpoint selected from a single continuous 3k/5k/10k/20k/30k SnapFlow trajectory using ordinary factual development criteria only.
+- Diagnostic basis: the NFE=2 closed-loop extension is unverified because exact cross-process canonical inputs could not be recovered; offline six-arm response error is partially restored at 2 NFE, while matched-noise distortion exceeds condition-change distortion; all 15 formal discordant behavior categories remain UNKNOWN.
+- Scientific wording: current evidence supports generic one-step action/transport distortion more strongly than grounding degradation or condition-specific distortion.
+- Consequence: D-011 remains controlling. Do not start the proposed maturation run, any CRP/CAG/KD training, or hyperparameter search until a separate human-reviewed decision changes this proposal to APPROVED. CRP remains HOLD until a mature checkpoint passes the new confirmation gate.
+
+## D-013 — APPROVE one preregistered SnapFlow baseline-maturation run; CRP remains HOLD
+
+- Date: 2026-08-14
+- Status: **APPROVED / GO for the exact baseline run below only**.
+- Authorization: after replay-v2 Phase A completed 8/8 capsules and 48/48 rollouts with zero infrastructure exceptions, the user explicitly approved tasks 6–8 and the single mature-baseline run specified in task 8.
+- Scope: one continuous 30,000-step SnapFlow run from Base revision `31d453f7edd78c839a8bbc39744a292686daf0de`, seed 1000, fixed data order, bf16, batch 4, learning rate `2.5e-5`, alpha `0.5`, shortcut weight `0.1`, gradient clip `1.0`, and the full 40-task pinned LIBERO dataset. Save exact steps 1k/3k/5k/10k/20k/30k. No model, objective, or loss change is permitted.
+- Selection boundary: freeze `artifacts/crp_vla/maturation/CHECKPOINT_SELECTION_PROTOCOL.md` before execution. Selection may use only stability, the frozen ordinary factual validation fixture, and replay-v2 development Snap-1 success. LIBERO-CF, condition-response/CRP metrics, and any confirmation set are forbidden.
+- Unchanged evidence: D-011's original Formal LIBERO Gate remains FAIL; the existing 1k checkpoint remains a pilot. This decision does not retrospectively pass it.
+- Consequence: D-011/D-012 are overridden only for this baseline-maturation run. CRP, CAG, factual KD, response-preserving losses, hyperparameter sweeps, confirmation evaluation, and all new-method training remain HOLD. Stop after selecting and documenting one checkpoint.
