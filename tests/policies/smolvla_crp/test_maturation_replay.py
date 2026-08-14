@@ -51,3 +51,11 @@ def test_validate_capsule_metadata_fails_closed():
     }
     with pytest.raises(ValueError, match="Capsule/design mismatch"):
         MODULE.validate_capsule_metadata(metadata, case)
+
+
+def test_trace_root_is_checkpoint_scoped():
+    output = Path("artifacts/crp_vla/maturation/replay/step_003000.json")
+    assert MODULE.checkpoint_trace_root(output, 3000) == Path(
+        "artifacts/crp_vla/maturation/replay/traces/step_003000"
+    )
+    assert MODULE.checkpoint_trace_root(output, 3000) != MODULE.checkpoint_trace_root(output, 5000)

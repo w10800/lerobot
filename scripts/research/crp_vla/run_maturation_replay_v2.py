@@ -62,6 +62,10 @@ def processor_manifest(checkpoint: Path) -> dict[str, str]:
     }
 
 
+def checkpoint_trace_root(output: Path, checkpoint_step: int) -> Path:
+    return output.parent / "traces" / f"step_{checkpoint_step:06d}"
+
+
 def validate_capsule_metadata(metadata: dict[str, Any], case: dict[str, Any]) -> None:
     expected = {
         "phase": "development",
@@ -273,7 +277,7 @@ def main() -> None:
                     key: value for key, value in events.items() if key != "initial_object_poses"
                 }
                 trace_manifest = write_trace(
-                    args.output.parent / "traces" / slug,
+                    checkpoint_trace_root(args.output, args.checkpoint_step) / slug,
                     arm,
                     trace_rows,
                     predicted_chunks,
