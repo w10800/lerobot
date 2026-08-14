@@ -16,12 +16,18 @@ import numpy as np
 import torch
 import yaml
 
-ARM_SPECS = {
+FORMAL_ARM_SPECS = {
     "base10": ("base", 10, None),
     "base1": ("base", 1, None),
     "snap10": ("snap", 10, None),
     "snap1": ("snap", 1, 0.0),
 }
+NFE2_ARM_SPECS = {
+    "base2": ("base", 2, None),
+    "snap2": ("snap", 2, None),
+}
+# Backward-compatible public name used by the formal-gate statistics tests.
+ARM_SPECS = FORMAL_ARM_SPECS
 
 
 def parse_args() -> argparse.Namespace:
@@ -37,6 +43,13 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--bootstrap-repeats", type=int, default=10_000)
     parser.add_argument("--bootstrap-seed", type=int, default=20260813)
     parser.add_argument("--device", default="cuda")
+    parser.add_argument(
+        "--run-kind",
+        choices=("formal", "nfe2_smoke", "nfe2_diagnostic"),
+        default="formal",
+    )
+    parser.add_argument("--reference-manifest", type=Path)
+    parser.add_argument("--expected-reference-sha256")
     parser.add_argument("--output", type=Path, required=True)
     return parser.parse_args()
 
@@ -59,6 +72,25 @@ def git_repository_value(repository: Path, *args: str) -> str:
 
 def tensor_sha256(value: torch.Tensor) -> str:
     return hashlib.sha256(value.detach().cpu().contiguous().numpy().tobytes()).hexdigest()
+
+
+def json_sha256(value: Any) -> str:
+    encoded = json.dumps(value, sort_keys=True, separators=(",", ":")).encode()
+    return hashlib.sha256(encoded).hexdigest()
+
+
+def arm_specs_for_run(run_kind: str) -> dict[str, tuple[str, int, float | None]]:
+    return FORMAL_ARM_SPECS if run_kind == "formal" else NFE2_ARM_SPECS
+
+
+def reference_cases(record: dict) -> dict[tuple, dict[str, dict]]:
+    grouped = {}
+    for result in record["results"]:
+        key = (result["suite"], result["task_id"], result["init_state_id"], result["env_seed"])
+        grouped.setdefault(key, {})[result["arm"]] = result
+    if any(set(arms) != set(FORMAL_ARM_SPECS) for arms in grouped.values()):
+        raise ValueError("Reference manifest must contain exactly the frozen four formal arms")
+    return grouped
 
 
 def observation_hashes(observation: dict[str, Any]) -> dict[str, str]:
@@ -89,9 +121,7 @@ def wilson_interval(successes: int, total: int, z: float = 1.959963984540054) ->
     probability = successes / total
     denominator = 1 + z**2 / total
     center = (probability + z**2 / (2 * total)) / denominator
-    half_width = z * math.sqrt(
-        probability * (1 - probability) / total + z**2 / (4 * total**2)
-    ) / denominator
+    half_width = z * math.sqrt(probability * (1 - probability) / total + z**2 / (4 * total**2)) / denominator
     return [center - half_width, center + half_width]
 
 
@@ -140,9 +170,7 @@ def paired_summary(results: list[dict], bootstrap_repeats: int, bootstrap_seed: 
             ],
             "base_success_candidate_failure": base_success_candidate_failure,
             "base_failure_candidate_success": base_failure_candidate_success,
-            "discordant_pair_rate": (
-                base_success_candidate_failure + base_failure_candidate_success
-            )
+            "discordant_pair_rate": (base_success_candidate_failure + base_failure_candidate_success)
             / len(by_case),
         }
     return output
@@ -173,6 +201,7 @@ def configure_standard_libero(root: Path, config_dir: Path) -> None:
 
 def main() -> None:
     args = parse_args()
+    arm_specs = arm_specs_for_run(args.run_kind)
     if args.execution_horizon < 1:
         raise ValueError("execution-horizon must be positive")
     if args.bootstrap_repeats < 1:
@@ -180,17 +209,48 @@ def main() -> None:
     if git_value("status", "--porcelain"):
         raise ValueError("Repository must be clean before the admitted paired pilot")
     design = json.loads(args.design.read_text())
-    cases = design.get("cases", [])
-    if not cases:
+    all_cases = design.get("cases", [])
+    if not all_cases:
         raise ValueError("Pilot design contains no cases")
+    cases = all_cases[:1] if args.run_kind == "nfe2_smoke" else all_cases
     case_keys = [(case["suite"], case["task_id"], case["init_state_id"], case["env_seed"]) for case in cases]
     if len(case_keys) != len(set(case_keys)):
         raise ValueError("Pilot design contains duplicate cases")
+    reference_record = None
+    references = {}
+    reference_sha256 = None
+    if args.run_kind != "formal":
+        if args.reference_manifest is None or args.expected_reference_sha256 is None:
+            raise ValueError("NFE=2 runs require a reference manifest and its expected SHA-256")
+        reference_sha256 = file_sha256(args.reference_manifest)
+        if reference_sha256 != args.expected_reference_sha256:
+            raise ValueError("Frozen formal reference SHA-256 mismatch")
+        reference_record = json.loads(args.reference_manifest.read_text())
+        references = reference_cases(reference_record)
+        if reference_record.get("case_count") != 100 or reference_record.get("rollout_count") != 400:
+            raise ValueError("Frozen formal reference must contain 100 cases and 400 rollouts")
+        if args.run_kind == "nfe2_diagnostic" and set(case_keys) != set(references):
+            raise ValueError("NFE=2 diagnostic cases must exactly match the frozen formal cases")
+        if not set(case_keys).issubset(references):
+            raise ValueError("NFE=2 smoke cases must be a subset of the frozen formal cases")
     configure_standard_libero(args.libero_root, args.output.parent / "libero_standard_config")
     repository_commit = git_value("rev-parse", "HEAD")
     libero_commit = git_repository_value(args.libero_root, "rev-parse", "HEAD")
     base_checkpoint_sha256 = file_sha256(args.base_checkpoint / "model.safetensors")
     snap_checkpoint_sha256 = file_sha256(args.snap_checkpoint / "model.safetensors")
+    if reference_record is not None:
+        expected = {
+            "design_sha256": file_sha256(args.design),
+            "base_checkpoint_sha256": base_checkpoint_sha256,
+            "snap_checkpoint_sha256": snap_checkpoint_sha256,
+        }
+        mismatches = {
+            key: {"reference": reference_record.get(key), "current": value}
+            for key, value in expected.items()
+            if reference_record.get(key) != value
+        }
+        if mismatches:
+            raise ValueError(f"Frozen reference provenance mismatch: {mismatches}")
 
     import libero.libero as libero_module
     from libero.libero import benchmark
@@ -281,9 +341,17 @@ def main() -> None:
             canonical_raw = env._env.set_init_state(initial_sim_state)
             canonical_observation = env._format_raw_obs(canonical_raw)
             initial_observation_hash = observation_hashes(canonical_observation)
+            canonical_input_sha256 = json_sha256(initial_observation_hash)
             prompt = suite.get_task(task_id).language
+            case_key = (suite_name, task_id, init_state_id, env_seed)
+            if references:
+                frozen = references[case_key]["base10"]
+                if frozen["initial_sim_state_sha256"] != initial_sim_state_sha256:
+                    raise RuntimeError(f"Frozen simulator state mismatch for {case_key}")
+                if frozen["initial_observation_hashes"] != initial_observation_hash:
+                    raise RuntimeError(f"Frozen policy input mismatch for {case_key}")
 
-            for arm, (policy_key, num_steps, target_time) in ARM_SPECS.items():
+            for arm, (policy_key, num_steps, target_time) in arm_specs.items():
                 policy, preprocessor, postprocessor = policies[policy_key]
                 policy.reset()
                 policy.config.num_steps = num_steps
@@ -344,23 +412,33 @@ def main() -> None:
                         "max_steps": max_steps,
                         "steps_run": steps_run,
                         "success": success,
+                        "success_timestep": steps_run if success else None,
                         "initial_sim_state_sha256": initial_sim_state_sha256,
                         "initial_observation_hashes": initial_observation_hash,
+                        "canonical_input_sha256": canonical_input_sha256,
                         "noise_sha256_per_replan": noise_hashes,
                         "action_stream_sha256": action_hasher.hexdigest(),
                     }
                 )
+                if references:
+                    frozen_noise = references[case_key]["base10"]["noise_sha256_per_replan"]
+                    common_replans = min(len(noise_hashes), len(frozen_noise))
+                    if noise_hashes[:common_replans] != frozen_noise[:common_replans]:
+                        raise RuntimeError(f"Frozen initial-noise sequence mismatch for {case_key} {arm}")
                 partial = {
                     "schema_version": 1,
                     "status": "RUNNING_PARTIAL",
+                    "run_kind": args.run_kind,
                     "repository_commit": repository_commit,
                     "repository_dirty": False,
                     "libero_commit": libero_commit,
                     "design_sha256": file_sha256(args.design),
                     "base_checkpoint_sha256": base_checkpoint_sha256,
                     "snap_checkpoint_sha256": snap_checkpoint_sha256,
+                    "reference_manifest_sha256": reference_sha256,
+                    "arm_specs": arm_specs,
                     "completed_rollout_count": len(results),
-                    "planned_rollout_count": len(cases) * len(ARM_SPECS),
+                    "planned_rollout_count": len(cases) * len(arm_specs),
                     "results": results,
                 }
                 partial_path = args.output.with_suffix(".partial.json")
@@ -377,25 +455,44 @@ def main() -> None:
         case_results = [
             result
             for result in results
-            if (result["suite"], result["task_id"], result["init_state_id"], result["env_seed"])
-            == case_key
+            if (result["suite"], result["task_id"], result["init_state_id"], result["env_seed"]) == case_key
         ]
         reference = case_results[0]
+        if {result["arm"] for result in case_results} != set(arm_specs):
+            raise RuntimeError(f"Case does not contain the selected arms: {case_key}")
         for result in case_results[1:]:
             if result["initial_sim_state_sha256"] != reference["initial_sim_state_sha256"]:
                 raise RuntimeError(f"Initial simulator state mismatch within case {case_key}")
             if result["initial_observation_hashes"] != reference["initial_observation_hashes"]:
                 raise RuntimeError(f"Initial policy observation mismatch within case {case_key}")
 
+    if args.run_kind == "formal":
+        summary = paired_summary(results, args.bootstrap_repeats, args.bootstrap_seed)
+        status = "PILOT_ANALYZED"
+    else:
+        summary = {
+            "arm_success": {
+                arm: {
+                    "successes": sum(result["success"] for result in results if result["arm"] == arm),
+                    "rollouts": sum(result["arm"] == arm for result in results),
+                }
+                for arm in arm_specs
+            }
+        }
+        status = "INFRASTRUCTURE_SMOKE" if args.run_kind == "nfe2_smoke" else "DIAGNOSTIC_ANALYZED"
     output = {
         "schema_version": 1,
-        "status": "PILOT_ANALYZED",
+        "status": status,
+        "run_kind": args.run_kind,
         "repository_commit": repository_commit,
         "repository_dirty": False,
         "design": str(args.design.resolve()),
         "design_sha256": file_sha256(args.design),
         "base_checkpoint_sha256": base_checkpoint_sha256,
         "snap_checkpoint_sha256": snap_checkpoint_sha256,
+        "reference_manifest": str(args.reference_manifest.resolve()) if args.reference_manifest else None,
+        "reference_manifest_sha256": reference_sha256,
+        "arm_specs": arm_specs,
         "libero_repository": str(args.libero_root.resolve()),
         "libero_commit": libero_commit,
         "execution_horizon": args.execution_horizon,
@@ -404,7 +501,7 @@ def main() -> None:
         "bootstrap_seed": args.bootstrap_seed,
         "case_count": len(cases),
         "rollout_count": len(results),
-        "summary": paired_summary(results, args.bootstrap_repeats, args.bootstrap_seed),
+        "summary": summary,
         "results": results,
     }
     args.output.parent.mkdir(parents=True, exist_ok=True)
