@@ -3,14 +3,22 @@
 | ID | Risk | Severity | Mitigation | Current status |
 |---|---|---:|---|---|
 | R-001 | Teacher is condition-blind or wrong on counterfactual prompts | high | validity checks, multi-noise stability, factual rollout confidence, response threshold | open |
-| R-002 | LIBERO-CF test leakage into CF-Train | critical | task/template/object/condition manifests and automated overlap audit | open |
-| R-003 | Different noise or preprocessing creates a false response gap | critical | invariant-enforcing paired API and unit tests | in progress |
-| R-004 | Refactor changes legacy SmolVLA numerics | high | equivalence tests before target-time/SnapFlow changes | in progress |
-| R-005 | Offline response metrics do not predict closed-loop behavior | high | always pair offline metrics with standard LIBERO and LIBERO-CF rollouts | open |
+| R-002 | LIBERO-CF test leakage into CF-Train | critical | task/template/object/condition manifests and automated overlap audit | 40-pair diagnostic audit passed; full training catalog remains open |
+| R-003 | Different noise or preprocessing creates a false response gap | critical | invariant-enforcing paired API and unit tests | mitigated for registered diagnostics |
+| R-004 | Refactor changes legacy SmolVLA numerics | high | equivalence tests before target-time/SnapFlow changes | mitigated by exact CUDA equivalence tests |
+| R-005 | Offline response metrics do not predict closed-loop behavior | high | always pair offline metrics with standard LIBERO and LIBERO-CF rollouts | 3-case standard pilot completed; still open |
 | R-006 | Pointwise KD or random pair control explains the gain | high | mandatory rebuttal baselines; weaken/reject mechanism claim if matched | open |
 | R-007 | macOS arm64 host cannot run Linux-only LIBERO/CUDA stack | high | local unit/static tests; final smoke gates on A100 Linux host | confirmed |
 | R-008 | Upstream LeRobot API drift | medium | pinned base commit and explicit upgrade log | mitigated |
 | R-009 | SnapFlow official implementation is unavailable | medium | reproduce only from the paper; record formula-level assumptions and tests | confirmed as of 2026-08-13 |
 | R-010 | Large artifacts enter Git | medium | ignore rules plus manifests/hashes only | mitigated |
 | R-011 | SnapFlow paper states three action-expert forwards per step but equations require FM, two detached target calls, and a distinct one-step student call | medium | equation-faithful four-call implementation; benchmark memory/throughput before formal training; revisit if official code appears | open |
-| R-012 | Assigned target GPU is an A100 PCIe 40GB rather than the planned 80GB device | high | preserve registered algorithms and first benchmark peak memory; stop on OOM instead of silently changing batch size or objective | open |
+| R-012 | Assigned target GPU is an A100 PCIe 40GB rather than the planned 80GB device | high | preserve registered algorithms and first benchmark peak memory; stop on OOM instead of silently changing batch size or objective | 1k smoke passed at 2.99GB; formal-run headroom not yet established |
+| R-013 | TorchCodec cannot load because compatible FFmpeg shared libraries are absent on the target host | medium | use the verified PyAV decode fallback and preserve the warning in environment provenance | open |
+| R-014 | EGL camera re-rendering is not byte-identical after exact MuJoCo state restoration | high | replay one canonical captured observation into both policy branches while separately hashing exact simulator state and reporting raw render mismatches | mitigated for the smoke protocol; open for benchmark integration |
+| R-015 | Offline response metrics may satisfy the gap criterion while ordinary teacher/student success differs materially | critical | registered replicated ordinary-LIBERO rollouts before formal training | confirmed: 100-case non-inferiority gate failed; blocks formal training |
+| R-016 | Tiny paired success pilots can be dominated by one discordant task/init state | high | expand paired task/init coverage; report Wilson intervals and both discordant directions | mitigated by 100-case gate; task clusters remain open |
+| R-017 | Success-rate equality can hide slower or qualitatively different successful trajectories | high | report steps-to-success and add contact/trajectory-quality metrics | confirmed descriptively; open |
+| R-018 | Full-chunk and per-dimension normalized response ratios can overstate behaviorally relevant distortion because 40/50 actions are not executed and gripper teacher deltas can be small | high | report executed-prefix, support-length-adjusted error energy, raw-command classes, and transition events; validate against replay-v2 traces | confirmed by task 6; closed-loop relevance remains open |
+| R-019 | Cross-process EGL rendering and hash-only manifests prevent exact replay of legacy episodes | critical | replay-v2 stores full simulator state, raw initial RGB/state, canonical processed tensors, and the complete noise schedule in hash-verified episode capsules | protocol implemented; Phase A pending A100 availability |
+| R-020 | Generic contact/name heuristics can overstate semantic failure mechanisms | high | require machine-readable event evidence for every non-UNKNOWN label; retain unavailable or ambiguous target/relation signals as UNKNOWN | protocol implemented; empirical trace coverage pending |
