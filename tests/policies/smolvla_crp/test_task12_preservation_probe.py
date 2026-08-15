@@ -5,12 +5,17 @@ from pathlib import Path
 
 import numpy as np
 import pytest
+import torch
 
 SCRIPT_DIR = Path(__file__).resolve().parents[3] / "scripts" / "research" / "crp_vla"
 sys.path.insert(0, str(SCRIPT_DIR))
 
 from prepare_task12_probe import balanced_outcome_blind_split, require_localized_mechanism  # noqa: E402
-from run_task12_preservation_probe import normalize_mean_std, select_denormalized_targets  # noqa: E402
+from run_task12_preservation_probe import (  # noqa: E402
+    normalize_mean_std,
+    select_denormalized_targets,
+    tensor_digest,
+)
 
 
 def test_probe_split_is_balanced_deterministic_and_outcome_blind() -> None:
@@ -67,3 +72,12 @@ def test_original_snap_is_the_self_replay_target_for_both_origin_arms() -> None:
     assert kind == "anchor"
     np.testing.assert_array_equal(target, snap)
     np.testing.assert_array_equal(self_target, snap)
+
+
+def test_tensor_digest_supports_bfloat16_and_hashes_exact_bytes() -> None:
+    parameter = torch.nn.Parameter(torch.tensor([1.0, 2.0], dtype=torch.bfloat16))
+    before = tensor_digest([parameter])
+    assert before == tensor_digest([parameter])
+    with torch.no_grad():
+        parameter[0] = 3.0
+    assert before != tensor_digest([parameter])

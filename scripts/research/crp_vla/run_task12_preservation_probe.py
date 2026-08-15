@@ -56,7 +56,8 @@ def normalize_mean_std(
 def tensor_digest(parameters: list[torch.nn.Parameter]) -> str:
     digest = hashlib.sha256()
     for parameter in parameters:
-        digest.update(parameter.detach().cpu().contiguous().numpy().tobytes())
+        raw_bytes = parameter.detach().cpu().contiguous().view(torch.uint8).numpy().tobytes()
+        digest.update(raw_bytes)
     return digest.hexdigest()
 
 
