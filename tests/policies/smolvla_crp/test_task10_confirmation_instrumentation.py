@@ -199,6 +199,18 @@ class FakeInner:
         return {}
 
 
+class FakeEnv:
+    def __init__(self):
+        self._env = FakeInner()
+        self.init_state_id = None
+        self.reset_calls = []
+
+    def reset(self, seed):
+        self.reset_calls.append(seed)
+        self._env.sim.data.qpos[:] = -1
+        self._env.sim.data.qvel[:] = -1
+
+
 def fake_observation() -> dict:
     return {
         "robot_state": {
@@ -219,6 +231,17 @@ def test_libero_state_save_perturb_restore_is_exact():
     np.testing.assert_array_equal(restored["qpos"], state["qpos"])
     np.testing.assert_array_equal(restored["qvel"], state["qvel"])
     assert REPLAY.structured_hash(restored["object_states"]) == REPLAY.structured_hash(state["object_states"])
+    assert REPLAY.structured_hash(restored_observation) == REPLAY.structured_hash(observation)
+
+
+def test_libero_branch_restore_resets_wrapper_before_simulator_state():
+    env = FakeEnv()
+    observation = fake_observation()
+    state = TRACE.capture_libero_state(env, observation, ["target"])
+    restored_observation = TRACE.reset_and_restore_libero_state(env, state, env_seed=123, init_state_id=4)
+    assert env.reset_calls == [123]
+    assert env.init_state_id == 4
+    np.testing.assert_array_equal(env._env.sim.data.qpos, state["qpos"])
     assert REPLAY.structured_hash(restored_observation) == REPLAY.structured_hash(observation)
 
 

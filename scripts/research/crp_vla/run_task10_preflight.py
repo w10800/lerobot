@@ -39,6 +39,7 @@ from trajectory_instrumentation import (
     execute_counterfactual_branches,
     load_replan_trace,
     physical_state_hash,
+    reset_and_restore_libero_state,
     restore_libero_state,
     write_replan_trace,
 )
@@ -431,7 +432,12 @@ def main() -> None:
 
         def restore_callback(state: Any) -> dict[str, Any]:
             nonlocal current_observation
-            current_observation = restore_libero_state(env, state)
+            current_observation = reset_and_restore_libero_state(
+                env,
+                state,
+                env_seed=int(base10_result["env_seed"]),
+                init_state_id=4,
+            )
             return capture_libero_state(env, current_observation, object_names)
 
         def capture_callback() -> dict[str, Any]:

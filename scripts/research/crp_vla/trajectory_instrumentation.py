@@ -290,6 +290,21 @@ def restore_libero_state(env: Any, frozen_state: Mapping[str, Any]) -> Any:
     return copy.deepcopy(frozen_state.get("canonical_observation", rerendered_observation))
 
 
+def reset_and_restore_libero_state(
+    env: Any,
+    frozen_state: Mapping[str, Any],
+    *,
+    env_seed: int,
+    init_state_id: int,
+) -> Any:
+    """Reset wrapper/controller state, then restore the exact simulator state."""
+    if not hasattr(env, "reset"):
+        raise ValueError("LIBERO environment reset API is unavailable")
+    env.init_state_id = int(init_state_id)
+    env.reset(seed=int(env_seed))
+    return restore_libero_state(env, frozen_state)
+
+
 def _validate_trace_payload(identity: Mapping[str, Any], payload: Mapping[str, Any]) -> None:
     missing_identity = sorted(REQUIRED_IDENTITY - set(identity))
     if missing_identity:
