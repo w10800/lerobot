@@ -52,3 +52,9 @@ def test_pass_validation_is_fail_closed() -> None:
                 "frozen_protocol_modified": False,
             }
         )
+
+
+def test_counterfactual_horizons_remain_frozen() -> None:
+    from task12_common import COUNTERFACTUAL_HORIZONS
+
+    assert COUNTERFACTUAL_HORIZONS == (1, 3, 5, 10)
