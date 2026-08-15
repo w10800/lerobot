@@ -30,6 +30,11 @@ from run_replay_v2 import (
     update_events,
     write_trace,
 )
+from trajectory_instrumentation import (
+    ReplanTraceRecorder,
+    capture_libero_state,
+    objective_event_snapshot,
+)
 
 SNAP_ARMS = {
     "snap10": (10, None),
@@ -213,9 +218,39 @@ def main() -> None:
                 success = False
                 termination_reason = "MAX_STEPS"
                 arm_start = time.perf_counter_ns()
+                replan_recorder = ReplanTraceRecorder(
+                    checkpoint_trace_root(args.output, args.checkpoint_step) / slug / f"{arm}.replans",
+                    identity_base={
+                        "case_id": slug,
+                        "task_id": f"{suite_name}:{task_id}",
+                        "arm_id": arm,
+                        "rollout_id": f"maturation-{args.checkpoint_step}:{slug}:{arm}",
+                    },
+                    language_condition={
+                        "instruction": prompt,
+                        "reference": metadata["bddl_path"],
+                    },
+                    processor_contract=checkpoint_processors,
+                    processor_hash=structured_hash(checkpoint_processors),
+                    execution_horizon=int(metadata["execution_horizon"]),
+                    nfe=nfe,
+                    noise_seed=int(metadata["noise_seed"]),
+                )
                 for step in range(max_steps):
                     latency_ms = None
                     if not action_queue:
+                        if replan_recorder.pending is not None:
+                            boundary_state = capture_libero_state(
+                                env, observation, semantics["objects_of_interest"]
+                            )
+                            replan_recorder.finish(
+                                objective_event_snapshot(
+                                    boundary_state,
+                                    contacts=contact_pairs(env._env),
+                                    success=success,
+                                    termination_reason=None,
+                                )
+                            )
                         replan_index += 1
                         if replan_index == 0:
                             batch = copy.deepcopy(payload["canonical_policy_batch"])
@@ -239,11 +274,35 @@ def main() -> None:
                             torch.cuda.synchronize()
                         latency_ms = (time.perf_counter_ns() - started) / 1_000_000
                         predicted_chunks.append(chunk[0].detach().cpu().float().numpy())
+                        denormalized_chunk = postprocessor(
+                            chunk[0, : metadata["execution_horizon"]].detach().clone()
+                        )
+                        replan_state = capture_libero_state(
+                            env, observation, semantics["objects_of_interest"]
+                        )
+                        replan_recorder.start(
+                            replan_index=replan_index,
+                            simulator_timestep=step,
+                            raw_observation=observation,
+                            normalized_observation=batch,
+                            simulator_state=replan_state,
+                            raw_policy_output=chunk.detach().cpu(),
+                            denormalized_action=denormalized_chunk.detach().cpu(),
+                            noise_tensor=noise.detach().cpu(),
+                            action_mask=batch.get("action_is_pad"),
+                            event_state=objective_event_snapshot(
+                                replan_state,
+                                contacts=contact_pairs(env._env),
+                                success=success,
+                                termination_reason=None,
+                            ),
+                        )
                         action_queue.extend(chunk[0, : metadata["execution_horizon"]])
                     action = postprocessor(action_queue.popleft().unsqueeze(0))
                     action = env_postprocessor({ACTION: action})[ACTION]
                     action_numpy = action.detach().cpu().float().numpy()[0]
                     executed_actions.append(action_numpy)
+                    replan_recorder.append_executed_action(action_numpy)
                     observation_before = observation_hashes(observation)
                     observation, _, terminated, truncated, info = env.step(action_numpy)
                     success = bool(info["is_success"])
@@ -277,15 +336,23 @@ def main() -> None:
                             "SUCCESS" if success else "ENV_TERMINATED" if terminated else "TRUNCATED"
                         )
                         break
-                event_record = {
-                    key: value for key, value in events.items() if key != "initial_object_poses"
-                }
+                final_state = capture_libero_state(env, observation, semantics["objects_of_interest"])
+                replan_recorder.finish(
+                    objective_event_snapshot(
+                        final_state,
+                        contacts=contact_pairs(env._env),
+                        success=success,
+                        termination_reason=termination_reason,
+                    )
+                )
+                event_record = {key: value for key, value in events.items() if key != "initial_object_poses"}
                 trace_manifest = write_trace(
                     checkpoint_trace_root(args.output, args.checkpoint_step) / slug,
                     arm,
                     trace_rows,
                     predicted_chunks,
                     executed_actions,
+                    replan_recorder.records,
                 )
                 result = {
                     "status": "COMPLETED",
@@ -307,9 +374,7 @@ def main() -> None:
                     "noise_schedule_sha256": metadata["noise_schedule_sha256"],
                     "evaluator_sha256": metadata["success_evaluator_sha256"],
                     "latency_ms_per_replan": [
-                        row["policy_latency_ms"]
-                        for row in trace_rows
-                        if row["policy_latency_ms"] is not None
+                        row["policy_latency_ms"] for row in trace_rows if row["policy_latency_ms"] is not None
                     ],
                     "events": event_record,
                     "failure_classification": classify_failure(event_record, success),

@@ -35,6 +35,11 @@ from run_libero_paired_four_arm_pilot import (
     git_repository_value,
     observation_hashes,
 )
+from trajectory_instrumentation import (
+    ReplanTraceRecorder,
+    capture_libero_state,
+    objective_event_snapshot,
+)
 
 
 def parse_args() -> argparse.Namespace:
@@ -309,6 +314,7 @@ def write_trace(
     rows: list[dict[str, Any]],
     predicted_chunks: list[np.ndarray],
     executed_actions: list[np.ndarray],
+    replan_records: list[dict[str, Any]] | None = None,
 ) -> dict[str, Any]:
     trace_dir.mkdir(parents=True, exist_ok=True)
     json_path = trace_dir / f"{arm}.trace.jsonl.gz"
@@ -325,6 +331,7 @@ def write_trace(
     manifest = {
         "trace_jsonl_gz": {"path": str(json_path.resolve()), "sha256": file_sha256(json_path)},
         "numeric_actions": {"path": str(numeric_path.resolve()), "sha256": file_sha256(numeric_path)},
+        "replan_records": replan_records or [],
     }
     manifest_path.write_text(json.dumps(manifest, indent=2, sort_keys=True) + "\n")
     return {"path": str(manifest_path.resolve()), "sha256": file_sha256(manifest_path)}
@@ -568,10 +575,41 @@ def main() -> None:
                 replan_index = -1
                 last_input_sha = loaded_metadata["canonical_input_sha256"]
                 arm_start = time.perf_counter_ns()
+                processor_contract = bundle["processor_manifest"]
+                replan_recorder = ReplanTraceRecorder(
+                    phase_root / "traces" / slug / f"{arm}.replans",
+                    identity_base={
+                        "case_id": slug,
+                        "task_id": f"{suite_name}:{task_id}",
+                        "arm_id": arm,
+                        "rollout_id": f"{args.phase}:{slug}:{arm}",
+                    },
+                    language_condition={
+                        "instruction": prompt,
+                        "reference": str(bddl_path.resolve()),
+                    },
+                    processor_contract=processor_contract,
+                    processor_hash=structured_hash(processor_contract),
+                    execution_horizon=args.execution_horizon,
+                    nfe=nfe,
+                    noise_seed=int(loaded_metadata["noise_seed"]),
+                )
 
                 for step in range(max_steps):
                     latency_ms = None
                     if not action_queue:
+                        if replan_recorder.pending is not None:
+                            boundary_state = capture_libero_state(
+                                env, observation, semantics["objects_of_interest"]
+                            )
+                            replan_recorder.finish(
+                                objective_event_snapshot(
+                                    boundary_state,
+                                    contacts=contact_pairs(env._env),
+                                    success=success,
+                                    termination_reason=None,
+                                )
+                            )
                         replan_index += 1
                         if replan_index == 0:
                             batch = copy.deepcopy(loaded_payload["canonical_policy_batch"])
@@ -591,11 +629,35 @@ def main() -> None:
                             torch.cuda.synchronize()
                         latency_ms = (time.perf_counter_ns() - policy_start) / 1_000_000
                         predicted_chunks.append(chunk[0].detach().cpu().float().numpy())
+                        denormalized_chunk = bundle["postprocessor"](
+                            chunk[0, : args.execution_horizon].detach().clone()
+                        )
+                        replan_state = capture_libero_state(
+                            env, observation, semantics["objects_of_interest"]
+                        )
+                        replan_recorder.start(
+                            replan_index=replan_index,
+                            simulator_timestep=step,
+                            raw_observation=observation,
+                            normalized_observation=batch,
+                            simulator_state=replan_state,
+                            raw_policy_output=chunk.detach().cpu(),
+                            denormalized_action=denormalized_chunk.detach().cpu(),
+                            noise_tensor=noise.detach().cpu(),
+                            action_mask=batch.get("action_is_pad"),
+                            event_state=objective_event_snapshot(
+                                replan_state,
+                                contacts=contact_pairs(env._env),
+                                success=success,
+                                termination_reason=None,
+                            ),
+                        )
                         action_queue.extend(chunk[0, : args.execution_horizon])
                     action = bundle["postprocessor"](action_queue.popleft().unsqueeze(0))
                     action = env_postprocessor({ACTION: action})[ACTION]
                     action_numpy = action.detach().cpu().float().numpy()[0]
                     executed_actions.append(action_numpy)
+                    replan_recorder.append_executed_action(action_numpy)
                     observation_before = observation_hashes(observation)
                     observation, _, terminated, truncated, info = env.step(action_numpy)
                     success = bool(info["is_success"])
@@ -642,12 +704,23 @@ def main() -> None:
                         )
                         break
 
+                final_state = capture_libero_state(env, observation, semantics["objects_of_interest"])
+                replan_recorder.finish(
+                    objective_event_snapshot(
+                        final_state,
+                        contacts=contact_pairs(env._env),
+                        success=success,
+                        termination_reason=termination_reason,
+                    )
+                )
+
                 trace_manifest = write_trace(
                     phase_root / "traces" / slug,
                     arm,
                     trace_rows,
                     predicted_chunks,
                     executed_actions,
+                    replan_recorder.records,
                 )
                 event_record = {key: value for key, value in events.items() if key != "initial_object_poses"}
                 classification = classify_failure(event_record, success)
