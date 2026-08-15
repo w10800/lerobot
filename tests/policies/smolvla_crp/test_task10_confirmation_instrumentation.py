@@ -281,3 +281,13 @@ def test_transition_metrics_use_quaternion_geodesic_and_no_weighted_scalar():
     assert metrics["end_effector_orientation_radians"]["value"] == pytest.approx(np.pi)
     assert metrics["gripper_l2"]["value"] == 1.0
     assert metrics["combined_weighted_scalar"]["available"] is False
+
+
+def test_physical_state_hash_ignores_render_bytes_but_not_qpos():
+    left = transition_state(0.0)
+    right = copy.deepcopy(left)
+    left["canonical_observation"] = {"rgb": np.zeros((2, 2, 3), dtype=np.uint8)}
+    right["canonical_observation"] = {"rgb": np.ones((2, 2, 3), dtype=np.uint8)}
+    assert TRACE.physical_state_hash(left) == TRACE.physical_state_hash(right)
+    right["qpos"][0] = 1.0
+    assert TRACE.physical_state_hash(left) != TRACE.physical_state_hash(right)

@@ -393,6 +393,21 @@ def load_replan_trace(path: Path, device: str = "cpu") -> tuple[dict[str, Any], 
     return metadata, payload
 
 
+def physical_state_hash(value: Any) -> str:
+    """Hash simulator transition state while excluding nondeterministic renders."""
+
+    def strip(item: Any) -> Any:
+        if isinstance(item, Mapping):
+            return {
+                str(key): strip(child) for key, child in item.items() if str(key) != "canonical_observation"
+            }
+        if isinstance(item, list):
+            return [strip(child) for child in item]
+        return item
+
+    return structured_hash(strip(value))
+
+
 def execute_counterfactual_branches(
     *,
     frozen_state: Mapping[str, Any],

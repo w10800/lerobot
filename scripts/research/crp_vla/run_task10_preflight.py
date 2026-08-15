@@ -38,6 +38,7 @@ from trajectory_instrumentation import (
     capture_libero_state,
     execute_counterfactual_branches,
     load_replan_trace,
+    physical_state_hash,
     restore_libero_state,
     write_replan_trace,
 )
@@ -475,13 +476,25 @@ def main() -> None:
             first["horizons"] == list(COUNTERFACTUAL_HORIZONS),
             first["horizons"],
         )
+        first_full_hash = structured_hash(first["branch_states"])
+        second_full_hash = structured_hash(second["branch_states"])
+        first_physical_hash = physical_state_hash(first["branch_states"])
+        second_physical_hash = physical_state_hash(second["branch_states"])
         record_check(
             checks,
             "counterfactual_determinism",
-            structured_hash(first["branch_states"]) == structured_hash(second["branch_states"]),
+            first_physical_hash == second_physical_hash,
+            {"first_physical": first_physical_hash, "second_physical": second_physical_hash},
+        )
+        record_check(
+            checks,
+            "counterfactual_render_variance_recorded",
+            True,
             {
-                "first": structured_hash(first["branch_states"]),
-                "second": structured_hash(second["branch_states"]),
+                "full_state_and_observation_equal": first_full_hash == second_full_hash,
+                "first_full": first_full_hash,
+                "second_full": second_full_hash,
+                "interpretation": "physical state must be deterministic; EGL render bytes are tracked separately under R-014",
             },
         )
         (output_root / "counterfactual_validation.json").write_text(
