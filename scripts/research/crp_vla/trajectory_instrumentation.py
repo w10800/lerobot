@@ -216,6 +216,7 @@ def capture_libero_state(
         "state_blob": serialized,
         "qpos": qpos,
         "qvel": qvel,
+        "canonical_observation": copy.deepcopy(observation),
         "object_states": object_states,
         "robot_state": robot_state,
         "end_effector_pose": end_effector_pose,
@@ -276,7 +277,7 @@ def restore_libero_state(env: Any, frozen_state: Mapping[str, Any]) -> Any:
     inner = getattr(env, "_env", env)
     if inner is None or not hasattr(inner, "set_init_state"):
         raise ValueError("LIBERO simulator restoration API is unavailable")
-    observation = inner.set_init_state(_copy_array(frozen_state["state_blob"]))
+    rerendered_observation = inner.set_init_state(_copy_array(frozen_state["state_blob"]))
     qpos = _copy_array(inner.sim.data.qpos)
     qvel = _copy_array(inner.sim.data.qvel)
     if not np.array_equal(qpos, np.asarray(frozen_state["qpos"])):
@@ -286,7 +287,7 @@ def restore_libero_state(env: Any, frozen_state: Mapping[str, Any]) -> Any:
     restored_blob = _copy_array(inner.get_sim_state())
     if array_sha256(restored_blob) != frozen_state["state_blob_sha256"]:
         raise RuntimeError("Exact simulator state-blob restoration failed")
-    return observation
+    return copy.deepcopy(frozen_state.get("canonical_observation", rerendered_observation))
 
 
 def _validate_trace_payload(identity: Mapping[str, Any], payload: Mapping[str, Any]) -> None:

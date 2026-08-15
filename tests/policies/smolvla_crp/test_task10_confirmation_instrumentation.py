@@ -210,14 +210,16 @@ def fake_observation() -> dict:
 
 def test_libero_state_save_perturb_restore_is_exact():
     inner = FakeInner()
-    state = TRACE.capture_libero_state(inner, fake_observation(), ["target"])
+    observation = fake_observation()
+    state = TRACE.capture_libero_state(inner, observation, ["target"])
     inner.sim.data.qpos[:] = 9
     inner.sim.data.qvel[:] = 8
-    TRACE.restore_libero_state(inner, state)
+    restored_observation = TRACE.restore_libero_state(inner, state)
     restored = TRACE.capture_libero_state(inner, fake_observation(), ["target"])
     np.testing.assert_array_equal(restored["qpos"], state["qpos"])
     np.testing.assert_array_equal(restored["qvel"], state["qvel"])
     assert REPLAY.structured_hash(restored["object_states"]) == REPLAY.structured_hash(state["object_states"])
+    assert REPLAY.structured_hash(restored_observation) == REPLAY.structured_hash(observation)
 
 
 def transition_state(position: float) -> dict:
