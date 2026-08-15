@@ -116,7 +116,7 @@ def pair_metrics(
         )
     row = {
         "case_id": case_id,
-        "task_id": base_record["task_id"],
+        "task_id": outcome["task_id"],
         "diagnostic_subset": case_id in diagnostic_ids,
         "base10_success": bool(outcome["base10_success"]),
         "snap1_20k_success": bool(outcome["snap1_20k_success"]),
