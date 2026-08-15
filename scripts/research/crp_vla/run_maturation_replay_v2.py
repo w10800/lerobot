@@ -50,6 +50,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--checkpoint", type=Path, required=True)
     parser.add_argument("--checkpoint-step", type=int, required=True)
     parser.add_argument("--libero-root", type=Path, required=True)
+    parser.add_argument("--offline-vlm-model-dir", type=Path)
     parser.add_argument("--device", default="cuda")
     parser.add_argument("--output", type=Path, required=True)
     return parser.parse_args()
@@ -69,6 +70,16 @@ def processor_manifest(checkpoint: Path) -> dict[str, str]:
 
 def checkpoint_trace_root(output: Path, checkpoint_step: int) -> Path:
     return output.parent / "traces" / f"step_{checkpoint_step:06d}"
+
+
+def configure_offline_vlm(config: Any, offline_vlm_model_dir: Path | None) -> None:
+    if offline_vlm_model_dir is None:
+        return
+    directory = offline_vlm_model_dir.resolve()
+    if not directory.is_dir():
+        raise ValueError(f"Offline VLM directory does not exist: {directory}")
+    config.load_vlm_weights = False
+    config.vlm_model_name = str(directory)
 
 
 def validate_checkpoint_processors(metadata: dict[str, Any], checkpoint_processors: dict[str, str]) -> None:
@@ -125,6 +136,7 @@ def main() -> None:
     config = SmolVLAConfig.from_pretrained(args.checkpoint)
     config.device = args.device
     config.load_vlm_weights = False
+    configure_offline_vlm(config, args.offline_vlm_model_dir)
     config.n_action_steps = 10
     policy = SmolVLAPolicy.from_pretrained(args.checkpoint, config=config, strict=False)
     preprocessor, postprocessor = make_pre_post_processors(

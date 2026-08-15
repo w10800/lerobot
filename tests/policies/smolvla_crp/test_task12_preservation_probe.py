@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import sys
 from pathlib import Path
+from types import SimpleNamespace
 
 import numpy as np
 import pytest
@@ -11,6 +12,7 @@ SCRIPT_DIR = Path(__file__).resolve().parents[3] / "scripts" / "research" / "crp
 sys.path.insert(0, str(SCRIPT_DIR))
 
 from prepare_task12_probe import balanced_outcome_blind_split, require_localized_mechanism  # noqa: E402
+from run_maturation_replay_v2 import configure_offline_vlm  # noqa: E402
 from run_task12_preservation_probe import (  # noqa: E402
     normalize_mean_std,
     select_denormalized_targets,
@@ -81,3 +83,12 @@ def test_tensor_digest_supports_bfloat16_and_hashes_exact_bytes() -> None:
     with torch.no_grad():
         parameter[0] = 3.0
     assert before != tensor_digest([parameter])
+
+
+def test_maturation_replay_can_use_frozen_offline_vlm(tmp_path: Path) -> None:
+    config = SimpleNamespace(load_vlm_weights=True, vlm_model_name="remote/model")
+    configure_offline_vlm(config, tmp_path)
+    assert config.load_vlm_weights is False
+    assert config.vlm_model_name == str(tmp_path.resolve())
+    with pytest.raises(ValueError, match="does not exist"):
+        configure_offline_vlm(config, tmp_path / "missing")
