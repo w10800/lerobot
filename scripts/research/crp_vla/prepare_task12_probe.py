@@ -30,6 +30,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--execution-manifest", type=Path, required=True)
     parser.add_argument("--diagnostic-subset", type=Path, required=True)
     parser.add_argument("--task11-paired-results", type=Path, required=True)
+    parser.add_argument("--task11-primary-statistics", type=Path, required=True)
     parser.add_argument("--phase-b-query-summary", type=Path, required=True)
     parser.add_argument("--phase-b-branch-summary", type=Path, required=True)
     parser.add_argument("--selected-checkpoint", type=Path, required=True)
@@ -82,9 +83,12 @@ def main() -> None:
     execution = load_json(args.execution_manifest)
     diagnostic = load_json(args.diagnostic_subset)
     paired = load_json(args.task11_paired_results)
+    primary = load_json(args.task11_primary_statistics)
     query = load_json(args.phase_b_query_summary)
     branch = load_json(args.phase_b_branch_summary)
-    if paired.get("status") != "FORMAL_CONFIRMATION1200_PASS":
+    if paired.get("status") != "TASK11_EXACT_1200_PAIRS" or paired.get("case_count") != 1200:
+        raise ValueError("Task 11 exact paired-result inventory is incomplete")
+    if primary.get("status") != "FORMAL_CONFIRMATION1200_PASS" or not primary.get("noninferiority_pass"):
         raise ValueError("Task 11 did not pass the frozen confirmation gate")
     if query.get("status") != "TASK12_PHASE_B_SAME_STATE_QUERIES_COMPLETE":
         raise ValueError("Task 12 Phase B same-state queries are incomplete")
@@ -113,6 +117,7 @@ def main() -> None:
             "execution_manifest": file_sha256(args.execution_manifest),
             "diagnostic_subset": file_sha256(args.diagnostic_subset),
             "task11_paired_results": file_sha256(args.task11_paired_results),
+            "task11_primary_statistics": file_sha256(args.task11_primary_statistics),
             "phase_b_query_summary": file_sha256(args.phase_b_query_summary),
             "phase_b_branch_summary": file_sha256(args.phase_b_branch_summary),
         },
