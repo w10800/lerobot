@@ -66,6 +66,17 @@ def load_action_stats(checkpoint: Path) -> tuple[np.ndarray, np.ndarray]:
     return tensors["action.mean"].cpu().numpy(), tensors["action.std"].cpu().numpy()
 
 
+def select_denormalized_targets(
+    origin: str, base_actions: np.ndarray, snap_actions: np.ndarray
+) -> tuple[np.ndarray, np.ndarray, str]:
+    """Return the probe target, original-Snap anchor, and pool kind."""
+    if origin == "snap1_20k":
+        return base_actions, snap_actions, "preservation"
+    if origin == "base10":
+        return snap_actions, snap_actions, "anchor"
+    raise ValueError(f"Unexpected Task 12 origin arm: {origin}")
+
+
 def build_trace_index(trace_manifest: Path) -> dict[tuple[str, str, int], Path]:
     manifest = load_json(trace_manifest)
     index: dict[tuple[str, str, int], Path] = {}
@@ -122,9 +133,9 @@ def load_samples(
             array_index = int(row["array_index"])
             replan_index = int(row["replan_index"])
             trace_path = trace_index[(case_id, origin, replan_index)]
-            self_denorm = base_actions[array_index] if origin == "base10" else snap_actions[array_index]
-            target_denorm = snap_actions[array_index] if origin == "base10" else base_actions[array_index]
-            kind = "anchor" if origin == "base10" else "preservation"
+            target_denorm, self_denorm, kind = select_denormalized_targets(
+                origin, base_actions[array_index], snap_actions[array_index]
+            )
             pools[f"{split}_{kind}"].append(
                 {
                     "case_id": case_id,

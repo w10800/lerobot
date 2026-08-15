@@ -10,7 +10,7 @@ SCRIPT_DIR = Path(__file__).resolve().parents[3] / "scripts" / "research" / "crp
 sys.path.insert(0, str(SCRIPT_DIR))
 
 from prepare_task12_probe import balanced_outcome_blind_split, require_localized_mechanism  # noqa: E402
-from run_task12_preservation_probe import normalize_mean_std  # noqa: E402
+from run_task12_preservation_probe import normalize_mean_std, select_denormalized_targets  # noqa: E402
 
 
 def test_probe_split_is_balanced_deterministic_and_outcome_blind() -> None:
@@ -54,3 +54,16 @@ def test_mean_std_action_normalization() -> None:
     mean = np.asarray([2.0, 1.0], dtype=np.float32)
     std = np.asarray([2.0, 4.0], dtype=np.float32)
     np.testing.assert_allclose(normalize_mean_std(action, mean, std, eps=0.0), [[0.0, 1.0], [1.0, 2.0]])
+
+
+def test_original_snap_is_the_self_replay_target_for_both_origin_arms() -> None:
+    base = np.asarray([[1.0]], dtype=np.float32)
+    snap = np.asarray([[2.0]], dtype=np.float32)
+    target, self_target, kind = select_denormalized_targets("snap1_20k", base, snap)
+    assert kind == "preservation"
+    np.testing.assert_array_equal(target, base)
+    np.testing.assert_array_equal(self_target, snap)
+    target, self_target, kind = select_denormalized_targets("base10", base, snap)
+    assert kind == "anchor"
+    np.testing.assert_array_equal(target, snap)
+    np.testing.assert_array_equal(self_target, snap)
