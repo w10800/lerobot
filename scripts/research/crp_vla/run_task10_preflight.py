@@ -404,7 +404,7 @@ def main() -> None:
 
         initial_obs_hash = canonical_json_sha256(observation_hashes(raw))
         env.step(base_executed[0])
-        restored_raw = env._format_raw_obs(restore_libero_state(env, frozen_state))
+        restored_raw = restore_libero_state(env, frozen_state)
         restored = capture_libero_state(env, restored_raw, object_names)
         record_check(
             checks,
@@ -430,7 +430,7 @@ def main() -> None:
 
         def restore_callback(state: Any) -> dict[str, Any]:
             nonlocal current_observation
-            current_observation = env._format_raw_obs(restore_libero_state(env, state))
+            current_observation = restore_libero_state(env, state)
             return capture_libero_state(env, current_observation, object_names)
 
         def capture_callback() -> dict[str, Any]:
