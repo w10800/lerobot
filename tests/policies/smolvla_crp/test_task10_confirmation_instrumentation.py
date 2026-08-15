@@ -238,7 +238,7 @@ def transition_state(position: float) -> dict:
             "pos": np.asarray([position, 0.0, 0.0]),
             "quat": np.asarray([0.0, 0.0, 0.0, 1.0]),
         },
-        "gripper_state": np.asarray([position]),
+        "gripper_state": {"qpos": np.asarray([position])},
     }
 
 
@@ -279,4 +279,5 @@ def test_transition_metrics_use_quaternion_geodesic_and_no_weighted_scalar():
     assert metrics["joint_state_l2"]["value"] == 1.0
     assert metrics["end_effector_position_l2"]["value"] == 1.0
     assert metrics["end_effector_orientation_radians"]["value"] == pytest.approx(np.pi)
+    assert metrics["gripper_l2"]["value"] == 1.0
     assert metrics["combined_weighted_scalar"]["available"] is False

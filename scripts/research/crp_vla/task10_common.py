@@ -258,6 +258,17 @@ def _available_metric(value: float | None, reason: str | None = None) -> dict[st
     }
 
 
+def _numeric_vector(value: Any) -> np.ndarray:
+    if isinstance(value, Mapping):
+        children = [_numeric_vector(value[key]) for key in sorted(value, key=str)]
+        return np.concatenate(children) if children else np.asarray([], dtype=np.float64)
+    if isinstance(value, (list, tuple)):
+        children = [_numeric_vector(child) for child in value]
+        return np.concatenate(children) if children else np.asarray([], dtype=np.float64)
+    array = np.asarray(value, dtype=np.float64)
+    return array.reshape(-1)
+
+
 def transition_divergence(left: Mapping[str, Any], right: Mapping[str, Any]) -> dict[str, Any]:
     """Compute unweighted raw transition-divergence components."""
     q_left = left.get("qpos")
@@ -288,7 +299,7 @@ def transition_divergence(left: Mapping[str, Any], right: Mapping[str, Any]) -> 
     grip_left = left.get("gripper_state")
     grip_right = right.get("gripper_state")
     gripper = (
-        _available_metric(float(np.linalg.norm(np.asarray(grip_left) - np.asarray(grip_right))))
+        _available_metric(float(np.linalg.norm(_numeric_vector(grip_left) - _numeric_vector(grip_right))))
         if grip_left is not None and grip_right is not None
         else _available_metric(None, "gripper state unavailable")
     )
