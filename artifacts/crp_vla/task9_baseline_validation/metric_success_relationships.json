@@ -1,0 +1,103 @@
+{
+  "analysis_type": "descriptive",
+  "case_pattern_counts": {
+    "1000": {
+      "1_fails_2_succeeds": 3,
+      "1_succeeds_2_fails": 4,
+      "2_fails_10_succeeds": 4,
+      "2_succeeds_10_fails": 3
+    },
+    "10000": {
+      "1_fails_2_succeeds": 5,
+      "1_succeeds_2_fails": 2,
+      "2_fails_10_succeeds": 3,
+      "2_succeeds_10_fails": 2
+    },
+    "20000": {
+      "1_fails_2_succeeds": 2,
+      "1_succeeds_2_fails": 2,
+      "2_fails_10_succeeds": 1,
+      "2_succeeds_10_fails": 3
+    },
+    "3000": {
+      "1_fails_2_succeeds": 5,
+      "1_succeeds_2_fails": 4,
+      "2_fails_10_succeeds": 5,
+      "2_succeeds_10_fails": 3
+    },
+    "30000": {
+      "1_fails_2_succeeds": 3,
+      "1_succeeds_2_fails": 4,
+      "2_fails_10_succeeds": 3,
+      "2_succeeds_10_fails": 3
+    },
+    "5000": {
+      "1_fails_2_succeeds": 4,
+      "1_succeeds_2_fails": 5,
+      "2_fails_10_succeeds": 4,
+      "2_succeeds_10_fails": 2
+    }
+  },
+  "checkpoint_step_vs_success": {
+    "1": {
+      "n": 6,
+      "rho": -0.20597146021777488,
+      "two_sided_p": 0.6954119012537148
+    },
+    "10": {
+      "n": 6,
+      "rho": -0.5161002296110789,
+      "two_sided_p": 0.29458374146246064
+    },
+    "2": {
+      "n": 6,
+      "rho": 0.0,
+      "two_sided_p": 1.0
+    }
+  },
+  "factual_loss_vs_success": {
+    "1": {
+      "n": 6,
+      "rho": -0.2942449431682498,
+      "two_sided_p": 0.5713704615752552
+    },
+    "10": {
+      "n": 6,
+      "rho": 0.6982532518267538,
+      "two_sided_p": 0.12283946337339603
+    },
+    "2": {
+      "n": 6,
+      "rho": 0.26482044885142486,
+      "two_sided_p": 0.612055238565705
+    }
+  },
+  "per_checkpoint_nfe_monotonicity": {
+    "1000": {
+      "aggregate_snap10_ge_snap2_ge_snap1": false,
+      "case_level_violation_count": 7
+    },
+    "10000": {
+      "aggregate_snap10_ge_snap2_ge_snap1": true,
+      "case_level_violation_count": 4
+    },
+    "20000": {
+      "aggregate_snap10_ge_snap2_ge_snap1": false,
+      "case_level_violation_count": 5
+    },
+    "3000": {
+      "aggregate_snap10_ge_snap2_ge_snap1": true,
+      "case_level_violation_count": 7
+    },
+    "30000": {
+      "aggregate_snap10_ge_snap2_ge_snap1": false,
+      "case_level_violation_count": 7
+    },
+    "5000": {
+      "aggregate_snap10_ge_snap2_ge_snap1": false,
+      "case_level_violation_count": 7
+    }
+  },
+  "schema_version": 1,
+  "warning": "Only six checkpoints are available; correlations are unstable and non-causal."
+}

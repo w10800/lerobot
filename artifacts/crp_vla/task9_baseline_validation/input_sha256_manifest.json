@@ -1,0 +1,220 @@
+{
+  "files": [
+    {
+      "label": "maturation_manifest",
+      "path": "/root/crp-vla/artifacts/crp_vla/maturation/checkpoint_manifest.json",
+      "sha256": "a1b3dc712f9a19af6ef8eefafa2d9284a3fbbeefde6461c8f9bf46182c42a94e",
+      "size": 10411
+    },
+    {
+      "label": "maturation_sha_manifest",
+      "path": "/root/crp-vla/artifacts/crp_vla/maturation/sha256_manifest.txt",
+      "sha256": "faddf48d4ce951d9a37a9991f6a1ceedf203d00faeccf3f6fae0427c0ddabf9d",
+      "size": 357
+    },
+    {
+      "label": "replay_dev_manifest",
+      "path": "/root/crp-vla/artifacts/crp_vla/replay_v2/development/run_manifest.json",
+      "sha256": "741caca96ea424509847b3f733c0792c0053d25808f64ce5b4b3ef7162d9ef8a",
+      "size": 837003
+    },
+    {
+      "label": "replay_dev_summary",
+      "path": "/root/crp-vla/artifacts/crp_vla/replay_v2/development/summary.json",
+      "sha256": "eaf61d13fbe525829af9cbefadb5402f6eea1fa92abbcdb05eca9d48da77cf7f",
+      "size": 11318
+    },
+    {
+      "label": "replay_dev_cases",
+      "path": "/root/crp-vla/artifacts/crp_vla/replay_v2/per_case_results.parquet",
+      "sha256": "c201fc7159e40827870b2f90d2cbdca71b88e226eedf66c8631ba6e5549d61ae",
+      "size": 38414
+    },
+    {
+      "label": "replay_dev_events",
+      "path": "/root/crp-vla/artifacts/crp_vla/replay_v2/event_traces.parquet",
+      "sha256": "c131842a89a80ed68427ad1f1b493a6099fe95cbb596f0d4ba37435b0c632de9",
+      "size": 18285
+    },
+    {
+      "label": "formal100",
+      "path": "/root/crp-vla/artifacts/crp_vla/followup/libero_paired_final_v1.json",
+      "sha256": "f69d18aaa1a8e47afea53d3dd113c92f9391e244964a0d92c497f3e93cfe24e4",
+      "size": 1212523
+    },
+    {
+      "label": "metric_validity_statistics",
+      "path": "/root/crp-vla/artifacts/crp_vla/task9_baseline_validation/source_inputs/task6_metric_validity/statistics.json",
+      "sha256": "11124c9d4179688b326f7ccb5b3761c1733087615d755b2de261e3155b246c72",
+      "size": 1610024
+    },
+    {
+      "label": "metric_validity_records",
+      "path": "/root/crp-vla/artifacts/crp_vla/task9_baseline_validation/source_inputs/task6_metric_validity/per_record_metrics.parquet",
+      "sha256": "cf1f67f27c335cee4f291115744d3036050c47de81b57a99dc390e8d8e5b2cab",
+      "size": 707232
+    },
+    {
+      "label": "metric_validity_sha_manifest",
+      "path": "/root/crp-vla/artifacts/crp_vla/task9_baseline_validation/source_inputs/task6_metric_validity/sha256_manifest.txt",
+      "sha256": "64407ff4995098509dec80db72709906200578098f768a426df8deb23536f5d9",
+      "size": 1199
+    },
+    {
+      "label": "factual_1000",
+      "path": "/root/crp-vla/artifacts/crp_vla/maturation/factual/step_001000.json",
+      "sha256": "4cb11fa93cf05ed2dac688efa04a8d1ac265d78f6c58620f95af443da1ae9dfd",
+      "size": 217841
+    },
+    {
+      "label": "replay_1000",
+      "path": "/root/crp-vla/artifacts/crp_vla/maturation/replay/step_001000.json",
+      "sha256": "66504f6793e56538b65cddca24aa808e3b242d9618e13f519f64944bb31ceadd",
+      "size": 380003
+    },
+    {
+      "label": "factual_3000",
+      "path": "/root/crp-vla/artifacts/crp_vla/maturation/factual/step_003000.json",
+      "sha256": "20ddbab46da908e352877d1e9df50714cdad5bf881251a6734935aafe61e278e",
+      "size": 216928
+    },
+    {
+      "label": "replay_3000",
+      "path": "/root/crp-vla/artifacts/crp_vla/maturation/replay/step_003000.json",
+      "sha256": "264d10b10f548a0584ed69d6274a5150c2ac9b39e1d228cbb392bf45b8250c90",
+      "size": 377765
+    },
+    {
+      "label": "factual_5000",
+      "path": "/root/crp-vla/artifacts/crp_vla/maturation/factual/step_005000.json",
+      "sha256": "f7a55a13d961d859eac3989157ae43536fb2acb7b242cc061f287e0b9ccd8e63",
+      "size": 217350
+    },
+    {
+      "label": "replay_5000",
+      "path": "/root/crp-vla/artifacts/crp_vla/maturation/replay/step_005000.json",
+      "sha256": "5551a19f5ec67cbfe92e5bcc0312e826b7553aa59a7516773c406d21178cde6c",
+      "size": 382589
+    },
+    {
+      "label": "factual_10000",
+      "path": "/root/crp-vla/artifacts/crp_vla/maturation/factual/step_010000.json",
+      "sha256": "525814f723c4913e48b5731561305745d400d370bbac31a55095d636285a3341",
+      "size": 217348
+    },
+    {
+      "label": "replay_10000",
+      "path": "/root/crp-vla/artifacts/crp_vla/maturation/replay/step_010000.json",
+      "sha256": "d5551a3d28970a994f86f07ab661f6dfa653ee635f61f80b735a4cbcef3df169",
+      "size": 379598
+    },
+    {
+      "label": "factual_20000",
+      "path": "/root/crp-vla/artifacts/crp_vla/maturation/factual/step_020000.json",
+      "sha256": "9b36b6230e10bc66879873e3417abdbbc4b0b2ebd5b5189cf46f82bac6c50f03",
+      "size": 218329
+    },
+    {
+      "label": "replay_20000",
+      "path": "/root/crp-vla/artifacts/crp_vla/maturation/replay/step_020000.json",
+      "sha256": "ee25faf708ea48503bbbd729dc0cc579e3505cc63e677a1c3adf7d95bb5d8d88",
+      "size": 378486
+    },
+    {
+      "label": "factual_30000",
+      "path": "/root/crp-vla/artifacts/crp_vla/maturation/factual/step_030000.json",
+      "sha256": "d2e882c053a8cfbab40945c897cc6eea5b9ef781d738b296241e8f96fd8c47f6",
+      "size": 218472
+    },
+    {
+      "label": "replay_30000",
+      "path": "/root/crp-vla/artifacts/crp_vla/maturation/replay/step_030000.json",
+      "sha256": "7eb63e2e401c378cb8ce4f76764b335acca9f40b439a8c6ee219033fc1071e3a",
+      "size": 387389
+    },
+    {
+      "actual_sha256": "9972c4f40688be21f438b2998d253a97f8d23464b46ec8d3f81557bec965a5d8",
+      "expected_sha256": "9972c4f40688be21f438b2998d253a97f8d23464b46ec8d3f81557bec965a5d8",
+      "label": "metric_validity_member",
+      "passed": true,
+      "path": "/root/crp-vla/artifacts/crp_vla/task9_baseline_validation/source_inputs/task6_metric_validity/METRIC_VALIDITY_AUDIT.md"
+    },
+    {
+      "actual_sha256": "abe9d8d040f67f2ae50eaef385f2e72813d756898e8b190f9fa5329dd0ebc50b",
+      "expected_sha256": "abe9d8d040f67f2ae50eaef385f2e72813d756898e8b190f9fa5329dd0ebc50b",
+      "label": "metric_validity_member",
+      "passed": true,
+      "path": "/root/crp-vla/artifacts/crp_vla/task9_baseline_validation/source_inputs/task6_metric_validity/action_semantics.json"
+    },
+    {
+      "actual_sha256": "53560a66ad81e90e64b5713173c2e91c1bdb7d25c7404a17e2a2b6fe8f5688f9",
+      "expected_sha256": "53560a66ad81e90e64b5713173c2e91c1bdb7d25c7404a17e2a2b6fe8f5688f9",
+      "label": "metric_validity_member",
+      "passed": true,
+      "path": "/root/crp-vla/artifacts/crp_vla/task9_baseline_validation/source_inputs/task6_metric_validity/per_pair_metrics.parquet"
+    },
+    {
+      "actual_sha256": "cf1f67f27c335cee4f291115744d3036050c47de81b57a99dc390e8d8e5b2cab",
+      "expected_sha256": "cf1f67f27c335cee4f291115744d3036050c47de81b57a99dc390e8d8e5b2cab",
+      "label": "metric_validity_member",
+      "passed": true,
+      "path": "/root/crp-vla/artifacts/crp_vla/task9_baseline_validation/source_inputs/task6_metric_validity/per_record_metrics.parquet"
+    },
+    {
+      "actual_sha256": "a5bcc0870fcd9cc348398385fcdbaa96bfc230577d5c8804e5204a7223a4e193",
+      "expected_sha256": "a5bcc0870fcd9cc348398385fcdbaa96bfc230577d5c8804e5204a7223a4e193",
+      "label": "metric_validity_member",
+      "passed": true,
+      "path": "/root/crp-vla/artifacts/crp_vla/task9_baseline_validation/source_inputs/task6_metric_validity/plots/action_group_decomposition.png"
+    },
+    {
+      "actual_sha256": "c14e16fd30a6879ff6e6b1e9bd3e6ecc16e0254e189c14ac3a8fe05d2992c82f",
+      "expected_sha256": "c14e16fd30a6879ff6e6b1e9bd3e6ecc16e0254e189c14ac3a8fe05d2992c82f",
+      "label": "metric_validity_member",
+      "passed": true,
+      "path": "/root/crp-vla/artifacts/crp_vla/task9_baseline_validation/source_inputs/task6_metric_validity/plots/condition_vs_matched_noise_executed_prefix.png"
+    },
+    {
+      "actual_sha256": "3aa71cff2b73cda2ea2b0bb06a579939efe9f49d362d0c56f5024cb7b7e305e9",
+      "expected_sha256": "3aa71cff2b73cda2ea2b0bb06a579939efe9f49d362d0c56f5024cb7b7e305e9",
+      "label": "metric_validity_member",
+      "passed": true,
+      "path": "/root/crp-vla/artifacts/crp_vla/task9_baseline_validation/source_inputs/task6_metric_validity/plots/executed_prefix_vs_unexecuted_suffix.png"
+    },
+    {
+      "actual_sha256": "cecb7b5078a3ec5c3e6481aaec148121105bcd7c1b009a69030fb64527f70063",
+      "expected_sha256": "cecb7b5078a3ec5c3e6481aaec148121105bcd7c1b009a69030fb64527f70063",
+      "label": "metric_validity_member",
+      "passed": true,
+      "path": "/root/crp-vla/artifacts/crp_vla/task9_baseline_validation/source_inputs/task6_metric_validity/plots/gripper_transition_timing_histogram.png"
+    },
+    {
+      "actual_sha256": "0eb856b414667c23e8d9b557fd2a178bb38f73343e625d801b856818950bf2b2",
+      "expected_sha256": "0eb856b414667c23e8d9b557fd2a178bb38f73343e625d801b856818950bf2b2",
+      "label": "metric_validity_member",
+      "passed": true,
+      "path": "/root/crp-vla/artifacts/crp_vla/task9_baseline_validation/source_inputs/task6_metric_validity/plots/prefix_length_vs_cosine.png"
+    },
+    {
+      "actual_sha256": "fa591ddab44dcd7d21ac9f49d4d4cc3af261bc1491fafd2e5584f7aaf04d22c5",
+      "expected_sha256": "fa591ddab44dcd7d21ac9f49d4d4cc3af261bc1491fafd2e5584f7aaf04d22c5",
+      "label": "metric_validity_member",
+      "passed": true,
+      "path": "/root/crp-vla/artifacts/crp_vla/task9_baseline_validation/source_inputs/task6_metric_validity/plots/prefix_length_vs_response_error.png"
+    },
+    {
+      "actual_sha256": "05142869779778d111495ac2c3d66cce8baf47f144ba847d6e2cdc7f2bc8107e",
+      "expected_sha256": "05142869779778d111495ac2c3d66cce8baf47f144ba847d6e2cdc7f2bc8107e",
+      "label": "metric_validity_member",
+      "passed": true,
+      "path": "/root/crp-vla/artifacts/crp_vla/task9_baseline_validation/source_inputs/task6_metric_validity/plots/task_level_forest_plot.png"
+    },
+    {
+      "actual_sha256": "11124c9d4179688b326f7ccb5b3761c1733087615d755b2de261e3155b246c72",
+      "expected_sha256": "11124c9d4179688b326f7ccb5b3761c1733087615d755b2de261e3155b246c72",
+      "label": "metric_validity_member",
+      "passed": true,
+      "path": "/root/crp-vla/artifacts/crp_vla/task9_baseline_validation/source_inputs/task6_metric_validity/statistics.json"
+    }
+  ]
+}

@@ -1,0 +1,77 @@
+'[Errno 104] Connection reset by peer' thrown while requesting HEAD https://huggingface.co/HuggingFaceTB/SmolVLM2-500M-Video-Instruct/resolve/main/chat_template.jinja
+WARNING:huggingface_hub.utils._http:'[Errno 104] Connection reset by peer' thrown while requesting HEAD https://huggingface.co/HuggingFaceTB/SmolVLM2-500M-Video-Instruct/resolve/main/chat_template.jinja
+Retrying in 1s [Retry 1/5].
+WARNING:huggingface_hub.utils._http:Retrying in 1s [Retry 1/5].
+Traceback (most recent call last):
+  File "/root/crp-vla/.venv/lib/python3.12/site-packages/transformers/processing_utils.py", line 1013, in get_processor_dict
+    resolved_raw_chat_template_file = cached_file(
+                                      ^^^^^^^^^^^^
+  File "/root/crp-vla/.venv/lib/python3.12/site-packages/transformers/utils/hub.py", line 278, in cached_file
+    file = cached_files(path_or_repo_id=path_or_repo_id, filenames=[filename], **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/crp-vla/.venv/lib/python3.12/site-packages/transformers/utils/hub.py", line 512, in cached_files
+    raise e
+  File "/root/crp-vla/.venv/lib/python3.12/site-packages/transformers/utils/hub.py", line 422, in cached_files
+    hf_hub_download(
+  File "/root/crp-vla/.venv/lib/python3.12/site-packages/huggingface_hub/utils/_validators.py", line 88, in _inner_fn
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/root/crp-vla/.venv/lib/python3.12/site-packages/huggingface_hub/file_download.py", line 1019, in hf_hub_download
+    return _hf_hub_download_to_cache_dir(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/crp-vla/.venv/lib/python3.12/site-packages/huggingface_hub/file_download.py", line 1148, in _hf_hub_download_to_cache_dir
+    _get_metadata_or_catch_error(
+  File "/root/crp-vla/.venv/lib/python3.12/site-packages/huggingface_hub/file_download.py", line 1713, in _get_metadata_or_catch_error
+    metadata = get_hf_file_metadata(
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/root/crp-vla/.venv/lib/python3.12/site-packages/huggingface_hub/utils/_validators.py", line 88, in _inner_fn
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/root/crp-vla/.venv/lib/python3.12/site-packages/huggingface_hub/file_download.py", line 1621, in get_hf_file_metadata
+    response = _httpx_follow_relative_redirects_with_backoff(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/crp-vla/.venv/lib/python3.12/site-packages/huggingface_hub/utils/_http.py", line 719, in _httpx_follow_relative_redirects_with_backoff
+    response = http_backoff(
+               ^^^^^^^^^^^^^
+  File "/root/crp-vla/.venv/lib/python3.12/site-packages/huggingface_hub/utils/_http.py", line 596, in http_backoff
+    return next(
+           ^^^^^
+  File "/root/crp-vla/.venv/lib/python3.12/site-packages/huggingface_hub/utils/_http.py", line 504, in _http_backoff_base
+    response = client.request(method=method, url=url, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/crp-vla/.venv/lib/python3.12/site-packages/httpx/_client.py", line 825, in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/crp-vla/.venv/lib/python3.12/site-packages/httpx/_client.py", line 901, in send
+    raise RuntimeError("Cannot send a request, as the client has been closed.")
+RuntimeError: Cannot send a request, as the client has been closed.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/root/crp-vla/scripts/research/crp_vla/run_task9_preflight.py", line 351, in <module>
+    main()
+  File "/root/crp-vla/scripts/research/crp_vla/run_task9_preflight.py", line 137, in main
+    base_policy, _, base_post = load_policy(args.base_checkpoint)
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/crp-vla/scripts/research/crp_vla/run_task9_preflight.py", line 129, in load_policy
+    policy = SmolVLAPolicy.from_pretrained(checkpoint, config=config, strict=False)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/crp-vla/src/lerobot/policies/pretrained.py", line 162, in from_pretrained
+    instance = cls(config, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/root/crp-vla/src/lerobot/policies/smolvla/modeling_smolvla.py", line 171, in __init__
+    self.model = VLAFlowMatching(config, rtc_processor=self.rtc_processor)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/crp-vla/src/lerobot/policies/smolvla/modeling_smolvla.py", line 537, in __init__
+    self.vlm_with_expert = SmolVLMWithExpertModel(
+                           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/crp-vla/src/lerobot/policies/smolvla/smolvlm_with_expert.py", line 101, in __init__
+    self.processor = AutoProcessor.from_pretrained(model_id)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/crp-vla/.venv/lib/python3.12/site-packages/transformers/models/auto/processing_auto.py", line 328, in from_pretrained
+    config_dict, _ = ProcessorMixin.get_processor_dict(pretrained_model_name_or_path, **kwargs)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/crp-vla/.venv/lib/python3.12/site-packages/transformers/processing_utils.py", line 1063, in get_processor_dict
+    raise OSError(
+OSError: Can't load processor for 'HuggingFaceTB/SmolVLM2-500M-Video-Instruct'. If you were trying to load it from 'https://huggingface.co/models', make sure you don't have a local directory with the same name. Otherwise, make sure 'HuggingFaceTB/SmolVLM2-500M-Video-Instruct' is the correct path to a directory containing a processor_config.json file

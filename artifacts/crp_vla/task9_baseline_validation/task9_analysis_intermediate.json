@@ -1,0 +1,149 @@
+{
+  "part_a_20k_selection_frequency": 0.4916,
+  "part_b_models": {
+    "D_1_10_only": {
+      "achieved_specificity": 0.78125,
+      "auprc": 0.11980862600057646,
+      "auroc": 0.0,
+      "brier_score": 0.17620051419124835,
+      "expected_calibration_error_5bin": 0.23626974382614965,
+      "fixed_specificity_target": 0.8,
+      "n": 40,
+      "positive_failures": 8,
+      "prevalence": 0.2,
+      "sensitivity_at_fixed_specificity": 0.0,
+      "task_cluster_bootstrap_ci95": {
+        "auprc": [
+          0.0641454207243681,
+          0.19605156050185174
+        ],
+        "auroc": [
+          0.0,
+          0.0
+        ],
+        "brier_score": [
+          0.10719707935829859,
+          0.26260649330509206
+        ],
+        "expected_calibration_error_5bin": [
+          0.13666438329080188,
+          0.3522483476448521
+        ],
+        "sensitivity_at_fixed_specificity": [
+          0.0,
+          0.0
+        ]
+      },
+      "threshold": 0.21773968375641303
+    },
+    "D_1_2_only": {
+      "achieved_specificity": 0.78125,
+      "auprc": 0.1456861494951825,
+      "auroc": 0.234375,
+      "brier_score": 0.17153249515386962,
+      "expected_calibration_error_5bin": 0.22802256765673976,
+      "fixed_specificity_target": 0.8,
+      "n": 40,
+      "positive_failures": 8,
+      "prevalence": 0.2,
+      "sensitivity_at_fixed_specificity": 0.0,
+      "task_cluster_bootstrap_ci95": {
+        "auprc": [
+          0.07170373878994568,
+          0.2452519439261393
+        ],
+        "auroc": [
+          0.09676881720430107,
+          0.3964099099099099
+        ],
+        "brier_score": [
+          0.1039472520243355,
+          0.2523916704580164
+        ],
+        "expected_calibration_error_5bin": [
+          0.13454533437178592,
+          0.33639022473705416
+        ],
+        "sensitivity_at_fixed_specificity": [
+          0.0,
+          0.0
+        ]
+      },
+      "threshold": 0.23392858668478456
+    },
+    "combined_disagreement": {
+      "achieved_specificity": 0.78125,
+      "auprc": 0.14981340826929063,
+      "auroc": 0.26953125,
+      "brier_score": 0.1854128710629513,
+      "expected_calibration_error_5bin": 0.1685845150337493,
+      "fixed_specificity_target": 0.8,
+      "n": 40,
+      "positive_failures": 8,
+      "prevalence": 0.2,
+      "sensitivity_at_fixed_specificity": 0.0,
+      "task_cluster_bootstrap_ci95": {
+        "auprc": [
+          0.06948981945789222,
+          0.2513116522763342
+        ],
+        "auroc": [
+          0.0908886158886159,
+          0.47319508448540665
+        ],
+        "brier_score": [
+          0.10333254506007614,
+          0.2768589775974386
+        ],
+        "expected_calibration_error_5bin": [
+          0.06664700781394504,
+          0.2940480933102346
+        ],
+        "sensitivity_at_fixed_specificity": [
+          0.0,
+          0.0
+        ]
+      },
+      "threshold": 0.2675297902603264
+    },
+    "constant_base_rate": {
+      "achieved_specificity": 0.0,
+      "auprc": 0.11980862600057646,
+      "auroc": 0.0,
+      "brier_score": 0.16831032215647598,
+      "expected_calibration_error_5bin": 0.3282051282051282,
+      "fixed_specificity_target": 0.8,
+      "n": 40,
+      "positive_failures": 8,
+      "prevalence": 0.2,
+      "sensitivity_at_fixed_specificity": 0.0,
+      "task_cluster_bootstrap_ci95": {
+        "auprc": [
+          0.05086594691857849,
+          0.19605156050185174
+        ],
+        "auroc": [
+          0.0,
+          0.0
+        ],
+        "brier_score": [
+          0.08941485864562787,
+          0.24720578566732412
+        ],
+        "expected_calibration_error_5bin": [
+          0.2512820512820513,
+          0.40512820512820513
+        ],
+        "sensitivity_at_fixed_specificity": [
+          0.0,
+          0.0
+        ]
+      },
+      "threshold": 0.20512820512820512
+    }
+  },
+  "recommended_primary_cases": 1200,
+  "selected_model_sha256": "3523ff36091fdba82a97b798621b4ecee141554fcfe418816a6fbb1cf95f2b53",
+  "selected_step_frozen": 20000,
+  "status": "TASK9_ANALYSIS_COMPLETED"
+}

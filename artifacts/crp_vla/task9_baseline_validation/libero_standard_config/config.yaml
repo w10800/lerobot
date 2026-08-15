@@ -1,0 +1,5 @@
+assets: /root/crp-vla/third_party/libero-cf/libero/libero/assets
+bddl_files: /root/crp-vla/third_party/libero-cf/libero/libero/bddl_files
+benchmark_root: /root/crp-vla/third_party/libero-cf/libero/libero
+datasets: /root/crp-vla/third_party/libero-cf/libero/datasets
+init_states: /root/crp-vla/third_party/libero-cf/libero/libero/init_files

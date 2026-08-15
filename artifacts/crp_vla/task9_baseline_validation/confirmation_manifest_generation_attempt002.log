@@ -1,0 +1,37 @@
+/root/crp-vla/.venv/lib/python3.12/site-packages/robosuite/__init__.py:33: SyntaxWarning: invalid escape sequence '\ '
+  /[_]\  [~]\/    |//  |
+[robosuite WARNING] No private macro file found! (__init__.py:7)
+WARNING:robosuite_logs:No private macro file found!
+[robosuite WARNING] It is recommended to use a private macro file (__init__.py:8)
+WARNING:robosuite_logs:It is recommended to use a private macro file
+[robosuite WARNING] To setup, run: python /root/crp-vla/.venv/lib/python3.12/site-packages/robosuite/scripts/setup_macros.py (__init__.py:9)
+WARNING:robosuite_logs:To setup, run: python /root/crp-vla/.venv/lib/python3.12/site-packages/robosuite/scripts/setup_macros.py
+[info] using task orders [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[info] using task orders [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[info] using task orders [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[info] using task orders [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+manifest_state=25/600
+manifest_state=50/600
+manifest_state=75/600
+manifest_state=100/600
+manifest_state=125/600
+manifest_state=150/600
+manifest_state=175/600
+manifest_state=200/600
+manifest_state=225/600
+manifest_state=250/600
+manifest_state=275/600
+manifest_state=300/600
+manifest_state=325/600
+manifest_state=350/600
+manifest_state=375/600
+manifest_state=400/600
+manifest_state=425/600
+manifest_state=450/600
+manifest_state=475/600
+manifest_state=500/600
+manifest_state=525/600
+manifest_state=550/600
+manifest_state=575/600
+manifest_state=600/600
+{"confirmation_case_count": 600, "dev40_case_identity_overlap_count": 0, "dev40_state_hash_count": 40, "formal100_case_identity_overlap_count": 0, "formal100_state_hash_count": 100, "schema_version": 1, "status": "ZERO_OVERLAP_VERIFIED", "unique_initial_state_hashes": 600, "unique_qpos_qvel_hashes": 600, "unique_simulator_state_hashes": 600}
