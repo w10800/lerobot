@@ -56,6 +56,11 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--device", default="cuda")
     parser.add_argument("--attempt-id", default="attempt-0001")
     parser.add_argument("--retry-authorization", type=Path)
+    parser.add_argument(
+        "--reproduce-manifest-builder-sequence",
+        action="store_true",
+        help="Prewarm resets exactly as the frozen manifest builder did; recovery-only.",
+    )
     return parser.parse_args()
 
 
@@ -223,8 +228,30 @@ def main() -> None:
             hard_reset=env_config.hard_reset,
         )
         try:
-            env.init_state_id = init_state_id
-            env.reset(seed=env_seed)
+            if args.reproduce_manifest_builder_sequence:
+                # Task 9 and the Task 10 extension each reused one environment
+                # while walking the states for a task.  Reproduce that exact
+                # reset sequence when recovering a pre-arm identity failure.
+                # The membership split prevents the Task 10 extension from
+                # being incorrectly prefixed with the earlier Task 9 states.
+                prewarm_cases = sorted(
+                    (
+                        item
+                        for item in manifest["cases"]
+                        if item["task_id"] == case["task_id"]
+                        and item["task9_600_membership"] == case["task9_600_membership"]
+                        and int(item["initial_state_id"]) <= init_state_id
+                    ),
+                    key=lambda item: int(item["initial_state_id"]),
+                )
+                if not prewarm_cases or prewarm_cases[-1]["case_id"] != case["case_id"]:
+                    raise RuntimeError("Frozen manifest-builder reset sequence is incomplete")
+                for prewarm_case in prewarm_cases:
+                    env.init_state_id = int(prewarm_case["initial_state_id"])
+                    env.reset(seed=int(prewarm_case["noise_seed"]))
+            else:
+                env.init_state_id = init_state_id
+                env.reset(seed=env_seed)
             if env._env is None:
                 raise RuntimeError("LIBERO inner environment unavailable")
             source_state = np.asarray(suite.get_task_init_states(task_id)[init_state_id]).copy()
