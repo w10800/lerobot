@@ -171,3 +171,11 @@
 - Frozen hypotheses: prospectively test student-visited distribution specificity, joint/EEF trajectory amplification at horizons 1/3/5/10, and whether the single frozen EEF-position h=5 predictor improves leave-one-task-out discrimination over the Task 12 raw first-10-action discrepancy.
 - Frozen analysis: harmful is Base-success/Snap-failure and preserved is both-success. Aggregate state metrics to case means; retain separate case and task-cluster bootstraps, component-wise transition metrics, Base-visited/random-state/action-norm/horizon-zero controls, and the five permitted Task 13 terminal states.
 - Consequence: Task 11 remains locked, no checkpoint/loss/horizon/metric selection is allowed after Dev-B outcomes, and Task 13 cannot train or automatically authorize Task 14.
+
+## D-022 — QUARANTINE Task 13 attempt001 and authorize fixed recovery attempt002
+
+- Date: 2026-08-16
+- Status: **TASK13_ATTEMPT001_PROCEDURALLY_INVALID / GO for recovery attempt002 only**.
+- Decision: permanently classify attempt001's 800/800 technically complete rollouts and Base-10/Snap-1 `336/400` versus `316/400` result as `DESCRIPTIVE_ONLY`. The pre-outcome builder incorrectly consumed a case-aggregated Task 12 file and checked zero archived states, so attempt001 cannot support primary H1/H2/H3 conclusions even if a post-hoc audit finds zero actual overlap.
+- Recovery authorization: construct a typed used-state registry from the 40 authoritative Task 12 raw query shards and replan metadata; retain distinct full-state, state-blob, qpos, qvel, branch, initial-state, and case identities. Then freeze exactly states 45–49 for all 40 tasks as untouched Dev-B2, fail closed without replacement, and commit the registry snapshot, 200-case manifest, byte-identical metrics, and byte-identical decision rule before any attempt002 rollout.
+- Scientific boundary: attempt002 is the only prospective primary replication; N=200 cannot be adaptively expanded. Attempt001 may be secondary supporting evidence only after attempt002 primary analysis and only if its post-hoc audit is disjoint. No hypothesis, metric, horizon, bootstrap, predictor, checkpoint, or training objective may change.
