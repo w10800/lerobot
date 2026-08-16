@@ -77,7 +77,15 @@ def main() -> None:
     if git_value("status", "--porcelain"):
         raise RuntimeError("Recovery freeze requires a clean worktree")
     root = args.output_root.resolve()
-    root.mkdir(parents=True, exist_ok=False)
+    root.mkdir(parents=True, exist_ok=True)
+    reserved = (
+        "ATTEMPT001_INVALIDATION_REPORT.md",
+        "ATTEMPT001_POSTHOC_OVERLAP_AUDIT.md",
+        "DEV_B2_MANIFEST.json",
+        "TASK13_ATTEMPT002_PREREGISTRATION.md",
+    )
+    if any((root / name).exists() for name in reserved):
+        raise FileExistsError("Refusing to overwrite an existing Task 13 recovery freeze")
     registry = load_json(args.used_state_registry)
     validate_task12_registry(registry)
     checked = int(registry.get("task12_unique_state_payload_hash_count", 0))
