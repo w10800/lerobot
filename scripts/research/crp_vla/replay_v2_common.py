@@ -85,11 +85,11 @@ def flatten_arrays(value: Any, prefix: str = "") -> tuple[dict[str, np.ndarray],
                 str(key): visit(item[key], f"{path}.{key}" if path else str(key))
                 for key in sorted(item, key=str)
             }
-        if isinstance(item, (list, tuple)):
+        if isinstance(item, list | tuple):
             return [visit(child, f"{path}[{index}]") for index, child in enumerate(item)]
         if isinstance(item, np.generic):
             return item.item()
-        if item is None or isinstance(item, (str, int, float, bool)):
+        if item is None or isinstance(item, str | int | float | bool):
             return item
         raise TypeError(f"Unsupported capsule value at {path or prefix}: {type(item)!r}")
 
@@ -261,9 +261,9 @@ def paired_comparison(
     }
 
 
-def validate_case_records(records: list[dict[str, Any]]) -> None:
-    if {record["arm"] for record in records} != set(ARMS):
-        raise ValueError("Replay-v2 case must contain exactly the six registered arms")
+def validate_case_records(records: list[dict[str, Any]], expected_arms: tuple[str, ...] = ARMS) -> None:
+    if {record["arm"] for record in records} != set(expected_arms):
+        raise ValueError(f"Replay-v2 case must contain exactly the registered arms: {expected_arms}")
     reference = records[0]
     invariant_keys = (
         "capsule_sha256",
@@ -278,4 +278,4 @@ def validate_case_records(records: list[dict[str, Any]]) -> None:
             raise ValueError(f"Replay-v2 invariant mismatch for {record['arm']}: {mismatches}")
     statuses = {record["status"] for record in records}
     if statuses not in ({"COMPLETED"}, {"ADMITTED_FAILURE"}):
-        raise ValueError("All six arms must complete or all six must carry admitted failure records")
+        raise ValueError("All registered arms must complete or all must carry admitted failure records")

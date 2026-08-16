@@ -71,6 +71,22 @@ def test_validate_case_records_enforces_all_six_invariants():
         COMMON.validate_case_records(records)
 
 
+def test_validate_case_records_supports_frozen_two_arm_protocol():
+    records = [
+        {
+            "arm": arm,
+            "status": "COMPLETED",
+            "capsule_sha256": "capsule",
+            "initial_sim_state_sha256": "state",
+            "canonical_input_sha256": "input",
+            "noise_schedule_sha256": "noise",
+            "evaluator_sha256": "eval",
+        }
+        for arm in ("base10", "snap1")
+    ]
+    COMMON.validate_case_records(records, ("base10", "snap1"))
+
+
 def test_failure_classifier_is_evidence_backed_and_conservative():
     events = {
         "first_target_contact": {"available": True, "observed": True, "step": 4},

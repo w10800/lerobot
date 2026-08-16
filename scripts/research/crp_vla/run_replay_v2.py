@@ -12,7 +12,7 @@ import platform
 import re
 import subprocess
 import time
-from collections import deque
+from collections import Counter, deque
 from pathlib import Path
 from typing import Any
 
@@ -55,6 +55,8 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--noise-seed", type=int, default=20260814)
     parser.add_argument("--device", default="cuda")
     parser.add_argument("--output-root", type=Path, required=True)
+    parser.add_argument("--arms", nargs="+", choices=ARMS, default=list(ARMS))
+    parser.add_argument("--offline-vlm-model-dir", type=Path)
     return parser.parse_args()
 
 
@@ -130,7 +132,7 @@ def json_ready(value: Any) -> Any:
         return value.item()
     if isinstance(value, dict):
         return {str(key): json_ready(child) for key, child in value.items()}
-    if isinstance(value, (list, tuple)):
+    if isinstance(value, list | tuple):
         return [json_ready(child) for child in value]
     return value
 
@@ -354,7 +356,12 @@ def main() -> None:
     if design.get("phase") != args.phase:
         raise ValueError("Design phase and command phase differ")
     cases = design.get("cases", [])
-    expected_cases = 8 if args.phase == "smoke" else 40
+    arms = tuple(args.arms)
+    if len(arms) != len(set(arms)):
+        raise ValueError("Replay-v2 arms must be unique")
+    if design.get("registered_arms", list(ARMS)) != list(arms):
+        raise ValueError("Command arms differ from the frozen design")
+    expected_cases = 8 if args.phase == "smoke" else int(design.get("expected_case_count", 40))
     if len(cases) != expected_cases:
         raise ValueError(f"{args.phase} design must contain exactly {expected_cases} cases")
     suites_in_design = {case["suite"] for case in cases}
@@ -362,8 +369,10 @@ def main() -> None:
         sum(case["suite"] == suite for case in cases) != 2 for suite in suites_in_design
     ):
         raise ValueError("Smoke design must contain exactly two cases per suite")
-    if args.phase == "development" and len({(case["suite"], int(case["task_id"])) for case in cases}) != 40:
-        raise ValueError("Development design must cover all 40 tasks exactly once")
+    if args.phase == "development":
+        task_counts = Counter((case["suite"], int(case["task_id"])) for case in cases)
+        if len(task_counts) != 40 or len(set(task_counts.values())) != 1:
+            raise ValueError("Development design must cover all 40 tasks equally")
 
     phase_root = args.output_root / args.phase
     configure_standard_libero(args.libero_root, phase_root / "libero_standard_config")
@@ -371,6 +380,10 @@ def main() -> None:
     libero_commit = git_repository_value(args.libero_root, "rev-parse", "HEAD")
     base_sha = file_sha256(args.base_checkpoint / "model.safetensors")
     snap_sha = file_sha256(args.snap_checkpoint / "model.safetensors")
+    if design.get("base_model_sha256") not in (None, base_sha):
+        raise RuntimeError("Frozen design Base model hash mismatch")
+    if design.get("snap_model_sha256") not in (None, snap_sha):
+        raise RuntimeError("Frozen design Snap model hash mismatch")
 
     import libero.libero as libero_module
     from libero.libero import benchmark
@@ -392,6 +405,8 @@ def main() -> None:
         config = SmolVLAConfig.from_pretrained(checkpoint)
         config.device = args.device
         config.load_vlm_weights = False
+        if args.offline_vlm_model_dir is not None:
+            config.vlm_model_name = str(args.offline_vlm_model_dir.resolve())
         config.n_action_steps = args.execution_horizon
         policy = SmolVLAPolicy.from_pretrained(checkpoint, config=config, revision=revision, strict=False)
         preprocessor, postprocessor = make_pre_post_processors(
@@ -461,6 +476,23 @@ def main() -> None:
             if env._env is None:
                 raise RuntimeError("LIBERO inner environment was not initialized")
             initial_sim_state = np.asarray(env._env.get_sim_state()).copy()
+            source_state = np.asarray(suite.get_task_init_states(task_id)[init_state_id]).copy()
+            observed_initial_hash = array_sha256(source_state)
+            observed_sim_hash = array_sha256(initial_sim_state)
+            observed_qpos_qvel_hash = structured_hash(
+                {
+                    "qpos": np.asarray(env._env.sim.data.qpos).copy(),
+                    "qvel": np.asarray(env._env.sim.data.qvel).copy(),
+                }
+            )
+            frozen_checks = {
+                "initial_state_hash": observed_initial_hash,
+                "simulator_state_hash": observed_sim_hash,
+                "qpos_qvel_hash": observed_qpos_qvel_hash,
+            }
+            for key, observed in frozen_checks.items():
+                if case.get(key) not in (None, observed):
+                    raise RuntimeError(f"Frozen Dev-B identity mismatch for {slug}/{key}")
             canonical_raw = env._env.set_init_state(initial_sim_state)
             canonical_observation = env._format_raw_obs(canonical_raw)
             initial_batch = preprocess_observation(add_batch_dimension(canonical_observation))
@@ -550,7 +582,7 @@ def main() -> None:
             initial_poses = body_poses(env._env, semantics["objects_of_interest"])
 
             case_results = []
-            for arm in ARMS:
+            for arm in arms:
                 policy_key, nfe, target_time = ARM_SPECS[arm]
                 bundle = policies[policy_key]
                 policy = bundle["policy"]
@@ -765,7 +797,7 @@ def main() -> None:
                     "repository_commit": repository_commit,
                     "design_sha256": file_sha256(args.design),
                     "completed_rollout_count": len(results),
-                    "planned_rollout_count": len(cases) * len(ARMS),
+                    "planned_rollout_count": len(cases) * len(arms),
                     "results": results,
                 }
                 phase_root.mkdir(parents=True, exist_ok=True)
@@ -778,7 +810,7 @@ def main() -> None:
                     flush=True,
                 )
                 policy.reset()
-            validate_case_records(case_results)
+            validate_case_records(case_results, arms)
         finally:
             env.close()
 
@@ -800,8 +832,8 @@ def main() -> None:
         "run_finished_ns": time.time_ns(),
         "case_count": len(cases),
         "rollout_count": len(results),
-        "arm_order": list(ARMS),
-        "arm_specs": ARM_SPECS,
+        "arm_order": list(arms),
+        "arm_specs": {arm: ARM_SPECS[arm] for arm in arms},
         "results": results,
     }
     phase_root.mkdir(parents=True, exist_ok=True)
