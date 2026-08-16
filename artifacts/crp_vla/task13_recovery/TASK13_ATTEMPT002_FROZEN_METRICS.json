@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "status": "TASK13_METRICS_FROZEN",
+  "labels": {
+    "harmful": "base10_success == true and snap1_success == false",
+    "preserved": "base10_success == true and snap1_success == true",
+    "secondary_only": [
+      "student_only_success",
+      "both_fail"
+    ]
+  },
+  "state_sampling": "all replan states from both primary arms; aggregate state metrics to case means before primary contrasts",
+  "raw_action_primary": "denormalized Base-10 versus Snap-1 first-10-action prefix L2",
+  "transition_primary_families": [
+    "joint_position_l2",
+    "end_effector_position_l2",
+    "end_effector_orientation_distance"
+  ],
+  "transition_secondary": [
+    "object_position_l2",
+    "gripper_state_l2"
+  ],
+  "horizons": [
+    1,
+    3,
+    5,
+    10
+  ],
+  "predictor_a": "case-mean raw_action_primary",
+  "predictor_b": "case-mean end_effector_position_l2 at h=5",
+  "cross_validation": "leave-one-task-out",
+  "prediction_metrics": [
+    "AUROC",
+    "AUPRC",
+    "Brier"
+  ],
+  "bootstrap": {
+    "case_repeats": 10000,
+    "task_cluster_repeats": 10000,
+    "seed": 20260817,
+    "confidence": 0.95
+  },
+  "negative_controls": {
+    "base_visited": "same metrics and sampling on Base-10 visited states",
+    "random_student_state": "one state per case selected by minimum SHA256(case_id:replan_index:seed)",
+    "raw_student_action_norm": "denormalized Snap-1 first-10 prefix L2 norm",
+    "horizon_zero": "all restored physical divergence components must equal exactly zero"
+  },
+  "combined_weighted_score": false,
+  "metric_modification_after_outcomes": false
+}
