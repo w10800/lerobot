@@ -162,3 +162,12 @@
 - Integrity: all 120 probe rollout records completed under matched replay-v2 invariants; all 120 trace paths and recomputed content hashes were unique. Exactly one attempt admitted optimizer updates, no checkpoint sweep occurred, and Task 11 confirmation cases were not rerun for post-training selection.
 - Decision: do not promote or further tune this checkpoint. Retain the D-014/D-018 20k Snap-1 checkpoint as the confirmed project baseline. The offline objective is informative for mechanism diagnosis but is not an adequate closed-loop selection objective.
 - Next-study boundary: any additional training requires a new preregistered protocol with a disjoint closed-loop development set and must preserve Task 11 as untouched confirmation evidence. Task 12 itself is complete.
+
+## D-021 — FREEZE Task 13 prospective closed-loop impact validation
+
+- Date: 2026-08-16
+- Status: **APPROVED / GO for Task 13 validation only; NO TRAINING**.
+- Decision: build outcome-blind Dev-B from fixed ordinary-LIBERO state indices 35–44 for all 40 tasks, targeting exactly 400 cases. Reject any overlap or duplicate without replacement. Use only Base-10 and the confirmed original 20k Snap-1 checkpoint; the Task 12 probe is excluded.
+- Frozen hypotheses: prospectively test student-visited distribution specificity, joint/EEF trajectory amplification at horizons 1/3/5/10, and whether the single frozen EEF-position h=5 predictor improves leave-one-task-out discrimination over the Task 12 raw first-10-action discrepancy.
+- Frozen analysis: harmful is Base-success/Snap-failure and preserved is both-success. Aggregate state metrics to case means; retain separate case and task-cluster bootstraps, component-wise transition metrics, Base-visited/random-state/action-norm/horizon-zero controls, and the five permitted Task 13 terminal states.
+- Consequence: Task 11 remains locked, no checkpoint/loss/horizon/metric selection is allowed after Dev-B outcomes, and Task 13 cannot train or automatically authorize Task 14.
