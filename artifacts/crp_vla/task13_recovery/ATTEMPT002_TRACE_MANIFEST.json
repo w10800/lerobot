@@ -1,0 +1,2406 @@
+{
+  "record_count": 400,
+  "records": [
+    {
+      "arm": "base10",
+      "case_id": "libero_10-task00-init45-seed20260818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_10-task00-init45-seed20260818/base10.sha256.json",
+      "sha256": "8d9859a3a68559574f2195f899bbdca483187adc54c15e5a4bc6dbb9e3df42b6"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_10-task00-init45-seed20260818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_10-task00-init45-seed20260818/snap1.sha256.json",
+      "sha256": "b703d871333b28c498a5384f0d82c0e9febb7e83aa1deb1fcc906e5397abf292"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_10-task00-init46-seed20360818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_10-task00-init46-seed20360818/base10.sha256.json",
+      "sha256": "ff4981b92582083029aa970061f09fff1b911652462a95a288b6fe59877ead73"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_10-task00-init46-seed20360818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_10-task00-init46-seed20360818/snap1.sha256.json",
+      "sha256": "a5c8ffadf5aa6972a5f63361232fa23aab50bc3e6b0533bb7e9dd42aaa0d41b3"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_10-task00-init47-seed20460818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_10-task00-init47-seed20460818/base10.sha256.json",
+      "sha256": "803e3f71827a9807b047e4155c163427d41bb2290810d907ef41e2469d18da50"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_10-task00-init47-seed20460818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_10-task00-init47-seed20460818/snap1.sha256.json",
+      "sha256": "8ab22c32fcbaedcf3e321140e4c15e1fd592374dcbd92cf3f84103297abe2cb3"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_10-task00-init48-seed20560818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_10-task00-init48-seed20560818/base10.sha256.json",
+      "sha256": "a6feed49c182baea771a4088764e5b44c324816a7b2a1c81e79f3dbe61701b82"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_10-task00-init48-seed20560818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_10-task00-init48-seed20560818/snap1.sha256.json",
+      "sha256": "ed5395cd861f24dd951ec4700ebdc6a035d3c8fbb4691cd6cbf98051fcf1fc5e"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_10-task00-init49-seed20660818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_10-task00-init49-seed20660818/base10.sha256.json",
+      "sha256": "4da8f86edc70d97e5919e215817225f80e7544ab4ba2c6966584ccc118d9d760"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_10-task00-init49-seed20660818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_10-task00-init49-seed20660818/snap1.sha256.json",
+      "sha256": "0e3fedffce8433d8cb9f704100858a22435ce0eaa97e4cff356271c82ee93ef8"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_10-task01-init45-seed20760818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_10-task01-init45-seed20760818/base10.sha256.json",
+      "sha256": "36aff39b7b5a415934299bc09b76cbe116237b7687bbc938526288361d555152"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_10-task01-init45-seed20760818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_10-task01-init45-seed20760818/snap1.sha256.json",
+      "sha256": "dce198c23b92a402d559b3c1ea70e1b350e10a01cf319a947a2f54c1e6d3a4eb"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_10-task01-init46-seed20860818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_10-task01-init46-seed20860818/base10.sha256.json",
+      "sha256": "bfee868d8d70339853bad54e199d7246b711169e64a5dd0fe4bb91532a343e1f"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_10-task01-init46-seed20860818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_10-task01-init46-seed20860818/snap1.sha256.json",
+      "sha256": "a90c9373c69d882ff47a98235e7e98aada376442edd3447362469e8aa5c4fdec"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_10-task01-init47-seed20960818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_10-task01-init47-seed20960818/base10.sha256.json",
+      "sha256": "6c4219462442427a255a1df5c94c90773b80d7f6a2050e6d61caec2659456219"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_10-task01-init47-seed20960818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_10-task01-init47-seed20960818/snap1.sha256.json",
+      "sha256": "0974953a565829cd5b47777bf26d363387e295f586e1e43bfed3205676ae6c0d"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_10-task01-init48-seed21060818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_10-task01-init48-seed21060818/base10.sha256.json",
+      "sha256": "0ecaf9f38036e810b576e717365205436164048e2ab5aa73c5628663823682ee"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_10-task01-init48-seed21060818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_10-task01-init48-seed21060818/snap1.sha256.json",
+      "sha256": "97dcd27c14253a993f0acfd9d0f7a87ecee7e3f3626fe70f4357f4cc8f575267"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_10-task01-init49-seed21160818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_10-task01-init49-seed21160818/base10.sha256.json",
+      "sha256": "779542b6086094d366887c504e2d835281b8d235712b25683972948fba6c5f3b"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_10-task01-init49-seed21160818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_10-task01-init49-seed21160818/snap1.sha256.json",
+      "sha256": "2444b6f43e7ada5394c3ca6fcf4f39131d4c3c515e4f9164edb721931702d105"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_10-task02-init45-seed21260818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_10-task02-init45-seed21260818/base10.sha256.json",
+      "sha256": "2138bbfcf2b5c0512a8dcfe6e07cbe78cb93ea4b56c48788a7452eb06cbd8973"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_10-task02-init45-seed21260818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_10-task02-init45-seed21260818/snap1.sha256.json",
+      "sha256": "6f3b4658fbc78dd7cb47b8fb85709dd3dc4d63705f334bc94dbfcbb9fe79d43d"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_10-task02-init46-seed21360818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_10-task02-init46-seed21360818/base10.sha256.json",
+      "sha256": "0daf6a4b7c52683590ccc20fe528b845d3fd903c3bf50c1dcfc89c9bb199d213"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_10-task02-init46-seed21360818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_10-task02-init46-seed21360818/snap1.sha256.json",
+      "sha256": "8233a8bc9c239b02acd790fc18c3d92d146f366de0ecc9d23c6797f773ac771d"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_10-task02-init47-seed21460818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_10-task02-init47-seed21460818/base10.sha256.json",
+      "sha256": "0b0c945b9336bbfd1145f3f4eb8a821da31876ed31b29dddbe2f6d5af917daf8"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_10-task02-init47-seed21460818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_10-task02-init47-seed21460818/snap1.sha256.json",
+      "sha256": "acf1cf1bc75a3afc95b8d13d19135b4bb27187d462a631f829ed11968c5053f0"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_10-task02-init48-seed21560818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_10-task02-init48-seed21560818/base10.sha256.json",
+      "sha256": "949422babf045a64fceea7be28361ee53de9631ac3192c51a78517bc77772096"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_10-task02-init48-seed21560818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_10-task02-init48-seed21560818/snap1.sha256.json",
+      "sha256": "c8bce9238e983f978444dd0bf453130c10d87ca3e920f88de32bb30ee99e446b"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_10-task02-init49-seed21660818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_10-task02-init49-seed21660818/base10.sha256.json",
+      "sha256": "e612e5816c3d5db7229191599cbf13a808b0950aa623f29a8aa9a45e70ca58ab"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_10-task02-init49-seed21660818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_10-task02-init49-seed21660818/snap1.sha256.json",
+      "sha256": "2f6127ceb931e168d8d4bd29d8484555aeac8b798b3ac96e50047af4f8954760"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_10-task03-init45-seed21760818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_10-task03-init45-seed21760818/base10.sha256.json",
+      "sha256": "70030f0f1f457dca35ac10f6e8e5199532e2b65c570f6cd360693344005df322"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_10-task03-init45-seed21760818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_10-task03-init45-seed21760818/snap1.sha256.json",
+      "sha256": "3ef54134f1d240bf0ef687c20f16d20152889973177049ff71b3435b13046f75"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_10-task03-init46-seed21860818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_10-task03-init46-seed21860818/base10.sha256.json",
+      "sha256": "29b8dd93ac5362f5bf956b8501d88dd18ad11a705e2d3bffdf1b34c30536ae2c"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_10-task03-init46-seed21860818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_10-task03-init46-seed21860818/snap1.sha256.json",
+      "sha256": "e4c3856ca6ed94c091bafe9aea5b73db0bbc50592b19da44c355d2625bf781b1"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_10-task03-init47-seed21960818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_10-task03-init47-seed21960818/base10.sha256.json",
+      "sha256": "5cf7e6a0a7f17ac75da6f659eacfb1336587790d052bba8ff58c27b634892380"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_10-task03-init47-seed21960818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_10-task03-init47-seed21960818/snap1.sha256.json",
+      "sha256": "47b9befe70c2ffdffaf996395ece4684d02bb52c04b7441b2bef4ca34591ae4d"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_10-task03-init48-seed22060818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_10-task03-init48-seed22060818/base10.sha256.json",
+      "sha256": "586b4f7b5e6d331668497d16b77e09f892cd7c57fafedadb711d28a149ad4ee5"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_10-task03-init48-seed22060818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_10-task03-init48-seed22060818/snap1.sha256.json",
+      "sha256": "214f473b9ff6671b472f7c0af387e6c3a56bd771abed28f7e6742a91849278c9"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_10-task03-init49-seed22160818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_10-task03-init49-seed22160818/base10.sha256.json",
+      "sha256": "dc7b86f005c03d2906e1e10acf73577601b910c315018cbb15a5604a6ef9c778"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_10-task03-init49-seed22160818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_10-task03-init49-seed22160818/snap1.sha256.json",
+      "sha256": "a295deb36cb183b5022a3be5708cf6255f2d8c42e3b8452469e9cabeea37e36a"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_10-task04-init45-seed22260818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_10-task04-init45-seed22260818/base10.sha256.json",
+      "sha256": "ef33157e6942ebb051d827f16b209eae907c2dde41e4baf9d73cfc614ffc2b18"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_10-task04-init45-seed22260818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_10-task04-init45-seed22260818/snap1.sha256.json",
+      "sha256": "0557d9bda0e81957b2369a2b771a5e2a1530e621dc50bbcd84665ec7cacc5a1f"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_10-task04-init46-seed22360818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_10-task04-init46-seed22360818/base10.sha256.json",
+      "sha256": "c7e6bfb74b37bfd977682514ee3db6f686f13e609d721d649a531914e88c3b44"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_10-task04-init46-seed22360818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_10-task04-init46-seed22360818/snap1.sha256.json",
+      "sha256": "abc173db7ff97d7852a8e95595e7d4f934053e62bb351ec9b76187edda0d8937"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_10-task04-init47-seed22460818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_10-task04-init47-seed22460818/base10.sha256.json",
+      "sha256": "b73c1376f7f67ca7020b1b7dbb0cab9cf0c07acbd228297560384202d07f4ffd"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_10-task04-init47-seed22460818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_10-task04-init47-seed22460818/snap1.sha256.json",
+      "sha256": "a876bb37dea6b18c5c8ad456bed3a9682c1463e4f07778b09988e733ff76e089"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_10-task04-init48-seed22560818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_10-task04-init48-seed22560818/base10.sha256.json",
+      "sha256": "a4da2c7394c14379e6684644e6c0f187d0480d03f074e8296213069b3666c3f9"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_10-task04-init48-seed22560818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_10-task04-init48-seed22560818/snap1.sha256.json",
+      "sha256": "e8536f6e759d20b93d525b39f45506d05fb05d8ae8392eb56e64401654f49e6c"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_10-task04-init49-seed22660818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_10-task04-init49-seed22660818/base10.sha256.json",
+      "sha256": "8184d68751cb4304068af8f49a441682af7d2c77ee7130a83712b1b90bdfc77e"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_10-task04-init49-seed22660818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_10-task04-init49-seed22660818/snap1.sha256.json",
+      "sha256": "b6e30f4c7c5f7e0feaa901b0029a6e27803d2cab4e35765e5da11fa053cd784a"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_10-task05-init45-seed22760818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_10-task05-init45-seed22760818/base10.sha256.json",
+      "sha256": "89b8164c139258e56a3ace5e4820e0b00db398bcf0a09294a9d606ca6b5ce67a"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_10-task05-init45-seed22760818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_10-task05-init45-seed22760818/snap1.sha256.json",
+      "sha256": "9198a169bb913cac65c5474c9af93a2218b2afb629e13f0ffbc3f4cc03fb664a"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_10-task05-init46-seed22860818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_10-task05-init46-seed22860818/base10.sha256.json",
+      "sha256": "24f1516330fc13528c29c7fa7fd2c4830ebd3affff7aba8d8c7f3d718882b796"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_10-task05-init46-seed22860818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_10-task05-init46-seed22860818/snap1.sha256.json",
+      "sha256": "3ca55f5ab6665800bc0c7002823200a2caf7842c530dda5e6ecaeb2f0843d686"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_10-task05-init47-seed22960818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_10-task05-init47-seed22960818/base10.sha256.json",
+      "sha256": "df9f9089717590c3b1e002b4d85f2ff4c00d1c8614eecb5380f0237ac1ce6fae"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_10-task05-init47-seed22960818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_10-task05-init47-seed22960818/snap1.sha256.json",
+      "sha256": "25f71454f0f559beab1735af1bd0df9b5b3852d874d1d8d5c7cb017c08e00b62"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_10-task05-init48-seed23060818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_10-task05-init48-seed23060818/base10.sha256.json",
+      "sha256": "d063d3c5d9146248a33677d6b96ffbb8cf5844965a167d4b9fcefe7b02045393"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_10-task05-init48-seed23060818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_10-task05-init48-seed23060818/snap1.sha256.json",
+      "sha256": "61aecb45147e2ab758dce74eb2a665a5360ce106509ad9dffc4902d22a1c732a"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_10-task05-init49-seed23160818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_10-task05-init49-seed23160818/base10.sha256.json",
+      "sha256": "b41636506b8e4c1b79224a7e532e4c740ba4a777eb39ecced2476a1b9662dec4"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_10-task05-init49-seed23160818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_10-task05-init49-seed23160818/snap1.sha256.json",
+      "sha256": "cb16c523bcea54c9060fef2b92a95ad5abb07a3bdc8167368b5142f079adcaa4"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_10-task06-init45-seed23260818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_10-task06-init45-seed23260818/base10.sha256.json",
+      "sha256": "1ea0e0f31f0988e3158336492fb0d48e91e671c3c445bf29856a908de2950586"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_10-task06-init45-seed23260818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_10-task06-init45-seed23260818/snap1.sha256.json",
+      "sha256": "44380fd7323873377cf0910e2a645d32ba9e16ea967e06f239e52a75cab8e986"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_10-task06-init46-seed23360818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_10-task06-init46-seed23360818/base10.sha256.json",
+      "sha256": "661369f547d859bd5768da20329f2e0e1a09c6a40d46939e9d4fbcfedbce4dd1"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_10-task06-init46-seed23360818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_10-task06-init46-seed23360818/snap1.sha256.json",
+      "sha256": "5ffae63cbf876db105a07863895040c8a3640a12c78dbe3ed02999c1c7e16b5d"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_10-task06-init47-seed23460818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_10-task06-init47-seed23460818/base10.sha256.json",
+      "sha256": "8941e96dac9377a88584aceb50c288724a4edc519a970261bbdda9f4c3268e1f"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_10-task06-init47-seed23460818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_10-task06-init47-seed23460818/snap1.sha256.json",
+      "sha256": "d72fb3eb41dd678edc9fa0ec9baf81d74b45c216581e6779167bfee08600bd70"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_10-task06-init48-seed23560818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_10-task06-init48-seed23560818/base10.sha256.json",
+      "sha256": "e6e260545766c6b2e54f0826d05e8b6360fdc03df341df746ca448394b2ec44d"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_10-task06-init48-seed23560818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_10-task06-init48-seed23560818/snap1.sha256.json",
+      "sha256": "860f4f2c54dc80f46a426c29d35a983c5d4237193b43abac71d18ed48665ed93"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_10-task06-init49-seed23660818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_10-task06-init49-seed23660818/base10.sha256.json",
+      "sha256": "49136228d15e4d0992002606fe3af94ffb79804945c1c51bd67b634cb3baccf3"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_10-task06-init49-seed23660818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_10-task06-init49-seed23660818/snap1.sha256.json",
+      "sha256": "b52bf288faeb929c83337e458f8b1e55caea514eca9a4620f9a0aecf5ec82153"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_10-task07-init45-seed23760818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_10-task07-init45-seed23760818/base10.sha256.json",
+      "sha256": "f6e92b21f16fed0fa127e8a2f591fc83544edcb1db13f0394bf2d365e9316c5c"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_10-task07-init45-seed23760818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_10-task07-init45-seed23760818/snap1.sha256.json",
+      "sha256": "1507721e7cba143280b38b67c22b4102df653adc98baea1f48f96e2e3f154794"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_10-task07-init46-seed23860818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_10-task07-init46-seed23860818/base10.sha256.json",
+      "sha256": "0d3957fa5e5ca63ae070e7f8a0cfbe334182a1164c576935b892c73b82bb2a25"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_10-task07-init46-seed23860818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_10-task07-init46-seed23860818/snap1.sha256.json",
+      "sha256": "bddb38682fb485e481ee1b8ac4824863856f7922ee5efcf305a578037bed8bab"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_10-task07-init47-seed23960818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_10-task07-init47-seed23960818/base10.sha256.json",
+      "sha256": "185e82aafff93c6eed71d5af42c9a4ef4a20eaf4d76233128827f5c29eebfad1"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_10-task07-init47-seed23960818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_10-task07-init47-seed23960818/snap1.sha256.json",
+      "sha256": "ab42b126ecd4e4790c688326b865712d7628df2fce1117a830d4494c76226264"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_10-task07-init48-seed24060818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_10-task07-init48-seed24060818/base10.sha256.json",
+      "sha256": "eba32359468daf00ab1788f243f9bbb032aab148dee71513fc5dd28f6accccbb"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_10-task07-init48-seed24060818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_10-task07-init48-seed24060818/snap1.sha256.json",
+      "sha256": "c463e4df53dad97b4ad3e8d318848e5c7ed0d1fc6c266ecdb26eccc6f88bf8d4"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_10-task07-init49-seed24160818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_10-task07-init49-seed24160818/base10.sha256.json",
+      "sha256": "f41d80fee402da6dbdb60b81ec9ee86cec047cf7844c6cbf806c21aa2bbece0b"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_10-task07-init49-seed24160818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_10-task07-init49-seed24160818/snap1.sha256.json",
+      "sha256": "63d177650226d60169d9b83a34939e6bdf29e92f3d53c7805afc295a719d314a"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_10-task08-init45-seed24260818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_10-task08-init45-seed24260818/base10.sha256.json",
+      "sha256": "26688a5eb48a5505496c5a7736001a009f899a32db5d3fe67902580109287695"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_10-task08-init45-seed24260818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_10-task08-init45-seed24260818/snap1.sha256.json",
+      "sha256": "53e0262b4c24b1fa6548a20f21a258b5dcd9ce38819003e41d02162c02019139"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_10-task08-init46-seed24360818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_10-task08-init46-seed24360818/base10.sha256.json",
+      "sha256": "6afb8cfd339136f748c97c724092626f1dbc7347525039093f7c87aa6d4ffe99"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_10-task08-init46-seed24360818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_10-task08-init46-seed24360818/snap1.sha256.json",
+      "sha256": "b9acd76351ab057f9251c838ed4db38536f3dfc19d9f9a87fdde173fea5d672a"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_10-task08-init47-seed24460818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_10-task08-init47-seed24460818/base10.sha256.json",
+      "sha256": "ffb7e012710317f042b4762e084a2e946ddf2d11adbe03c048273a6e6b403388"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_10-task08-init47-seed24460818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_10-task08-init47-seed24460818/snap1.sha256.json",
+      "sha256": "bde50dbc4e8ae3f797fb44b6162391ec4598d717660352380551547aebe24649"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_10-task08-init48-seed24560818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_10-task08-init48-seed24560818/base10.sha256.json",
+      "sha256": "84abad6c1ba02350673edf97081a3fe810620349c02468109793cee30e4b8b73"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_10-task08-init48-seed24560818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_10-task08-init48-seed24560818/snap1.sha256.json",
+      "sha256": "75e00310fc32b8c7560e9b1ee2db7d57d658ecf5b4d20b3539214d8ec9597499"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_10-task08-init49-seed24660818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_10-task08-init49-seed24660818/base10.sha256.json",
+      "sha256": "563b8fe21cf29fe8d0c86eb476cd49fabde1e04175edf56b0ec09504e3ef527c"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_10-task08-init49-seed24660818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_10-task08-init49-seed24660818/snap1.sha256.json",
+      "sha256": "a8c963ce8857c119bc1e28b76cc87a4d30267634d9ff1439e0399f9795abaf73"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_10-task09-init45-seed24760818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_10-task09-init45-seed24760818/base10.sha256.json",
+      "sha256": "68d4612bd8560d88aa77d7a7668c75da329f2b9f210139f680307461ce587c09"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_10-task09-init45-seed24760818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_10-task09-init45-seed24760818/snap1.sha256.json",
+      "sha256": "a925afdedc739ae20babbd5de4a98fb642e6b074a2c3d6096a5660121f2fef55"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_10-task09-init46-seed24860818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_10-task09-init46-seed24860818/base10.sha256.json",
+      "sha256": "d4d1a185965f4cd7eaca89adca8369760503ec03f213cd91afdb7493336d51c6"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_10-task09-init46-seed24860818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_10-task09-init46-seed24860818/snap1.sha256.json",
+      "sha256": "76f9fd9b33bb462eaa84d2ccbc5ad2b562fbbde22fa726f8dfa5f8521ee908e0"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_10-task09-init47-seed24960818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_10-task09-init47-seed24960818/base10.sha256.json",
+      "sha256": "603813bf8948576690a7c72769098e424ac759e5fad433e9ee1c436d5239755a"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_10-task09-init47-seed24960818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_10-task09-init47-seed24960818/snap1.sha256.json",
+      "sha256": "ca2c218f75f55a911e9bae0d4ea60799244ae473b45275827e0595adc32e5084"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_10-task09-init48-seed25060818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_10-task09-init48-seed25060818/base10.sha256.json",
+      "sha256": "30fc3c5854c5b2c57c71b60f8fff9fb844d5ec97334958ae1f2f27d61ebe3118"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_10-task09-init48-seed25060818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_10-task09-init48-seed25060818/snap1.sha256.json",
+      "sha256": "73d01ebc467999ce3e681d6253fbcc3a87dde03f3751eadcd0bbded380e5f4ba"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_10-task09-init49-seed25160818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_10-task09-init49-seed25160818/base10.sha256.json",
+      "sha256": "5545fa663bac5bf51002f6a649fa5c6cd18b83a31a1939ebbde432594924c6a6"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_10-task09-init49-seed25160818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_10-task09-init49-seed25160818/snap1.sha256.json",
+      "sha256": "9ed38c8b56ac2085673f9fb66d57f2ba2e5f586a8b6df8fd44efd3324947787c"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_goal-task00-init45-seed25260818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_goal-task00-init45-seed25260818/base10.sha256.json",
+      "sha256": "284109b43fa47ea67c27d1cccf311878f56f9815a83461bd09d0271a30f5e3a5"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_goal-task00-init45-seed25260818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_goal-task00-init45-seed25260818/snap1.sha256.json",
+      "sha256": "5ae659823dee4e8b28ed9a5798cac232de69dcad00d76ec7d2c9722cba162e02"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_goal-task00-init46-seed25360818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_goal-task00-init46-seed25360818/base10.sha256.json",
+      "sha256": "96a613ec7cfa40454a556c46770bd30feb72a5693d4ebd7d18db0964bae1500a"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_goal-task00-init46-seed25360818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_goal-task00-init46-seed25360818/snap1.sha256.json",
+      "sha256": "09e9e728c0e83de0ef30322b68260fe0c628080177573529e90e6b85daf706ec"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_goal-task00-init47-seed25460818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_goal-task00-init47-seed25460818/base10.sha256.json",
+      "sha256": "9819ef688c52fff64128f215188f980551b0f773323b2a359eb8959167ca7bf1"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_goal-task00-init47-seed25460818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_goal-task00-init47-seed25460818/snap1.sha256.json",
+      "sha256": "60a1243b188ece8f26d5331c09cc1cf4ad8ac6cfc26c29cd3ff60b4eaf5af3d5"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_goal-task00-init48-seed25560818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_goal-task00-init48-seed25560818/base10.sha256.json",
+      "sha256": "29229af6f34c5df08d3683469713517febe576cd4048c24342e4045cabf93018"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_goal-task00-init48-seed25560818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_goal-task00-init48-seed25560818/snap1.sha256.json",
+      "sha256": "de2cfab222a24bbb4c6250530d5e471a0d5c8d22a1c1760d56cd861f7585e666"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_goal-task00-init49-seed25660818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_goal-task00-init49-seed25660818/base10.sha256.json",
+      "sha256": "ac235f2e5cdb67e349f3172a37e96009d4286c7f69fd0d21a5d3f383fee6fb2f"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_goal-task00-init49-seed25660818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_goal-task00-init49-seed25660818/snap1.sha256.json",
+      "sha256": "1bcc6bd8490cff35cd66c7ab49f21c816856a9d9d03fe93c2ae0df7967f8f2a6"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_goal-task01-init45-seed25760818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_goal-task01-init45-seed25760818/base10.sha256.json",
+      "sha256": "034b21db117f78e2509e42e7770abc93d1197100caee709e3ae3d6b0d1facfab"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_goal-task01-init45-seed25760818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_goal-task01-init45-seed25760818/snap1.sha256.json",
+      "sha256": "ede1096d8ed7c7d9374559966182e0b86fe15ba778942c74ade6aa323b8b0b88"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_goal-task01-init46-seed25860818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_goal-task01-init46-seed25860818/base10.sha256.json",
+      "sha256": "fcbad856af91ee3b45e8565ffcf6448745627ac5feea655670fff1326117db52"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_goal-task01-init46-seed25860818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_goal-task01-init46-seed25860818/snap1.sha256.json",
+      "sha256": "12c19ec4fb0ede704c623549451f0903339a98d3a9bd89320078bc798a026a79"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_goal-task01-init47-seed25960818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_goal-task01-init47-seed25960818/base10.sha256.json",
+      "sha256": "c023c71d375a80f834917d10da320571915e58b3cb11ea148d9a2daa29787c53"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_goal-task01-init47-seed25960818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_goal-task01-init47-seed25960818/snap1.sha256.json",
+      "sha256": "f73f6663e5b88af9a6ca3914d0a806e1007209c5cab874cef2efa671cc9e00ed"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_goal-task01-init48-seed26060818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_goal-task01-init48-seed26060818/base10.sha256.json",
+      "sha256": "17748e67dc4a40958122a9f2f5acfe132bd418835ca2b2077b923652d602588d"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_goal-task01-init48-seed26060818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_goal-task01-init48-seed26060818/snap1.sha256.json",
+      "sha256": "7d0faa142b0d294c878944998ffadf61713d4563f7dc50f80b7c2984d116297e"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_goal-task01-init49-seed26160818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_goal-task01-init49-seed26160818/base10.sha256.json",
+      "sha256": "6fca1feb55acb822b5c942270472591d393335aec48d0f102899790ea98de2bb"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_goal-task01-init49-seed26160818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_goal-task01-init49-seed26160818/snap1.sha256.json",
+      "sha256": "fcfacfc52afdd300867bb2de2e4952265e78dccb4f7e50d0d7cc931950a389f3"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_goal-task02-init45-seed26260818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_goal-task02-init45-seed26260818/base10.sha256.json",
+      "sha256": "f9c236da31a5c05e450d7f21bdeb927d97aa03cf791000f2f06201896b8bc6bf"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_goal-task02-init45-seed26260818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_goal-task02-init45-seed26260818/snap1.sha256.json",
+      "sha256": "62f90fd8b64f9f5e6776e5ca35a4147ced87299f5f2811ed4d741c73ff1ae68b"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_goal-task02-init46-seed26360818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_goal-task02-init46-seed26360818/base10.sha256.json",
+      "sha256": "0f75abfeb65b1a78811ee3ad9dce2048e3522e52aacf2d1944b4a7b3b3ea77e9"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_goal-task02-init46-seed26360818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_goal-task02-init46-seed26360818/snap1.sha256.json",
+      "sha256": "71075b870f258562951ed2ce0bacfdf5b988df23b2d57ee94d4997b97c772175"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_goal-task02-init47-seed26460818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_goal-task02-init47-seed26460818/base10.sha256.json",
+      "sha256": "d9746f9aa6f57e0b9bdc5e579aaa957bb2b9092dae6c8928d87c323b63fca847"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_goal-task02-init47-seed26460818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_goal-task02-init47-seed26460818/snap1.sha256.json",
+      "sha256": "0a3c1242c2cf17418ed7624eca238659dd0689e27cf869052a8157bd2bc3d84e"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_goal-task02-init48-seed26560818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_goal-task02-init48-seed26560818/base10.sha256.json",
+      "sha256": "ea7ae145bb0cc20d82fc10e3bf10c1a13a97702e889e812aa9646b1100ffd049"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_goal-task02-init48-seed26560818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_goal-task02-init48-seed26560818/snap1.sha256.json",
+      "sha256": "12b46304929290f90cd428a77ab0adfdef5b35ef2c500df57d2ba1e1a3b749c1"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_goal-task02-init49-seed26660818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_goal-task02-init49-seed26660818/base10.sha256.json",
+      "sha256": "c4c6de8221bd9be5b8c5cbd7c2171f5d64883a5ea72d87961bd3df04fb648219"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_goal-task02-init49-seed26660818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_goal-task02-init49-seed26660818/snap1.sha256.json",
+      "sha256": "a5125b693c3984f371cba90e67206f986d16898bbe979b3f40e4922c60e25c99"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_goal-task03-init45-seed26760818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_goal-task03-init45-seed26760818/base10.sha256.json",
+      "sha256": "fa71807136f8130aac5df7bb0a1cd94f4310ec136eb16ad53d46be5748904e2a"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_goal-task03-init45-seed26760818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_goal-task03-init45-seed26760818/snap1.sha256.json",
+      "sha256": "f5ffc55a61d356167c4652e678cdbd26d67f0a03753bf1711bba8d552cf09056"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_goal-task03-init46-seed26860818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_goal-task03-init46-seed26860818/base10.sha256.json",
+      "sha256": "4a1533d0d369735bfd35e2ae4bd2da3c4a602bfb66871027460de940248f2c6a"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_goal-task03-init46-seed26860818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_goal-task03-init46-seed26860818/snap1.sha256.json",
+      "sha256": "d0cf0e6e9f71a19199deed8b4ede7051ffb7461e25303ad6778923cac7c5fc1a"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_goal-task03-init47-seed26960818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_goal-task03-init47-seed26960818/base10.sha256.json",
+      "sha256": "70aee9269d3112d826adfe4f0ea23fca4686fc4f42ad66f88b94406ae047cbfc"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_goal-task03-init47-seed26960818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_goal-task03-init47-seed26960818/snap1.sha256.json",
+      "sha256": "042a01ef9fdb3f24b63563ec75b65aa605813d055a2deb085d331e8d6ef0e1cd"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_goal-task03-init48-seed27060818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_goal-task03-init48-seed27060818/base10.sha256.json",
+      "sha256": "5843618541afd9c45793600da9fd1a044f61e968ab2fb605174df1b69a77d268"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_goal-task03-init48-seed27060818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_goal-task03-init48-seed27060818/snap1.sha256.json",
+      "sha256": "563cbd1ca174c03c502382c35681cab1aac5272c0bf2eb765e31f4cb59f8ba5c"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_goal-task03-init49-seed27160818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_goal-task03-init49-seed27160818/base10.sha256.json",
+      "sha256": "f0dbf4962f00219d9a779a56984c2c619d7d9e1710c65ed9aa5477f30b0d61bf"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_goal-task03-init49-seed27160818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_goal-task03-init49-seed27160818/snap1.sha256.json",
+      "sha256": "de6f57dd5ddfa03593cde5ee1dfa44e1ac94f069014895f7e451b5c041c417ab"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_goal-task04-init45-seed27260818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_goal-task04-init45-seed27260818/base10.sha256.json",
+      "sha256": "41a55538e87eb8adce6c7bf6292c2e886e97687460b6ef7b304d81668862ab58"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_goal-task04-init45-seed27260818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_goal-task04-init45-seed27260818/snap1.sha256.json",
+      "sha256": "659b1ad6927c79bf0780ef5d8b5d3c36909179e8c82d736bae060441de06d464"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_goal-task04-init46-seed27360818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_goal-task04-init46-seed27360818/base10.sha256.json",
+      "sha256": "4994acbaf2d99b0c3d364cb7609801782ea4907bea66debae25079f175f6a794"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_goal-task04-init46-seed27360818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_goal-task04-init46-seed27360818/snap1.sha256.json",
+      "sha256": "f7d21d4ec04b7c763cd1da6fb8841866526b053de7fae2036a06714068df4dd1"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_goal-task04-init47-seed27460818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_goal-task04-init47-seed27460818/base10.sha256.json",
+      "sha256": "32f24fc83006d9f77a73be699bd89ba6474439164a2552b5128a17fb8ee34c3f"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_goal-task04-init47-seed27460818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_goal-task04-init47-seed27460818/snap1.sha256.json",
+      "sha256": "ba2fe066af3ed2b8b0edb663502f9f057918a16ee1f0a7b58997d719a41d0ff4"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_goal-task04-init48-seed27560818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_goal-task04-init48-seed27560818/base10.sha256.json",
+      "sha256": "13e09c67b50ed08410f819de2df8720f4652df304c77a5afcfa7ffede49ff846"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_goal-task04-init48-seed27560818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_goal-task04-init48-seed27560818/snap1.sha256.json",
+      "sha256": "816b334ee2156d1442fe1c0f85da7ca686ecb66216a2472f6de443950970580d"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_goal-task04-init49-seed27660818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_goal-task04-init49-seed27660818/base10.sha256.json",
+      "sha256": "7bae7e0196cc8aa18882df8d2c85076a5decb769b235e0e465408c07aa183d41"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_goal-task04-init49-seed27660818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_goal-task04-init49-seed27660818/snap1.sha256.json",
+      "sha256": "078ca729c6f6c61a6a67c18cb537999f3e1ea60356916143eec81d237e920fd1"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_goal-task05-init45-seed27760818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_goal-task05-init45-seed27760818/base10.sha256.json",
+      "sha256": "6e1e83a3c776e1d04f0b1cc196e2be6da51b3d1d845b15f7ec12db976dba8bef"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_goal-task05-init45-seed27760818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_goal-task05-init45-seed27760818/snap1.sha256.json",
+      "sha256": "319073f441fdc9e7f67c5c0cf3d4dab890004a81b22a6af608431481ec3b2e54"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_goal-task05-init46-seed27860818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_goal-task05-init46-seed27860818/base10.sha256.json",
+      "sha256": "5f6524ddd1a6203fd337f5c3a8d627e17ba315e97c7f63a8f9fca551b4df023a"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_goal-task05-init46-seed27860818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_goal-task05-init46-seed27860818/snap1.sha256.json",
+      "sha256": "46c366278e0fb06de9f1370bbe27f13c173426fb0cecbbc666f99d64e4801002"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_goal-task05-init47-seed27960818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_goal-task05-init47-seed27960818/base10.sha256.json",
+      "sha256": "24efb92ce728f88a74d803f834de67ca993da50f32735f8dfc26a36c1fc63769"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_goal-task05-init47-seed27960818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_goal-task05-init47-seed27960818/snap1.sha256.json",
+      "sha256": "bdf9042def1121e027ef078a435cec3877ba86ee7cb983bda82f05094a5bf8fb"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_goal-task05-init48-seed28060818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_goal-task05-init48-seed28060818/base10.sha256.json",
+      "sha256": "dcc976e7b66423c1c2f27ab8e221ad8cf11d5e94933b3bcc2d4616b512b6fa6b"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_goal-task05-init48-seed28060818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_goal-task05-init48-seed28060818/snap1.sha256.json",
+      "sha256": "3144344e66acc37653ff6a0f806f89e07fc01abc73d07f590adef763fe0965b3"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_goal-task05-init49-seed28160818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_goal-task05-init49-seed28160818/base10.sha256.json",
+      "sha256": "215f07cdbd81efb165d082624079c18157873aa0b1935a70752af35fd8c48058"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_goal-task05-init49-seed28160818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_goal-task05-init49-seed28160818/snap1.sha256.json",
+      "sha256": "4e3a1c4a46cfcca299165ce110498a5303cf063701b31a3a73be0f0cfb2f8d9d"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_goal-task06-init45-seed28260818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_goal-task06-init45-seed28260818/base10.sha256.json",
+      "sha256": "e48cb8c06326a170367f8574c76efbcaee0cab8f99fef06d32965389e6ad425e"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_goal-task06-init45-seed28260818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_goal-task06-init45-seed28260818/snap1.sha256.json",
+      "sha256": "2176bef0ef60c104711126b1dc192ddb877e6554fb2b67c3aed37671d77461a1"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_goal-task06-init46-seed28360818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_goal-task06-init46-seed28360818/base10.sha256.json",
+      "sha256": "09f5d4ee405010181046553e451aee91551ff072580e33c1ecc5cb69b404f02d"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_goal-task06-init46-seed28360818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_goal-task06-init46-seed28360818/snap1.sha256.json",
+      "sha256": "473851611b288fc0beb6d9dd652d89ee00d8d4b0ba6b3dbcd2acacbe1bf66da7"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_goal-task06-init47-seed28460818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_goal-task06-init47-seed28460818/base10.sha256.json",
+      "sha256": "3c46b2e210006e18a23630517720ad05f7c33739b87912a9a46302c22830b7f3"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_goal-task06-init47-seed28460818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_goal-task06-init47-seed28460818/snap1.sha256.json",
+      "sha256": "7616428b2e8944dcce67f38d1ff5c4182f00afce56f3fa4df3d7c15072cf0744"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_goal-task06-init48-seed28560818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_goal-task06-init48-seed28560818/base10.sha256.json",
+      "sha256": "5476867269d8889f7dbcf44c802d0334b29e8244306a9fe2ee62118ac63c0fbf"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_goal-task06-init48-seed28560818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_goal-task06-init48-seed28560818/snap1.sha256.json",
+      "sha256": "3d07ff02b196599a1849a226c6c41f2a5ec94cb36d1ea0190885affe33a2fc5c"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_goal-task06-init49-seed28660818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_goal-task06-init49-seed28660818/base10.sha256.json",
+      "sha256": "c87f197fdd49ab6f6035c978c1ed16a96346f6116125e3ad3e73a74df4fd39b5"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_goal-task06-init49-seed28660818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_goal-task06-init49-seed28660818/snap1.sha256.json",
+      "sha256": "9630923e32916b44c34d08e5874b4dfeadb81eb100fcc57ef66c01d7dbdd471d"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_goal-task07-init45-seed28760818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_goal-task07-init45-seed28760818/base10.sha256.json",
+      "sha256": "06a1342196f52ba7e5d705bc95ca119546a138ddacef731725e910b3a013e8e4"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_goal-task07-init45-seed28760818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_goal-task07-init45-seed28760818/snap1.sha256.json",
+      "sha256": "ed9f43f161956824d1ed5ad63395945b998a11ece68be142fe6c6bb692918492"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_goal-task07-init46-seed28860818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_goal-task07-init46-seed28860818/base10.sha256.json",
+      "sha256": "4fc16e6a523e287031a1c86f669e2303d5d731d93e29bf382028dda994827e35"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_goal-task07-init46-seed28860818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_goal-task07-init46-seed28860818/snap1.sha256.json",
+      "sha256": "6f7b2218137c92d37be55531e379607df2642ed3bf75bd220b0695cdd378b23f"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_goal-task07-init47-seed28960818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_goal-task07-init47-seed28960818/base10.sha256.json",
+      "sha256": "71f7d541a8b6aed381ffe2cdb2a04308ecb4476357acf2eafe72ef89700ccfad"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_goal-task07-init47-seed28960818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_goal-task07-init47-seed28960818/snap1.sha256.json",
+      "sha256": "a98d95708b8f9ddd80e7135b6201dc1455c064bc4274dfda10d7985a201f907d"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_goal-task07-init48-seed29060818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_goal-task07-init48-seed29060818/base10.sha256.json",
+      "sha256": "4e6b20655c493f0ae19f570fd9a2448dfcbb5579dae4ed1a7e9d216a00042af6"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_goal-task07-init48-seed29060818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_goal-task07-init48-seed29060818/snap1.sha256.json",
+      "sha256": "2acee77adee2de53569fc5668ecdcfac41e232dbfd5721fdf08a5ed5e749e30b"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_goal-task07-init49-seed29160818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_goal-task07-init49-seed29160818/base10.sha256.json",
+      "sha256": "8d509ffb766eb612739e02ff72f772d26d92e506b3f2163f0404149181fa3347"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_goal-task07-init49-seed29160818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_goal-task07-init49-seed29160818/snap1.sha256.json",
+      "sha256": "b909179c13ff9671ce1aaae342df41a258bd38f5bee2f55ae83e23e0a4fbdf57"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_goal-task08-init45-seed29260818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_goal-task08-init45-seed29260818/base10.sha256.json",
+      "sha256": "94fee0ea3578e9784af6f37273aaf83eb5dda153c4a89297994e0e458c916dd3"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_goal-task08-init45-seed29260818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_goal-task08-init45-seed29260818/snap1.sha256.json",
+      "sha256": "12507d213fe61cac0832e362671f378b171335b15299e6a8beaedcc2565aa193"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_goal-task08-init46-seed29360818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_goal-task08-init46-seed29360818/base10.sha256.json",
+      "sha256": "91e4576934deb595a3be78eb54992dd98a83a04c120e9c5e31bd2f4350cb6015"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_goal-task08-init46-seed29360818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_goal-task08-init46-seed29360818/snap1.sha256.json",
+      "sha256": "0b0da1cff95bd2b344dc2cccc4210ccc5c68d197ddcc91d94617e2a2efdb9ff4"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_goal-task08-init47-seed29460818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_goal-task08-init47-seed29460818/base10.sha256.json",
+      "sha256": "466776e82770116d95eb4c2a8b0dcb675452b418224fed151ef436a71a862b81"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_goal-task08-init47-seed29460818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_goal-task08-init47-seed29460818/snap1.sha256.json",
+      "sha256": "5da72bb05dd9e485f93878bf2391f4ec7ba205995638d608b2d3fee7b686b903"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_goal-task08-init48-seed29560818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_goal-task08-init48-seed29560818/base10.sha256.json",
+      "sha256": "683750afc2549819126fdb7ebfe88dc175655198e4a4c33e9fb8aca99b938fb8"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_goal-task08-init48-seed29560818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_goal-task08-init48-seed29560818/snap1.sha256.json",
+      "sha256": "cd15988cce09c89eef7cddc3233a4c23a09d25a27f81d6842ab013f8f505b617"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_goal-task08-init49-seed29660818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_goal-task08-init49-seed29660818/base10.sha256.json",
+      "sha256": "06c0e07dcc38f49cf3c1e49a15edf131b237a192612d0c0e092803f67ab86f4e"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_goal-task08-init49-seed29660818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_goal-task08-init49-seed29660818/snap1.sha256.json",
+      "sha256": "7d3b2ff33b939ab080f7489c5c3650ef989c79c5825ce38db86eda944d9ef6c5"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_goal-task09-init45-seed29760818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_goal-task09-init45-seed29760818/base10.sha256.json",
+      "sha256": "8f69db2c74b38cf192d0a84b8ed3a24d156adecee95ffdf693dd0a184b74eac0"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_goal-task09-init45-seed29760818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_goal-task09-init45-seed29760818/snap1.sha256.json",
+      "sha256": "75bf9fc01c571e084ffcd6f54baecc3d5b5c2447761028cf41e1af83dad0815b"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_goal-task09-init46-seed29860818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_goal-task09-init46-seed29860818/base10.sha256.json",
+      "sha256": "9aeffd1a363782178661e6d832b95aaa087fd44367827e53ef836a3fae3da1e6"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_goal-task09-init46-seed29860818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_goal-task09-init46-seed29860818/snap1.sha256.json",
+      "sha256": "aae9ac83320c28b71058738b481eed47a923957ad4d8058efb15fdafd6ab8649"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_goal-task09-init47-seed29960818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_goal-task09-init47-seed29960818/base10.sha256.json",
+      "sha256": "22f5429b09d54f6ff0100c3ea148bf321cdb09e0ca0e8d34105812c57ac0911f"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_goal-task09-init47-seed29960818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_goal-task09-init47-seed29960818/snap1.sha256.json",
+      "sha256": "59bd97eaa645116ae8f2b0ce038c3344ac40d284e6857aa76a9b847ba9bf5235"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_goal-task09-init48-seed30060818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_goal-task09-init48-seed30060818/base10.sha256.json",
+      "sha256": "f0869be0c38ae371ae80b5c3aeb76b18728e23f10747054e642f97fbb582fba9"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_goal-task09-init48-seed30060818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_goal-task09-init48-seed30060818/snap1.sha256.json",
+      "sha256": "1b3004c0049e00a69b5a1b37bfc758989b457f603c1c118fb208e2fabf196e7c"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_goal-task09-init49-seed30160818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_goal-task09-init49-seed30160818/base10.sha256.json",
+      "sha256": "456646f15d26e1e5e927d3ab197e8b1c42462e64dd44b437b30fd65e0095e35e"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_goal-task09-init49-seed30160818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_goal-task09-init49-seed30160818/snap1.sha256.json",
+      "sha256": "b6bfd892ed4484b1a695c19a411c4b13f2da47f969acb40148206810b8b50886"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_object-task00-init45-seed30260818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_object-task00-init45-seed30260818/base10.sha256.json",
+      "sha256": "10533efb404dd04411548b9c08778ae22fe41a715eca332e733ba29f5b76a989"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_object-task00-init45-seed30260818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_object-task00-init45-seed30260818/snap1.sha256.json",
+      "sha256": "7f14a5a19c9599f17cdbfcf4c9beef33539512ec71f224b57a470775bb068ffe"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_object-task00-init46-seed30360818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_object-task00-init46-seed30360818/base10.sha256.json",
+      "sha256": "c7ced8cf27d6775cb5876ff52b2515dcf67b8ac9d8ea03501ba2582aaebd1974"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_object-task00-init46-seed30360818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_object-task00-init46-seed30360818/snap1.sha256.json",
+      "sha256": "671ceeeb655cc861334a13efb93b4a89cbdc4755ea490aebc0b5bdbd57018688"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_object-task00-init47-seed30460818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_object-task00-init47-seed30460818/base10.sha256.json",
+      "sha256": "ab17592168a047cfb9a1e17e5db59b6fa9a5d597e778ef64a42aed1d5222413d"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_object-task00-init47-seed30460818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_object-task00-init47-seed30460818/snap1.sha256.json",
+      "sha256": "afdd2c7018c6160b8bcffb4d58e0730d2e1098df11c62ec7de465fc7548a039c"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_object-task00-init48-seed30560818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_object-task00-init48-seed30560818/base10.sha256.json",
+      "sha256": "aa937507035bd89d4dd5e604813c8ae370acfa72f3ba808e7656fe4b25db4a2a"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_object-task00-init48-seed30560818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_object-task00-init48-seed30560818/snap1.sha256.json",
+      "sha256": "468b584c395cd27cdb6f346e69fd2bf5926dd4bf04a811fdb2f9f6363e5ae03b"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_object-task00-init49-seed30660818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_object-task00-init49-seed30660818/base10.sha256.json",
+      "sha256": "3297c67b878489f8f2ef8193dbe968eb7b228d19a43b6269c28846078c9337ff"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_object-task00-init49-seed30660818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_object-task00-init49-seed30660818/snap1.sha256.json",
+      "sha256": "b413c887bd37b5f2739aec6e2c806325bb1f55f6f7118241415e6a0ceae93ce0"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_object-task01-init45-seed30760818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_object-task01-init45-seed30760818/base10.sha256.json",
+      "sha256": "bf1915127331d8075d46ef60ab5c7213a8463fe776edacd66cd400d345ebf294"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_object-task01-init45-seed30760818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_object-task01-init45-seed30760818/snap1.sha256.json",
+      "sha256": "9429d76fe912c5c7449c6aa195e06c83f683b8ef31a78b3975e448071ffbadf8"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_object-task01-init46-seed30860818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_object-task01-init46-seed30860818/base10.sha256.json",
+      "sha256": "6ec83d4328a4e0486dde389dece9f41ff80637e0fc0113b6e920a655e5522480"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_object-task01-init46-seed30860818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_object-task01-init46-seed30860818/snap1.sha256.json",
+      "sha256": "c0de7a3c4213e234d2fb770cb1e6073271e819b9d058566a406d06669b963fee"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_object-task01-init47-seed30960818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_object-task01-init47-seed30960818/base10.sha256.json",
+      "sha256": "fe036992180fec57b8f9024749c2a248e2ec9cf08c7c3b98d0af86f67840432c"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_object-task01-init47-seed30960818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_object-task01-init47-seed30960818/snap1.sha256.json",
+      "sha256": "f1c096340fd626d950d25b141e9593b08169c323540ce2dbe2443f08431d8ee0"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_object-task01-init48-seed31060818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_object-task01-init48-seed31060818/base10.sha256.json",
+      "sha256": "768e3579549c4915fc8efd48c2a2d4e2898eb59e280f7ad95e7c6b6c58b9cda0"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_object-task01-init48-seed31060818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_object-task01-init48-seed31060818/snap1.sha256.json",
+      "sha256": "e9956faae9ac22cd96c6a2e1626af5c0573ed0faf55006db7d09de017e31d2f9"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_object-task01-init49-seed31160818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_object-task01-init49-seed31160818/base10.sha256.json",
+      "sha256": "9a66f2646e359ccd71b837ba47b51c265e7f04ae5a254281e709944f7c64dd52"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_object-task01-init49-seed31160818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_object-task01-init49-seed31160818/snap1.sha256.json",
+      "sha256": "72c676fdfe71301df0bf59a454c2e9969072c91859baeb3181ca630648701873"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_object-task02-init45-seed31260818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_object-task02-init45-seed31260818/base10.sha256.json",
+      "sha256": "0f9416794c2e0583649eb7bcc8a2902505cb6b796a820bc27afe3824007aafeb"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_object-task02-init45-seed31260818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_object-task02-init45-seed31260818/snap1.sha256.json",
+      "sha256": "62b1e3030a97f8fd13c94c2f2a72bccf1b5be82fdbfc4afcc31f969b3886f29e"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_object-task02-init46-seed31360818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_object-task02-init46-seed31360818/base10.sha256.json",
+      "sha256": "4b2381ff550aec73091559a8d5d962e426083fc5cbcc23dc24dd211f0bcb14b6"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_object-task02-init46-seed31360818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_object-task02-init46-seed31360818/snap1.sha256.json",
+      "sha256": "194350bc2c8873c5e561c4218990d99a374ca1af3769f994a6786c11839499c5"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_object-task02-init47-seed31460818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_object-task02-init47-seed31460818/base10.sha256.json",
+      "sha256": "71d5b8e1e9f3f6c52b4a23ccd1a0e30f3aceb6afbc6973d191622f9889038065"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_object-task02-init47-seed31460818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_object-task02-init47-seed31460818/snap1.sha256.json",
+      "sha256": "31b1f5855c09b40e7355f12e0de6329a87aadf7cf8616c5d827668a7984ddc76"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_object-task02-init48-seed31560818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_object-task02-init48-seed31560818/base10.sha256.json",
+      "sha256": "d43aaab40ac13a43691026baf93c0b036685826ab5ed196490187f933b414d3e"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_object-task02-init48-seed31560818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_object-task02-init48-seed31560818/snap1.sha256.json",
+      "sha256": "ac6821792ac2ef666e14fa077e72eb0bf36915dae6f0c6fb45984dd83a1f78a3"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_object-task02-init49-seed31660818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_object-task02-init49-seed31660818/base10.sha256.json",
+      "sha256": "0ed9a19b2e66e3cdab37cb7b7552eac5910fd950130fa47f012a30fec1033031"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_object-task02-init49-seed31660818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_object-task02-init49-seed31660818/snap1.sha256.json",
+      "sha256": "ce41ea12595459ad18d4844a0f002e0bb01dd9b2c8152d364e2480559af6f05f"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_object-task03-init45-seed31760818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_object-task03-init45-seed31760818/base10.sha256.json",
+      "sha256": "b9f7d9fb8c03882362bdb42f4419139703a087b0185b967b5f313ad86fba940c"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_object-task03-init45-seed31760818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_object-task03-init45-seed31760818/snap1.sha256.json",
+      "sha256": "14c067df9cdebc431b6406c2b2937ee3600bfa306b2dff6d05758c885b23f6bc"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_object-task03-init46-seed31860818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_object-task03-init46-seed31860818/base10.sha256.json",
+      "sha256": "567df588b2f96cbd6547b8ac0cda3a46e65fbaa22808fdebd5722624892d0c59"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_object-task03-init46-seed31860818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_object-task03-init46-seed31860818/snap1.sha256.json",
+      "sha256": "49f5b60254bb928a5eab67400c785345cd217699237114544b5ee8053809a3e5"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_object-task03-init47-seed31960818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_object-task03-init47-seed31960818/base10.sha256.json",
+      "sha256": "32c05327e9248adc1101247a474b3564f13b087fc455027217252389e3385aaa"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_object-task03-init47-seed31960818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_object-task03-init47-seed31960818/snap1.sha256.json",
+      "sha256": "2f8c1c99846677c6fb5b9aa0e46784061cab7f3e28b255eacc2318cfea50ec6d"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_object-task03-init48-seed32060818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_object-task03-init48-seed32060818/base10.sha256.json",
+      "sha256": "3cf49e69d6a92db57516894ab5c0baf6290d918997d9ac45c5fb51d34a65f94e"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_object-task03-init48-seed32060818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_object-task03-init48-seed32060818/snap1.sha256.json",
+      "sha256": "8331a35478affab67f3aee193e30c4950ee2560c68190fb0d7eeef34f187172c"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_object-task03-init49-seed32160818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_object-task03-init49-seed32160818/base10.sha256.json",
+      "sha256": "caa555631a33ef423185c1c2ad5b7668ab24ea288486981e304ee884139d8b2c"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_object-task03-init49-seed32160818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_object-task03-init49-seed32160818/snap1.sha256.json",
+      "sha256": "2dd9bb4edbad18f331b5db0c3fb0838255b65d58b2ff611664220ca5fafd2032"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_object-task04-init45-seed32260818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_object-task04-init45-seed32260818/base10.sha256.json",
+      "sha256": "5f24e297fdcbaf428c265ffd9435abc5f42cb4af402e8b0621893c3eadb688c5"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_object-task04-init45-seed32260818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_object-task04-init45-seed32260818/snap1.sha256.json",
+      "sha256": "16b4784f6372fed40c09a242e905d62a387ba369bbdc99576f92e36b1a6ec5d7"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_object-task04-init46-seed32360818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_object-task04-init46-seed32360818/base10.sha256.json",
+      "sha256": "585d172b77eb5af71d14b4fd942794abbc2ff38ffb4936d9a25d2361948f9a1f"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_object-task04-init46-seed32360818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_object-task04-init46-seed32360818/snap1.sha256.json",
+      "sha256": "e9b39d11e6fd3a0ad9e394a549dd67330e6385b6a32b536bccc50c057bf86814"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_object-task04-init47-seed32460818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_object-task04-init47-seed32460818/base10.sha256.json",
+      "sha256": "37573fcbbec128e2530084f04cd4450ad425cf06c54e9434d7a23304eef7b1f4"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_object-task04-init47-seed32460818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_object-task04-init47-seed32460818/snap1.sha256.json",
+      "sha256": "d07a2e98f8365fda923f7dd27623427a0d27fe24601991a05864ec8b9a03bf3a"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_object-task04-init48-seed32560818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_object-task04-init48-seed32560818/base10.sha256.json",
+      "sha256": "f00fdbd296fdb0b1d7bf76d150b92189f632829a57f0757805a74307ab3f5f05"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_object-task04-init48-seed32560818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_object-task04-init48-seed32560818/snap1.sha256.json",
+      "sha256": "54ce910285e1820ab45db70f53cba97f1fcb5b70b354df94015aebf743321f03"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_object-task04-init49-seed32660818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_object-task04-init49-seed32660818/base10.sha256.json",
+      "sha256": "afc065e5d197d41a805ecac923dd3add8b19510f369c9d6c1102bc340fc7d408"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_object-task04-init49-seed32660818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_object-task04-init49-seed32660818/snap1.sha256.json",
+      "sha256": "b294ea0fe88646c9332d999efa6f31f54900dddfdfedc946fade2759630dab10"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_object-task05-init45-seed32760818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_object-task05-init45-seed32760818/base10.sha256.json",
+      "sha256": "af453804f9e4f2df573bc4417b7839cfe37601944d3983ff97ea3d096d26e45f"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_object-task05-init45-seed32760818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_object-task05-init45-seed32760818/snap1.sha256.json",
+      "sha256": "af135228acfa112f046d264e58ff182fc7234d8fe95605e0fcc863e816cac97c"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_object-task05-init46-seed32860818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_object-task05-init46-seed32860818/base10.sha256.json",
+      "sha256": "9711e4e48c90da04ded4c6dd557d31223a4c14a524eabf5ba4a4eae56beb9cde"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_object-task05-init46-seed32860818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_object-task05-init46-seed32860818/snap1.sha256.json",
+      "sha256": "d1a020f6b699be9398df65d26798d8ea519775117f59ee4ee24ad969162282f4"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_object-task05-init47-seed32960818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_object-task05-init47-seed32960818/base10.sha256.json",
+      "sha256": "c44710f072fb3c72100106a75043e030af9f59f543e8727847ca352db4b7cdb1"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_object-task05-init47-seed32960818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_object-task05-init47-seed32960818/snap1.sha256.json",
+      "sha256": "faa5624ca94e0a65bbcb821d311fca95aeaa6640e27176880eeed4f3db4543aa"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_object-task05-init48-seed33060818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_object-task05-init48-seed33060818/base10.sha256.json",
+      "sha256": "cc7148c20fcb5f91f5916b8163274c30ca2bdcededca2a3d3d49bf554b441d5f"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_object-task05-init48-seed33060818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_object-task05-init48-seed33060818/snap1.sha256.json",
+      "sha256": "ff71f833e22309abb22489253a57879fa88b4a3147c52c6d3b402087d2d69ba0"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_object-task05-init49-seed33160818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_object-task05-init49-seed33160818/base10.sha256.json",
+      "sha256": "1c9a04c64aecff2969f4828deac5bf961671b8219144aa217a10628d79b0e90f"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_object-task05-init49-seed33160818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_object-task05-init49-seed33160818/snap1.sha256.json",
+      "sha256": "9acf1f602d2ab87f18eb0122b28c0b1602f10fd2bbe56494bbb80fdcb1292f32"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_object-task06-init45-seed33260818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_object-task06-init45-seed33260818/base10.sha256.json",
+      "sha256": "e683e1663326c1fd4fddee286f949a61583ae9b5b6bcabc21c6a2cc517c8cd0f"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_object-task06-init45-seed33260818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_object-task06-init45-seed33260818/snap1.sha256.json",
+      "sha256": "9dac779409e6c89d9034a3087c7cb2c230323793c5743437a0fee58864f9a4c9"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_object-task06-init46-seed33360818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_object-task06-init46-seed33360818/base10.sha256.json",
+      "sha256": "db7754390291b731659a0f150b437803dbf524471e9115a347c6138f57436fa6"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_object-task06-init46-seed33360818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_object-task06-init46-seed33360818/snap1.sha256.json",
+      "sha256": "f891b94082c58c76078bcea88c333511230fd447666acdd837898e22daa80dc5"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_object-task06-init47-seed33460818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_object-task06-init47-seed33460818/base10.sha256.json",
+      "sha256": "7b5d27313dc3ccb28dbac0a2cf05e1667d52590bbdec73570732877cd7546a54"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_object-task06-init47-seed33460818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_object-task06-init47-seed33460818/snap1.sha256.json",
+      "sha256": "4fbc15e863fcbcf6f10ea2b121f228560a6af0dae0c4956dd15fab524b54206e"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_object-task06-init48-seed33560818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_object-task06-init48-seed33560818/base10.sha256.json",
+      "sha256": "2d470d3cc9c87382f236a2ebccd455667f325631abc901ff8ffbd95c654c33c4"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_object-task06-init48-seed33560818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_object-task06-init48-seed33560818/snap1.sha256.json",
+      "sha256": "29c5606f568474a2bf49479946f29c75cd95674fe38fff127ad063b9d2a4d306"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_object-task06-init49-seed33660818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_object-task06-init49-seed33660818/base10.sha256.json",
+      "sha256": "ec00be0ae0b429c39ab524b2f347420b4cfc53c824637628ec292cf4ce8ab47c"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_object-task06-init49-seed33660818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_object-task06-init49-seed33660818/snap1.sha256.json",
+      "sha256": "36ae4c10eb32b0be4ddf5dd1b240778ef92d0630e9b413d5ad1badc678efef9e"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_object-task07-init45-seed33760818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_object-task07-init45-seed33760818/base10.sha256.json",
+      "sha256": "54efcc910c8233d305b45d85dbd1c9d2c720e8186c9d6cdd416a179a6c4cd297"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_object-task07-init45-seed33760818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_object-task07-init45-seed33760818/snap1.sha256.json",
+      "sha256": "e6d42f267743befd69f6fdf96f0f4e5cd06f55d8c9ad8d1afe08c3a9f082fa88"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_object-task07-init46-seed33860818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_object-task07-init46-seed33860818/base10.sha256.json",
+      "sha256": "e30e70a5e2fb86ca65dd264335b09d6aab6f6a80157e8004252f22796c5b2097"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_object-task07-init46-seed33860818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_object-task07-init46-seed33860818/snap1.sha256.json",
+      "sha256": "7ea6707c169090d49f6e458eba04eb8314270643c03603a66b61c4a938506c10"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_object-task07-init47-seed33960818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_object-task07-init47-seed33960818/base10.sha256.json",
+      "sha256": "499deb989fa638afbc48f041a946f9eb60427f46abcdaeee6b0b5ff0f0fe6d25"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_object-task07-init47-seed33960818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_object-task07-init47-seed33960818/snap1.sha256.json",
+      "sha256": "07915ec47ab1e62a1e962e0aa7f3bb24695e219a8e61b8b8e2f5b510bfa8878a"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_object-task07-init48-seed34060818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_object-task07-init48-seed34060818/base10.sha256.json",
+      "sha256": "7747b41387b52195c926d5b2cfeec52c1bb8659f166bdcf25cf05f8b3f9a985c"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_object-task07-init48-seed34060818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_object-task07-init48-seed34060818/snap1.sha256.json",
+      "sha256": "1c23d087032bd8b8b094e22a65fe64a1298ba526ba71e54bd378f5a212e2af8a"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_object-task07-init49-seed34160818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_object-task07-init49-seed34160818/base10.sha256.json",
+      "sha256": "caccfed75715ae27c1ecfa028978ddefbab6c564a5ad3c6156a896d6c20c170a"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_object-task07-init49-seed34160818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_object-task07-init49-seed34160818/snap1.sha256.json",
+      "sha256": "54122b43a31478784b4afb51d0df90d941c575b147e6fcad318d906cd757143d"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_object-task08-init45-seed34260818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_object-task08-init45-seed34260818/base10.sha256.json",
+      "sha256": "12f6feaf6fd2bd2034869828cab9b696c816fcbd0f74dd612bc4aa34c68ab718"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_object-task08-init45-seed34260818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_object-task08-init45-seed34260818/snap1.sha256.json",
+      "sha256": "f8173fc3a50ea35e61e9436a913c9256ef610ed3e38db0808bc94aea1a824df7"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_object-task08-init46-seed34360818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_object-task08-init46-seed34360818/base10.sha256.json",
+      "sha256": "307f241241dbe464c2e155c8b3293b90b02d05ba5056678b98a22d90089f1f9f"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_object-task08-init46-seed34360818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_object-task08-init46-seed34360818/snap1.sha256.json",
+      "sha256": "1ddc7ab2e21dbc3b89b3edb1c7d36e7fd8f347187e0f6ffc82e787af34ab9f65"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_object-task08-init47-seed34460818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_object-task08-init47-seed34460818/base10.sha256.json",
+      "sha256": "93b42061a426332faf3c3d16b97bdb3925ffdc59aa5787f0f20bcac3850bb657"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_object-task08-init47-seed34460818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_object-task08-init47-seed34460818/snap1.sha256.json",
+      "sha256": "56194be868a206ca09dec44fc5c3bd195c262f950a438ac9d08e474be847195b"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_object-task08-init48-seed34560818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_object-task08-init48-seed34560818/base10.sha256.json",
+      "sha256": "f1614a8aadd35b0e929ce6f0d02e0f930b4293935e91f9e859034ed1310cb672"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_object-task08-init48-seed34560818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_object-task08-init48-seed34560818/snap1.sha256.json",
+      "sha256": "35ebd97f06f268e07e6df79150136f0359b8e56ef5a24d431a579e42c9dc48a6"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_object-task08-init49-seed34660818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_object-task08-init49-seed34660818/base10.sha256.json",
+      "sha256": "3d3d963a58cab57ed1716eea24daf0e23c8b61ebfbc2cc2cb3af5844ad1cd12f"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_object-task08-init49-seed34660818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_object-task08-init49-seed34660818/snap1.sha256.json",
+      "sha256": "53482348d8e6b3ef8cdc89b81ad0fbd63367b4078a11ae5d9e827b5589b707f2"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_object-task09-init45-seed34760818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_object-task09-init45-seed34760818/base10.sha256.json",
+      "sha256": "0ebd3716342670e50e1a1506ebb52f2ac8277435b6bce7a312f444da0c383a21"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_object-task09-init45-seed34760818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_object-task09-init45-seed34760818/snap1.sha256.json",
+      "sha256": "4fe0b59d62275ea3f2258c484f3cca0ec44661d28cd17e6235b0621c6a107759"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_object-task09-init46-seed34860818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_object-task09-init46-seed34860818/base10.sha256.json",
+      "sha256": "ad2aa4d73d490828be4bd91d843cc70a052377d2416140ede04245049d46f41d"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_object-task09-init46-seed34860818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_object-task09-init46-seed34860818/snap1.sha256.json",
+      "sha256": "05f5ad5dcff9028a07bcd963a41ac17c4cdd2e6b09f6a3212a1efd3c9e600450"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_object-task09-init47-seed34960818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_object-task09-init47-seed34960818/base10.sha256.json",
+      "sha256": "bf06f62b4464729761d8919122250c289d3e251ce6955074144cc1ac3a121ff3"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_object-task09-init47-seed34960818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_object-task09-init47-seed34960818/snap1.sha256.json",
+      "sha256": "3aeb8fc12dbfe301ebb293bd7faa8993b0a4d609b7c50853057fd9e4b9894213"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_object-task09-init48-seed35060818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_object-task09-init48-seed35060818/base10.sha256.json",
+      "sha256": "7ddf932e2c41ca7554057eebc68dc50081456e434be599589f8cb1fa1e836c2c"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_object-task09-init48-seed35060818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_object-task09-init48-seed35060818/snap1.sha256.json",
+      "sha256": "86e6a012a7186bf9e6169933e0639fb874ce36bad78f0b7d7355d23e3a465d14"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_object-task09-init49-seed35160818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_object-task09-init49-seed35160818/base10.sha256.json",
+      "sha256": "df48c45bb78865bad443a1125df2293ce56fcbf601ac4cdafe44d8f9f1f22a48"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_object-task09-init49-seed35160818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_object-task09-init49-seed35160818/snap1.sha256.json",
+      "sha256": "cc527bba60c24170231a270d63dc78c5efd639e9c23c361eef930462b9591053"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_spatial-task00-init45-seed35260818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_spatial-task00-init45-seed35260818/base10.sha256.json",
+      "sha256": "cafb295886649c78504a86d55f970d6b47c223682a3abc74057a3f1786dd26cf"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_spatial-task00-init45-seed35260818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_spatial-task00-init45-seed35260818/snap1.sha256.json",
+      "sha256": "c2e36bd23f3d4192cb8d22c92bca36c407811764821a16a8c60f6ced888819a1"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_spatial-task00-init46-seed35360818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_spatial-task00-init46-seed35360818/base10.sha256.json",
+      "sha256": "816c0ba7b01ec6725609001d4e87d22d9add35444e574acce9e3674fdaf0bb9f"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_spatial-task00-init46-seed35360818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_spatial-task00-init46-seed35360818/snap1.sha256.json",
+      "sha256": "018e296bac1184967721bdd8e53f854045676d172f5032c78f6fe8704de69909"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_spatial-task00-init47-seed35460818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_spatial-task00-init47-seed35460818/base10.sha256.json",
+      "sha256": "1a8c46c86cb9b3ace6ca72ff3b4325ecd7da239423e53b6398aeda2e28818f3a"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_spatial-task00-init47-seed35460818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_spatial-task00-init47-seed35460818/snap1.sha256.json",
+      "sha256": "c48f47e80345837d1262855b1930fe767b89f9ad71f33917ff588f4ae0bf7719"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_spatial-task00-init48-seed35560818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_spatial-task00-init48-seed35560818/base10.sha256.json",
+      "sha256": "c8fec41916ebaceadf87b5b6a49d7cdcff443558466fe223dffde56ce3cd0262"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_spatial-task00-init48-seed35560818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_spatial-task00-init48-seed35560818/snap1.sha256.json",
+      "sha256": "a7b78c40db5925ab8e9ae594f3862dd495c9a6fc3f57652bce2fca7422b1a1fb"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_spatial-task00-init49-seed35660818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_spatial-task00-init49-seed35660818/base10.sha256.json",
+      "sha256": "f44370b3617f4a51c853da2b5bc1df0d6a8bf9066967d76196d5a846b11de11e"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_spatial-task00-init49-seed35660818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_spatial-task00-init49-seed35660818/snap1.sha256.json",
+      "sha256": "9964b97259cb0620b2b0d12cd2d71e90cc95293baa4de16e01481cabb2fc2245"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_spatial-task01-init45-seed35760818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_spatial-task01-init45-seed35760818/base10.sha256.json",
+      "sha256": "038bab2bcae4f60e823e23f83681017a046b6e0ef74b0f624d0388d8309af2af"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_spatial-task01-init45-seed35760818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_spatial-task01-init45-seed35760818/snap1.sha256.json",
+      "sha256": "8868826cfe19302f91841001697e83302585cddd26c9d7eedabaa6a7d5cfcf97"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_spatial-task01-init46-seed35860818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_spatial-task01-init46-seed35860818/base10.sha256.json",
+      "sha256": "e970e98c2078f009a3ccf38f67d42abfc87ea39027159feb08f4bb9ec8d17e6e"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_spatial-task01-init46-seed35860818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_spatial-task01-init46-seed35860818/snap1.sha256.json",
+      "sha256": "d6a3e34271377e3598f778984d355e466fb682e6678a3fae922bf20a7819215f"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_spatial-task01-init47-seed35960818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_spatial-task01-init47-seed35960818/base10.sha256.json",
+      "sha256": "26ad9c4478e0091236fb2ee4ecf9dda9e36cce10caa64768b71fffe2258a3b89"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_spatial-task01-init47-seed35960818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_spatial-task01-init47-seed35960818/snap1.sha256.json",
+      "sha256": "d7ef3d290bf8eac08ed9bd6b7d7acd17af74b36a06ed8c7db71bbbc983d69d0f"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_spatial-task01-init48-seed36060818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_spatial-task01-init48-seed36060818/base10.sha256.json",
+      "sha256": "60ed8fb55eda0db775eb4bdc3658d6630672bc28359fd81e5e7ce7d270039323"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_spatial-task01-init48-seed36060818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_spatial-task01-init48-seed36060818/snap1.sha256.json",
+      "sha256": "8672335ccf5438b214b165e79fa8c1d369abbc3289be1a7d845c7aa5c6436ca8"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_spatial-task01-init49-seed36160818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_spatial-task01-init49-seed36160818/base10.sha256.json",
+      "sha256": "57a2be479f284a9936d3d2058063ef4e8e2256a0bc70e3c33d0994a54c1c3569"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_spatial-task01-init49-seed36160818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_spatial-task01-init49-seed36160818/snap1.sha256.json",
+      "sha256": "7f4e307c1bde6292652283eb9a69e3b072b62efcaa2006d37245745bdb0c7de1"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_spatial-task02-init45-seed36260818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_spatial-task02-init45-seed36260818/base10.sha256.json",
+      "sha256": "2236439ed49addfe4d6a50323d38a3bada41af3dcb9bc4782c639032dd63cf92"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_spatial-task02-init45-seed36260818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_spatial-task02-init45-seed36260818/snap1.sha256.json",
+      "sha256": "833cdc17dfd1e41079bee5b78af227893b89ef639414c5ce69a7bd61270578af"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_spatial-task02-init46-seed36360818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_spatial-task02-init46-seed36360818/base10.sha256.json",
+      "sha256": "9d2f43e13ad9af288ac4e57f32e699adf1ca1edb4471220f170942d42fea5c1a"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_spatial-task02-init46-seed36360818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_spatial-task02-init46-seed36360818/snap1.sha256.json",
+      "sha256": "20d5e3df49642f047294469c32ee929c666f005165fee190792b23a26f2856c6"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_spatial-task02-init47-seed36460818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_spatial-task02-init47-seed36460818/base10.sha256.json",
+      "sha256": "e75d50653517e41933ee66b5c253084ff41212b8c35608986e00d3aa98dbf819"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_spatial-task02-init47-seed36460818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_spatial-task02-init47-seed36460818/snap1.sha256.json",
+      "sha256": "7275dcd7496d496cbece49ddc478f6f814f2e642d00ed5181380f62e524abf32"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_spatial-task02-init48-seed36560818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_spatial-task02-init48-seed36560818/base10.sha256.json",
+      "sha256": "0ee0234fd31e08e7d3b535b02dbf0b207eb8584050a970df549fa3a3339b0ac1"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_spatial-task02-init48-seed36560818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_spatial-task02-init48-seed36560818/snap1.sha256.json",
+      "sha256": "0939dd987f041a1f7203abdaa6388fec4ce8e8adf85c58793329eeb5925eabf1"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_spatial-task02-init49-seed36660818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_spatial-task02-init49-seed36660818/base10.sha256.json",
+      "sha256": "135eddc9568397d1bc10bba8fe0364946d2694644f104b60bf95fd2d4a5fab05"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_spatial-task02-init49-seed36660818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_spatial-task02-init49-seed36660818/snap1.sha256.json",
+      "sha256": "14e40d2e8d5e79298a08fa62a870e3417ce88b975994c3830f50a941f49d7ee5"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_spatial-task03-init45-seed36760818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_spatial-task03-init45-seed36760818/base10.sha256.json",
+      "sha256": "b577f4a05498dacac7737dce3230ccbf9a297c20de90648b742f760b01079612"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_spatial-task03-init45-seed36760818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_spatial-task03-init45-seed36760818/snap1.sha256.json",
+      "sha256": "2beb50eea75f443e93a321693cf6186017a80307e4909dba7b18481cdcdb3414"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_spatial-task03-init46-seed36860818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_spatial-task03-init46-seed36860818/base10.sha256.json",
+      "sha256": "7e5bfd64b6cb7850c89ee777217ead2b6eac1674eef62014f5f014a38c185c4c"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_spatial-task03-init46-seed36860818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_spatial-task03-init46-seed36860818/snap1.sha256.json",
+      "sha256": "6a95b522cdd2345a4ee35ef736bccb16689a0440aa6db1f2d1fdbf9a3d884fa6"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_spatial-task03-init47-seed36960818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_spatial-task03-init47-seed36960818/base10.sha256.json",
+      "sha256": "bb6c7c5d2818383ee9d2515c8869c55f26616309d4d3ba05fe27c5e75b2e1621"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_spatial-task03-init47-seed36960818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_spatial-task03-init47-seed36960818/snap1.sha256.json",
+      "sha256": "bb6bc339d46e1750f3211ba244ba1c5a1712cab8bf833002fff507aee7d6bd85"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_spatial-task03-init48-seed37060818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_spatial-task03-init48-seed37060818/base10.sha256.json",
+      "sha256": "a5fe4344d8a43aa267ec54acb9b3bd4ca4ca05177ae2356e713f30c0ae4a0fdd"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_spatial-task03-init48-seed37060818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_spatial-task03-init48-seed37060818/snap1.sha256.json",
+      "sha256": "fcfc3cb81a02c675735e1948394d205d48d0f3db038864a8d79a707844a2e055"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_spatial-task03-init49-seed37160818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_spatial-task03-init49-seed37160818/base10.sha256.json",
+      "sha256": "d29b9c281cdd5e2b2746a4e1d6491bc7093a23170f8aa5ee10135d5ef95324fd"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_spatial-task03-init49-seed37160818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_spatial-task03-init49-seed37160818/snap1.sha256.json",
+      "sha256": "14137fef36f4378cd5998b5e8632ca49f4908dd9eeb41e122eaa3d2d8ae927bc"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_spatial-task04-init45-seed37260818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_spatial-task04-init45-seed37260818/base10.sha256.json",
+      "sha256": "d1604b1da346073667bd61264ff0a1b3e424e3c341c5078afe7ca72a3f6169fe"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_spatial-task04-init45-seed37260818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_spatial-task04-init45-seed37260818/snap1.sha256.json",
+      "sha256": "2528b4d6e3a1d37788eb415d5ecf9cba2b6d8bc1e02257ad669eee93716af394"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_spatial-task04-init46-seed37360818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_spatial-task04-init46-seed37360818/base10.sha256.json",
+      "sha256": "8c9a190b7ec5a76dcfb89065e37e6b5059bf2d26cb7bca58a5fa172f5ae9f73e"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_spatial-task04-init46-seed37360818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_spatial-task04-init46-seed37360818/snap1.sha256.json",
+      "sha256": "e24d1f17a4c7d5123d57ecd6693a25362d7fb6ddfb271b2d93af270acf860ada"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_spatial-task04-init47-seed37460818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_spatial-task04-init47-seed37460818/base10.sha256.json",
+      "sha256": "1733f97b8da834d8d6eac3ed0deaccb8fcfac0a24a0a144e2590e4a1bd9ada39"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_spatial-task04-init47-seed37460818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_spatial-task04-init47-seed37460818/snap1.sha256.json",
+      "sha256": "e7116ddd7cea76cbbe560bcf9234e24d862ad06736df7e56b42423422735e625"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_spatial-task04-init48-seed37560818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_spatial-task04-init48-seed37560818/base10.sha256.json",
+      "sha256": "b44585946cebd53ed58bb0b86d74e17be09640b6c407affa2279f2f570d02322"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_spatial-task04-init48-seed37560818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_spatial-task04-init48-seed37560818/snap1.sha256.json",
+      "sha256": "e79455c1a504b42e91df696b7cec30e257d3a27c8f2677d09a653d5a46338e5f"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_spatial-task04-init49-seed37660818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_spatial-task04-init49-seed37660818/base10.sha256.json",
+      "sha256": "2c3fd4b883e0804b1ef4deaf3175a2c6be06dc10818adf4559756c0b54aa995e"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_spatial-task04-init49-seed37660818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_spatial-task04-init49-seed37660818/snap1.sha256.json",
+      "sha256": "250a4eb66718586e13ee080611baa54148e5d29cd72fb1a050665f1112d9f8e2"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_spatial-task05-init45-seed37760818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_spatial-task05-init45-seed37760818/base10.sha256.json",
+      "sha256": "ad087d6ba1a9731edbf352e693ec2fe77ae5d35ff94de3524c1a11f6fe2c1718"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_spatial-task05-init45-seed37760818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_spatial-task05-init45-seed37760818/snap1.sha256.json",
+      "sha256": "1b5bdd1d0fb211224a75296acdb6af5d91534c9661da82100f41db0583c60451"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_spatial-task05-init46-seed37860818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_spatial-task05-init46-seed37860818/base10.sha256.json",
+      "sha256": "bdfd1443aa7af5f96ebcdf4a65fdba90b67298f71733826ccc5c25f18f9f777f"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_spatial-task05-init46-seed37860818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_spatial-task05-init46-seed37860818/snap1.sha256.json",
+      "sha256": "66e52cdb0d635a27c61746bfa68a97df5ba7aecf57d8d3d382b6accc1593a9ab"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_spatial-task05-init47-seed37960818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_spatial-task05-init47-seed37960818/base10.sha256.json",
+      "sha256": "3dfbb24a21cc89a7b60464c66e9be4159c60627fa4668523ac3dc542998789c3"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_spatial-task05-init47-seed37960818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_spatial-task05-init47-seed37960818/snap1.sha256.json",
+      "sha256": "dd9e18e2314609b457ef72364802f1a9bc1cb28030e8124a79e45847f475cbcb"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_spatial-task05-init48-seed38060818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_spatial-task05-init48-seed38060818/base10.sha256.json",
+      "sha256": "3cb7ab7cabd8b372670e016280dfb31118c3b96fefe4f5fdcf541a84ed456148"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_spatial-task05-init48-seed38060818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_spatial-task05-init48-seed38060818/snap1.sha256.json",
+      "sha256": "f0127499b4be61aa4ac8c1ef8b9b7b8bbd92c8e33a28a907dac80aefe121b3a8"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_spatial-task05-init49-seed38160818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_spatial-task05-init49-seed38160818/base10.sha256.json",
+      "sha256": "a13696d9dfcd4dc50a8920d0c356c33133221b44e1a9ac9c0953b4454c4ebecb"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_spatial-task05-init49-seed38160818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_spatial-task05-init49-seed38160818/snap1.sha256.json",
+      "sha256": "299b32ae3becbd40c4502102ac14eefa18fa61994947d4e247060e937c97c678"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_spatial-task06-init45-seed38260818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_spatial-task06-init45-seed38260818/base10.sha256.json",
+      "sha256": "e5fe60727648f12713cc44ad960d412af3caf8fdd9505c2d30c665608b757f1a"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_spatial-task06-init45-seed38260818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_spatial-task06-init45-seed38260818/snap1.sha256.json",
+      "sha256": "a318779a5677bc23d7a04c8a64cd4e22e8a26befbde7c2b0fcef51ebf96be940"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_spatial-task06-init46-seed38360818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_spatial-task06-init46-seed38360818/base10.sha256.json",
+      "sha256": "75383e19e7f662e4ae14dbd8d72270a9a2db6575698bd937307b131e1293b07a"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_spatial-task06-init46-seed38360818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_spatial-task06-init46-seed38360818/snap1.sha256.json",
+      "sha256": "2d4f620c8c9005d65cdf4a57e1fe47339afe3bed7546d5e10798dabf411b875f"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_spatial-task06-init47-seed38460818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_spatial-task06-init47-seed38460818/base10.sha256.json",
+      "sha256": "436ab7526367ce126d76473d521c51bbfdd96c6813c48e314df9f44a1c68bd36"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_spatial-task06-init47-seed38460818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_spatial-task06-init47-seed38460818/snap1.sha256.json",
+      "sha256": "728fd976d8aef70b9534d5f4d058816370e590f6de9c795b6d2719638663b932"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_spatial-task06-init48-seed38560818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_spatial-task06-init48-seed38560818/base10.sha256.json",
+      "sha256": "4a68348153474e9e01afae1438171e61eded861956a446ba2d12d1cb7e6f6bdc"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_spatial-task06-init48-seed38560818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_spatial-task06-init48-seed38560818/snap1.sha256.json",
+      "sha256": "18d505dfffaaa9730597fc95969b87256eb503faf760d07a2c843713e13e6dee"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_spatial-task06-init49-seed38660818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_spatial-task06-init49-seed38660818/base10.sha256.json",
+      "sha256": "e2eeb439896fced42a20fbdd0b78b54a274ba5746aeee68823ccdbd809e88cbc"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_spatial-task06-init49-seed38660818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_spatial-task06-init49-seed38660818/snap1.sha256.json",
+      "sha256": "09f3078db35a08c8c32709229a6eb0cfd2e4f316bf3b9ba9fb59dd71fc12db40"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_spatial-task07-init45-seed38760818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_spatial-task07-init45-seed38760818/base10.sha256.json",
+      "sha256": "ae0a9dd83697ee7dd4dce3094eb68e3e39dd246a9f91024bf7c17d8fab8486e7"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_spatial-task07-init45-seed38760818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_spatial-task07-init45-seed38760818/snap1.sha256.json",
+      "sha256": "aee5cca03cd6d154f141d04d7881c37dea0dd0abe904d797cc63fff056b9076b"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_spatial-task07-init46-seed38860818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_spatial-task07-init46-seed38860818/base10.sha256.json",
+      "sha256": "b4384e9aadf0c5ba4440fd66d553b8f4082b62bafb18a03d8505e8b7a552ac53"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_spatial-task07-init46-seed38860818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_spatial-task07-init46-seed38860818/snap1.sha256.json",
+      "sha256": "98f9127017c28c1257b6e5906740a742770745f0963b0e23dda2f5b22fe14b4e"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_spatial-task07-init47-seed38960818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_spatial-task07-init47-seed38960818/base10.sha256.json",
+      "sha256": "419605db42c0f8201c8739ec6b9c842578f0a6f6b48055ce529a675cc9503faa"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_spatial-task07-init47-seed38960818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_spatial-task07-init47-seed38960818/snap1.sha256.json",
+      "sha256": "f4590ef7abf1fbd1b0caa37f1443cd62366961acb973a7f994835860938c8fcc"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_spatial-task07-init48-seed39060818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_spatial-task07-init48-seed39060818/base10.sha256.json",
+      "sha256": "2a0175a9520d7bd82ea9a9058045809d302a41a60a582b56a33b0ff04886957d"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_spatial-task07-init48-seed39060818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_spatial-task07-init48-seed39060818/snap1.sha256.json",
+      "sha256": "216d89d499b5a2a89444602df45180dec4d19b379ce96b0e9717d8ed75642a10"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_spatial-task07-init49-seed39160818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_spatial-task07-init49-seed39160818/base10.sha256.json",
+      "sha256": "b4fd2a8e4c84dc0db7ca5a389f1db57a02489573c751c4b2f2a8952307988609"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_spatial-task07-init49-seed39160818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_spatial-task07-init49-seed39160818/snap1.sha256.json",
+      "sha256": "aa5135c918bd27b6a852a30ef56a83a3cd5387cdc31a7ef9314c6767541c3267"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_spatial-task08-init45-seed39260818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_spatial-task08-init45-seed39260818/base10.sha256.json",
+      "sha256": "312a26bbd281763f91e5da35f013806381256e1ccc163521a657a0b3fa80b69f"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_spatial-task08-init45-seed39260818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_spatial-task08-init45-seed39260818/snap1.sha256.json",
+      "sha256": "93c7b192efc8b26ed405681e64e57d57a6fbe117e9a40c431fdb391cbd0ab356"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_spatial-task08-init46-seed39360818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_spatial-task08-init46-seed39360818/base10.sha256.json",
+      "sha256": "89d46b4589b95661d9e690e054667da310722b32128446574577190faaa13f68"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_spatial-task08-init46-seed39360818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_spatial-task08-init46-seed39360818/snap1.sha256.json",
+      "sha256": "e1fe08d0ccdcf6655eed0737c82ad40eaa7b134c432067e7c112dfe76fb8d6b3"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_spatial-task08-init47-seed39460818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_spatial-task08-init47-seed39460818/base10.sha256.json",
+      "sha256": "0e29fc9bd970faf0a028de359fefde9fee3f2ad365375865f43d5d6a46a3be27"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_spatial-task08-init47-seed39460818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_spatial-task08-init47-seed39460818/snap1.sha256.json",
+      "sha256": "bc75aa1f995a70cad1bc1783c45cc8da5a0bcc3d5482a83bd109398f426544a1"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_spatial-task08-init48-seed39560818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_spatial-task08-init48-seed39560818/base10.sha256.json",
+      "sha256": "3a9a857b402fe6c1c44afd4b247bd04e9d01ea1f7c416e323042c6b953ee1843"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_spatial-task08-init48-seed39560818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_spatial-task08-init48-seed39560818/snap1.sha256.json",
+      "sha256": "c5f99c4659bdd3bf13041d3baa9aed1804a3b429c179b713317ea28fd7ac3e95"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_spatial-task08-init49-seed39660818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_spatial-task08-init49-seed39660818/base10.sha256.json",
+      "sha256": "bc1aef5e8146462e00c8dad302c821a0a83f70c98ee5fa047940eb6ef38df883"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_spatial-task08-init49-seed39660818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_spatial-task08-init49-seed39660818/snap1.sha256.json",
+      "sha256": "97082fe131e10043b778ba21c1ce2080a739b6677e6ecf778ef5ea378159e743"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_spatial-task09-init45-seed39760818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_spatial-task09-init45-seed39760818/base10.sha256.json",
+      "sha256": "ca1198cfab567771b8cd0a1b8947e263d8315372e65936bdee4d5482745e5e4b"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_spatial-task09-init45-seed39760818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_spatial-task09-init45-seed39760818/snap1.sha256.json",
+      "sha256": "780b178c3b4c22bcc3aad248863774545ba5646e251357a303600997eb574081"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_spatial-task09-init46-seed39860818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_spatial-task09-init46-seed39860818/base10.sha256.json",
+      "sha256": "da5c54a7f8843c25625ef753ff4182c961504aa4a6f4c748b58fb2e8a5ae273e"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_spatial-task09-init46-seed39860818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_spatial-task09-init46-seed39860818/snap1.sha256.json",
+      "sha256": "1e7f7fa01badb8c296da54376632b687e79a1eb6ef4bbf2b372439ffa98b8b4e"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_spatial-task09-init47-seed39960818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_spatial-task09-init47-seed39960818/base10.sha256.json",
+      "sha256": "6cc9f9384c1edcc911725b69d54a9fa2e21c1f78df37cd15d8c5f7c18653afc1"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_spatial-task09-init47-seed39960818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_spatial-task09-init47-seed39960818/snap1.sha256.json",
+      "sha256": "4671f08eb7b706a04620a90f57dcdf1fd51030f8cc0e86a35602a34b4b42dec0"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_spatial-task09-init48-seed40060818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_spatial-task09-init48-seed40060818/base10.sha256.json",
+      "sha256": "a3f98fa7c408a506c0edd5ec38649c7234f54b2c006269c49b7ae464d47cb461"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_spatial-task09-init48-seed40060818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_spatial-task09-init48-seed40060818/snap1.sha256.json",
+      "sha256": "3241f24504c71d2871cc3e63b3c9b7686f07ee249995777a55983061fe899c4a"
+    },
+    {
+      "arm": "base10",
+      "case_id": "libero_spatial-task09-init49-seed40160818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_spatial-task09-init49-seed40160818/base10.sha256.json",
+      "sha256": "d757f7de2141ac3207cef4ca39b70d68f960cdd9478a234465362f16caeef836"
+    },
+    {
+      "arm": "snap1",
+      "case_id": "libero_spatial-task09-init49-seed40160818",
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_spatial-task09-init49-seed40160818/snap1.sha256.json",
+      "sha256": "b88aa37477bb416363be2404f743fbe01390c4e0d85fb5d86631ec1888f741c9"
+    }
+  ],
+  "status": "TASK13_ATTEMPT002_TRACE_MANIFEST_COMPLETE"
+}
