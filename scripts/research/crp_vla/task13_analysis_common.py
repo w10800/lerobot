@@ -38,11 +38,18 @@ def contrast(
     *,
     repeats: int,
     seed: int,
+    drop_nonfinite: bool = False,
 ) -> dict[str, Any]:
     harmful = [row for row in rows if row["outcome_label"] == "harmful"]
     preserved = [row for row in rows if row["outcome_label"] == "preserved"]
-    left = np.asarray([float(row[key]) for row in harmful], dtype=np.float64)
-    right = np.asarray([float(row[key]) for row in preserved], dtype=np.float64)
+    left_all = np.asarray([float(row[key]) for row in harmful], dtype=np.float64)
+    right_all = np.asarray([float(row[key]) for row in preserved], dtype=np.float64)
+    if drop_nonfinite:
+        left = left_all[np.isfinite(left_all)]
+        right = right_all[np.isfinite(right_all)]
+    else:
+        left = left_all
+        right = right_all
     if not len(left) or not len(right) or not np.isfinite(left).all() or not np.isfinite(right).all():
         raise ValueError(f"Contrast {key} requires finite harmful and preserved case values")
     rng = np.random.default_rng(seed)
@@ -63,8 +70,18 @@ def contrast(
         attempts += 1
         sampled = rng.integers(0, len(tasks), len(tasks))
         sample = [row for index in sampled for row in by_task[tasks[int(index)]]]
-        sample_left = [float(row[key]) for row in sample if row["outcome_label"] == "harmful"]
-        sample_right = [float(row[key]) for row in sample if row["outcome_label"] == "preserved"]
+        sample_left = [
+            float(row[key])
+            for row in sample
+            if row["outcome_label"] == "harmful"
+            and (not drop_nonfinite or np.isfinite(float(row[key])))
+        ]
+        sample_right = [
+            float(row[key])
+            for row in sample
+            if row["outcome_label"] == "preserved"
+            and (not drop_nonfinite or np.isfinite(float(row[key])))
+        ]
         if sample_left and sample_right:
             task_estimates.append(float(np.mean(sample_left) - np.mean(sample_right)))
     if len(task_estimates) != repeats:
@@ -73,20 +90,38 @@ def contrast(
     loto = []
     for task in tasks:
         selected = [row for row in rows if str(row["task_id"]) != task]
-        sample_left = [float(row[key]) for row in selected if row["outcome_label"] == "harmful"]
-        sample_right = [float(row[key]) for row in selected if row["outcome_label"] == "preserved"]
+        sample_left = [
+            float(row[key])
+            for row in selected
+            if row["outcome_label"] == "harmful"
+            and (not drop_nonfinite or np.isfinite(float(row[key])))
+        ]
+        sample_right = [
+            float(row[key])
+            for row in selected
+            if row["outcome_label"] == "preserved"
+            and (not drop_nonfinite or np.isfinite(float(row[key])))
+        ]
+        difference = (
+            float(np.mean(sample_left) - np.mean(sample_right))
+            if sample_left and sample_right
+            else float("nan")
+        )
         loto.append(
             {
                 "held_out_task": task,
-                "difference": float(np.mean(sample_left) - np.mean(sample_right)),
+                "difference": difference,
                 "harmful_n": len(sample_left),
                 "preserved_n": len(sample_right),
             }
         )
+    finite_loto = [item["difference"] for item in loto if np.isfinite(item["difference"])]
     return {
         "metric": key,
         "harmful_n": int(len(left)),
         "preserved_n": int(len(right)),
+        "harmful_nonfinite_excluded": int(len(left_all) - len(left)),
+        "preserved_nonfinite_excluded": int(len(right_all) - len(right)),
         "harmful_mean": float(left.mean()),
         "preserved_mean": float(right.mean()),
         "mean_difference": float(left.mean() - right.mean()),
@@ -97,8 +132,9 @@ def contrast(
         "leave_one_task_out": {
             "positive_count": sum(item["difference"] > 0 for item in loto),
             "total": len(loto),
-            "minimum": min(item["difference"] for item in loto),
-            "maximum": max(item["difference"] for item in loto),
+            "finite_count": len(finite_loto),
+            "minimum": min(finite_loto) if finite_loto else None,
+            "maximum": max(finite_loto) if finite_loto else None,
             "records": loto,
         },
         "bootstrap_repeats": repeats,

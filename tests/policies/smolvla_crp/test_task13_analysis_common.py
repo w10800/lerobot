@@ -47,3 +47,15 @@ def test_task13_prediction_metrics_handle_ranked_scores() -> None:
     scores = [0.1, 0.2, 0.8, 0.9]
     assert auroc(labels, scores) == 1.0
     assert average_precision(labels, scores) == 1.0
+
+
+def test_task13_secondary_contrast_records_unavailable_cases() -> None:
+    rows = [
+        {"task_id": "task:0", "outcome_label": "harmful", "value": 3.0},
+        {"task_id": "task:0", "outcome_label": "preserved", "value": 1.0},
+        {"task_id": "task:1", "outcome_label": "harmful", "value": float("nan")},
+        {"task_id": "task:1", "outcome_label": "preserved", "value": 1.0},
+    ]
+    result = contrast(rows, "value", repeats=100, seed=19, drop_nonfinite=True)
+    assert result["harmful_nonfinite_excluded"] == 1
+    assert result["preserved_nonfinite_excluded"] == 0

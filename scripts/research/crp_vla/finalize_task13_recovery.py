@@ -101,14 +101,14 @@ def available(item: dict[str, Any]) -> float:
 
 def object_position(item: dict[str, Any]) -> float:
     if not item.get("available"):
-        raise RuntimeError("Object-position secondary metric unavailable")
+        return float("nan")
     values = [
         float(value["position_l2"])
         for value in item["per_object"].values()
         if value.get("available")
     ]
     if not values:
-        raise RuntimeError("Object-position secondary metric has no values")
+        return float("nan")
     return float(np.mean(values))
 
 
@@ -423,7 +423,17 @@ def main() -> None:
                             else available(item[field])
                         )
                 for name in values:
-                    case_row[f"{origin}_{name}_h{horizon}"] = float(np.mean(values[name]))
+                    array = np.asarray(values[name], dtype=np.float64)
+                    if name in SECONDARY:
+                        case_row[f"{origin}_{name}_h{horizon}"] = (
+                            float(np.nanmean(array)) if np.isfinite(array).any() else float("nan")
+                        )
+                    else:
+                        if not np.isfinite(array).all():
+                            raise RuntimeError(
+                                f"Primary transition metric unavailable: {case_id}/{origin}/{name}/h{horizon}"
+                            )
+                        case_row[f"{origin}_{name}_h{horizon}"] = float(np.mean(array))
         case_rows.append(case_row)
     case_metrics_path = root / "ATTEMPT002_CASE_METRICS.jsonl"
     with case_metrics_path.open("w") as stream:
@@ -462,6 +472,7 @@ def main() -> None:
                     + horizon_index
                     + 10 * [*FAMILIES, *SECONDARY].index(family)
                     + (0 if origin == "snap1" else 100),
+                    drop_nonfinite=family in SECONDARY,
                 )
     for family in FAMILIES:
         effects = transition_effects["snap_visited"][family]
