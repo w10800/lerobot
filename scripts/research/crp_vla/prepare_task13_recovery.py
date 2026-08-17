@@ -42,7 +42,12 @@ def git_value(*args: str) -> str:
     return subprocess.check_output(["git", *args], text=True).strip()
 
 
-def overlap_rows(cases: list[dict[str, Any]], registry: dict[str, Any]) -> list[dict[str, Any]]:
+def overlap_rows(
+    cases: list[dict[str, Any]],
+    registry: dict[str, Any],
+    *,
+    include_attempt1_dataset: bool = True,
+) -> list[dict[str, Any]]:
     task12_blob = {
         row["identity_value"]
         for row in registry["entries"]
@@ -54,7 +59,10 @@ def overlap_rows(cases: list[dict[str, Any]], registry: dict[str, Any]) -> list[
         old_by_dataset[row["dataset"]][row["identity_type"]].add(row["identity_value"])
     overlaps = []
     for case in cases:
-        for dataset in ("old_dev40", "formal100", "task11_confirmation1200", "task13_attempt001_initial"):
+        comparison_datasets = ["old_dev40", "formal100", "task11_confirmation1200"]
+        if include_attempt1_dataset:
+            comparison_datasets.append("task13_attempt001_initial")
+        for dataset in comparison_datasets:
             for field in ("initial_state_hash", "simulator_state_hash", "qpos_qvel_hash"):
                 aliases = {field}
                 if field == "simulator_state_hash":
@@ -98,7 +106,9 @@ def main() -> None:
         raise RuntimeError("Attempt001 quarantine requires the immutable complete run")
     if attempt1.get("case_count") != 400:
         raise RuntimeError("Attempt001 manifest cardinality drift")
-    attempt1_overlaps = overlap_rows(attempt1["cases"], registry)
+    attempt1_overlaps = overlap_rows(
+        attempt1["cases"], registry, include_attempt1_dataset=False
+    )
     attempt1_status = (
         "ATTEMPT001_STATE_CONTAMINATED"
         if attempt1_overlaps

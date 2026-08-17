@@ -6,6 +6,7 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import re
 import subprocess
 import time
 from collections import Counter, defaultdict
@@ -600,7 +601,10 @@ def main() -> None:
     )
 
     attempt1_posthoc = (root / "ATTEMPT001_POSTHOC_OVERLAP_AUDIT.md").read_text()
-    attempt1_overlap = "Attempt001 overlap records: `0`" in attempt1_posthoc
+    overlap_match = re.search(r"Attempt001 overlap records: `(\d+)`", attempt1_posthoc)
+    if overlap_match is None:
+        raise RuntimeError("Attempt001 post-hoc overlap count is missing")
+    attempt1_overlap_count = int(overlap_match.group(1))
     secondary_tag_line = f"\n**Secondary tag: {optional_tag}**\n" if optional_tag else ""
     final_report = f"""# CRP-VLA Task 13 Recovery Final Report
 
@@ -617,7 +621,7 @@ def main() -> None:
 1. Attempt001 lost prospective validity because the mandatory Task12 archived-state overlap audit checked zero states before outcome reveal.
 2. Authoritative Task12 raw state records read: `{registry['task12_authoritative_query_record_count']}`.
 3. Unique Task12 archived state payload hashes: `{registry['task12_unique_state_payload_hash_count']}`.
-4. Attempt001 versus Task12 overlap: `{'0' if attempt1_overlap else 'see post-hoc audit'}`.
+4. Attempt001 versus prior/Task12 datasets overlap records: `{attempt1_overlap_count}`.
 5. Attempt001 remains primary-invalid even when post-hoc overlap is zero: `YES`.
 6. Dev-B2 used untouched fixed states 45–49: `YES`.
 7. old dev40 overlap: `0`.

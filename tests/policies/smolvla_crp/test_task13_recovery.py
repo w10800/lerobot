@@ -81,6 +81,12 @@ def test_overlap_auditor_rejects_attempt001_state() -> None:
     assert overlap_rows([value], registry())[0]["dataset"] == "task13_attempt001_initial"
 
 
+def test_attempt001_posthoc_audit_excludes_its_own_registry_dataset() -> None:
+    value = case()
+    value["initial_state_hash"] = "attempt1-initial"
+    assert overlap_rows([value], registry(), include_attempt1_dataset=False) == []
+
+
 def test_duplicate_dev_b2_candidate_fails() -> None:
     rows = [case(i) for i in range(10)]
     rows[1]["simulator_state_hash"] = rows[0]["simulator_state_hash"]
