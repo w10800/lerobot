@@ -72,6 +72,9 @@ from ..common.vla_utils import (
 )
 from ..pretrained import PreTrainedPolicy
 from ..rtc.modeling_rtc import RTCProcessor
+from ..smolvla_crp.loss_accounting import reduce_action_loss
+from ..smolvla_crp.snapflow_loss import compute_snapflow_losses
+from ..smolvla_crp.target_time import ZeroInitTargetTimeMLP
 from ..utils import (
     populate_queues,
 )
@@ -83,6 +86,7 @@ class ActionSelectKwargs(TypedDict, total=False):
     inference_delay: int | None
     prev_chunk_left_over: Tensor | None
     execution_horizon: int | None
+    target_time: float | Tensor | None
 
 
 def normalize(x, min_val, max_val):
@@ -298,7 +302,16 @@ class SmolVLAPolicy(PreTrainedPolicy):
         actions = self.prepare_action(batch)
         actions_is_pad = batch.get("action_is_pad")
         loss_dict = {}
-        losses = self.model.forward(images, img_masks, lang_tokens, lang_masks, state, actions, noise, time)
+        snapflow = None
+        if self.config.training_objective == "snapflow":
+            snapflow = self.model.forward_snapflow(
+                images, img_masks, lang_tokens, lang_masks, state, actions, noise, time
+            )
+            losses = snapflow.combined
+        else:
+            losses = self.model.forward(
+                images, img_masks, lang_tokens, lang_masks, state, actions, noise, time
+            )
         original_action_dim = self.config.action_feature.shape[0]
         losses = losses[:, :, :original_action_dim]
         loss_dict["losses_after_forward"] = losses.clone().mean().item()
@@ -329,6 +342,34 @@ class SmolVLAPolicy(PreTrainedPolicy):
                 num_valid = ((~actions_is_pad).sum() * losses.shape[-1]).clamp_min(1)
                 loss = losses.sum() / num_valid
             loss_dict["loss"] = loss.item()
+            if snapflow is not None:
+                fm = reduce_action_loss(
+                    snapflow.flow_matching,
+                    action_dim=original_action_dim,
+                    actions_is_pad=actions_is_pad,
+                )
+                shortcut = reduce_action_loss(
+                    snapflow.shortcut,
+                    action_dim=original_action_dim,
+                    actions_is_pad=actions_is_pad,
+                )
+                weighted_fm = self.config.snapflow_alpha * fm
+                weighted_shortcut = (
+                    (1.0 - self.config.snapflow_alpha)
+                    * self.config.snapflow_shortcut_weight
+                    * shortcut
+                )
+                accounted = weighted_fm + weighted_shortcut
+                loss_dict.update(
+                    {
+                        "loss/fm": fm.item(),
+                        "loss/shortcut": shortcut.item(),
+                        "loss/fm_weighted": weighted_fm.item(),
+                        "loss/shortcut_weighted": weighted_shortcut.item(),
+                        "loss/accounted_total": accounted.item(),
+                        "loss/accounting_residual": abs(loss.detach().item() - accounted.detach().item()),
+                    }
+                )
             return loss, loss_dict
 
     def prepare_images(self, batch):
@@ -517,6 +558,11 @@ class VLAFlowMatching(nn.Module):
         self.action_time_mlp_out = nn.Linear(
             self.vlm_with_expert.expert_hidden_size, self.vlm_with_expert.expert_hidden_size
         )
+        self.target_time_mlp = (
+            ZeroInitTargetTimeMLP(self.vlm_with_expert.expert_hidden_size)
+            if self.config.use_target_time_embedding
+            else None
+        )
 
         self.set_requires_grad()
         self.fake_image_token = self.vlm_with_expert.processor.tokenizer.fake_image_token_id
@@ -643,7 +689,7 @@ class VLAFlowMatching(nn.Module):
 
         return embs, pad_masks, att_masks
 
-    def embed_suffix(self, noisy_actions, timestep):
+    def embed_suffix(self, noisy_actions, timestep, target_time=None):
         """Embed state, noisy_actions, timestep to prepare for Expert Gemma processing."""
         embs = []
         pad_masks = []
@@ -663,6 +709,20 @@ class VLAFlowMatching(nn.Module):
             device=device,
         )
         time_emb = time_emb.type(dtype=dtype)
+
+        if self.target_time_mlp is not None:
+            if target_time is None:
+                target_time = timestep
+            target_time_emb = create_sinusoidal_pos_embedding(
+                target_time,
+                self.vlm_with_expert.expert_hidden_size,
+                self.config.min_period,
+                self.config.max_period,
+                device=device,
+            ).type(dtype=dtype)
+            time_emb = time_emb + self.target_time_mlp(target_time_emb)
+        elif target_time is not None:
+            raise ValueError("target_time was provided but target-time embedding is disabled")
 
         time_emb = time_emb[:, None, :].expand_as(action_emb)
         action_time_emb = torch.cat([action_emb, time_emb], dim=2)
@@ -699,10 +759,37 @@ class VLAFlowMatching(nn.Module):
         time_expanded = time[:, None, None]
         x_t = time_expanded * noise + (1 - time_expanded) * actions
         u_t = noise - actions
+        v_t = self.predict_velocity_full(
+            images,
+            img_masks,
+            lang_tokens,
+            lang_masks,
+            state,
+            x_t,
+            time,
+            target_time=time if self.target_time_mlp is not None else None,
+        )
+        losses = F.mse_loss(u_t, v_t, reduction="none")
+        return losses
+
+    def predict_velocity_full(
+        self,
+        images,
+        img_masks,
+        lang_tokens,
+        lang_masks,
+        state,
+        x_t,
+        timestep,
+        target_time=None,
+    ) -> Tensor:
+        """Predict a velocity without sampling; this is the training-path velocity API."""
         prefix_embs, prefix_pad_masks, prefix_att_masks = self.embed_prefix(
             images, img_masks, lang_tokens, lang_masks, state=state
         )
-        suffix_embs, suffix_pad_masks, suffix_att_masks = self.embed_suffix(x_t, time)
+        suffix_embs, suffix_pad_masks, suffix_att_masks = self.embed_suffix(
+            x_t, timestep, target_time=target_time
+        )
 
         pad_masks = torch.cat([prefix_pad_masks, suffix_pad_masks], dim=1)
         att_masks = torch.cat([prefix_att_masks, suffix_att_masks], dim=1)
@@ -720,8 +807,40 @@ class VLAFlowMatching(nn.Module):
         # Original openpi code, upcast attention output
         suffix_out = suffix_out.to(dtype=torch.float32)
         v_t = self.action_out_proj(suffix_out)
-        losses = F.mse_loss(u_t, v_t, reduction="none")
-        return losses
+        return v_t
+
+    def forward_snapflow(
+        self, images, img_masks, lang_tokens, lang_masks, state, actions, noise=None, time=None
+    ):
+        """Compute equation-level SnapFlow losses with explicit detached targets."""
+        if self.target_time_mlp is None:
+            raise RuntimeError("SnapFlow requires target-time embedding")
+        if noise is None:
+            noise = self.sample_noise(actions.shape, actions.device)
+        if time is None:
+            time = self.sample_time(actions.shape[0], actions.device)
+
+        def velocity_fn(x_t, target_time, current_time):
+            return self.predict_velocity_full(
+                images,
+                img_masks,
+                lang_tokens,
+                lang_masks,
+                state,
+                x_t,
+                current_time,
+                target_time=target_time,
+            )
+
+        return compute_snapflow_losses(
+            velocity_fn,
+            actions,
+            noise,
+            time,
+            alpha=self.config.snapflow_alpha,
+            shortcut_weight=self.config.snapflow_shortcut_weight,
+            prediction_clamp=self.config.snapflow_prediction_clamp,
+        )
 
     def sample_actions(
         self,
@@ -755,6 +874,16 @@ class VLAFlowMatching(nn.Module):
             use_cache=self.config.use_cache,
         )
         num_steps = self.config.num_steps
+        requested_target_time = kwargs.get("target_time")
+        if requested_target_time is not None and num_steps != 1:
+            raise ValueError("A fixed target_time is only valid for 1-NFE inference")
+
+        def target_for_step(current_timestep):
+            if requested_target_time is None:
+                return None
+            if isinstance(requested_target_time, Tensor):
+                return requested_target_time.to(device=device, dtype=current_timestep.dtype).expand(bsize)
+            return torch.full_like(current_timestep, float(requested_target_time))
 
         return euler_integrate(
             lambda input_x_t, current_timestep: self.denoise_step(
@@ -762,6 +891,7 @@ class VLAFlowMatching(nn.Module):
                 prefix_pad_masks=prefix_pad_masks,
                 past_key_values=past_key_values,
                 timestep=current_timestep,
+                target_time=target_for_step(current_timestep),
             ),
             noise,
             num_steps,
@@ -778,9 +908,29 @@ class VLAFlowMatching(nn.Module):
         past_key_values,
         x_t,
         timestep,
+        target_time=None,
     ):
         """Apply one denoising step of the noise `x_t` at a given timestep."""
-        suffix_embs, suffix_pad_masks, suffix_att_masks = self.embed_suffix(x_t, timestep)
+        return self.predict_velocity(
+            prefix_pad_masks=prefix_pad_masks,
+            past_key_values=past_key_values,
+            x_t=x_t,
+            timestep=timestep,
+            target_time=target_time,
+        )
+
+    def predict_velocity(
+        self,
+        prefix_pad_masks,
+        past_key_values,
+        x_t,
+        timestep,
+        target_time=None,
+    ):
+        """Predict velocity from a cached prefix; inference and diagnostics share this API."""
+        suffix_embs, suffix_pad_masks, suffix_att_masks = self.embed_suffix(
+            x_t, timestep, target_time=target_time
+        )
 
         suffix_len = suffix_pad_masks.shape[1]
         batch_size = prefix_pad_masks.shape[0]

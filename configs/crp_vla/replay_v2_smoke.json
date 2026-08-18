@@ -1,0 +1,17 @@
+{
+  "schema_version": 2,
+  "design_id": "replay-v2-phase-a-smoke",
+  "phase": "smoke",
+  "purpose": "infrastructure only; excluded from scientific analysis",
+  "case_selection": "tasks 0 and 5 in each suite; init state 3, disjoint from the frozen formal init states",
+  "cases": [
+    {"suite": "libero_spatial", "task_id": 0, "init_state_id": 3, "env_seed": 0, "max_steps": 280},
+    {"suite": "libero_spatial", "task_id": 5, "init_state_id": 3, "env_seed": 0, "max_steps": 280},
+    {"suite": "libero_object", "task_id": 0, "init_state_id": 3, "env_seed": 0, "max_steps": 280},
+    {"suite": "libero_object", "task_id": 5, "init_state_id": 3, "env_seed": 0, "max_steps": 280},
+    {"suite": "libero_goal", "task_id": 0, "init_state_id": 3, "env_seed": 0, "max_steps": 300},
+    {"suite": "libero_goal", "task_id": 5, "init_state_id": 3, "env_seed": 0, "max_steps": 300},
+    {"suite": "libero_10", "task_id": 0, "init_state_id": 3, "env_seed": 0, "max_steps": 520},
+    {"suite": "libero_10", "task_id": 5, "init_state_id": 3, "env_seed": 0, "max_steps": 520}
+  ]
+}

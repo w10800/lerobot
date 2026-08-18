@@ -1,0 +1,43 @@
+{
+  "action_schema_identifiable": true,
+  "adaptive_expansion": false,
+  "base_checkpoint_sha256": "9a9f6413e42c0f332fccbce9a0dc796af2790f82cf002f791cdbf7e01e1afca8",
+  "formal_manifest_created": false,
+  "formal_outcome_revealed": false,
+  "formal_rollouts": 0,
+  "generated_at": "2026-08-18T07:40:50.772209+00:00",
+  "generated_unix_ns": 1787038850772208850,
+  "git_branch": "task14-position-causal-audit",
+  "git_commit": "7fd8f6cb6584a2ad12862112261bbbd8087b1e08",
+  "manifest_sha256": null,
+  "missing_artifacts_by_design": [
+    "TASK14_PREREGISTRATION.md",
+    "TASK14_PREREGISTRATION.json",
+    "TASK14_FORMAL_CASE_MANIFEST.jsonl",
+    "TASK14_STATE_OVERLAP_AUDIT.md",
+    "TASK14_STATE_OVERLAP_AUDIT.json",
+    "TASK14_SCREENING_RESULTS.jsonl",
+    "TASK14_INTERVENTION_ROLLOUTS.jsonl",
+    "TASK14_COMPONENT_EFFECTS.json",
+    "TASK14_TASK_LEVEL_RESULTS.csv",
+    "TASK14_LOTO_RESULTS.csv",
+    "Task 14 formal figures"
+  ],
+  "preregistration_created": false,
+  "preregistration_sha256": null,
+  "pseudo_replication": false,
+  "random_seed": {
+    "integer": 2029856568870536023,
+    "sha256": "1c2b7fcb74858357c6f5f41e43e1c2b1072c7628bdae2519fe7b23564ac8e0e4",
+    "string": "CRP-VLA-TASK14-POSITION-CAUSAL-V1"
+  },
+  "schema_version": "task14.audit.v1",
+  "snap_checkpoint_sha256": "3523ff36091fdba82a97b798621b4ecee141554fcfe418816a6fbb1cf95f2b53",
+  "state_reuse_to_fill_quota": false,
+  "status": "TASK14_STOPPED_BEFORE_PREREGISTRATION",
+  "task13_commit_ancestor": true,
+  "task13_sources_modified": false,
+  "task_name": "TASK14_PROSPECTIVE_POSITION_CAUSAL_AUDIT",
+  "terminal_reason": "INSUFFICIENT_UNTOUCHED_FORMAL_STATES",
+  "training_or_parameter_updates": false
+}

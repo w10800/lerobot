@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "/root/crp-vla/scripts/research/crp_vla/build_task9_confirmation_manifest.py", line 299, in <module>
+    main()
+  File "/root/crp-vla/scripts/research/crp_vla/build_task9_confirmation_manifest.py", line 91, in main
+    raise ValueError("Base/selected processor manifests differ")
+ValueError: Base/selected processor manifests differ

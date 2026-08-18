@@ -1,0 +1,42 @@
+{
+  "H3_supported": false,
+  "bootstrap_repeats": 10000,
+  "bootstrap_seed": 20261317,
+  "case_count": 168,
+  "cross_validation": "leave-one-task-out univariate logistic calibration",
+  "harmful_count": 15,
+  "preserved_count": 153,
+  "raw_action": {
+    "AUPRC": 0.4633801168396036,
+    "AUROC": 0.6993464052287581,
+    "Brier": 0.0630478898549267
+  },
+  "transition_eef_position_h5": {
+    "AUPRC": 0.436304728016287,
+    "AUROC": 0.6013071895424836,
+    "Brier": 0.0652722600424083
+  },
+  "transition_minus_raw": {
+    "AUPRC": {
+      "point": -0.027075388823316615,
+      "task_bootstrap_ci95": [
+        -0.2923783021834196,
+        0.15414220412424623
+      ]
+    },
+    "AUROC": {
+      "point": -0.0980392156862745,
+      "task_bootstrap_ci95": [
+        -0.34494632313472895,
+        0.07066652669496451
+      ]
+    },
+    "Brier": {
+      "point": 0.002224370187481603,
+      "task_bootstrap_ci95": [
+        -0.009128135365216087,
+        0.016297416048368707
+      ]
+    }
+  }
+}

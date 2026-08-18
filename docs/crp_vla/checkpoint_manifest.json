@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "status": "DOWNLOADED_AND_HASHED",
+  "repository": "lerobot/smolvla_libero",
+  "requested_revision": "main",
+  "resolved_revision": "31d453f7edd78c839a8bbc39744a292686daf0de",
+  "local_directory": "checkpoints/smolvla_libero",
+  "files": {
+    "config.json": "5c9f3ba9f5f37ea7024c9501b0b20b1941f232989c2167853cb46d9071a70dd7",
+    "model.safetensors": "9a9f6413e42c0f332fccbce9a0dc796af2790f82cf002f791cdbf7e01e1afca8",
+    "policy_postprocessor.json": "3b51f092c70c710ce0213ee1b63bf51b4878ec67828dd2d67daf9ef51081a41a",
+    "policy_postprocessor_step_0_unnormalizer_processor.safetensors": "b0cdde6e8a6f49a8e19eefb376728e47c09d3b3cc20ce3a97c45619fe7a732d9",
+    "policy_preprocessor.json": "122ec5106602b1bf129f49690d05ab2f49748a0ac6119de55ea0677d4e90d248",
+    "policy_preprocessor_step_5_normalizer_processor.safetensors": "b0cdde6e8a6f49a8e19eefb376728e47c09d3b3cc20ce3a97c45619fe7a732d9",
+    "train_config.json": "df25e6fce4cf2161b7a22c495230e332bad5f73f1ca07605b35fa77500917b9c"
+  },
+  "dataset_from_train_config": {
+    "repository": "lerobot/libero",
+    "train_config_revision": null,
+    "resolved_for_crp_vla": "a1aaacb7f6cd6ee5fb43120f673cebb0cfea7dd4"
+  },
+  "warning": "The original train_config does not pin the dataset revision; CRP-VLA pins the resolved revision above."
+}

@@ -62,6 +62,13 @@ class SmolVLAConfig(PreTrainedConfig):
     # Decoding
     num_steps: int = 10
 
+    # One-step distillation. Defaults preserve legacy SmolVLA checkpoints and numerics.
+    training_objective: str = "flow_matching"
+    use_target_time_embedding: bool = False
+    snapflow_alpha: float = 0.5
+    snapflow_shortcut_weight: float = 0.1
+    snapflow_prediction_clamp: float | None = 20.0
+
     # Attention utils
     use_cache: bool = True
 
@@ -119,6 +126,21 @@ class SmolVLAConfig(PreTrainedConfig):
             raise NotImplementedError(
                 "`use_delta_joint_actions_aloha` is used by smolvla for aloha real models. It is not ported yet in LeRobot."
             )
+        if self.num_steps < 1:
+            raise ValueError(f"`num_steps` must be at least 1, got {self.num_steps}.")
+        if self.training_objective not in {"flow_matching", "snapflow"}:
+            raise ValueError(
+                "`training_objective` must be either 'flow_matching' or 'snapflow', "
+                f"got {self.training_objective!r}."
+            )
+        if self.training_objective == "snapflow" and not self.use_target_time_embedding:
+            raise ValueError("SnapFlow training requires `use_target_time_embedding=True`.")
+        if not 0.0 <= self.snapflow_alpha <= 1.0:
+            raise ValueError(f"`snapflow_alpha` must be in [0, 1], got {self.snapflow_alpha}.")
+        if self.snapflow_shortcut_weight < 0.0:
+            raise ValueError("`snapflow_shortcut_weight` must be non-negative.")
+        if self.snapflow_prediction_clamp is not None and self.snapflow_prediction_clamp <= 0.0:
+            raise ValueError("`snapflow_prediction_clamp` must be positive or None.")
 
     def validate_features(self) -> None:
         for i in range(self.empty_cameras):

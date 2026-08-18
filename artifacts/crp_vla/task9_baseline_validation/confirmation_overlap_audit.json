@@ -1,0 +1,12 @@
+{
+  "confirmation_case_count": 600,
+  "dev40_case_identity_overlap_count": 0,
+  "dev40_state_hash_count": 40,
+  "formal100_case_identity_overlap_count": 0,
+  "formal100_state_hash_count": 100,
+  "schema_version": 1,
+  "status": "ZERO_OVERLAP_VERIFIED",
+  "unique_initial_state_hashes": 600,
+  "unique_qpos_qvel_hashes": 600,
+  "unique_simulator_state_hashes": 600
+}

@@ -79,7 +79,9 @@ coverage.xml
 !tests/artifacts
 
 ### Logs & Temporary Files ###
-logs/
+logs/*
+!logs/crp_vla/
+!logs/crp_vla/**
 tmp/
 *.log
 pip-log.txt
@@ -111,6 +113,15 @@ celerybeat.pid
 ### OS Specific ###
 # macOS
 .DS_Store
+
+# CRP-VLA large/generated artifacts (version manifests and hashes only)
+/checkpoints/
+/data/crp_vla/
+/artifacts/crp_vla/
+/outputs/crp_vla/
+/wandb/
+/literature/papers/*.part
+/literature/papers/*.pdf
 
 # Windows
 Thumbs.db

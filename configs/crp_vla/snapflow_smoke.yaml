@@ -1,0 +1,40 @@
+# Registered starting configuration. Formal execution is blocked by PRETRAIN_READINESS.md.
+seed: 1000
+batch_size: 4
+steps: 1000
+log_freq: 50
+save_freq: 1000
+
+dataset:
+  repo_id: lerobot/libero
+  revision: a1aaacb7f6cd6ee5fb43120f673cebb0cfea7dd4
+  root: artifacts/crp_vla/cache/libero
+  return_uint8: true
+  use_imagenet_stats: false
+
+rename_map:
+  observation.images.image: observation.images.camera1
+  observation.images.image2: observation.images.camera2
+
+policy:
+  path: checkpoints/smolvla_libero
+  load_vlm_weights: false
+  push_to_hub: false
+  training_objective: snapflow
+  use_target_time_embedding: true
+  freeze_vision_encoder: true
+  train_expert_only: true
+  train_state_proj: true
+  optimizer_lr: 2.5e-5
+  optimizer_grad_clip_norm: 1.0
+  scheduler_warmup_steps: 500
+  scheduler_decay_steps: 30000
+  snapflow_alpha: 0.5
+  snapflow_shortcut_weight: 0.1
+  snapflow_prediction_clamp: 20.0
+
+output_dir: outputs/crp_vla/snapflow_smoke_1k
+accelerator:
+  mixed_precision: bf16
+wandb:
+  enable: false

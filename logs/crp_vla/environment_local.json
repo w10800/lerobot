@@ -1,0 +1,14 @@
+{
+  "git_commit": "a3a8653a5b569e8e70cd6fe4b0973c4b2b983120",
+  "git_status": "## research/crp-vla-pretrain\n M .gitignore\nA  .gitmodules\n M AGENTS.md\n M src/lerobot/policies/smolvla/configuration_smolvla.py\n M src/lerobot/policies/smolvla/modeling_smolvla.py\nA  third_party/libero-cf\nA  third_party/reference/consistency-policy\nA  third_party/reference/flowpolicy\nA  third_party/reference/maniflow\nA  third_party/reference/shortcut-models\n?? CRP_VLA.md\n?? docs/crp_vla/\n?? literature/\n?? scripts/research/\n?? src/lerobot/policies/smolvla_crp/\n?? tests/policies/smolvla_crp/",
+  "machine": "arm64",
+  "nvidia_smi": null,
+  "platform": "macOS-26.5.2-arm64-arm-64bit",
+  "python": "3.12.13 (main, Aug  7 2026, 02:15:23) [Clang 22.1.3 ]",
+  "schema_version": 1,
+  "status": "VERIFIED",
+  "submodules": "8460457bfca6e0ef2e856bc104e2c60b023ef2a7 third_party/libero-cf (heads/main)\n eed0c465d3c1aa6dcf22f10e784df07dec06beac third_party/reference/consistency-policy (heads/main)\n 86d10c14972b4eab083abec9026749c340f8e5ed third_party/reference/flowpolicy (heads/main)\n e4dc24d62a6c91825813308b9926e921b4bb9ef6 third_party/reference/maniflow (heads/main)\n 601004348667094e1b71f30942199759412d4432 third_party/reference/shortcut-models (heads/main)",
+  "torch": {
+    "installed": false
+  }
+}

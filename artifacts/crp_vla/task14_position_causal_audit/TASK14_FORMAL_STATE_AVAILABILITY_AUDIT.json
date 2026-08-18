@@ -1,0 +1,603 @@
+{
+  "available_untouched_case_count": 60,
+  "base_checkpoint_sha256": "9a9f6413e42c0f332fccbce9a0dc796af2790f82cf002f791cdbf7e01e1afca8",
+  "eligible_task_count": 0,
+  "formal_manifest_created": false,
+  "formal_outcome_revealed": false,
+  "formal_rollout_count": 0,
+  "generated_at": "2026-08-18T07:40:50.772209+00:00",
+  "generated_unix_ns": 1787038850772208850,
+  "git_branch": "task14-position-causal-audit",
+  "git_commit": "7fd8f6cb6584a2ad12862112261bbbd8087b1e08",
+  "historical_input_inventory": {
+    "attempt001": {
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_prospective_impact_validation/DEV_B_MANIFEST.json",
+      "sha256": "1d9ef8fd9e55157241f4ab17966145eb6736c4103098b635ac5fd8e27c8194bf"
+    },
+    "attempt002": {
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/DEV_B2_MANIFEST.json",
+      "sha256": "8bb9b6100109f3ae02975a22bb558be1c4a4c70dd7094af313674dd2dfe57169"
+    },
+    "confirmation1200": {
+      "path": "/root/crp-vla/artifacts/crp_vla/task10_confirmation1200_instrumentation/CONFIRMATION1200_MANIFEST.json",
+      "sha256": "01962a5255f4bbc51647a1f81a328838910f440577f4e063f48e5be723d59654"
+    },
+    "formal100": {
+      "path": "/root/crp-vla/artifacts/crp_vla/followup/libero_paired_final_v1.json",
+      "sha256": "f69d18aaa1a8e47afea53d3dd113c92f9391e244964a0d92c497f3e93cfe24e4"
+    },
+    "old_dev40": {
+      "path": "/root/crp-vla/artifacts/crp_vla/replay_v2/development/run_manifest.json",
+      "sha256": "741caca96ea424509847b3f733c0792c0053d25808f64ce5b4b3ef7162d9ef8a"
+    },
+    "task12_registry": {
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/USED_STATE_REGISTRY.json",
+      "sha256": "e02ba36f25b1777fcb3ee2315464387fdb05c93218137f68a4c4ca980ebe7b03"
+    },
+    "task13_final_report": {
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/TASK13_RECOVERY_FINAL_REPORT.md",
+      "sha256": "d600dfb76be7f6d05fd51fc946a865226c40e6a07beb4c410ebd5bb74e1b2a6d"
+    },
+    "task13_transition_effects": {
+      "path": "/root/crp-vla/artifacts/crp_vla/task13_recovery/ATTEMPT002_TRANSITION_EFFECTS.json",
+      "sha256": "726d2b5537e1486d6f07b821199e9009e0991c05b4bb5284bd9ff1c4d04ca106"
+    }
+  },
+  "manifest_sha256": null,
+  "maximum_untouched_per_task": 2,
+  "minimum_untouched_per_task": 1,
+  "preregistration_sha256": null,
+  "random_seed": {
+    "integer": 2029856568870536023,
+    "sha256": "1c2b7fcb74858357c6f5f41e43e1c2b1072c7628bdae2519fe7b23564ac8e0e4",
+    "string": "CRP-VLA-TASK14-POSITION-CAUSAL-V1"
+  },
+  "required_case_count": 400,
+  "required_cases_per_task": 10,
+  "schema_version": "task14.audit.v1",
+  "snap_checkpoint_sha256": "3523ff36091fdba82a97b798621b4ecee141554fcfe418816a6fbb1cf95f2b53",
+  "source_summary": [
+    {
+      "maximum_state_id": 4,
+      "minimum_state_id": 4,
+      "name": "old_dev40",
+      "row_count": 240,
+      "unique_initial_cases": 40
+    },
+    {
+      "maximum_state_id": 2,
+      "minimum_state_id": 0,
+      "name": "formal100",
+      "row_count": 400,
+      "unique_initial_cases": 100
+    },
+    {
+      "maximum_state_id": 34,
+      "minimum_state_id": 5,
+      "name": "confirmation1200",
+      "row_count": 1200,
+      "unique_initial_cases": 1200
+    },
+    {
+      "maximum_state_id": 44,
+      "minimum_state_id": 35,
+      "name": "attempt001_descriptive",
+      "row_count": 400,
+      "unique_initial_cases": 400
+    },
+    {
+      "maximum_state_id": 49,
+      "minimum_state_id": 45,
+      "name": "attempt002",
+      "row_count": 200,
+      "unique_initial_cases": 200
+    }
+  ],
+  "status": "INSUFFICIENT_UNTOUCHED_FORMAL_STATES",
+  "stop_rule": "Stop with INSUFFICIENT_UNTOUCHED_FORMAL_STATES if any of the 40 tasks has fewer than 10 untouched pinned initial states; do not fill from used states",
+  "task12_registry_sha256": "e02ba36f25b1777fcb3ee2315464387fdb05c93218137f68a4c4ca980ebe7b03",
+  "task_count": 40,
+  "task_name": "TASK14_PROSPECTIVE_POSITION_CAUSAL_AUDIT",
+  "tasks": [
+    {
+      "available_state_count": 50,
+      "eligible": false,
+      "required_untouched_state_count": 10,
+      "suite": "libero_10",
+      "task_id": 0,
+      "untouched_state_count": 1,
+      "untouched_state_ids": [
+        3
+      ],
+      "used_state_count": 49
+    },
+    {
+      "available_state_count": 50,
+      "eligible": false,
+      "required_untouched_state_count": 10,
+      "suite": "libero_10",
+      "task_id": 1,
+      "untouched_state_count": 1,
+      "untouched_state_ids": [
+        3
+      ],
+      "used_state_count": 49
+    },
+    {
+      "available_state_count": 50,
+      "eligible": false,
+      "required_untouched_state_count": 10,
+      "suite": "libero_10",
+      "task_id": 2,
+      "untouched_state_count": 1,
+      "untouched_state_ids": [
+        3
+      ],
+      "used_state_count": 49
+    },
+    {
+      "available_state_count": 50,
+      "eligible": false,
+      "required_untouched_state_count": 10,
+      "suite": "libero_10",
+      "task_id": 3,
+      "untouched_state_count": 1,
+      "untouched_state_ids": [
+        3
+      ],
+      "used_state_count": 49
+    },
+    {
+      "available_state_count": 50,
+      "eligible": false,
+      "required_untouched_state_count": 10,
+      "suite": "libero_10",
+      "task_id": 4,
+      "untouched_state_count": 1,
+      "untouched_state_ids": [
+        3
+      ],
+      "used_state_count": 49
+    },
+    {
+      "available_state_count": 50,
+      "eligible": false,
+      "required_untouched_state_count": 10,
+      "suite": "libero_10",
+      "task_id": 5,
+      "untouched_state_count": 2,
+      "untouched_state_ids": [
+        2,
+        3
+      ],
+      "used_state_count": 48
+    },
+    {
+      "available_state_count": 50,
+      "eligible": false,
+      "required_untouched_state_count": 10,
+      "suite": "libero_10",
+      "task_id": 6,
+      "untouched_state_count": 2,
+      "untouched_state_ids": [
+        2,
+        3
+      ],
+      "used_state_count": 48
+    },
+    {
+      "available_state_count": 50,
+      "eligible": false,
+      "required_untouched_state_count": 10,
+      "suite": "libero_10",
+      "task_id": 7,
+      "untouched_state_count": 2,
+      "untouched_state_ids": [
+        2,
+        3
+      ],
+      "used_state_count": 48
+    },
+    {
+      "available_state_count": 50,
+      "eligible": false,
+      "required_untouched_state_count": 10,
+      "suite": "libero_10",
+      "task_id": 8,
+      "untouched_state_count": 2,
+      "untouched_state_ids": [
+        2,
+        3
+      ],
+      "used_state_count": 48
+    },
+    {
+      "available_state_count": 50,
+      "eligible": false,
+      "required_untouched_state_count": 10,
+      "suite": "libero_10",
+      "task_id": 9,
+      "untouched_state_count": 2,
+      "untouched_state_ids": [
+        2,
+        3
+      ],
+      "used_state_count": 48
+    },
+    {
+      "available_state_count": 50,
+      "eligible": false,
+      "required_untouched_state_count": 10,
+      "suite": "libero_goal",
+      "task_id": 0,
+      "untouched_state_count": 1,
+      "untouched_state_ids": [
+        3
+      ],
+      "used_state_count": 49
+    },
+    {
+      "available_state_count": 50,
+      "eligible": false,
+      "required_untouched_state_count": 10,
+      "suite": "libero_goal",
+      "task_id": 1,
+      "untouched_state_count": 1,
+      "untouched_state_ids": [
+        3
+      ],
+      "used_state_count": 49
+    },
+    {
+      "available_state_count": 50,
+      "eligible": false,
+      "required_untouched_state_count": 10,
+      "suite": "libero_goal",
+      "task_id": 2,
+      "untouched_state_count": 1,
+      "untouched_state_ids": [
+        3
+      ],
+      "used_state_count": 49
+    },
+    {
+      "available_state_count": 50,
+      "eligible": false,
+      "required_untouched_state_count": 10,
+      "suite": "libero_goal",
+      "task_id": 3,
+      "untouched_state_count": 1,
+      "untouched_state_ids": [
+        3
+      ],
+      "used_state_count": 49
+    },
+    {
+      "available_state_count": 50,
+      "eligible": false,
+      "required_untouched_state_count": 10,
+      "suite": "libero_goal",
+      "task_id": 4,
+      "untouched_state_count": 1,
+      "untouched_state_ids": [
+        3
+      ],
+      "used_state_count": 49
+    },
+    {
+      "available_state_count": 50,
+      "eligible": false,
+      "required_untouched_state_count": 10,
+      "suite": "libero_goal",
+      "task_id": 5,
+      "untouched_state_count": 2,
+      "untouched_state_ids": [
+        2,
+        3
+      ],
+      "used_state_count": 48
+    },
+    {
+      "available_state_count": 50,
+      "eligible": false,
+      "required_untouched_state_count": 10,
+      "suite": "libero_goal",
+      "task_id": 6,
+      "untouched_state_count": 2,
+      "untouched_state_ids": [
+        2,
+        3
+      ],
+      "used_state_count": 48
+    },
+    {
+      "available_state_count": 50,
+      "eligible": false,
+      "required_untouched_state_count": 10,
+      "suite": "libero_goal",
+      "task_id": 7,
+      "untouched_state_count": 2,
+      "untouched_state_ids": [
+        2,
+        3
+      ],
+      "used_state_count": 48
+    },
+    {
+      "available_state_count": 50,
+      "eligible": false,
+      "required_untouched_state_count": 10,
+      "suite": "libero_goal",
+      "task_id": 8,
+      "untouched_state_count": 2,
+      "untouched_state_ids": [
+        2,
+        3
+      ],
+      "used_state_count": 48
+    },
+    {
+      "available_state_count": 50,
+      "eligible": false,
+      "required_untouched_state_count": 10,
+      "suite": "libero_goal",
+      "task_id": 9,
+      "untouched_state_count": 2,
+      "untouched_state_ids": [
+        2,
+        3
+      ],
+      "used_state_count": 48
+    },
+    {
+      "available_state_count": 50,
+      "eligible": false,
+      "required_untouched_state_count": 10,
+      "suite": "libero_object",
+      "task_id": 0,
+      "untouched_state_count": 1,
+      "untouched_state_ids": [
+        3
+      ],
+      "used_state_count": 49
+    },
+    {
+      "available_state_count": 50,
+      "eligible": false,
+      "required_untouched_state_count": 10,
+      "suite": "libero_object",
+      "task_id": 1,
+      "untouched_state_count": 1,
+      "untouched_state_ids": [
+        3
+      ],
+      "used_state_count": 49
+    },
+    {
+      "available_state_count": 50,
+      "eligible": false,
+      "required_untouched_state_count": 10,
+      "suite": "libero_object",
+      "task_id": 2,
+      "untouched_state_count": 1,
+      "untouched_state_ids": [
+        3
+      ],
+      "used_state_count": 49
+    },
+    {
+      "available_state_count": 50,
+      "eligible": false,
+      "required_untouched_state_count": 10,
+      "suite": "libero_object",
+      "task_id": 3,
+      "untouched_state_count": 1,
+      "untouched_state_ids": [
+        3
+      ],
+      "used_state_count": 49
+    },
+    {
+      "available_state_count": 50,
+      "eligible": false,
+      "required_untouched_state_count": 10,
+      "suite": "libero_object",
+      "task_id": 4,
+      "untouched_state_count": 1,
+      "untouched_state_ids": [
+        3
+      ],
+      "used_state_count": 49
+    },
+    {
+      "available_state_count": 50,
+      "eligible": false,
+      "required_untouched_state_count": 10,
+      "suite": "libero_object",
+      "task_id": 5,
+      "untouched_state_count": 2,
+      "untouched_state_ids": [
+        2,
+        3
+      ],
+      "used_state_count": 48
+    },
+    {
+      "available_state_count": 50,
+      "eligible": false,
+      "required_untouched_state_count": 10,
+      "suite": "libero_object",
+      "task_id": 6,
+      "untouched_state_count": 2,
+      "untouched_state_ids": [
+        2,
+        3
+      ],
+      "used_state_count": 48
+    },
+    {
+      "available_state_count": 50,
+      "eligible": false,
+      "required_untouched_state_count": 10,
+      "suite": "libero_object",
+      "task_id": 7,
+      "untouched_state_count": 2,
+      "untouched_state_ids": [
+        2,
+        3
+      ],
+      "used_state_count": 48
+    },
+    {
+      "available_state_count": 50,
+      "eligible": false,
+      "required_untouched_state_count": 10,
+      "suite": "libero_object",
+      "task_id": 8,
+      "untouched_state_count": 2,
+      "untouched_state_ids": [
+        2,
+        3
+      ],
+      "used_state_count": 48
+    },
+    {
+      "available_state_count": 50,
+      "eligible": false,
+      "required_untouched_state_count": 10,
+      "suite": "libero_object",
+      "task_id": 9,
+      "untouched_state_count": 2,
+      "untouched_state_ids": [
+        2,
+        3
+      ],
+      "used_state_count": 48
+    },
+    {
+      "available_state_count": 50,
+      "eligible": false,
+      "required_untouched_state_count": 10,
+      "suite": "libero_spatial",
+      "task_id": 0,
+      "untouched_state_count": 1,
+      "untouched_state_ids": [
+        3
+      ],
+      "used_state_count": 49
+    },
+    {
+      "available_state_count": 50,
+      "eligible": false,
+      "required_untouched_state_count": 10,
+      "suite": "libero_spatial",
+      "task_id": 1,
+      "untouched_state_count": 1,
+      "untouched_state_ids": [
+        3
+      ],
+      "used_state_count": 49
+    },
+    {
+      "available_state_count": 50,
+      "eligible": false,
+      "required_untouched_state_count": 10,
+      "suite": "libero_spatial",
+      "task_id": 2,
+      "untouched_state_count": 1,
+      "untouched_state_ids": [
+        3
+      ],
+      "used_state_count": 49
+    },
+    {
+      "available_state_count": 50,
+      "eligible": false,
+      "required_untouched_state_count": 10,
+      "suite": "libero_spatial",
+      "task_id": 3,
+      "untouched_state_count": 1,
+      "untouched_state_ids": [
+        3
+      ],
+      "used_state_count": 49
+    },
+    {
+      "available_state_count": 50,
+      "eligible": false,
+      "required_untouched_state_count": 10,
+      "suite": "libero_spatial",
+      "task_id": 4,
+      "untouched_state_count": 1,
+      "untouched_state_ids": [
+        3
+      ],
+      "used_state_count": 49
+    },
+    {
+      "available_state_count": 50,
+      "eligible": false,
+      "required_untouched_state_count": 10,
+      "suite": "libero_spatial",
+      "task_id": 5,
+      "untouched_state_count": 2,
+      "untouched_state_ids": [
+        2,
+        3
+      ],
+      "used_state_count": 48
+    },
+    {
+      "available_state_count": 50,
+      "eligible": false,
+      "required_untouched_state_count": 10,
+      "suite": "libero_spatial",
+      "task_id": 6,
+      "untouched_state_count": 2,
+      "untouched_state_ids": [
+        2,
+        3
+      ],
+      "used_state_count": 48
+    },
+    {
+      "available_state_count": 50,
+      "eligible": false,
+      "required_untouched_state_count": 10,
+      "suite": "libero_spatial",
+      "task_id": 7,
+      "untouched_state_count": 2,
+      "untouched_state_ids": [
+        2,
+        3
+      ],
+      "used_state_count": 48
+    },
+    {
+      "available_state_count": 50,
+      "eligible": false,
+      "required_untouched_state_count": 10,
+      "suite": "libero_spatial",
+      "task_id": 8,
+      "untouched_state_count": 2,
+      "untouched_state_ids": [
+        2,
+        3
+      ],
+      "used_state_count": 48
+    },
+    {
+      "available_state_count": 50,
+      "eligible": false,
+      "required_untouched_state_count": 10,
+      "suite": "libero_spatial",
+      "task_id": 9,
+      "untouched_state_count": 2,
+      "untouched_state_ids": [
+        2,
+        3
+      ],
+      "used_state_count": 48
+    }
+  ]
+}

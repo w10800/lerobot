@@ -1,0 +1,290 @@
+{
+  "analysis_type": "diagnostic_noncausal_held_out_task",
+  "evidence_scope": "matched initial replan only; later student-visited observations were not stored",
+  "models": {
+    "D_1_10_only": {
+      "achieved_specificity": 0.78125,
+      "auprc": 0.11980862600057646,
+      "auroc": 0.0,
+      "brier_score": 0.17620051419124835,
+      "expected_calibration_error_5bin": 0.23626974382614965,
+      "fixed_specificity_target": 0.8,
+      "n": 40,
+      "positive_failures": 8,
+      "prevalence": 0.2,
+      "sensitivity_at_fixed_specificity": 0.0,
+      "task_cluster_bootstrap_ci95": {
+        "auprc": [
+          0.0641454207243681,
+          0.19605156050185174
+        ],
+        "auroc": [
+          0.0,
+          0.0
+        ],
+        "brier_score": [
+          0.10719707935829859,
+          0.26260649330509206
+        ],
+        "expected_calibration_error_5bin": [
+          0.13666438329080188,
+          0.3522483476448521
+        ],
+        "sensitivity_at_fixed_specificity": [
+          0.0,
+          0.0
+        ]
+      },
+      "threshold": 0.21773968375641303
+    },
+    "D_1_2_only": {
+      "achieved_specificity": 0.78125,
+      "auprc": 0.1456861494951825,
+      "auroc": 0.234375,
+      "brier_score": 0.17153249515386962,
+      "expected_calibration_error_5bin": 0.22802256765673976,
+      "fixed_specificity_target": 0.8,
+      "n": 40,
+      "positive_failures": 8,
+      "prevalence": 0.2,
+      "sensitivity_at_fixed_specificity": 0.0,
+      "task_cluster_bootstrap_ci95": {
+        "auprc": [
+          0.07170373878994568,
+          0.2452519439261393
+        ],
+        "auroc": [
+          0.09676881720430107,
+          0.3964099099099099
+        ],
+        "brier_score": [
+          0.1039472520243355,
+          0.2523916704580164
+        ],
+        "expected_calibration_error_5bin": [
+          0.13454533437178592,
+          0.33639022473705416
+        ],
+        "sensitivity_at_fixed_specificity": [
+          0.0,
+          0.0
+        ]
+      },
+      "threshold": 0.23392858668478456
+    },
+    "combined_disagreement": {
+      "achieved_specificity": 0.78125,
+      "auprc": 0.14981340826929063,
+      "auroc": 0.26953125,
+      "brier_score": 0.1854128710629513,
+      "expected_calibration_error_5bin": 0.1685845150337493,
+      "fixed_specificity_target": 0.8,
+      "n": 40,
+      "positive_failures": 8,
+      "prevalence": 0.2,
+      "sensitivity_at_fixed_specificity": 0.0,
+      "task_cluster_bootstrap_ci95": {
+        "auprc": [
+          0.06948981945789222,
+          0.2513116522763342
+        ],
+        "auroc": [
+          0.0908886158886159,
+          0.47319508448540665
+        ],
+        "brier_score": [
+          0.10333254506007614,
+          0.2768589775974386
+        ],
+        "expected_calibration_error_5bin": [
+          0.06664700781394504,
+          0.2940480933102346
+        ],
+        "sensitivity_at_fixed_specificity": [
+          0.0,
+          0.0
+        ]
+      },
+      "threshold": 0.2675297902603264
+    },
+    "constant_base_rate": {
+      "achieved_specificity": 0.0,
+      "auprc": 0.11980862600057646,
+      "auroc": 0.0,
+      "brier_score": 0.16831032215647598,
+      "expected_calibration_error_5bin": 0.3282051282051282,
+      "fixed_specificity_target": 0.8,
+      "n": 40,
+      "positive_failures": 8,
+      "prevalence": 0.2,
+      "sensitivity_at_fixed_specificity": 0.0,
+      "task_cluster_bootstrap_ci95": {
+        "auprc": [
+          0.05086594691857849,
+          0.19605156050185174
+        ],
+        "auroc": [
+          0.0,
+          0.0
+        ],
+        "brier_score": [
+          0.08941485864562787,
+          0.24720578566732412
+        ],
+        "expected_calibration_error_5bin": [
+          0.2512820512820513,
+          0.40512820512820513
+        ],
+        "sensitivity_at_fixed_specificity": [
+          0.0,
+          0.0
+        ]
+      },
+      "threshold": 0.20512820512820512
+    }
+  },
+  "schema_version": 1,
+  "success_failure_comparison": {
+    "D_1_10_exec": {
+      "case_bootstrap_ci95": [
+        -0.06465444300899735,
+        0.04993503508064864
+      ],
+      "failure": {
+        "iqr": [
+          0.23185231476294574,
+          0.30196722256440833
+        ],
+        "mean": 0.28168560865753767,
+        "median": 0.2849791571112775
+      },
+      "mean_difference_success_minus_failure": -0.005551063795437627,
+      "standardized_effect_size": -0.07296665227075672,
+      "success": {
+        "iqr": [
+          0.2222804734345411,
+          0.3076085528506603
+        ],
+        "mean": 0.27613454486210004,
+        "median": 0.2625263786089734
+      },
+      "task_cluster_bootstrap_ci95": [
+        -0.06853773661831239,
+        0.05199613551548907
+      ]
+    },
+    "D_1_2_exec": {
+      "case_bootstrap_ci95": [
+        -0.014457807400383691,
+        0.03286118133543045
+      ],
+      "failure": {
+        "iqr": [
+          0.11730467277113746,
+          0.14657788971996394
+        ],
+        "mean": 0.1358130348589584,
+        "median": 0.12977548693793148
+      },
+      "mean_difference_success_minus_failure": 0.00981047100406493,
+      "standardized_effect_size": 0.22770897178696695,
+      "success": {
+        "iqr": [
+          0.11360458792430185,
+          0.16701078040018663
+        ],
+        "mean": 0.14562350586302333,
+        "median": 0.13436905521417766
+      },
+      "task_cluster_bootstrap_ci95": [
+        -0.015313754744119142,
+        0.03356950664328549
+      ]
+    },
+    "gripper_disagreement": {
+      "case_bootstrap_ci95": [
+        -0.006434433343820275,
+        0.00989776197820902
+      ],
+      "failure": {
+        "iqr": [
+          0.021633411943912505,
+          0.028409960865974426
+        ],
+        "mean": 0.02572193220257759,
+        "median": 0.0222699373960495
+      },
+      "mean_difference_success_minus_failure": 0.002440834790468218,
+      "standardized_effect_size": 0.26638535702173727,
+      "success": {
+        "iqr": [
+          0.021402764320373534,
+          0.032942450046539305
+        ],
+        "mean": 0.028162766993045808,
+        "median": 0.026421231031417847
+      },
+      "task_cluster_bootstrap_ci95": [
+        -0.006980745989316191,
+        0.010317476328891548
+      ]
+    },
+    "rotation_disagreement": {
+      "case_bootstrap_ci95": [
+        -0.04375792056496288,
+        0.039470076882361836
+      ],
+      "failure": {
+        "iqr": [
+          0.18095134727730625,
+          0.2320471829316134
+        ],
+        "mean": 0.2089437966348413,
+        "median": 0.21012079872495618
+      },
+      "mean_difference_success_minus_failure": -0.0013019770714668977,
+      "standardized_effect_size": -0.01893926482718458,
+      "success": {
+        "iqr": [
+          0.15288842761884452,
+          0.24238969500005725
+        ],
+        "mean": 0.2076418195633744,
+        "median": 0.18977250277770602
+      },
+      "task_cluster_bootstrap_ci95": [
+        -0.045320102467191856,
+        0.04157586091882486
+      ]
+    },
+    "translation_disagreement": {
+      "case_bootstrap_ci95": [
+        -0.052642747503910764,
+        0.02784835770312314
+      ],
+      "failure": {
+        "iqr": [
+          0.12188236101554009,
+          0.19093524360748643
+        ],
+        "mean": 0.16897238686279686,
+        "median": 0.15929155732613903
+      },
+      "mean_difference_success_minus_failure": -0.008804456826875973,
+      "standardized_effect_size": -0.2037278548816127,
+      "success": {
+        "iqr": [
+          0.12663151840068965,
+          0.17815337690648408
+        ],
+        "mean": 0.1601679300359209,
+        "median": 0.15801329071321718
+      },
+      "task_cluster_bootstrap_ci95": [
+        -0.05455407246863104,
+        0.02930667554914466
+      ]
+    }
+  },
+  "unlabeled_large_discrepancy_threshold": 0.38069642226866635
+}

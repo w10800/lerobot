@@ -1,0 +1,15 @@
+[submodule "third_party/reference/consistency-policy"]
+	path = third_party/reference/consistency-policy
+	url = https://github.com/Aaditya-Prasad/Consistency-Policy.git
+[submodule "third_party/libero-cf"]
+	path = third_party/libero-cf
+	url = https://github.com/yuffish/LIBERO-CF.git
+[submodule "third_party/reference/shortcut-models"]
+	path = third_party/reference/shortcut-models
+	url = https://github.com/kvfrans/shortcut-models.git
+[submodule "third_party/reference/maniflow"]
+	path = third_party/reference/maniflow
+	url = https://github.com/allenai/maniflow.git
+[submodule "third_party/reference/flowpolicy"]
+	path = third_party/reference/flowpolicy
+	url = https://github.com/zql-kk/FlowPolicy.git

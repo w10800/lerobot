@@ -1,0 +1,178 @@
+{
+  "base_model_sha256": "9a9f6413e42c0f332fccbce9a0dc796af2790f82cf002f791cdbf7e01e1afca8",
+  "checks": [
+    {
+      "evidence": {
+        "added_tokens.json": "74135b8664b56088c0006f1c8e848d79a8eba003411f72ebf1dc2ee96227be3a",
+        "chat_template.jinja": "830005085ddd94cec605b6e21b885b28ffad6e3f82ee6a212c523533e8f04f01",
+        "chat_template.json": "b585e3598909a5687f9f9d738d35223724dedef256b9b274e1cbfb32b13c74bf",
+        "config.json": "ea6bc1237e96247f6258de3e202e2e62b93d6f386dc47e7b36b5588bf3a15e17",
+        "merges.txt": "0b54e8aa4e53d5383e2e4bc635a56b43f9647f7b13832d5d9ecd8f82dac4f510",
+        "preprocessor_config.json": "149e315d9410368e5491455bb06e0f763426e9e56cca731c13b24404a29b6374",
+        "processor_config.json": "f3ad45028447b3562b4752be0d5916d6806c1ef589091a469608dcf0faa1737c",
+        "special_tokens_map.json": "2dfea2a426162316ff1567c82bc6d36d9690cd9f90455f075c77daca78b45c60",
+        "tokenizer.json": "b90474ce689a6f06dc920d3ebdb1f9cb8d3608da9e93b8b4eae63e9101bbc5d5",
+        "tokenizer_config.json": "fd87e003eef34b916fce3386cfe07c513a56c5bdc7b83e2c7da93cad2efee9c3",
+        "vocab.json": "82b84012e3add4d01d12ba14442026e49b8cbbaead1f79ecf3d919784f82dc79"
+      },
+      "name": "offline_vlm_config_complete",
+      "passed": true
+    },
+    {
+      "evidence": "3523ff36091fdba82a97b798621b4ecee141554fcfe418816a6fbb1cf95f2b53",
+      "name": "selected_model_hash",
+      "passed": true
+    },
+    {
+      "evidence": "9a9f6413e42c0f332fccbce9a0dc796af2790f82cf002f791cdbf7e01e1afca8",
+      "name": "base_model_hash_present",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "base_file_manifest": {
+          "policy_postprocessor.json": "3b51f092c70c710ce0213ee1b63bf51b4878ec67828dd2d67daf9ef51081a41a",
+          "policy_postprocessor_step_0_unnormalizer_processor.safetensors": "b0cdde6e8a6f49a8e19eefb376728e47c09d3b3cc20ce3a97c45619fe7a732d9",
+          "policy_preprocessor.json": "122ec5106602b1bf129f49690d05ab2f49748a0ac6119de55ea0677d4e90d248",
+          "policy_preprocessor_step_5_normalizer_processor.safetensors": "b0cdde6e8a6f49a8e19eefb376728e47c09d3b3cc20ce3a97c45619fe7a732d9"
+        },
+        "effective_contract_sha256": "4f7e151108d2d07b9029865cc5a53d99d359a263a7a68da02cdfb00911a3b6e4",
+        "note": "file-level differences are tokenizer storage metadata and unused image stats; effective state/action contract is exact",
+        "selected_file_manifest": {
+          "policy_postprocessor.json": "3b51f092c70c710ce0213ee1b63bf51b4878ec67828dd2d67daf9ef51081a41a",
+          "policy_postprocessor_step_0_unnormalizer_processor.safetensors": "aef94aa6abc78dba6050786f6bbea1f5b0e1fa6aef53a485f5dd285f14d4d972",
+          "policy_preprocessor.json": "5fe6793baae4aa38112b44bce244edf665b341ec625a4a98fe4983d22b6d7567",
+          "policy_preprocessor_step_5_normalizer_processor.safetensors": "bda4d228b6fdf9046c4a62eca9805e84dcbf4633d885cd29d9e3c7f7b46b9f25"
+        }
+      },
+      "name": "action_normalization_and_processor_equality",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "expected": "9a9f6413e42c0f332fccbce9a0dc796af2790f82cf002f791cdbf7e01e1afca8",
+        "observed": "9a9f6413e42c0f332fccbce9a0dc796af2790f82cf002f791cdbf7e01e1afca8"
+      },
+      "name": "base10_model_hash_matches_frozen_development",
+      "passed": true
+    },
+    {
+      "evidence": "b2ceed3690d53a099cafb7bafcd89d68e1255595fd8e960f837c2c7fa26c6136",
+      "name": "capsule_input_hash",
+      "passed": true
+    },
+    {
+      "evidence": "21fd766df1124bb3c3ab5a666594d0fb1a99e55b969f6ad0aec027fe5021b049",
+      "name": "shared_frozen_noise_schedule",
+      "passed": true
+    },
+    {
+      "evidence": "loaded",
+      "name": "base10_load",
+      "passed": true
+    },
+    {
+      "evidence": "loaded",
+      "name": "selected_snap1_load",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "input": "b2ceed3690d53a099cafb7bafcd89d68e1255595fd8e960f837c2c7fa26c6136",
+        "noise": "ad4f4f472597f7d39feb6f045edc9c4862cb8bd88327b91f2f736b950de6de12"
+      },
+      "name": "arm_input_equality",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "shape": [
+          10,
+          7
+        ]
+      },
+      "name": "action_normalization_output",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "first": "f9983736e4e600963327b753ae9364e529c9c064a1eb89a8251265023ad0407f",
+        "second": "f9983736e4e600963327b753ae9364e529c9c064a1eb89a8251265023ad0407f"
+      },
+      "name": "simulator_reset_reproducible",
+      "passed": true
+    },
+    {
+      "evidence": "14b30f783b1bd0554b8d986c92eaeb9e35ddc84bb8562e122a71d3a6f8214294",
+      "name": "shared_raw_observation",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "first_reset_observation_hash": "14b30f783b1bd0554b8d986c92eaeb9e35ddc84bb8562e122a71d3a6f8214294",
+        "note": "paired policy inference uses the frozen canonical capsule observation",
+        "second_reset_observation_hash": "14b30f783b1bd0554b8d986c92eaeb9e35ddc84bb8562e122a71d3a6f8214294"
+      },
+      "name": "reset_render_evidence_recorded",
+      "passed": true
+    },
+    {
+      "evidence": [
+        "97c984f12331527626812ec19967ef399e545535b3571becf044db2417ae9d71"
+      ],
+      "name": "shared_evaluator",
+      "passed": true
+    },
+    {
+      "evidence": [
+        "/root/crp-vla/artifacts/crp_vla/task9_baseline_validation/future_results/case-smoke/base10.json",
+        "/root/crp-vla/artifacts/crp_vla/task9_baseline_validation/future_results/case-smoke/snap1_20k.json"
+      ],
+      "name": "result_paths_unique",
+      "passed": true
+    },
+    {
+      "evidence": [
+        "/root/crp-vla/artifacts/crp_vla/task9_baseline_validation/future_traces/case-smoke/base10.sha256.json",
+        "/root/crp-vla/artifacts/crp_vla/task9_baseline_validation/future_traces/case-smoke/snap1_20k.sha256.json"
+      ],
+      "name": "trace_manifest_paths_unique",
+      "passed": true
+    },
+    {
+      "evidence": [
+        "0c2b72f6bd6953167b9f6b1cb6cccebb95130b90fb52860f7c4cef822f8c4b9a",
+        "0c7dc990e2ccd0c20280a0959d4bf0b831385ff139e6072502c75cde045fb2c1"
+      ],
+      "name": "result_hashes_unique",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "case_count": 200
+      },
+      "name": "diagnostic_subset_deterministic",
+      "passed": true
+    },
+    {
+      "evidence": "refused",
+      "name": "incomplete_aggregation_rejected",
+      "passed": true
+    },
+    {
+      "evidence": "refused",
+      "name": "diagnostic_arm_excluded_from_primary_aggregator",
+      "passed": true
+    },
+    {
+      "evidence": "rejected",
+      "name": "overlap_checker_rejects_formal_state",
+      "passed": true
+    }
+  ],
+  "formal_confirmation_started": false,
+  "new_training_started": false,
+  "schema_version": 1,
+  "selected_model_sha256": "3523ff36091fdba82a97b798621b4ecee141554fcfe418816a6fbb1cf95f2b53",
+  "status": "CONFIRMATION_PREFLIGHT_PASSED"
+}

@@ -59,6 +59,11 @@ def test_should_save_checkpoint():
     assert should_save_checkpoint(1, save_freq=0, total_steps=100) is False
     assert should_save_checkpoint(100, save_freq=0, total_steps=100) is True
     assert should_save_checkpoint(1, save_freq=-1, total_steps=100) is False
+    # An exact schedule replaces periodic saves while retaining the final step.
+    exact = [10, 30, 70]
+    assert should_save_checkpoint(10, save_freq=5, total_steps=100, save_steps=exact) is True
+    assert should_save_checkpoint(5, save_freq=5, total_steps=100, save_steps=exact) is False
+    assert should_save_checkpoint(100, save_freq=5, total_steps=100, save_steps=exact) is True
 
 
 def test_get_step_checkpoint_dir():

@@ -1,0 +1,642 @@
+{
+  "batch_size": 4,
+  "checkpoint": "/root/crp-vla/checkpoints/smolvla_libero",
+  "checkpoint_revision": "31d453f7edd78c839a8bbc39744a292686daf0de",
+  "checkpoint_sha256": "9a9f6413e42c0f332fccbce9a0dc796af2790f82cf002f791cdbf7e01e1afca8",
+  "data_order_prefix_sha256": {
+    "1000": "fd4639e3065512bcbd30930dd6773739a23e9e36d13b5a0dc7d2e3d40ec6345f",
+    "10000": "595ef21178c44072623648ecee8d49651e242f2d3ae87d4f67dbabb75623d588",
+    "20000": "1f97b787649ac49a39f6666b5dd67e6fad5d832ebcc22147629ed63a814778dc",
+    "3000": "a276bc547e2ceb9d334f6d0985e1d55ae4b4ce0b2e46cbf440cd6685153763db",
+    "30000": "e71289c0c3d6dfe510f6b39d52fa5ed62405c402c8309cbdddc9feed1cdbee79",
+    "5000": "905589304fa8a9c20840bc6d1c874a2dfd0f987117bf485b2aa86f14824825b5"
+  },
+  "dataset_episode_count": 1693,
+  "dataset_fps": 10.0,
+  "dataset_frame_count": 273465,
+  "dataset_repo": "lerobot/libero",
+  "dataset_revision": "a1aaacb7f6cd6ee5fb43120f673cebb0cfea7dd4",
+  "dataset_root": "/root/crp-vla/artifacts/crp_vla/cache/libero",
+  "delta_timestamps": {
+    "action": [
+      0.0,
+      0.1,
+      0.2,
+      0.3,
+      0.4,
+      0.5,
+      0.6,
+      0.7,
+      0.8,
+      0.9,
+      1.0,
+      1.1,
+      1.2,
+      1.3,
+      1.4,
+      1.5,
+      1.6,
+      1.7,
+      1.8,
+      1.9,
+      2.0,
+      2.1,
+      2.2,
+      2.3,
+      2.4,
+      2.5,
+      2.6,
+      2.7,
+      2.8,
+      2.9,
+      3.0,
+      3.1,
+      3.2,
+      3.3,
+      3.4,
+      3.5,
+      3.6,
+      3.7,
+      3.8,
+      3.9,
+      4.0,
+      4.1,
+      4.2,
+      4.3,
+      4.4,
+      4.5,
+      4.6,
+      4.7,
+      4.8,
+      4.9
+    ],
+    "observation.images.image": [
+      0.0
+    ],
+    "observation.images.image2": [
+      0.0
+    ],
+    "observation.state": [
+      0.0
+    ]
+  },
+  "example_batch": {
+    "action": {
+      "dtype": "torch.float32",
+      "sha256": "01604f9e1f0033c4e6b19b496ea72dcb245816ce7a69a9b3cbfb23658b45e97d",
+      "shape": [
+        50,
+        7
+      ]
+    },
+    "action_is_pad": {
+      "dtype": "torch.bool",
+      "sha256": "cc2786e1f9910a9d811400edcddaf7075195f7a16b216dcbefba3bc7c4f2ae51",
+      "shape": [
+        50
+      ]
+    },
+    "episode_index": {
+      "dtype": "torch.int64",
+      "sha256": "50cb0fa63d6d2f3853993dae742e9d4b3e537e1afadc7bd3dd725badce7b7a7a",
+      "shape": []
+    },
+    "index": {
+      "dtype": "torch.int64",
+      "sha256": "8f7605abcab1a71ea9fcc36571e9470c71872655a4c9790ade634e07b7ec80d9",
+      "shape": [
+        1
+      ]
+    },
+    "info": {
+      "type": "dict",
+      "value": {}
+    },
+    "next.done": {
+      "type": "bool",
+      "value": false
+    },
+    "next.reward": {
+      "type": "float",
+      "value": 0.0
+    },
+    "next.truncated": {
+      "type": "bool",
+      "value": false
+    },
+    "observation.images.camera1": {
+      "dtype": "torch.float32",
+      "sha256": "32b8fe4edaac9f904b8c9b3e224c6883bfdda980f75433ae12de90f4ef8fdf4a",
+      "shape": [
+        1,
+        3,
+        256,
+        256
+      ]
+    },
+    "observation.images.camera1_is_pad": {
+      "dtype": "torch.bool",
+      "sha256": "6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d",
+      "shape": [
+        1
+      ]
+    },
+    "observation.images.camera2": {
+      "dtype": "torch.float32",
+      "sha256": "d933679992e57f9f3aac5416950cf21fed0526a405772b39aa35150ba2fb95b8",
+      "shape": [
+        1,
+        3,
+        256,
+        256
+      ]
+    },
+    "observation.images.camera2_is_pad": {
+      "dtype": "torch.bool",
+      "sha256": "6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d",
+      "shape": [
+        1
+      ]
+    },
+    "observation.images.image2_is_pad": {
+      "dtype": "torch.bool",
+      "sha256": "6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d",
+      "shape": [
+        1
+      ]
+    },
+    "observation.images.image_is_pad": {
+      "dtype": "torch.bool",
+      "sha256": "6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d",
+      "shape": [
+        1
+      ]
+    },
+    "observation.language.attention_mask": {
+      "dtype": "torch.bool",
+      "sha256": "df087c3aa3efafef7dd1b5ee74576ca2c4627ca1e67eb6bf5b407c0499c5b07a",
+      "shape": [
+        1,
+        48
+      ]
+    },
+    "observation.language.tokens": {
+      "dtype": "torch.int64",
+      "sha256": "cec9ad8b7135a56dbabe0947e72e0813e2225d6ed69adb232f46357e4fa82a66",
+      "shape": [
+        1,
+        48
+      ]
+    },
+    "observation.state": {
+      "dtype": "torch.float32",
+      "sha256": "e71be632f1ccf8dfab255660a925c1015fc78bc076656ee925bbd598b56d3552",
+      "shape": [
+        1,
+        8
+      ]
+    },
+    "observation.state_is_pad": {
+      "dtype": "torch.bool",
+      "sha256": "6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d",
+      "shape": [
+        1
+      ]
+    },
+    "task": {
+      "type": "list",
+      "value": [
+        "pick up the black bowl on the wooden cabinet and place it on the plate\n"
+      ]
+    },
+    "task_index": {
+      "dtype": "torch.int64",
+      "sha256": "067051cfe3b707b85d619ec630502c5a9cb7a39c3144d19abeec2fefdcda49d8",
+      "shape": [
+        1
+      ]
+    },
+    "timestamp": {
+      "dtype": "torch.float32",
+      "sha256": "6503133c9d33af10e65226dd8875146d93ed77005fd9813fb71846533c71255e",
+      "shape": []
+    }
+  },
+  "records": [
+    {
+      "absolute_frame_index": 98544,
+      "episode": 367,
+      "episode_length": 225,
+      "fixture": "/root/crp-vla/artifacts/crp_vla/maturation/factual_fixture/batches/task00.pt",
+      "fixture_sha256": "0ec5ed5d48aeab268da31a90bbfc8771c8bacb472bdc2ad7fe623b8a80fbe59a",
+      "sample_index_within_episode": 112,
+      "task": "put the white mug on the left plate and put the yellow and white mug on the right plate",
+      "task_index": 0
+    },
+    {
+      "absolute_frame_index": 98929,
+      "episode": 369,
+      "episode_length": 207,
+      "fixture": "/root/crp-vla/artifacts/crp_vla/maturation/factual_fixture/batches/task01.pt",
+      "fixture_sha256": "516ead68609cae5d1ee66d4735e1c795d90a56052362c5e81e0443cd4f1c78df",
+      "sample_index_within_episode": 103,
+      "task": "put the white mug on the plate and put the chocolate pudding to the right of the plate",
+      "task_index": 1
+    },
+    {
+      "absolute_frame_index": 98118,
+      "episode": 365,
+      "episode_length": 267,
+      "fixture": "/root/crp-vla/artifacts/crp_vla/maturation/factual_fixture/batches/task02.pt",
+      "fixture_sha256": "a922587c9a0786cde5aef9ed47a92807e80ed361daa3a611c750982209352030",
+      "sample_index_within_episode": 133,
+      "task": "put the yellow and white mug in the microwave and close it",
+      "task_index": 2
+    },
+    {
+      "absolute_frame_index": 97125,
+      "episode": 361,
+      "episode_length": 301,
+      "fixture": "/root/crp-vla/artifacts/crp_vla/maturation/factual_fixture/batches/task03.pt",
+      "fixture_sha256": "ac5afd5a15eaf8028fe97980df261eb665506e42de2fa9bd2f3dd705470794ec",
+      "sample_index_within_episode": 150,
+      "task": "turn on the stove and put the moka pot on it",
+      "task_index": 3
+    },
+    {
+      "absolute_frame_index": 99946,
+      "episode": 373,
+      "episode_length": 312,
+      "fixture": "/root/crp-vla/artifacts/crp_vla/maturation/factual_fixture/batches/task04.pt",
+      "fixture_sha256": "6227f4b939e54864f638ef6bc817ad7d3d6de397a37159246e98c71ec7837387",
+      "sample_index_within_episode": 156,
+      "task": "put both the alphabet soup and the cream cheese box in the basket",
+      "task_index": 4
+    },
+    {
+      "absolute_frame_index": 97673,
+      "episode": 363,
+      "episode_length": 275,
+      "fixture": "/root/crp-vla/artifacts/crp_vla/maturation/factual_fixture/batches/task05.pt",
+      "fixture_sha256": "9501c8754e68efadfdbe96935f13ed91b1e60c2b3446624645a9429f4ae474ec",
+      "sample_index_within_episode": 137,
+      "task": "put both the alphabet soup and the tomato sauce in the basket",
+      "task_index": 5
+    },
+    {
+      "absolute_frame_index": 100759,
+      "episode": 376,
+      "episode_length": 458,
+      "fixture": "/root/crp-vla/artifacts/crp_vla/maturation/factual_fixture/batches/task06.pt",
+      "fixture_sha256": "a12f47dff948b13762b983c75a8baa26ea3d45a0762086e338bdf18b82570758",
+      "sample_index_within_episode": 229,
+      "task": "put both moka pots on the stove",
+      "task_index": 6
+    },
+    {
+      "absolute_frame_index": 101343,
+      "episode": 378,
+      "episode_length": 252,
+      "fixture": "/root/crp-vla/artifacts/crp_vla/maturation/factual_fixture/batches/task07.pt",
+      "fixture_sha256": "c9bfdcc31e3a501715348bea06d057f210717a6f0e007e4b47e03be163037da3",
+      "sample_index_within_episode": 126,
+      "task": "put both the cream cheese box and the butter in the basket",
+      "task_index": 7
+    },
+    {
+      "absolute_frame_index": 101102,
+      "episode": 377,
+      "episode_length": 229,
+      "fixture": "/root/crp-vla/artifacts/crp_vla/maturation/factual_fixture/batches/task08.pt",
+      "fixture_sha256": "cee9dcd9960315c071bd695b6762f3e122f654510039b67a641ed95ff849407a",
+      "sample_index_within_episode": 114,
+      "task": "put the black bowl in the bottom drawer of the cabinet and close it",
+      "task_index": 8
+    },
+    {
+      "absolute_frame_index": 100188,
+      "episode": 374,
+      "episode_length": 173,
+      "fixture": "/root/crp-vla/artifacts/crp_vla/maturation/factual_fixture/batches/task09.pt",
+      "fixture_sha256": "c93aeec3f07b808fd846c3ae856fc35d0524e442070602c82272b64f585ab20f",
+      "sample_index_within_episode": 86,
+      "task": "pick up the book and place it in the back compartment of the caddy",
+      "task_index": 9
+    },
+    {
+      "absolute_frame_index": 153465,
+      "episode": 806,
+      "episode_length": 92,
+      "fixture": "/root/crp-vla/artifacts/crp_vla/maturation/factual_fixture/batches/task10.pt",
+      "fixture_sha256": "a7f990624492eacec3843642bf640b0d370cdeb6424213e73a15f010dfc683f9",
+      "sample_index_within_episode": 46,
+      "task": "put the bowl on the plate",
+      "task_index": 10
+    },
+    {
+      "absolute_frame_index": 152623,
+      "episode": 798,
+      "episode_length": 173,
+      "fixture": "/root/crp-vla/artifacts/crp_vla/maturation/factual_fixture/batches/task11.pt",
+      "fixture_sha256": "1bf46339bb765c46dc59376ef6e0591780794654717757be6df4fefd92451975",
+      "sample_index_within_episode": 86,
+      "task": "put the wine bottle on the rack",
+      "task_index": 11
+    },
+    {
+      "absolute_frame_index": 151651,
+      "episode": 790,
+      "episode_length": 187,
+      "fixture": "/root/crp-vla/artifacts/crp_vla/maturation/factual_fixture/batches/task12.pt",
+      "fixture_sha256": "8f4c039aea6241479713a1223f9a179bb7d4ce377cc77eaa281e88b5933a4c13",
+      "sample_index_within_episode": 93,
+      "task": "open the top drawer and put the bowl inside",
+      "task_index": 12
+    },
+    {
+      "absolute_frame_index": 152482,
+      "episode": 797,
+      "episode_length": 109,
+      "fixture": "/root/crp-vla/artifacts/crp_vla/maturation/factual_fixture/batches/task13.pt",
+      "fixture_sha256": "0b65865aa275227cf6bf18a50059e5db8cd8fffa841a9cbff0efc327d9d5f635",
+      "sample_index_within_episode": 54,
+      "task": "put the cream cheese in the bowl",
+      "task_index": 13
+    },
+    {
+      "absolute_frame_index": 152273,
+      "episode": 795,
+      "episode_length": 114,
+      "fixture": "/root/crp-vla/artifacts/crp_vla/maturation/factual_fixture/batches/task14.pt",
+      "fixture_sha256": "97a00a351d6dd46f73e7dc7580f04dc7206ed9910e37be36decb9495c500e139",
+      "sample_index_within_episode": 57,
+      "task": "put the wine bottle on top of the cabinet",
+      "task_index": 14
+    },
+    {
+      "absolute_frame_index": 150485,
+      "episode": 781,
+      "episode_length": 125,
+      "fixture": "/root/crp-vla/artifacts/crp_vla/maturation/factual_fixture/batches/task15.pt",
+      "fixture_sha256": "96a93178ad78c28b000ff2387df109de6d8d2a6cd64da961eae900f3e63b2da2",
+      "sample_index_within_episode": 62,
+      "task": "push the plate to the front of the stove",
+      "task_index": 15
+    },
+    {
+      "absolute_frame_index": 152845,
+      "episode": 800,
+      "episode_length": 79,
+      "fixture": "/root/crp-vla/artifacts/crp_vla/maturation/factual_fixture/batches/task16.pt",
+      "fixture_sha256": "b0f108b5356032cab7b1f03fd99e849f17e1e343afe69fbe18b74b2f634a966a",
+      "sample_index_within_episode": 39,
+      "task": "turn on the stove",
+      "task_index": 16
+    },
+    {
+      "absolute_frame_index": 153371,
+      "episode": 805,
+      "episode_length": 95,
+      "fixture": "/root/crp-vla/artifacts/crp_vla/maturation/factual_fixture/batches/task17.pt",
+      "fixture_sha256": "3ce049bd2d8a435313edb7ba04f18cdc7bd5e4b9d7f11673273274f07755e53d",
+      "sample_index_within_episode": 47,
+      "task": "put the bowl on the stove",
+      "task_index": 17
+    },
+    {
+      "absolute_frame_index": 152162,
+      "episode": 794,
+      "episode_length": 108,
+      "fixture": "/root/crp-vla/artifacts/crp_vla/maturation/factual_fixture/batches/task18.pt",
+      "fixture_sha256": "0555009a43e4985b5b7dff1477bc97f3b490fc0d443e3506d63b13bf6d9b9bd4",
+      "sample_index_within_episode": 54,
+      "task": "put the bowl on top of the cabinet",
+      "task_index": 18
+    },
+    {
+      "absolute_frame_index": 153057,
+      "episode": 802,
+      "episode_length": 160,
+      "fixture": "/root/crp-vla/artifacts/crp_vla/maturation/factual_fixture/batches/task19.pt",
+      "fixture_sha256": "968354b762e46fbe269c809a598dd7f469c13cdb3fbef0c9482b719b1b047124",
+      "sample_index_within_episode": 80,
+      "task": "open the middle drawer of the cabinet",
+      "task_index": 19
+    },
+    {
+      "absolute_frame_index": 215692,
+      "episode": 1227,
+      "episode_length": 126,
+      "fixture": "/root/crp-vla/artifacts/crp_vla/maturation/factual_fixture/batches/task20.pt",
+      "fixture_sha256": "5920f8060e0c2ecfba3fcfcb09e40e54cefe26c787b4a968460aa04515e711f9",
+      "sample_index_within_episode": 63,
+      "task": "pick up the orange juice and place it in the basket",
+      "task_index": 20
+    },
+    {
+      "absolute_frame_index": 220419,
+      "episode": 1260,
+      "episode_length": 152,
+      "fixture": "/root/crp-vla/artifacts/crp_vla/maturation/factual_fixture/batches/task21.pt",
+      "fixture_sha256": "cf8d3e26ba7ff74b6b77315fdd28db6711dcad893c72af70a7d33c43fc3e69dd",
+      "sample_index_within_episode": 76,
+      "task": "pick up the ketchup and place it in the basket",
+      "task_index": 21
+    },
+    {
+      "absolute_frame_index": 219846,
+      "episode": 1256,
+      "episode_length": 128,
+      "fixture": "/root/crp-vla/artifacts/crp_vla/maturation/factual_fixture/batches/task22.pt",
+      "fixture_sha256": "a9c8cfcff120999578162d223e510890b66fb91f1316207527ad893d1695bee6",
+      "sample_index_within_episode": 64,
+      "task": "pick up the cream cheese and place it in the basket",
+      "task_index": 22
+    },
+    {
+      "absolute_frame_index": 220116,
+      "episode": 1258,
+      "episode_length": 148,
+      "fixture": "/root/crp-vla/artifacts/crp_vla/maturation/factual_fixture/batches/task23.pt",
+      "fixture_sha256": "15ac719311dbd53af70935507c9f48e7560d72bad0f6fa24b59bc856747b9838",
+      "sample_index_within_episode": 74,
+      "task": "pick up the bbq sauce and place it in the basket",
+      "task_index": 23
+    },
+    {
+      "absolute_frame_index": 218305,
+      "episode": 1245,
+      "episode_length": 157,
+      "fixture": "/root/crp-vla/artifacts/crp_vla/maturation/factual_fixture/batches/task24.pt",
+      "fixture_sha256": "eefe517418db2e937dfeb9ec3ffa4601ab95e2ae96ebc2d60b85462cbb7213ef",
+      "sample_index_within_episode": 78,
+      "task": "pick up the alphabet soup and place it in the basket",
+      "task_index": 24
+    },
+    {
+      "absolute_frame_index": 218701,
+      "episode": 1248,
+      "episode_length": 135,
+      "fixture": "/root/crp-vla/artifacts/crp_vla/maturation/factual_fixture/batches/task25.pt",
+      "fixture_sha256": "cfa4626e7b8934e3d90c44ecbbe63addf00dbb5772142fb47eeede9f344b172c",
+      "sample_index_within_episode": 67,
+      "task": "pick up the milk and place it in the basket",
+      "task_index": 25
+    },
+    {
+      "absolute_frame_index": 219302,
+      "episode": 1252,
+      "episode_length": 125,
+      "fixture": "/root/crp-vla/artifacts/crp_vla/maturation/factual_fixture/batches/task26.pt",
+      "fixture_sha256": "87bbbaa23bf5d67ac67c23cf9a8882f868848721d0aef36ce29764086e8151b4",
+      "sample_index_within_episode": 62,
+      "task": "pick up the salad dressing and place it in the basket",
+      "task_index": 26
+    },
+    {
+      "absolute_frame_index": 217263,
+      "episode": 1238,
+      "episode_length": 164,
+      "fixture": "/root/crp-vla/artifacts/crp_vla/maturation/factual_fixture/batches/task27.pt",
+      "fixture_sha256": "45dbd424c44efd4b1d4356430391ce3fc9660b147e1e7dbfb44e0874ba7a36a0",
+      "sample_index_within_episode": 82,
+      "task": "pick up the butter and place it in the basket",
+      "task_index": 27
+    },
+    {
+      "absolute_frame_index": 219976,
+      "episode": 1257,
+      "episode_length": 132,
+      "fixture": "/root/crp-vla/artifacts/crp_vla/maturation/factual_fixture/batches/task28.pt",
+      "fixture_sha256": "ea0697d5cd90ed6ab78002593dbe063863eee6be2a5f6da4de3f282d49f12894",
+      "sample_index_within_episode": 66,
+      "task": "pick up the tomato sauce and place it in the basket",
+      "task_index": 28
+    },
+    {
+      "absolute_frame_index": 220266,
+      "episode": 1259,
+      "episode_length": 153,
+      "fixture": "/root/crp-vla/artifacts/crp_vla/maturation/factual_fixture/batches/task29.pt",
+      "fixture_sha256": "2f5c23189710519a097d2f8bacfdfcb55f8c8829e5e265ac78196799d05a8029",
+      "sample_index_within_episode": 76,
+      "task": "pick up the chocolate pudding and place it in the basket",
+      "task_index": 29
+    },
+    {
+      "absolute_frame_index": 270277,
+      "episode": 1666,
+      "episode_length": 130,
+      "fixture": "/root/crp-vla/artifacts/crp_vla/maturation/factual_fixture/batches/task30.pt",
+      "fixture_sha256": "66d00c07124b6a58ec3ce34e2336ff81c40295c24867a41a96dc7b71e4daeed8",
+      "sample_index_within_episode": 65,
+      "task": "pick up the black bowl next to the cookie box and place it on the plate",
+      "task_index": 30
+    },
+    {
+      "absolute_frame_index": 272764,
+      "episode": 1687,
+      "episode_length": 143,
+      "fixture": "/root/crp-vla/artifacts/crp_vla/maturation/factual_fixture/batches/task31.pt",
+      "fixture_sha256": "ad8636ee864c44c40f1fc656ff01967bd33563168825a6e357f96f17186dce4e",
+      "sample_index_within_episode": 71,
+      "task": "pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate",
+      "task_index": 31
+    },
+    {
+      "absolute_frame_index": 273410,
+      "episode": 1692,
+      "episode_length": 109,
+      "fixture": "/root/crp-vla/artifacts/crp_vla/maturation/factual_fixture/batches/task32.pt",
+      "fixture_sha256": "66fa9f0033a74981066f43d7b0191357cb0368126fbac263a72e1b2ad20cef32",
+      "sample_index_within_episode": 54,
+      "task": "pick up the black bowl on the ramekin and place it on the plate",
+      "task_index": 32
+    },
+    {
+      "absolute_frame_index": 273286,
+      "episode": 1691,
+      "episode_length": 140,
+      "fixture": "/root/crp-vla/artifacts/crp_vla/maturation/factual_fixture/batches/task33.pt",
+      "fixture_sha256": "8d6a7946000b5157db8b51f61be56522926cbf103382ff450ba81a922b28ae5b",
+      "sample_index_within_episode": 70,
+      "task": "pick up the black bowl on the stove and place it on the plate",
+      "task_index": 33
+    },
+    {
+      "absolute_frame_index": 271807,
+      "episode": 1679,
+      "episode_length": 88,
+      "fixture": "/root/crp-vla/artifacts/crp_vla/maturation/factual_fixture/batches/task34.pt",
+      "fixture_sha256": "723c4b5c85a3ac9ee6fedd6862e1b0f2b5ac0e873491861bee1d9990c146d679",
+      "sample_index_within_episode": 44,
+      "task": "pick up the black bowl between the plate and the ramekin and place it on the plate",
+      "task_index": 34
+    },
+    {
+      "absolute_frame_index": 270719,
+      "episode": 1670,
+      "episode_length": 90,
+      "fixture": "/root/crp-vla/artifacts/crp_vla/maturation/factual_fixture/batches/task35.pt",
+      "fixture_sha256": "73fe4ceb6e1b100d886179cdd1fc398094fac1d40c0c069d8abff30adfbf17c6",
+      "sample_index_within_episode": 45,
+      "task": "pick up the black bowl on the cookie box and place it on the plate",
+      "task_index": 35
+    },
+    {
+      "absolute_frame_index": 271714,
+      "episode": 1678,
+      "episode_length": 97,
+      "fixture": "/root/crp-vla/artifacts/crp_vla/maturation/factual_fixture/batches/task36.pt",
+      "fixture_sha256": "d45560215497f659031cb324407d9eb6ba69e473a1c4fe032297c8885bba5736",
+      "sample_index_within_episode": 48,
+      "task": "pick up the black bowl next to the plate and place it on the plate",
+      "task_index": 36
+    },
+    {
+      "absolute_frame_index": 272908,
+      "episode": 1688,
+      "episode_length": 145,
+      "fixture": "/root/crp-vla/artifacts/crp_vla/maturation/factual_fixture/batches/task37.pt",
+      "fixture_sha256": "43587c39d82f924f99fa9c8c407b970e4b8933acf497fc1f3fa850a27a604844",
+      "sample_index_within_episode": 72,
+      "task": "pick up the black bowl next to the ramekin and place it on the plate",
+      "task_index": 37
+    },
+    {
+      "absolute_frame_index": 272634,
+      "episode": 1686,
+      "episode_length": 117,
+      "fixture": "/root/crp-vla/artifacts/crp_vla/maturation/factual_fixture/batches/task38.pt",
+      "fixture_sha256": "cd0ffcecb6b54c1e058e9aea5b56f387f727c0c8ec2d681f7cbe261ca4850487",
+      "sample_index_within_episode": 58,
+      "task": "pick up the black bowl from table center and place it on the plate",
+      "task_index": 38
+    },
+    {
+      "absolute_frame_index": 273149,
+      "episode": 1690,
+      "episode_length": 133,
+      "fixture": "/root/crp-vla/artifacts/crp_vla/maturation/factual_fixture/batches/task39.pt",
+      "fixture_sha256": "9f2a001a50810458cc5a5013770c6c16a223a9662206d806487165af5abdbdec",
+      "sample_index_within_episode": 66,
+      "task": "pick up the black bowl on the wooden cabinet and place it on the plate",
+      "task_index": 39
+    }
+  ],
+  "registered_steps": [
+    1000,
+    3000,
+    5000,
+    10000,
+    20000,
+    30000
+  ],
+  "repository_commit": "3f690ebfac96bd1bd80aa090dfdb2995716f2488",
+  "repository_dirty": false,
+  "schema_version": 1,
+  "seed": 1000,
+  "selection_rule": "highest episode index and middle valid frame for each task index 0..39",
+  "status": "MATURATION_FACTUAL_FIXTURE_FROZEN",
+  "task_count": 40
+}

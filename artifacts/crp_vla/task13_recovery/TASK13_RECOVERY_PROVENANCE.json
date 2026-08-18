@@ -1,0 +1,39 @@
+{
+  "analysis_commit": "43db83b891847974c86a6afaf199438dc0adcc6b",
+  "analysis_dirty_before": false,
+  "attempt001_corrected_posthoc_overlap_records": 0,
+  "attempt001_primary": false,
+  "attempt001_self_dataset_excluded": true,
+  "attempt002_execution_commit": "33411fe453bb544f24844b3104ed807061ce30b3",
+  "audit_correction_commit": "a7250edaf3600e3519ad90edf8262cb3d2be8625",
+  "audit_correction_sha256": "6fb4570a0b9f5397b2e0b53e07bae381904c6dc7d3b8c1127ab648e8c868d58f",
+  "base_checkpoint_sha256": "9a9f6413e42c0f332fccbce9a0dc796af2790f82cf002f791cdbf7e01e1afca8",
+  "bootstrap_repeats": 10000,
+  "bootstrap_seed": 20260817,
+  "decision_rule_sha256": "5b757930b1a419e51066ae76467e8befe2c310b17eaedfef9bb1d3803c5cedaf",
+  "dev_b2_manifest_sha256": "8bb9b6100109f3ae02975a22bb558be1c4a4c70dd7094af313674dd2dfe57169",
+  "environment_fingerprint": {
+    "cuda_device": "NVIDIA A100-PCIE-40GB",
+    "cuda_runtime": "12.8",
+    "libero_commit": "8460457bfca6e0ef2e856bc104e2c60b023ef2a7",
+    "mujoco": "3.8.1",
+    "mujoco_py": null,
+    "nvidia_smi": "NVIDIA A100-PCIE-40GB, GPU-f0f74159-a195-9296-78e3-120bb1675174, 570.211.01, 40960 MiB",
+    "platform": "Linux-5.15.0-56-generic-x86_64-with-glibc2.35",
+    "python": "3.12.13",
+    "renderer": {
+      "EGL_DEVICE_ID": "0",
+      "MUJOCO_GL": "egl",
+      "PYOPENGL_PLATFORM": "egl"
+    },
+    "robosuite": "1.4.0",
+    "torch": "2.11.0+cu128"
+  },
+  "frozen_metrics_sha256": "8aa26359b21efa6f66e6ec7e0a00b76cbd8a647d74d604129df784bb7c7dc773",
+  "libero_commit": "8460457bfca6e0ef2e856bc104e2c60b023ef2a7",
+  "new_training": false,
+  "run_manifest_sha256": "95f2c5aa7d9f6885d9f9b36bb55706af6952c373e9b898fb2b7d2d493ee2473d",
+  "snap_checkpoint_sha256": "3523ff36091fdba82a97b798621b4ecee141554fcfe418816a6fbb1cf95f2b53",
+  "status": "TASK13_RECOVERY_PROVENANCE_COMPLETE",
+  "used_state_registry_sha256": "e02ba36f25b1777fcb3ee2315464387fdb05c93218137f68a4c4ca980ebe7b03"
+}

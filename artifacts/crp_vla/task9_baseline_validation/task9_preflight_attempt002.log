@@ -1,0 +1,12 @@
+Reducing the number of VLM layers to 16 ...
+Loading weights from local directory
+Reducing the number of VLM layers to 16 ...
+Loading weights from local directory
+Traceback (most recent call last):
+  File "/root/crp-vla/scripts/research/crp_vla/run_task9_preflight.py", line 371, in <module>
+    main()
+  File "/root/crp-vla/scripts/research/crp_vla/run_task9_preflight.py", line 189, in main
+    configure_standard_libero(args.libero_root, output_root / "preflight_libero_config")
+  File "/root/crp-vla/scripts/research/crp_vla/run_libero_paired_four_arm_pilot.py", line 189, in configure_standard_libero
+    raise FileNotFoundError(f"Pinned LIBERO checkout is incomplete: {missing}")
+FileNotFoundError: Pinned LIBERO checkout is incomplete: ['/root/.cache/libero/libero/libero/assets/scenes/libero_tabletop_base_style.xml', '/root/.cache/libero/libero/libero/bddl_files/libero_spatial', '/root/.cache/libero/libero/libero/init_files/libero_spatial']
