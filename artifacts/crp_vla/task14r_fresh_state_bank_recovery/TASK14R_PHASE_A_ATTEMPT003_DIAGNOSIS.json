@@ -1,0 +1,146 @@
+{
+  "attempt": "phase_a_attempt003",
+  "attempt_execution_git_commit": "34473e4b7aa44bd7cdb79c2acb9c5edb49aaac4f",
+  "case_count": 0,
+  "completed_arm_trace_count": 3,
+  "evidence_labels": [
+    "ENGINEERING_ONLY",
+    "OUTCOME_CONDITIONED",
+    "NON_PRIMARY"
+  ],
+  "failed_identity_case_count": 1,
+  "failure": {
+    "first_failed_case_id": "libero_10-task03-init48-seed22060818",
+    "first_processed_observation_mismatch_step": 10,
+    "first_raw_observation_mismatch_step": 1,
+    "first_snap_repeat_noop_action_mismatch_step": 10,
+    "full_swap_base_repeat_checked": false,
+    "historical_base_outcome_reproduced": true,
+    "historical_snap_outcome_reproduced": false,
+    "noop_snap_repeat_identity": false,
+    "reasons": [
+      "SnapRepeat succeeded although archived Attempt002 Snap failed",
+      "NoOp failed although SnapRepeat succeeded",
+      "successive hard resets restored the same flattened MuJoCo state but different fixed-body model positions and camera observations"
+    ]
+  },
+  "first_case_completed_arms": [
+    {
+      "arm": "base_repeat",
+      "steps": 229,
+      "success": true,
+      "trace_sha256": "61a82a4e40aa5c3d65a1f36445f9fc59fe65bf0bc04bbc2cd8d313989bd6249a"
+    },
+    {
+      "arm": "snap_repeat",
+      "steps": 225,
+      "success": true,
+      "trace_sha256": "f4a77cb5e7c9cf2c6f3779e292fe9e602bc19cf36be237f2768fffc96f83e799"
+    },
+    {
+      "arm": "noop",
+      "steps": 520,
+      "success": false,
+      "trace_sha256": "cd295be9796f4909b9506b3758faea1fc0bef4be3b59d8c993e528902b62c702"
+    }
+  ],
+  "formal_case_count": 0,
+  "formal_outcome_rollout_count": 0,
+  "historical_attempt002_200_pair_audit": {
+    "both_fail": {
+      "case_count": 20,
+      "physical_state_mismatch_count": 0
+    },
+    "case_count": 200,
+    "harmful": {
+      "case_count": 15,
+      "physical_state_mismatch_count": 5
+    },
+    "physical_state_mismatch_case_ids": [
+      "libero_10-task03-init45-seed21760818",
+      "libero_10-task03-init46-seed21860818",
+      "libero_10-task03-init47-seed21960818",
+      "libero_10-task03-init48-seed22060818",
+      "libero_10-task03-init49-seed22160818",
+      "libero_10-task08-init45-seed24260818",
+      "libero_10-task08-init46-seed24360818",
+      "libero_10-task08-init47-seed24460818",
+      "libero_10-task08-init48-seed24560818",
+      "libero_10-task08-init49-seed24660818",
+      "libero_10-task09-init45-seed24760818",
+      "libero_10-task09-init46-seed24860818",
+      "libero_10-task09-init47-seed24960818",
+      "libero_10-task09-init48-seed25060818",
+      "libero_10-task09-init49-seed25160818"
+    ],
+    "physical_state_mismatch_count": 15,
+    "preserved": {
+      "case_count": 153,
+      "physical_state_mismatch_count": 7
+    },
+    "qpos_mismatch_count": 0,
+    "qvel_mismatch_count": 0,
+    "state_blob_mismatch_count": 0,
+    "student_only_success": {
+      "case_count": 12,
+      "physical_state_mismatch_count": 3
+    }
+  },
+  "historical_attempt002_harmful15_audit": {
+    "case_count": 15,
+    "failed_case_ids": [
+      "libero_10-task03-init48-seed22060818",
+      "libero_10-task08-init46-seed24360818",
+      "libero_10-task08-init47-seed24460818",
+      "libero_10-task09-init48-seed25060818",
+      "libero_10-task09-init49-seed25160818"
+    ],
+    "physical_state_mismatch_count": 5,
+    "qpos_mismatch_count": 0,
+    "qvel_mismatch_count": 0,
+    "state_blob_mismatch_count": 0
+  },
+  "no_policy_reset_diagnostic": {
+    "hard_reset": {
+      "controller_state_equal": true,
+      "fixed_body_position_equal": false,
+      "restored_state_blob_equal": true,
+      "same_action_next_state_blob_equal": true,
+      "successive_cabinet_positions": [
+        [-0.007839184427435164, 0.293164034411387, 0.905],
+        [-0.00683596558861296, 0.30937999848139236, 0.905],
+        [0.009379998481392341, 0.3089618357864853, 0.905]
+      ],
+      "successive_object_property_initializer_counts": [3, 4, 5],
+      "successive_raw_camera_equal": false
+    },
+    "outcome_rollouts": 0,
+    "policy_queries": 0,
+    "soft_reset_probe": {
+      "fixed_body_position_equal": true,
+      "raw_and_next_camera_equal": true,
+      "restored_and_next_state_blob_equal": true,
+      "stale_controller_cache_equal_on_first_repeat": false
+    },
+    "training_or_parameter_updates": false
+  },
+  "passed_identity_case_count": 0,
+  "planned_case_count": 15,
+  "planned_rollout_count": 90,
+  "rollout_count": 3,
+  "root_cause": {
+    "description": "LIBERO BDDLBaseDomain rebuilds placement initializers on every hard reset but does not clear object_property_initializers. Tasks with open/close or turn-on/off predicates therefore consume an increasing number of random draws. Fixed fixture positions are stored in sim.model.body_pos, not in the flattened simulator state saved by the capsule.",
+    "affected_model_field": "body_pos",
+    "first_case_affected_bodies": [
+      "white_cabinet_1_main",
+      "wine_rack_1_main"
+    ]
+  },
+  "source_integrity": {
+    "console_log_sha256": "684f11018ac9068fb8e6894f93dc4b45597d2c279f1ffa91e723e3a9d8e350e8",
+    "diagnostic_json_sha256": "e0dc1e729a3fba1dcce47c414f2c51ecfa1aeac0c2382ec40ad11518d65ac6f9",
+    "diagnostic_script_sha256": "b09fa4fe612fa937a795f67394cbbed0c729a959ca97185bf739ff4a60d69ee6"
+  },
+  "status": "TASK14R_PHASE_A_ENGINEERING_GATES_FAILED",
+  "training_or_parameter_updates": false
+}
