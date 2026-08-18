@@ -31,6 +31,7 @@ from task14r_common import (
     clipping_record,
     compare_closed_loop_steps,
     compose_online_action_chunk,
+    phase_a_offline_preprocessor_overrides,
 )
 from trajectory_instrumentation import capture_libero_state, physical_state_hash
 
@@ -141,12 +142,21 @@ def main() -> None:
         config.load_vlm_weights = False
         config.vlm_model_name = str(args.offline_vlm_model_dir.resolve())
         config.n_action_steps = args.execution_horizon
-        policy = SmolVLAPolicy.from_pretrained(checkpoint, config=config, revision=revision, strict=False)
+        policy = SmolVLAPolicy.from_pretrained(
+            checkpoint,
+            config=config,
+            revision=revision,
+            local_files_only=True,
+            strict=False,
+        )
         policy.eval()
         preprocessor, postprocessor = make_pre_post_processors(
             config,
             str(checkpoint),
-            preprocessor_overrides={"device_processor": {"device": args.device}},
+            preprocessor_overrides=phase_a_offline_preprocessor_overrides(
+                args.offline_vlm_model_dir,
+                args.device,
+            ),
         )
         return {"policy": policy, "preprocessor": preprocessor, "postprocessor": postprocessor}
 

@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import copy
+from pathlib import Path
 
 import pytest
 import torch
@@ -12,9 +13,31 @@ from scripts.research.crp_vla.task14r_common import (
     compare_closed_loop_steps,
     compose_online_action_chunk,
     freeze_state_bank,
+    phase_a_offline_preprocessor_overrides,
     structured_seed,
     terminal_status,
 )
+
+
+def test_phase_a_preprocessor_is_bound_to_frozen_offline_tokenizer(tmp_path: Path) -> None:
+    offline_vlm = tmp_path / "offline_smolvlm"
+    offline_vlm.mkdir()
+    for name in ("tokenizer.json", "tokenizer_config.json"):
+        (offline_vlm / name).write_text("{}")
+
+    overrides = phase_a_offline_preprocessor_overrides(offline_vlm, "cuda")
+
+    assert overrides == {
+        "device_processor": {"device": "cuda"},
+        "tokenizer_processor": {"tokenizer_name": str(offline_vlm.resolve())},
+    }
+
+
+def test_phase_a_offline_tokenizer_binding_fails_closed(tmp_path: Path) -> None:
+    offline_vlm = tmp_path / "offline_smolvlm"
+    offline_vlm.mkdir()
+    with pytest.raises(FileNotFoundError, match="tokenizer.json"):
+        phase_a_offline_preprocessor_overrides(offline_vlm, "cuda")
 
 
 def test_all_six_arms_preserve_component_contract() -> None:

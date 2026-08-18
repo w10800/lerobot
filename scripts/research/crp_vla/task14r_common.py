@@ -6,6 +6,7 @@ from __future__ import annotations
 import hashlib
 from collections import defaultdict
 from collections.abc import Mapping, Sequence
+from pathlib import Path
 from typing import Any
 
 import numpy as np
@@ -40,6 +41,24 @@ _FORBIDDEN_SELECTION_KEYS = {
     "outcome_label",
     "policy_score",
 }
+_OFFLINE_TOKENIZER_REQUIRED_FILES = ("tokenizer.json", "tokenizer_config.json")
+
+
+def phase_a_offline_preprocessor_overrides(
+    offline_vlm_model_dir: str | Path,
+    device: str,
+) -> dict[str, dict[str, str]]:
+    """Bind Phase A preprocessing to the frozen local tokenizer and execution device."""
+    directory = Path(offline_vlm_model_dir).resolve()
+    if not directory.is_dir():
+        raise FileNotFoundError(f"Offline VLM directory does not exist: {directory}")
+    missing = [name for name in _OFFLINE_TOKENIZER_REQUIRED_FILES if not (directory / name).is_file()]
+    if missing:
+        raise FileNotFoundError(f"Offline tokenizer files are incomplete: {missing}")
+    return {
+        "device_processor": {"device": device},
+        "tokenizer_processor": {"tokenizer_name": str(directory)},
+    }
 
 
 def file_sha256_bytes(value: bytes) -> str:
