@@ -1,0 +1,167 @@
+from __future__ import annotations
+
+import copy
+
+import pytest
+import torch
+
+from scripts.research.crp_vla.task14r_common import (
+    TASK14R_PHASE_A_ARMS,
+    audit_generated_distribution,
+    clipping_record,
+    compare_closed_loop_steps,
+    compose_online_action_chunk,
+    freeze_state_bank,
+    structured_seed,
+    terminal_status,
+)
+
+
+def test_all_six_arms_preserve_component_contract() -> None:
+    base = torch.arange(70, dtype=torch.float64).reshape(10, 7)
+    snap = -base - 1
+    outputs = {arm: compose_online_action_chunk(base, snap, arm) for arm in TASK14R_PHASE_A_ARMS}
+    assert torch.equal(outputs["base_repeat"], base)
+    assert torch.equal(outputs["full_swap"], base)
+    assert torch.equal(outputs["snap_repeat"], snap)
+    assert torch.equal(outputs["noop"], snap)
+    assert torch.equal(outputs["pos_swap"][:, :3], base[:, :3])
+    assert torch.equal(outputs["pos_swap"][:, 3:], snap[:, 3:])
+    assert torch.equal(outputs["rot_swap"][:, :3], snap[:, :3])
+    assert torch.equal(outputs["rot_swap"][:, 3:6], base[:, 3:6])
+    assert torch.equal(outputs["rot_swap"][:, 6:], snap[:, 6:])
+
+
+def test_candidate_seed_is_stable_and_namespaced() -> None:
+    first = structured_seed("libero_spatial", 0, 0)
+    second = structured_seed("libero_spatial", 0, 0)
+    probe = structured_seed("libero_spatial", 0, 0, namespace="capacity_probe")
+    assert first == second
+    assert first["numpy_seed"] == 451399460
+    assert first != probe
+
+
+def test_clipping_record_keeps_before_and_after() -> None:
+    row = clipping_record([1.2, -1.3, 0, 0, 0, 0, 2.0])
+    assert row["before"] == [1.2, -1.3, 0.0, 0.0, 0.0, 0.0, 2.0]
+    assert row["after"] == [1.0, -1.0, 0.0, 0.0, 0.0, 0.0, 1.0]
+    assert row["changed_count"] == 3
+
+
+def _step(index: int) -> dict[str, object]:
+    return {
+        "composed_action_before_clipping": [float(index)] * 7,
+        "physical_state_before_sha256": f"before-{index}",
+        "physical_state_after_sha256": f"after-{index}",
+        "observation_sha256": f"obs-{index}",
+        "replan_index": index // 10,
+        "chunk_index": index % 10,
+        "termination_reason": "SUCCESS" if index == 1 else None,
+    }
+
+
+def test_closed_loop_identity_localizes_state_divergence() -> None:
+    left = [_step(0), _step(1)]
+    right = copy.deepcopy(left)
+    exact = compare_closed_loop_steps(left, right)
+    assert exact["closed_loop_identity"]
+    right[1]["physical_state_after_sha256"] = "different"
+    mismatch = compare_closed_loop_steps(left, right)
+    assert not mismatch["closed_loop_identity"]
+    assert mismatch["first_physical_state_mismatch_step"] == 1
+    assert mismatch["first_action_mismatch_step"] is None
+
+
+def _candidate(task_key: str, index: int, accepted: bool = True) -> dict[str, object]:
+    checks = {
+        "finite_observation": accepted,
+        "legal_initial_predicates": True,
+        "not_initially_successful": True,
+        "no_severe_penetration_or_explosion": True,
+        "reset_reproducible": True,
+        "zero_historical_overlap": True,
+        "scene_task_match": True,
+    }
+    return {
+        "task_key": task_key,
+        "candidate_index": index,
+        "state_id": f"{task_key}-candidate-{index}",
+        "raw_state_sha256": f"raw-{task_key}-{index:02d}",
+        "settled_physical_state_sha256": f"settled-{task_key}-{index:02d}",
+        "policy_query_count": 0,
+        "outcomes_accessed": False,
+        "acceptance_checks": checks,
+        "accepted": all(checks.values()),
+    }
+
+
+def test_state_bank_hash_sort_is_fixed_and_reserve_is_not_adaptive() -> None:
+    rows = [_candidate("suite:0", index) for index in range(20)]
+    bank = freeze_state_bank(rows, ["suite:0"])
+    assert bank["status"] == "FRESH_STATE_BANK_400_FROZEN"
+    assert bank["formal_case_count"] == 10
+    assert bank["reserve_case_count"] == 10
+    assert not bank["adaptive_reserve_activation"]
+    assert [row["candidate_index"] for row in bank["formal_states"]] == list(range(10))
+
+
+def test_state_bank_refuses_outcome_conditioned_selection() -> None:
+    rows = [_candidate("suite:0", index) for index in range(20)]
+    rows[0]["base_success"] = True
+    with pytest.raises(ValueError, match="Outcome-conditioned"):
+        freeze_state_bank(rows, ["suite:0"])
+
+
+def _distribution_rows(task_key: str, count: int, offset: float) -> list[dict[str, object]]:
+    rows = []
+    for index in range(count):
+        value = float(index) / max(count - 1, 1) + offset
+        rows.append(
+            {
+                "task_key": task_key,
+                "state_id": f"{task_key}-{index}",
+                "features": {
+                    "robot_joint_pos/j0": value,
+                    "eef_position/x": value,
+                    "object_position/object/x": value,
+                    "settling_displacement/max_object": value / 100,
+                },
+            }
+        )
+    return rows
+
+
+def test_distribution_audit_passes_supported_generated_states() -> None:
+    official = _distribution_rows("suite:0", 50, 0.0)
+    formal = _distribution_rows("suite:0", 10, 0.0)
+    audit = audit_generated_distribution(official, formal, ["suite:0"])
+    assert audit["status"] == "GENERATED_STATE_DISTRIBUTION_AUDIT_PASSED"
+
+
+def test_distribution_audit_requires_four_task_family_mismatches() -> None:
+    tasks = [f"suite:{index}" for index in range(4)]
+    official = [row for task in tasks for row in _distribution_rows(task, 50, 0.0)]
+    formal = [row for task in tasks for row in _distribution_rows(task, 10, 10.0)]
+    audit = audit_generated_distribution(official, formal, tasks)
+    assert audit["status"] == "GENERATED_STATE_DISTRIBUTION_MISMATCH"
+
+
+def test_terminal_status_requires_every_recovery_gate() -> None:
+    ready = terminal_status(
+        bank_status="FRESH_STATE_BANK_400_FROZEN",
+        distribution_status="GENERATED_STATE_DISTRIBUTION_AUDIT_PASSED",
+        capacity_probe_passed=True,
+        zero_historical_overlap=True,
+        all_formal_reproducible=True,
+    )
+    assert ready == "READY_FOR_TASK14_CAUSAL_RELAUNCH"
+    assert (
+        terminal_status(
+            bank_status="FRESH_STATE_BANK_400_FROZEN",
+            distribution_status="GENERATED_STATE_DISTRIBUTION_MISMATCH",
+            capacity_probe_passed=True,
+            zero_historical_overlap=True,
+            all_formal_reproducible=True,
+        )
+        == "GENERATED_STATE_DISTRIBUTION_MISMATCH"
+    )
