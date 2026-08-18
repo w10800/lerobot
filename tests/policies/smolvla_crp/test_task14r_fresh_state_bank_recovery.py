@@ -9,6 +9,7 @@ import torch
 from scripts.research.crp_vla.task14r_common import (
     TASK14R_PHASE_A_ARMS,
     audit_generated_distribution,
+    audit_phase_a_historical_pair_identity,
     clipping_record,
     compare_closed_loop_steps,
     compose_online_action_chunk,
@@ -50,6 +51,48 @@ def test_phase_a_output_root_is_reserved_before_child_configuration(tmp_path: Pa
     assert not config_dir.exists()
     with pytest.raises(FileExistsError):
         reserve_phase_a_output_root(output_root)
+
+
+def _historical_state(fixture_x: float) -> dict[str, object]:
+    return {
+        "state_blob": torch.zeros(3).numpy(),
+        "qpos": torch.zeros(2).numpy(),
+        "qvel": torch.zeros(2).numpy(),
+        "state_blob_sha256": "same-state-blob",
+        "qpos_sha256": "same-qpos",
+        "qvel_sha256": "same-qvel",
+        "object_states": {
+            "fixture_main": {
+                "pos": torch.tensor([fixture_x, 0.0, 0.9], dtype=torch.float64).numpy(),
+                "quat": torch.tensor([1.0, 0.0, 0.0, 0.0], dtype=torch.float64).numpy(),
+            }
+        },
+        "robot_state": {},
+        "end_effector_pose": {},
+        "gripper_state": {},
+        "canonical_observation": {"pixels": "excluded-from-physical-hash"},
+    }
+
+
+def test_phase_a_historical_identity_detects_nonserialized_fixture_drift() -> None:
+    base = _historical_state(0.0)
+    pairs = [
+        {
+            "case_id": f"case-{index}",
+            "base_simulator_state": base,
+            "snap_simulator_state": _historical_state(0.1 if index == 4 else 0.0),
+        }
+        for index in range(15)
+    ]
+
+    audit = audit_phase_a_historical_pair_identity(pairs)
+
+    assert audit["status"] == "TASK14R_HISTORICAL_PAIR_IDENTITY_FAILED"
+    assert audit["passed_case_count"] == 14
+    assert audit["failed_case_count"] == 1
+    assert audit["failed_case_ids"] == ["case-4"]
+    assert audit["rows"][4]["state_blob_equal"]
+    assert not audit["rows"][4]["physical_state_equal"]
 
 
 def test_all_six_arms_preserve_component_contract() -> None:
