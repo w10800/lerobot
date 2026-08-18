@@ -1,0 +1,520 @@
+{
+  "case_count": 15,
+  "cases": [
+    {
+      "attempt002_base_action_stream_sha256": "a4420fa7b38a11a02ef6c8220583664bfd95c7b3c3316aeb053f27c05a621b57",
+      "attempt002_base_success": true,
+      "attempt002_base_trace_manifest": {
+        "path": "artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_10-task03-init48-seed22060818/base10.sha256.json",
+        "sha256": "586b4f7b5e6d331668497d16b77e09f892cd7c57fafedadb711d28a149ad4ee5"
+      },
+      "attempt002_case_id": "libero_10-task03-init48-seed22060818",
+      "attempt002_outcome_label": "harmful",
+      "attempt002_snap_action_stream_sha256": "f43d727c895089c097e7fe4364694ca5230c83e3ea3ebcd791ce232ef8dab644",
+      "attempt002_snap_success": false,
+      "attempt002_snap_trace_manifest": {
+        "path": "artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_10-task03-init48-seed22060818/snap1.sha256.json",
+        "sha256": "214f473b9ff6671b472f7c0af387e6c3a56bd771abed28f7e6742a91849278c9"
+      },
+      "capsule_path": "artifacts/crp_vla/task13_recovery/attempt002_execution/capsules/development/libero_10-task03-init48-seed22060818",
+      "capsule_sha256": "e5ff7ce4ee3b9a8c1aad82188f8ec32ea6d916f2e397be5433c29f0f94de66a7",
+      "case_id": "dev-b2-libero_10-task03-state48",
+      "env_seed": 22060818,
+      "init_state_id": 48,
+      "initial_state_hash": "f0a3e24b3ef14a54d06291d6b85d2e09a0214fb3916cb37a4d203dbcae5c17b5",
+      "max_steps": 520,
+      "noise_schedule_sha256": "7e9149d813ce3c9d4d68257b9cb1d12d52e735d4d6d6437ada58a92c09d37087",
+      "outcome_accessed": false,
+      "qpos_qvel_hash": "118f46de682d2d74132a6c384c7d65ff40ec0a06c19ff150d9a30457a667e8fb",
+      "simulator_state_hash": "b86765b0040c6dbf0cb115055de131345ffa66fa4194690871178b845d1bf40c",
+      "suite": "libero_10",
+      "task_id": 3,
+      "task_instruction": "put the black bowl in the bottom drawer of the cabinet and close it",
+      "task_key": "libero_10:3",
+      "task_name": "KITCHEN_SCENE4_put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close_it"
+    },
+    {
+      "attempt002_base_action_stream_sha256": "dec238458080f104b3b6ca54a7b475fe8a3f073515307ba5e3b3286480f0986e",
+      "attempt002_base_success": true,
+      "attempt002_base_trace_manifest": {
+        "path": "artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_10-task04-init45-seed22260818/base10.sha256.json",
+        "sha256": "ef33157e6942ebb051d827f16b209eae907c2dde41e4baf9d73cfc614ffc2b18"
+      },
+      "attempt002_case_id": "libero_10-task04-init45-seed22260818",
+      "attempt002_outcome_label": "harmful",
+      "attempt002_snap_action_stream_sha256": "9cdddd3c48b98b3395cec2242bcdfeb9748b7a4228967d33bf547da338b73dc8",
+      "attempt002_snap_success": false,
+      "attempt002_snap_trace_manifest": {
+        "path": "artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_10-task04-init45-seed22260818/snap1.sha256.json",
+        "sha256": "0557d9bda0e81957b2369a2b771a5e2a1530e621dc50bbcd84665ec7cacc5a1f"
+      },
+      "capsule_path": "artifacts/crp_vla/task13_recovery/attempt002_execution/capsules/development/libero_10-task04-init45-seed22260818",
+      "capsule_sha256": "56f60cbe365d347c9ab93834bba30591d02c492640de017f1e6c1c289202e42e",
+      "case_id": "dev-b2-libero_10-task04-state45",
+      "env_seed": 22260818,
+      "init_state_id": 45,
+      "initial_state_hash": "4bd8826f3a03ef88cd16e5b892089e3c532412cb17d33d996a020eb8d102d3a6",
+      "max_steps": 520,
+      "noise_schedule_sha256": "c3a54dbf2d1c7f32682d304e5b5dd179edc7a48d19c65a8e444460170fd5edb6",
+      "outcome_accessed": false,
+      "qpos_qvel_hash": "5138d0460a95a07d080e2b8d77e5919867c4bedef24edb01f838e80429562c3d",
+      "simulator_state_hash": "a5146606d6b08b8fb7caf49a40ec8a8f9bdf83e5b75541fb5c83bcbf646587c3",
+      "suite": "libero_10",
+      "task_id": 4,
+      "task_instruction": "put the white mug on the left plate and put the yellow and white mug on the right plate",
+      "task_key": "libero_10:4",
+      "task_name": "LIVING_ROOM_SCENE5_put_the_white_mug_on_the_left_plate_and_put_the_yellow_and_white_mug_on_the_right_plate"
+    },
+    {
+      "attempt002_base_action_stream_sha256": "604261562d42be5d65978f8a5e0a77b76e59054432553771ccbd94ef9a5dec68",
+      "attempt002_base_success": true,
+      "attempt002_base_trace_manifest": {
+        "path": "artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_10-task04-init46-seed22360818/base10.sha256.json",
+        "sha256": "c7e6bfb74b37bfd977682514ee3db6f686f13e609d721d649a531914e88c3b44"
+      },
+      "attempt002_case_id": "libero_10-task04-init46-seed22360818",
+      "attempt002_outcome_label": "harmful",
+      "attempt002_snap_action_stream_sha256": "02e678a6da7eb7c280b6c69c45fd1f413394d144d0ea6bfef8bba6007167b27a",
+      "attempt002_snap_success": false,
+      "attempt002_snap_trace_manifest": {
+        "path": "artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_10-task04-init46-seed22360818/snap1.sha256.json",
+        "sha256": "abc173db7ff97d7852a8e95595e7d4f934053e62bb351ec9b76187edda0d8937"
+      },
+      "capsule_path": "artifacts/crp_vla/task13_recovery/attempt002_execution/capsules/development/libero_10-task04-init46-seed22360818",
+      "capsule_sha256": "0100370291a4b716eca0d3f954195ecd3bf45333ebc315c5c5a3a1301715e54d",
+      "case_id": "dev-b2-libero_10-task04-state46",
+      "env_seed": 22360818,
+      "init_state_id": 46,
+      "initial_state_hash": "e7a5d2c0652d9abaffa101588ef35c7390bf5dc91b21ab3a57811e74761187b0",
+      "max_steps": 520,
+      "noise_schedule_sha256": "f050aa5c74d3466bd905a25a54d4d7a3595680f36451398e1bebae1334389b34",
+      "outcome_accessed": false,
+      "qpos_qvel_hash": "92c99f864f7d1331bf51063598e583a33793bb1f912545e08e47690ac4e907e4",
+      "simulator_state_hash": "77409329fef7c130f940ff21370bde2ec62c1b0e6de41fa63e21c1dda6b0ea6e",
+      "suite": "libero_10",
+      "task_id": 4,
+      "task_instruction": "put the white mug on the left plate and put the yellow and white mug on the right plate",
+      "task_key": "libero_10:4",
+      "task_name": "LIVING_ROOM_SCENE5_put_the_white_mug_on_the_left_plate_and_put_the_yellow_and_white_mug_on_the_right_plate"
+    },
+    {
+      "attempt002_base_action_stream_sha256": "1c64519b2ea71aac1a3e432f29f1636533cb4bd444c234ee66ee3a15575148da",
+      "attempt002_base_success": true,
+      "attempt002_base_trace_manifest": {
+        "path": "artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_10-task04-init47-seed22460818/base10.sha256.json",
+        "sha256": "b73c1376f7f67ca7020b1b7dbb0cab9cf0c07acbd228297560384202d07f4ffd"
+      },
+      "attempt002_case_id": "libero_10-task04-init47-seed22460818",
+      "attempt002_outcome_label": "harmful",
+      "attempt002_snap_action_stream_sha256": "68923b85ac576b95011eb75cfd41317f084a5e246c64da9337ba9e15dd0482d9",
+      "attempt002_snap_success": false,
+      "attempt002_snap_trace_manifest": {
+        "path": "artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_10-task04-init47-seed22460818/snap1.sha256.json",
+        "sha256": "a876bb37dea6b18c5c8ad456bed3a9682c1463e4f07778b09988e733ff76e089"
+      },
+      "capsule_path": "artifacts/crp_vla/task13_recovery/attempt002_execution/capsules/development/libero_10-task04-init47-seed22460818",
+      "capsule_sha256": "7b4b8185f137017321d850383ed2b84749b13146e68d45f0e7df18df6cbd8707",
+      "case_id": "dev-b2-libero_10-task04-state47",
+      "env_seed": 22460818,
+      "init_state_id": 47,
+      "initial_state_hash": "73c11f92f27e674edf1ce6e0cfee1252d34e77cff81d83057c6a96468b5a7440",
+      "max_steps": 520,
+      "noise_schedule_sha256": "b7d9337e982edcf6b76bea6767d30e8d3f47335d9f67c544f55930c3d3c778db",
+      "outcome_accessed": false,
+      "qpos_qvel_hash": "bd935462f5068b7f62d1815002956eb701ef0810d86d5828acd70d8df219f163",
+      "simulator_state_hash": "37cbca2f391f631b638ae045314c8d89cfab7ff3cb0b856c6e28e5c82371cb08",
+      "suite": "libero_10",
+      "task_id": 4,
+      "task_instruction": "put the white mug on the left plate and put the yellow and white mug on the right plate",
+      "task_key": "libero_10:4",
+      "task_name": "LIVING_ROOM_SCENE5_put_the_white_mug_on_the_left_plate_and_put_the_yellow_and_white_mug_on_the_right_plate"
+    },
+    {
+      "attempt002_base_action_stream_sha256": "976043ddaa147ed308908c4318685bfa42154a17d4a0b49ae42137a66548ea31",
+      "attempt002_base_success": true,
+      "attempt002_base_trace_manifest": {
+        "path": "artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_10-task06-init45-seed23260818/base10.sha256.json",
+        "sha256": "1ea0e0f31f0988e3158336492fb0d48e91e671c3c445bf29856a908de2950586"
+      },
+      "attempt002_case_id": "libero_10-task06-init45-seed23260818",
+      "attempt002_outcome_label": "harmful",
+      "attempt002_snap_action_stream_sha256": "83cf360b96c9f46c18cb246155f0103c65d69cd39d49c1f10800a980c06e7c9d",
+      "attempt002_snap_success": false,
+      "attempt002_snap_trace_manifest": {
+        "path": "artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_10-task06-init45-seed23260818/snap1.sha256.json",
+        "sha256": "44380fd7323873377cf0910e2a645d32ba9e16ea967e06f239e52a75cab8e986"
+      },
+      "capsule_path": "artifacts/crp_vla/task13_recovery/attempt002_execution/capsules/development/libero_10-task06-init45-seed23260818",
+      "capsule_sha256": "6beeb49f528b4c9ed0eea38739e04ddb2fde962ad95a72280850bf05a4d6f100",
+      "case_id": "dev-b2-libero_10-task06-state45",
+      "env_seed": 23260818,
+      "init_state_id": 45,
+      "initial_state_hash": "0b7e82024fa8be72112f8d7b2e35a7fffd5a1dc26ab4f7cd8e11d87287d2b8c4",
+      "max_steps": 520,
+      "noise_schedule_sha256": "07c22e864a862c85cfc29167bfbe65f6ce3889320b79155ad31e2e4c4c2bc363",
+      "outcome_accessed": false,
+      "qpos_qvel_hash": "a7e9f94d759237ba5d487e033834160350d455d0de239bdffd05791d52f7febd",
+      "simulator_state_hash": "a9de71fd4e7eec873088f315f1b699fb640456f4bab943f37cc21db0b66b784c",
+      "suite": "libero_10",
+      "task_id": 6,
+      "task_instruction": "put the white mug on the plate and put the chocolate pudding to the right of the plate",
+      "task_key": "libero_10:6",
+      "task_name": "LIVING_ROOM_SCENE6_put_the_white_mug_on_the_plate_and_put_the_chocolate_pudding_to_the_right_of_the_plate"
+    },
+    {
+      "attempt002_base_action_stream_sha256": "69858049eabc583fa3738baad1dcc3cd020ae42db5b4e9ae6b4d42aeacd928ee",
+      "attempt002_base_success": true,
+      "attempt002_base_trace_manifest": {
+        "path": "artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_10-task08-init46-seed24360818/base10.sha256.json",
+        "sha256": "6afb8cfd339136f748c97c724092626f1dbc7347525039093f7c87aa6d4ffe99"
+      },
+      "attempt002_case_id": "libero_10-task08-init46-seed24360818",
+      "attempt002_outcome_label": "harmful",
+      "attempt002_snap_action_stream_sha256": "f06135429b26b3a935dc4c8384ed2b7b6f6f9fe166de7ff82ef713506db3bbf1",
+      "attempt002_snap_success": false,
+      "attempt002_snap_trace_manifest": {
+        "path": "artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_10-task08-init46-seed24360818/snap1.sha256.json",
+        "sha256": "b9acd76351ab057f9251c838ed4db38536f3dfc19d9f9a87fdde173fea5d672a"
+      },
+      "capsule_path": "artifacts/crp_vla/task13_recovery/attempt002_execution/capsules/development/libero_10-task08-init46-seed24360818",
+      "capsule_sha256": "5aa3f2d60d07e385b732c55bfecab9ee808415e86ba3abd060b40165a2746ce7",
+      "case_id": "dev-b2-libero_10-task08-state46",
+      "env_seed": 24360818,
+      "init_state_id": 46,
+      "initial_state_hash": "49c1b3b64196d5e5f7ff1a4bc4993fd843195961d5bba0ddfbc036d412f73949",
+      "max_steps": 520,
+      "noise_schedule_sha256": "b329409abb9924ec37f7db1d696328af88bf12b9e9f694cb0898c0e5245a8c63",
+      "outcome_accessed": false,
+      "qpos_qvel_hash": "7afa14d786b6fa963782b2ffcdd98f55ca4d3b8e9184594bf42a5fc450a405e2",
+      "simulator_state_hash": "fc52f64b20f21f76066a510c963d48b7e53ab1e7f8c61b9c66748dc041cd47fa",
+      "suite": "libero_10",
+      "task_id": 8,
+      "task_instruction": "put both moka pots on the stove",
+      "task_key": "libero_10:8",
+      "task_name": "KITCHEN_SCENE8_put_both_moka_pots_on_the_stove"
+    },
+    {
+      "attempt002_base_action_stream_sha256": "29ae70b07397e3c074cb5d5140fddaa72ea2881a23ca67729f27dfb8213736d7",
+      "attempt002_base_success": true,
+      "attempt002_base_trace_manifest": {
+        "path": "artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_10-task08-init47-seed24460818/base10.sha256.json",
+        "sha256": "ffb7e012710317f042b4762e084a2e946ddf2d11adbe03c048273a6e6b403388"
+      },
+      "attempt002_case_id": "libero_10-task08-init47-seed24460818",
+      "attempt002_outcome_label": "harmful",
+      "attempt002_snap_action_stream_sha256": "20f44096a809072b778cc7d3efc514aaffd3acdeefc9c6d48d18d6e6d5759a36",
+      "attempt002_snap_success": false,
+      "attempt002_snap_trace_manifest": {
+        "path": "artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_10-task08-init47-seed24460818/snap1.sha256.json",
+        "sha256": "bde50dbc4e8ae3f797fb44b6162391ec4598d717660352380551547aebe24649"
+      },
+      "capsule_path": "artifacts/crp_vla/task13_recovery/attempt002_execution/capsules/development/libero_10-task08-init47-seed24460818",
+      "capsule_sha256": "d3149488bf2c77cba8be308b7ac47e183f231d90fc1a35d021dfee5ec602b776",
+      "case_id": "dev-b2-libero_10-task08-state47",
+      "env_seed": 24460818,
+      "init_state_id": 47,
+      "initial_state_hash": "36c44409fa66233c13e7e1c1d207df6e8dbe5be39e19401015303871c4b5a144",
+      "max_steps": 520,
+      "noise_schedule_sha256": "400af7911112c2533fe75d6b9bd0e649e23b99dacb3decafb99024ec623a95f4",
+      "outcome_accessed": false,
+      "qpos_qvel_hash": "47e04e257c3d25817b7668c6f14b2e2089fd46f6f252a48fc84a0a6ba543b00c",
+      "simulator_state_hash": "dfe8eda832a2b007e075af243f25c82f1f085a5dc33553747e161292fd9ac896",
+      "suite": "libero_10",
+      "task_id": 8,
+      "task_instruction": "put both moka pots on the stove",
+      "task_key": "libero_10:8",
+      "task_name": "KITCHEN_SCENE8_put_both_moka_pots_on_the_stove"
+    },
+    {
+      "attempt002_base_action_stream_sha256": "675caf7c44a111d97d97eed00d8424637490134cf7a15761275e6ba723bfbaa6",
+      "attempt002_base_success": true,
+      "attempt002_base_trace_manifest": {
+        "path": "artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_10-task09-init48-seed25060818/base10.sha256.json",
+        "sha256": "30fc3c5854c5b2c57c71b60f8fff9fb844d5ec97334958ae1f2f27d61ebe3118"
+      },
+      "attempt002_case_id": "libero_10-task09-init48-seed25060818",
+      "attempt002_outcome_label": "harmful",
+      "attempt002_snap_action_stream_sha256": "d53bba2af17e481a5776f9c1ead5bbbb9156f6b50425685a6be06bda444c1a67",
+      "attempt002_snap_success": false,
+      "attempt002_snap_trace_manifest": {
+        "path": "artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_10-task09-init48-seed25060818/snap1.sha256.json",
+        "sha256": "73d01ebc467999ce3e681d6253fbcc3a87dde03f3751eadcd0bbded380e5f4ba"
+      },
+      "capsule_path": "artifacts/crp_vla/task13_recovery/attempt002_execution/capsules/development/libero_10-task09-init48-seed25060818",
+      "capsule_sha256": "39e170a76b2ce28923d33e9abab7b04c4187edc74501a3117fe6970b228fd7a7",
+      "case_id": "dev-b2-libero_10-task09-state48",
+      "env_seed": 25060818,
+      "init_state_id": 48,
+      "initial_state_hash": "4019b3ba635b5320de4ecb83a6a6aa80328fe4c66dbad176eafa5c6e003ac446",
+      "max_steps": 520,
+      "noise_schedule_sha256": "6059a98c27023fc4b53d6aa00db3adb26b944399fa213b68937cd4046fd9ba52",
+      "outcome_accessed": false,
+      "qpos_qvel_hash": "1fbeabcc1907bcbad676b66de6ff0170c450931482aac5386570c085401f83dd",
+      "simulator_state_hash": "81264707d8f1bd4b2287931dc475aed5129e45952f32606d383b282a2da43876",
+      "suite": "libero_10",
+      "task_id": 9,
+      "task_instruction": "put the yellow and white mug in the microwave and close it",
+      "task_key": "libero_10:9",
+      "task_name": "KITCHEN_SCENE6_put_the_yellow_and_white_mug_in_the_microwave_and_close_it"
+    },
+    {
+      "attempt002_base_action_stream_sha256": "e145791b7d2ad8ac6e14d0981c2afd7921bea7179034aff75e27fd47417384e8",
+      "attempt002_base_success": true,
+      "attempt002_base_trace_manifest": {
+        "path": "artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_10-task09-init49-seed25160818/base10.sha256.json",
+        "sha256": "5545fa663bac5bf51002f6a649fa5c6cd18b83a31a1939ebbde432594924c6a6"
+      },
+      "attempt002_case_id": "libero_10-task09-init49-seed25160818",
+      "attempt002_outcome_label": "harmful",
+      "attempt002_snap_action_stream_sha256": "fb585662dc09ad037716fdfec2d90dbfe8a5840c0c46920f87cda9ac140f8ad8",
+      "attempt002_snap_success": false,
+      "attempt002_snap_trace_manifest": {
+        "path": "artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_10-task09-init49-seed25160818/snap1.sha256.json",
+        "sha256": "9ed38c8b56ac2085673f9fb66d57f2ba2e5f586a8b6df8fd44efd3324947787c"
+      },
+      "capsule_path": "artifacts/crp_vla/task13_recovery/attempt002_execution/capsules/development/libero_10-task09-init49-seed25160818",
+      "capsule_sha256": "fa8eea48b498d72e8e7d8e61d2166092c5faf3474e485b3509a64586717f5c3c",
+      "case_id": "dev-b2-libero_10-task09-state49",
+      "env_seed": 25160818,
+      "init_state_id": 49,
+      "initial_state_hash": "1f3786dbcb641c465d1b26b0a9165b27ff1d58db2b55b21b291933e10ba78795",
+      "max_steps": 520,
+      "noise_schedule_sha256": "1c666f2f9f43910c2219e33f28dac81b84542359bee968561c6102e1c4b05c34",
+      "outcome_accessed": false,
+      "qpos_qvel_hash": "316b22ea9e1e95ec30f2ddf050189b7ae2ae70e96a85ff4b4773e18337482768",
+      "simulator_state_hash": "121fa581b00993472425b2804c4e1c3f72d2fef25e638322745e6ed8bf7b4b2a",
+      "suite": "libero_10",
+      "task_id": 9,
+      "task_instruction": "put the yellow and white mug in the microwave and close it",
+      "task_key": "libero_10:9",
+      "task_name": "KITCHEN_SCENE6_put_the_yellow_and_white_mug_in_the_microwave_and_close_it"
+    },
+    {
+      "attempt002_base_action_stream_sha256": "7f8be112ea43d8b9c6b12db76dc50bfc8c2079bb372bbcf7eb68dc68206d5f3f",
+      "attempt002_base_success": true,
+      "attempt002_base_trace_manifest": {
+        "path": "artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_goal-task02-init46-seed26360818/base10.sha256.json",
+        "sha256": "0f75abfeb65b1a78811ee3ad9dce2048e3522e52aacf2d1944b4a7b3b3ea77e9"
+      },
+      "attempt002_case_id": "libero_goal-task02-init46-seed26360818",
+      "attempt002_outcome_label": "harmful",
+      "attempt002_snap_action_stream_sha256": "9e9b6dfff855f687cc58b994f7133662f4f79fd2f07172b50a844591b94b31c5",
+      "attempt002_snap_success": false,
+      "attempt002_snap_trace_manifest": {
+        "path": "artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_goal-task02-init46-seed26360818/snap1.sha256.json",
+        "sha256": "71075b870f258562951ed2ce0bacfdf5b988df23b2d57ee94d4997b97c772175"
+      },
+      "capsule_path": "artifacts/crp_vla/task13_recovery/attempt002_execution/capsules/development/libero_goal-task02-init46-seed26360818",
+      "capsule_sha256": "d90e799dd8229ce7b74c96305b4d61f2e097b2c0b24ac8b86664dc883ce413a0",
+      "case_id": "dev-b2-libero_goal-task02-state46",
+      "env_seed": 26360818,
+      "init_state_id": 46,
+      "initial_state_hash": "68f492966046a670bd1d8f0a25297607ff739995b8b0d96e20ed8a528222219c",
+      "max_steps": 300,
+      "noise_schedule_sha256": "84e0faff675d42de8585b9764d5ca0f913f6a40c140c8b0310284d0d05ae884b",
+      "outcome_accessed": false,
+      "qpos_qvel_hash": "d3317e1d8a08d4a246be823a14900d9571de684c4150f8821225213a9d86862c",
+      "simulator_state_hash": "894e0025f65b4b4e315284d231cf5447ccb20e40c226eba780d24e818008dbec",
+      "suite": "libero_goal",
+      "task_id": 2,
+      "task_instruction": "put the wine bottle on top of the cabinet",
+      "task_key": "libero_goal:2",
+      "task_name": "put_the_wine_bottle_on_top_of_the_cabinet"
+    },
+    {
+      "attempt002_base_action_stream_sha256": "68977b526469d4316292c882e9f84f1f6337fe9447eef93f54f46ac019f9e709",
+      "attempt002_base_success": true,
+      "attempt002_base_trace_manifest": {
+        "path": "artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_goal-task04-init47-seed27460818/base10.sha256.json",
+        "sha256": "32f24fc83006d9f77a73be699bd89ba6474439164a2552b5128a17fb8ee34c3f"
+      },
+      "attempt002_case_id": "libero_goal-task04-init47-seed27460818",
+      "attempt002_outcome_label": "harmful",
+      "attempt002_snap_action_stream_sha256": "582db5f674a1268ce1b1ed8e54691a9c7b36ceada943fe0efd8ee04c5c3f994f",
+      "attempt002_snap_success": false,
+      "attempt002_snap_trace_manifest": {
+        "path": "artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_goal-task04-init47-seed27460818/snap1.sha256.json",
+        "sha256": "ba2fe066af3ed2b8b0edb663502f9f057918a16ee1f0a7b58997d719a41d0ff4"
+      },
+      "capsule_path": "artifacts/crp_vla/task13_recovery/attempt002_execution/capsules/development/libero_goal-task04-init47-seed27460818",
+      "capsule_sha256": "221d14b850a04b2d04bb3466839bcb7d7e5472627d1a1fe683de92399542966b",
+      "case_id": "dev-b2-libero_goal-task04-state47",
+      "env_seed": 27460818,
+      "init_state_id": 47,
+      "initial_state_hash": "5a0d79a05c42e39d228dc21edf1e11ce23f6e47cfdee53975ba606032f65ff41",
+      "max_steps": 300,
+      "noise_schedule_sha256": "a146a9d359c06968ef499966841320b2850fe8580425e84e637e952f3d7bf1fa",
+      "outcome_accessed": false,
+      "qpos_qvel_hash": "b48992c07d4980937851867ba99c5fd3f39f0eec6b919c0b3d080c2aa75a4c4a",
+      "simulator_state_hash": "6eb13ac419b48994a5837b0fa457c0126a252f89d0da5edb97ed74f6039ccb2a",
+      "suite": "libero_goal",
+      "task_id": 4,
+      "task_instruction": "put the bowl on top of the cabinet",
+      "task_key": "libero_goal:4",
+      "task_name": "put_the_bowl_on_top_of_the_cabinet"
+    },
+    {
+      "attempt002_base_action_stream_sha256": "452a873a0fc6317449815397e6e2a7d54fb5decba53bb7103e9a37481d57dc03",
+      "attempt002_base_success": true,
+      "attempt002_base_trace_manifest": {
+        "path": "artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_goal-task04-init48-seed27560818/base10.sha256.json",
+        "sha256": "13e09c67b50ed08410f819de2df8720f4652df304c77a5afcfa7ffede49ff846"
+      },
+      "attempt002_case_id": "libero_goal-task04-init48-seed27560818",
+      "attempt002_outcome_label": "harmful",
+      "attempt002_snap_action_stream_sha256": "1d6340d79395e213d95342d4dfe480a3a79f7ae477ccb07faa23418430880cea",
+      "attempt002_snap_success": false,
+      "attempt002_snap_trace_manifest": {
+        "path": "artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_goal-task04-init48-seed27560818/snap1.sha256.json",
+        "sha256": "816b334ee2156d1442fe1c0f85da7ca686ecb66216a2472f6de443950970580d"
+      },
+      "capsule_path": "artifacts/crp_vla/task13_recovery/attempt002_execution/capsules/development/libero_goal-task04-init48-seed27560818",
+      "capsule_sha256": "c65366eb59bc7e7d40c7a83d9a76e37d10cf1ce199866b02aab8aaf498ccbb3f",
+      "case_id": "dev-b2-libero_goal-task04-state48",
+      "env_seed": 27560818,
+      "init_state_id": 48,
+      "initial_state_hash": "b358aa7c0c0a860c0396ccfb981e2797a7e774add18895777396bf8931d1f2a7",
+      "max_steps": 300,
+      "noise_schedule_sha256": "dcb5879c36cd655cf4124c91b957fa069f08191028200966280f82d3443d608a",
+      "outcome_accessed": false,
+      "qpos_qvel_hash": "6de63bd6845f853e2aef2adb04e1448e075d2e38af1c61359269d0b996f4dee7",
+      "simulator_state_hash": "0409c22467edbe71ec942f12d800618ba0d0486b18f39db467abb350a2f131b2",
+      "suite": "libero_goal",
+      "task_id": 4,
+      "task_instruction": "put the bowl on top of the cabinet",
+      "task_key": "libero_goal:4",
+      "task_name": "put_the_bowl_on_top_of_the_cabinet"
+    },
+    {
+      "attempt002_base_action_stream_sha256": "7e5cf1c5c9cb414ee105a4113284642c652bb1080c755392f3eadf1fb29da81d",
+      "attempt002_base_success": true,
+      "attempt002_base_trace_manifest": {
+        "path": "artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_goal-task06-init47-seed28460818/base10.sha256.json",
+        "sha256": "3c46b2e210006e18a23630517720ad05f7c33739b87912a9a46302c22830b7f3"
+      },
+      "attempt002_case_id": "libero_goal-task06-init47-seed28460818",
+      "attempt002_outcome_label": "harmful",
+      "attempt002_snap_action_stream_sha256": "afe58a4b27480d608c97c22e000b3c9d6050a33bfc01909153e474e62fd9eeb8",
+      "attempt002_snap_success": false,
+      "attempt002_snap_trace_manifest": {
+        "path": "artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_goal-task06-init47-seed28460818/snap1.sha256.json",
+        "sha256": "7616428b2e8944dcce67f38d1ff5c4182f00afce56f3fa4df3d7c15072cf0744"
+      },
+      "capsule_path": "artifacts/crp_vla/task13_recovery/attempt002_execution/capsules/development/libero_goal-task06-init47-seed28460818",
+      "capsule_sha256": "ab40b062f09cc35d3ddb79de820e88bd6fc11a27753339af334d5a0e74c9651c",
+      "case_id": "dev-b2-libero_goal-task06-state47",
+      "env_seed": 28460818,
+      "init_state_id": 47,
+      "initial_state_hash": "ae28761283ba08e7e2bfcd6e60cdaf17a8241873880ce3bb8c873dc53bac691b",
+      "max_steps": 300,
+      "noise_schedule_sha256": "3798a2a6bca9903bc427b731b9d0eef2354233cd591c5df195b5110533ad08b7",
+      "outcome_accessed": false,
+      "qpos_qvel_hash": "11a62be70c1a57cbf712c99af3c584b2c7c6ed8a65e86093e836bea09c5572c1",
+      "simulator_state_hash": "b19ca9593d0e4a123dccbe83420ccdfb4f513e39d0283cf79b8728ba9a9d813c",
+      "suite": "libero_goal",
+      "task_id": 6,
+      "task_instruction": "put the cream cheese in the bowl",
+      "task_key": "libero_goal:6",
+      "task_name": "put_the_cream_cheese_in_the_bowl"
+    },
+    {
+      "attempt002_base_action_stream_sha256": "2a818556e7431d1fadb83d79d85632ea217e91f78d97e016198b0bb0b732fe90",
+      "attempt002_base_success": true,
+      "attempt002_base_trace_manifest": {
+        "path": "artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_object-task05-init48-seed33060818/base10.sha256.json",
+        "sha256": "cc7148c20fcb5f91f5916b8163274c30ca2bdcededca2a3d3d49bf554b441d5f"
+      },
+      "attempt002_case_id": "libero_object-task05-init48-seed33060818",
+      "attempt002_outcome_label": "harmful",
+      "attempt002_snap_action_stream_sha256": "c2cc7f7ab4dbf3d662740c55dc220cbf428762acd9115ada88c1e3447dd20ad2",
+      "attempt002_snap_success": false,
+      "attempt002_snap_trace_manifest": {
+        "path": "artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_object-task05-init48-seed33060818/snap1.sha256.json",
+        "sha256": "ff71f833e22309abb22489253a57879fa88b4a3147c52c6d3b402087d2d69ba0"
+      },
+      "capsule_path": "artifacts/crp_vla/task13_recovery/attempt002_execution/capsules/development/libero_object-task05-init48-seed33060818",
+      "capsule_sha256": "2c5d4e75e4489cb5b17be3aaaf808669c7d5b64ac9901a33f3e78ef024c05009",
+      "case_id": "dev-b2-libero_object-task05-state48",
+      "env_seed": 33060818,
+      "init_state_id": 48,
+      "initial_state_hash": "82a1dc382039b5f7a323f87664c5260b304ba71e2aa3da27a868cc0a51c28b09",
+      "max_steps": 280,
+      "noise_schedule_sha256": "e2a1e04ad739e846287ea9a565efb1347776b763dca37a4b21cd5da71ee99f32",
+      "outcome_accessed": false,
+      "qpos_qvel_hash": "446bae821dfe8b4910cbe7fca3516b747da9fe399551b24c21b6e81acbe76782",
+      "simulator_state_hash": "ec59b1c50b510687c76587e8aa37d570ac6fc36e545f3e954d5427f13a1fd42f",
+      "suite": "libero_object",
+      "task_id": 5,
+      "task_instruction": "pick up the tomato sauce and place it in the basket",
+      "task_key": "libero_object:5",
+      "task_name": "pick_up_the_tomato_sauce_and_place_it_in_the_basket"
+    },
+    {
+      "attempt002_base_action_stream_sha256": "cd6fae7eb284927e478588ffd7d142f406d63af94b4442978579d990aadf82db",
+      "attempt002_base_success": true,
+      "attempt002_base_trace_manifest": {
+        "path": "artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_spatial-task03-init47-seed36960818/base10.sha256.json",
+        "sha256": "bb6c7c5d2818383ee9d2515c8869c55f26616309d4d3ba05fe27c5e75b2e1621"
+      },
+      "attempt002_case_id": "libero_spatial-task03-init47-seed36960818",
+      "attempt002_outcome_label": "harmful",
+      "attempt002_snap_action_stream_sha256": "34b6b06f93e4441c654dee82cedab3fb9447ec0c632047a55a8d694ba0a99394",
+      "attempt002_snap_success": false,
+      "attempt002_snap_trace_manifest": {
+        "path": "artifacts/crp_vla/task13_recovery/attempt002_execution/development/traces/libero_spatial-task03-init47-seed36960818/snap1.sha256.json",
+        "sha256": "bb6bc339d46e1750f3211ba244ba1c5a1712cab8bf833002fff507aee7d6bd85"
+      },
+      "capsule_path": "artifacts/crp_vla/task13_recovery/attempt002_execution/capsules/development/libero_spatial-task03-init47-seed36960818",
+      "capsule_sha256": "0c015eade0d54dddb23005a67a7ec134008c777834e43285142f5815288b4139",
+      "case_id": "dev-b2-libero_spatial-task03-state47",
+      "env_seed": 36960818,
+      "init_state_id": 47,
+      "initial_state_hash": "0e57665bf96c1a05b8d061ab4331872b8e7d69e19c017f256ef0db6cdba4de3b",
+      "max_steps": 280,
+      "noise_schedule_sha256": "2b77f3a4fb7795252a09d8355135991f759c5f274f1e62bfc20bfee62a12c9a4",
+      "outcome_accessed": false,
+      "qpos_qvel_hash": "6a3382bbce16c5a54b03e1c077e013aec94b2d0815bbce48a5f32dceb5c731a2",
+      "simulator_state_hash": "c3b38fcfef3a31251d4498cf000f89e57a546d580671cc15c35a2f55b1cb0cca",
+      "suite": "libero_spatial",
+      "task_id": 3,
+      "task_instruction": "pick up the black bowl on the cookie box and place it on the plate",
+      "task_key": "libero_spatial:3",
+      "task_name": "pick_up_the_black_bowl_on_the_cookie_box_and_place_it_on_the_plate"
+    }
+  ],
+  "evidence_labels": [
+    "ENGINEERING_ONLY",
+    "OUTCOME_CONDITIONED",
+    "NON_PRIMARY"
+  ],
+  "formal_case_count": 0,
+  "formal_outcome_rollout_count": 0,
+  "generated_unix_ns": 1787046941219072551,
+  "identity_gates": {
+    "full_swap": "stepwise action/physical-state/queue/termination identity with base_repeat",
+    "noop": "stepwise action/physical-state/queue/termination identity with snap_repeat"
+  },
+  "online_query_rule": "At every replan both Base-10 and Snap-1 query the current observation actually visited by that arm with the same frozen noise tensor; cached original actions are forbidden",
+  "outcome_conditioned": true,
+  "phase": "PHASE_A_ATTEMPT002_ENGINEERING_DRY_RUN",
+  "planned_rollout_count": 90,
+  "primary_evidence": false,
+  "registered_arms": [
+    "base_repeat",
+    "snap_repeat",
+    "noop",
+    "pos_swap",
+    "rot_swap",
+    "full_swap"
+  ],
+  "repository_commit": "3d11c7f03ce52936e2d34e6545d81bfb8e21adb3",
+  "repository_dirty": false,
+  "schema_version": "task14r.phase_a.engineering.v1",
+  "source_sha256": {
+    "attempt002_run_manifest": "95f2c5aa7d9f6885d9f9b36bb55706af6952c373e9b898fb2b7d2d493ee2473d",
+    "dev_b2_manifest": "8bb9b6100109f3ae02975a22bb558be1c4a4c70dd7094af313674dd2dfe57169",
+    "paired_results": "cceb34b8d9d9f39c614a6704bec66cf1910199153bdcbfc1e1de728b764034e3"
+  },
+  "status": "TASK14R_PHASE_A_ENGINEERING_MANIFEST_FROZEN",
+  "task_name": "TASK14R_FRESH_STATE_BANK_RECOVERY"
+}
