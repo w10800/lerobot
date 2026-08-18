@@ -14,6 +14,7 @@ from scripts.research.crp_vla.task14r_common import (
     compose_online_action_chunk,
     freeze_state_bank,
     phase_a_offline_preprocessor_overrides,
+    reserve_phase_a_output_root,
     structured_seed,
     terminal_status,
 )
@@ -38,6 +39,17 @@ def test_phase_a_offline_tokenizer_binding_fails_closed(tmp_path: Path) -> None:
     offline_vlm.mkdir()
     with pytest.raises(FileNotFoundError, match="tokenizer.json"):
         phase_a_offline_preprocessor_overrides(offline_vlm, "cuda")
+
+
+def test_phase_a_output_root_is_reserved_before_child_configuration(tmp_path: Path) -> None:
+    output_root = tmp_path / "phase_a_attempt"
+    config_dir = reserve_phase_a_output_root(output_root)
+
+    assert output_root.is_dir()
+    assert config_dir == output_root / "libero_standard_config"
+    assert not config_dir.exists()
+    with pytest.raises(FileExistsError):
+        reserve_phase_a_output_root(output_root)
 
 
 def test_all_six_arms_preserve_component_contract() -> None:

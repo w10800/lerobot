@@ -32,6 +32,7 @@ from task14r_common import (
     compare_closed_loop_steps,
     compose_online_action_chunk,
     phase_a_offline_preprocessor_overrides,
+    reserve_phase_a_output_root,
 )
 from trajectory_instrumentation import capture_libero_state, physical_state_hash
 
@@ -120,7 +121,8 @@ def main() -> None:
     snap_sha = file_sha256(args.snap_checkpoint / "model.safetensors")
     if base_sha != BASE_SHA256 or snap_sha != SNAP_SHA256:
         raise RuntimeError("Task14R checkpoint hash mismatch")
-    configure_standard_libero(args.libero_root, args.output_root / "libero_standard_config")
+    standard_config_dir = reserve_phase_a_output_root(args.output_root)
+    configure_standard_libero(args.libero_root, standard_config_dir)
 
     import libero.libero as libero_module
     from libero.libero import benchmark
@@ -166,7 +168,6 @@ def main() -> None:
     }
     factories = benchmark.get_benchmark_dict()
     suites = {name: factories[name]() for name in sorted({row["suite"] for row in design["cases"]})}
-    args.output_root.mkdir(parents=True, exist_ok=False)
     run_started_ns = time.time_ns()
     case_audits = []
     all_results = []

@@ -61,6 +61,13 @@ def phase_a_offline_preprocessor_overrides(
     }
 
 
+def reserve_phase_a_output_root(output_root: str | Path) -> Path:
+    """Atomically reserve an unused Phase A namespace before any child output is written."""
+    root = Path(output_root)
+    root.mkdir(parents=True, exist_ok=False)
+    return root / "libero_standard_config"
+
+
 def file_sha256_bytes(value: bytes) -> str:
     return hashlib.sha256(value).hexdigest()
 
