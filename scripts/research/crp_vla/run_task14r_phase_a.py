@@ -28,6 +28,7 @@ from task14r_common import (
     TASK14R_EVIDENCE_LABELS,
     TASK14R_NAME,
     TASK14R_PHASE_A_ARMS,
+    audit_phase_a_historical_pair_identity,
     clipping_record,
     compare_closed_loop_steps,
     compose_online_action_chunk,
@@ -116,6 +117,34 @@ def main() -> None:
         raise RuntimeError("Task14R six-arm order drift")
     if int(design.get("case_count", 0)) != 15:
         raise RuntimeError("Task14R Phase A requires exactly 15 harmful Attempt002 cases")
+
+    historical_pairs = []
+    for case in design["cases"]:
+        states = {}
+        for policy_key in ("base", "snap"):
+            record = case[f"attempt002_{policy_key}_trace_manifest"]
+            trace_manifest = Path(record["path"])
+            if file_sha256(trace_manifest) != str(record["sha256"]):
+                raise RuntimeError(
+                    f"Attempt002 {policy_key} trace-manifest hash mismatch: {case['attempt002_case_id']}"
+                )
+            trace_stem = trace_manifest.name.removesuffix(".sha256.json")
+            replan_dir = trace_manifest.parent / f"{trace_stem}.replans" / "replan_0000"
+            _, replan_payload = load_capsule(replan_dir, device="cpu")
+            states[policy_key] = replan_payload["simulator_state"]
+        historical_pairs.append(
+            {
+                "case_id": case["attempt002_case_id"],
+                "base_simulator_state": states["base"],
+                "snap_simulator_state": states["snap"],
+            }
+        )
+    historical_identity = audit_phase_a_historical_pair_identity(historical_pairs)
+    if historical_identity["status"] != "TASK14R_HISTORICAL_PAIR_IDENTITY_PASSED":
+        raise RuntimeError(
+            "Attempt002 historical Base/Snap physical-state identity failed: "
+            f"{historical_identity['failed_case_ids']}"
+        )
 
     base_sha = file_sha256(args.base_checkpoint / "model.safetensors")
     snap_sha = file_sha256(args.snap_checkpoint / "model.safetensors")

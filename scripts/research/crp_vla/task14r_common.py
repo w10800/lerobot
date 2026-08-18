@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import hashlib
+import json
 from collections import defaultdict
 from collections.abc import Mapping, Sequence
 from pathlib import Path
@@ -66,6 +67,91 @@ def reserve_phase_a_output_root(output_root: str | Path) -> Path:
     root = Path(output_root)
     root.mkdir(parents=True, exist_ok=False)
     return root / "libero_standard_config"
+
+
+def _phase_a_physical_state_hash(value: Any) -> str:
+    def normalize(item: Any) -> Any:
+        if isinstance(item, Mapping):
+            return {
+                str(key): normalize(child)
+                for key, child in sorted(item.items(), key=lambda row: str(row[0]))
+                if str(key) != "canonical_observation"
+            }
+        if isinstance(item, torch.Tensor):
+            item = item.detach().cpu().numpy()
+        if isinstance(item, np.ndarray):
+            array = np.ascontiguousarray(item)
+            return {
+                "dtype": str(array.dtype),
+                "shape": list(array.shape),
+                "sha256": hashlib.sha256(array.tobytes()).hexdigest(),
+            }
+        if isinstance(item, Sequence) and not isinstance(item, str | bytes):
+            return [normalize(child) for child in item]
+        if isinstance(item, np.generic):
+            return item.item()
+        return item
+
+    payload = json.dumps(normalize(value), sort_keys=True, separators=(",", ":"))
+    return hashlib.sha256(payload.encode()).hexdigest()
+
+
+def audit_phase_a_historical_pair_identity(
+    pairs: Sequence[Mapping[str, Any]],
+    *,
+    expected_case_count: int = 15,
+) -> dict[str, Any]:
+    """Fail closed when archived Base/Snap arms did not start from the same full state."""
+    if len(pairs) != expected_case_count:
+        raise ValueError(f"Expected {expected_case_count} historical pairs, got {len(pairs)}")
+    case_ids = [str(row["case_id"]) for row in pairs]
+    if len(case_ids) != len(set(case_ids)):
+        raise ValueError("Historical Phase A pairs contain duplicate case identities")
+
+    rows = []
+    for pair in pairs:
+        base = pair.get("base_simulator_state")
+        snap = pair.get("snap_simulator_state")
+        if not isinstance(base, Mapping) or not isinstance(snap, Mapping):
+            raise ValueError(f"Historical pair lacks simulator state: {pair.get('case_id')}")
+        base_physical = _phase_a_physical_state_hash(base)
+        snap_physical = _phase_a_physical_state_hash(snap)
+        rows.append(
+            {
+                "case_id": str(pair["case_id"]),
+                "state_blob_equal": str(base.get("state_blob_sha256")) == str(snap.get("state_blob_sha256")),
+                "qpos_equal": str(base.get("qpos_sha256")) == str(snap.get("qpos_sha256")),
+                "qvel_equal": str(base.get("qvel_sha256")) == str(snap.get("qvel_sha256")),
+                "physical_state_equal": base_physical == snap_physical,
+                "base_physical_state_sha256": base_physical,
+                "snap_physical_state_sha256": snap_physical,
+            }
+        )
+    failed = [
+        row
+        for row in rows
+        if not all(
+            bool(row[key])
+            for key in (
+                "state_blob_equal",
+                "qpos_equal",
+                "qvel_equal",
+                "physical_state_equal",
+            )
+        )
+    ]
+    return {
+        "status": (
+            "TASK14R_HISTORICAL_PAIR_IDENTITY_PASSED"
+            if not failed
+            else "TASK14R_HISTORICAL_PAIR_IDENTITY_FAILED"
+        ),
+        "case_count": len(rows),
+        "passed_case_count": len(rows) - len(failed),
+        "failed_case_count": len(failed),
+        "failed_case_ids": [row["case_id"] for row in failed],
+        "rows": rows,
+    }
 
 
 def file_sha256_bytes(value: bytes) -> str:
