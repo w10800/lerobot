@@ -36,25 +36,69 @@ TASK14R_R0_SUITES = ("libero_spatial", "libero_object", "libero_goal", "libero_1
 TASK14R_R0_TASKS_PER_SUITE = 10
 TASK14R_R0_RESTORE_REPEATS = 3
 TASK14R_R0_INITIAL_STATE_ID = 0
+TASK14R_R0_IMPLEMENTATION_PARENT_COMMIT = "20757544607413c6ab1a3458092ceec6bc1fc85d"
+TASK14R_R0_SCHEMA_VERSION = "task14r.reset_transaction.protocol.v2"
 TASK14R_R0_SEED_NAMESPACE = "CRP-VLA-TASK14R-R0-RESET-TRANSACTION-V1"
 TASK14R_R0_LIBERO_COMMIT = "8460457bfca6e0ef2e856bc104e2c60b023ef2a7"
 TASK14R_R0_RENDERER_BACKEND = "egl"
 TASK14R_R0_RENDERER_OFFSAMPLES = 0
+TASK14R_R0_PROBE_STEPS_PER_TRAJECTORY = 15
+TASK14R_R0_EXPECTED_TASK_COUNT = 40
+TASK14R_R0_EXPECTED_RESTORE_TRANSACTION_COUNT = 120
+TASK14R_R0_EXPECTED_PROBE_TRAJECTORY_COUNT = 120
+TASK14R_R0_EXPECTED_PROBE_STEP_COUNT = 1800
+TASK14R_R0_SOURCE_FILES = (
+    "scripts/research/crp_vla/run_task14r_r0.py",
+    "scripts/research/crp_vla/task14r_reset_transaction.py",
+    "scripts/research/crp_vla/launch_task14r_r0.sh",
+)
+TASK14R_R0_RENDERER_QUALIFICATION_BOUNDARY = (
+    "R0 pass qualifies only the no-MSAA complete-state transaction.",
+    "It does not authorize policy execution or establish equivalence to the standard LIBERO renderer.",
+    "A separate policy-free renderer-shift audit is required before R1.",
+)
 
-# Ten deliberately small, policy-free OSC commands.  The sequence exercises
-# translation, rotation, and gripper state without selecting cases by outcome.
+# Fifteen fixed, policy-free OSC commands.  Every continuous action dimension
+# is exercised independently in both directions at amplitude 0.05.  Gripper
+# closed is -1.0 and open is 1.0 under the active Panda controller contract.
 TASK14R_R0_PROBE_ACTIONS = (
     (0.0, 0.0, 0.0, 0.0, 0.0, 0.0, -1.0),
-    (0.1, 0.0, 0.0, 0.0, 0.0, 0.0, -1.0),
-    (-0.1, 0.0, 0.0, 0.0, 0.0, 0.0, -1.0),
-    (0.0, 0.1, 0.0, 0.0, 0.0, 0.0, -1.0),
-    (0.0, -0.1, 0.0, 0.0, 0.0, 0.0, -1.0),
-    (0.0, 0.0, 0.0, 0.0, 0.0, 0.1, -1.0),
-    (0.0, 0.0, 0.0, 0.0, 0.0, -0.1, -1.0),
+    (0.05, 0.0, 0.0, 0.0, 0.0, 0.0, -1.0),
+    (-0.05, 0.0, 0.0, 0.0, 0.0, 0.0, -1.0),
+    (0.0, 0.05, 0.0, 0.0, 0.0, 0.0, -1.0),
+    (0.0, -0.05, 0.0, 0.0, 0.0, 0.0, -1.0),
+    (0.0, 0.0, 0.05, 0.0, 0.0, 0.0, -1.0),
+    (0.0, 0.0, -0.05, 0.0, 0.0, 0.0, -1.0),
+    (0.0, 0.0, 0.0, 0.05, 0.0, 0.0, -1.0),
+    (0.0, 0.0, 0.0, -0.05, 0.0, 0.0, -1.0),
+    (0.0, 0.0, 0.0, 0.0, 0.05, 0.0, -1.0),
+    (0.0, 0.0, 0.0, 0.0, -0.05, 0.0, -1.0),
+    (0.0, 0.0, 0.0, 0.0, 0.0, 0.05, -1.0),
+    (0.0, 0.0, 0.0, 0.0, 0.0, -0.05, -1.0),
     (0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0),
     (0.0, 0.0, 0.0, 0.0, 0.0, 0.0, -1.0),
-    (0.0, 0.0, 0.0, 0.0, 0.0, 0.0, -1.0),
 )
+
+PROBE_TRACE_COMPARISON_FIELDS = (
+    "step",
+    "action",
+    "integration_state_sha256",
+    "python_state_sha256",
+    "observation_sha256",
+    "contact_state_sha256",
+    "terminated",
+    "truncated",
+    "success_predicate",
+)
+
+
+class Task14RStageError(RuntimeError):
+    """A fail-closed error whose transaction stage is safe to audit."""
+
+    def __init__(self, failure_stage: str, message: str) -> None:
+        super().__init__(message)
+        self.failure_stage = str(failure_stage)
+
 
 _ROBOT_REFERENCE_FIELDS = {"sim", "robot_model", "controller", "gripper", "controller_config"}
 _CONTROLLER_REFERENCE_FIELDS = {"sim", "interpolator_pos", "interpolator_ori"}
@@ -206,7 +250,33 @@ def task14r_r0_seed(suite: str, task_id: int) -> int:
     return int.from_bytes(digest[:4], byteorder="big")
 
 
-def build_task14r_r0_protocol(*, implementation_parent_commit: str) -> dict[str, Any]:
+def _validate_probe_actions(actions: Any) -> None:
+    if not isinstance(actions, Sequence) or isinstance(actions, str | bytes | bytearray):
+        raise ValueError("Task14R R0 probe_actions must be a sequence")
+    if len(actions) != TASK14R_R0_PROBE_STEPS_PER_TRAJECTORY:
+        raise ValueError("Task14R R0 probe count must be exactly 15")
+    matrix = np.asarray(actions, dtype=np.float64)
+    if matrix.shape != (TASK14R_R0_PROBE_STEPS_PER_TRAJECTORY, 7):
+        raise ValueError("Task14R R0 action shape must be (15, 7)")
+    if not np.all(np.isfinite(matrix)):
+        raise ValueError("Task14R R0 probe actions must be finite")
+    if np.any(matrix < -1.0) or np.any(matrix > 1.0):
+        raise ValueError("Task14R R0 probe actions must remain in [-1, 1]")
+    for dimension in range(6):
+        if not np.any(matrix[:, dimension] > 0.0):
+            raise ValueError(f"Task14R R0 continuous dimension {dimension} lacks positive excitation")
+        if not np.any(matrix[:, dimension] < 0.0):
+            raise ValueError(f"Task14R R0 continuous dimension {dimension} lacks negative excitation")
+        nonzero = np.abs(matrix[:, dimension][matrix[:, dimension] != 0.0])
+        if not np.all(nonzero == 0.05):
+            raise ValueError(f"Task14R R0 continuous dimension {dimension} amplitude drift")
+    if set(matrix[:, 6].tolist()) != {-1.0, 1.0}:
+        raise ValueError("Task14R R0 gripper must include both -1.0 and 1.0")
+
+
+def build_task14r_r0_protocol(
+    *, implementation_parent_commit: str, source_files_sha256: Mapping[str, str]
+) -> dict[str, Any]:
     tasks = [
         {
             "suite": suite,
@@ -219,7 +289,7 @@ def build_task14r_r0_protocol(*, implementation_parent_commit: str) -> dict[str,
         for task_id in range(TASK14R_R0_TASKS_PER_SUITE)
     ]
     return {
-        "schema_version": "task14r.reset_transaction.protocol.v1",
+        "schema_version": TASK14R_R0_SCHEMA_VERSION,
         "task_name": TASK14R_RESET_RECOVERY_NAME,
         "phase": "R0_COMPLETE_STATE_TRANSACTION_QUALIFICATION",
         "status": TASK14R_R0_STATUS_FROZEN,
@@ -231,8 +301,15 @@ def build_task14r_r0_protocol(*, implementation_parent_commit: str) -> dict[str,
             "offsamples": TASK14R_R0_RENDERER_OFFSAMPLES,
             "pixel_gate": "EXACT",
         },
+        "renderer_qualification_boundary": list(TASK14R_R0_RENDERER_QUALIFICATION_BOUNDARY),
+        "source_files_sha256": dict(sorted(source_files_sha256.items())),
         "task_count": len(tasks),
         "restore_repeats_per_task": TASK14R_R0_RESTORE_REPEATS,
+        "probe_steps_per_trajectory": TASK14R_R0_PROBE_STEPS_PER_TRAJECTORY,
+        "expected_task_count": TASK14R_R0_EXPECTED_TASK_COUNT,
+        "expected_restore_transaction_count": TASK14R_R0_EXPECTED_RESTORE_TRANSACTION_COUNT,
+        "expected_probe_trajectory_count": TASK14R_R0_EXPECTED_PROBE_TRAJECTORY_COUNT,
+        "expected_probe_step_count": TASK14R_R0_EXPECTED_PROBE_STEP_COUNT,
         "probe_actions": [list(row) for row in TASK14R_R0_PROBE_ACTIONS],
         "tasks": tasks,
         "policy_query_count": 0,
@@ -244,24 +321,59 @@ def build_task14r_r0_protocol(*, implementation_parent_commit: str) -> dict[str,
     }
 
 
-def validate_task14r_r0_protocol(protocol: Mapping[str, Any]) -> None:
+def validate_task14r_r0_protocol(
+    protocol: Mapping[str, Any],
+    *,
+    expected_implementation_parent_commit: str,
+    expected_source_files_sha256: Mapping[str, str],
+) -> None:
+    if protocol.get("schema_version") != TASK14R_R0_SCHEMA_VERSION:
+        raise ValueError("Task14R R0 schema_version drift")
     if protocol.get("status") != TASK14R_R0_STATUS_FROZEN:
         raise ValueError("Task14R R0 protocol is not frozen")
     if protocol.get("evidence_labels") != list(TASK14R_R0_EVIDENCE_LABELS):
         raise ValueError("Task14R R0 evidence labels drift")
-    if int(protocol.get("task_count", 0)) != 40 or len(protocol.get("tasks", [])) != 40:
+    if (
+        int(protocol.get("task_count", 0)) != TASK14R_R0_EXPECTED_TASK_COUNT
+        or len(protocol.get("tasks", [])) != TASK14R_R0_EXPECTED_TASK_COUNT
+    ):
         raise ValueError("Task14R R0 requires exactly 40 task definitions")
+    if protocol.get("implementation_parent_commit") != expected_implementation_parent_commit:
+        raise ValueError("Task14R R0 implementation_parent_commit drift")
+    if protocol.get("source_files_sha256") != dict(sorted(expected_source_files_sha256.items())):
+        raise ValueError("Task14R R0 source_files_sha256 drift")
+    if set(expected_source_files_sha256) != set(TASK14R_R0_SOURCE_FILES):
+        raise ValueError("Task14R R0 source hash inventory drift")
+    for relative, digest in expected_source_files_sha256.items():
+        if len(digest) != 64 or any(character not in "0123456789abcdef" for character in digest):
+            raise ValueError(f"Task14R R0 invalid source SHA-256: {relative}")
+    if protocol.get("permitted_terminal_statuses") != [
+        TASK14R_R0_STATUS_PASSED,
+        TASK14R_R0_STATUS_FAILED,
+    ]:
+        raise ValueError("Task14R R0 permitted_terminal_statuses drift")
+    _validate_probe_actions(protocol.get("probe_actions"))
     expected = build_task14r_r0_protocol(
-        implementation_parent_commit=str(protocol.get("implementation_parent_commit", ""))
+        implementation_parent_commit=expected_implementation_parent_commit,
+        source_files_sha256=expected_source_files_sha256,
     )
     for field in (
+        "schema_version",
         "task_name",
         "phase",
         "evidence_labels",
+        "implementation_parent_commit",
         "task_count",
         "libero_commit",
         "renderer_contract",
+        "renderer_qualification_boundary",
+        "source_files_sha256",
         "restore_repeats_per_task",
+        "probe_steps_per_trajectory",
+        "expected_task_count",
+        "expected_restore_transaction_count",
+        "expected_probe_trajectory_count",
+        "expected_probe_step_count",
         "probe_actions",
         "tasks",
         "policy_query_count",
@@ -269,6 +381,7 @@ def validate_task14r_r0_protocol(protocol: Mapping[str, Any]) -> None:
         "formal_outcome_rollout_count",
         "training_or_parameter_updates",
         "automatic_next_phase",
+        "permitted_terminal_statuses",
     ):
         if protocol.get(field) != expected[field]:
             raise ValueError(f"Task14R R0 protocol field drift: {field}")
@@ -533,12 +646,18 @@ def build_complete_state_capsule(env: Any, *, case: Mapping[str, Any]) -> dict[s
     """Capture one canonical case and its observation-regeneration boundary."""
     core = env._env.env
     sim = core.sim
-    synchronize_controller_state(env)
+    try:
+        synchronize_controller_state(env)
+    except Exception as error:
+        raise Task14RStageError("controller_reconstruction", str(error)) from error
     model = mujoco_model_fingerprint(sim)
     integration = capture_mujoco_integration_state(sim)
     entry_python = capture_python_transaction_state(env)
-    raw_observation = core._get_observations(force_update=True)
-    observation = env._format_raw_obs(raw_observation)
+    try:
+        raw_observation = core._get_observations(force_update=True)
+        observation = env._format_raw_obs(raw_observation)
+    except Exception as error:
+        raise Task14RStageError("observation_regeneration", str(error)) from error
     ready_python = capture_python_transaction_state(env)
     ready_integration = capture_mujoco_integration_state(sim)
     if not np.array_equal(integration["state"], ready_integration["state"]):
@@ -563,11 +682,20 @@ def restore_complete_state_transaction(
     core = env._env.env
     before_model = mujoco_model_fingerprint(core.sim)
     if before_model["complete_sha256"] != capsule["model"]["complete_sha256"]:
-        raise RuntimeError("Compiled MuJoCo model changed before restoration")
-    restore_mujoco_integration_state(core.sim, capsule["integration"])
-    restore_python_transaction_state(env, capsule["entry_python"])
-    raw_observation = core._get_observations(force_update=True)
-    observation = env._format_raw_obs(raw_observation)
+        raise Task14RStageError("model_identity", "Compiled MuJoCo model changed before restoration")
+    try:
+        restore_mujoco_integration_state(core.sim, capsule["integration"])
+    except Exception as error:
+        raise Task14RStageError("complete_state_restore", str(error)) from error
+    try:
+        restore_python_transaction_state(env, capsule["entry_python"])
+    except Exception as error:
+        raise Task14RStageError("controller_reconstruction", str(error)) from error
+    try:
+        raw_observation = core._get_observations(force_update=True)
+        observation = env._format_raw_obs(raw_observation)
+    except Exception as error:
+        raise Task14RStageError("observation_regeneration", str(error)) from error
     ready_python = capture_python_transaction_state(env)
     ready_integration = capture_mujoco_integration_state(core.sim)
     after_model = mujoco_model_fingerprint(core.sim)
@@ -593,7 +721,18 @@ def restore_complete_state_transaction(
                 capsule["ready_python"], ready_python, path="python_ready"
             )[:20],
         }
-        raise RuntimeError(f"Complete-state transaction failed: {json.dumps(diagnostics, sort_keys=True)}")
+        if "model_identity" in failed:
+            stage = "model_identity"
+        elif "observation_identity" in failed or "initial_success_predicate_identity" in failed:
+            stage = "observation_regeneration"
+        elif "python_ready_identity" in failed:
+            stage = "controller_reconstruction"
+        else:
+            stage = "complete_state_restore"
+        raise Task14RStageError(
+            stage,
+            f"Complete-state transaction failed: {json.dumps(diagnostics, sort_keys=True)}",
+        )
     return observation, checks
 
 
@@ -617,6 +756,7 @@ def capture_probe_step(
     env: Any,
     observation: Mapping[str, Any],
     *,
+    repeat_index: int,
     step: int,
     action: Sequence[float],
     terminated: bool,
@@ -626,6 +766,7 @@ def capture_probe_step(
     core = env._env.env
     integration = capture_mujoco_integration_state(core.sim)
     return {
+        "repeat_index": int(repeat_index),
         "step": int(step),
         "action": [float(value) for value in action],
         "integration_state_sha256": integration["state_sha256"],
@@ -645,16 +786,35 @@ def compare_probe_repeats(repeats: Sequence[Sequence[Mapping[str, Any]]]) -> dic
     mismatches = []
     for repeat_index, rows in enumerate(repeats[1:], start=1):
         if len(rows) != len(reference):
-            mismatches.append({"repeat_index": repeat_index, "reason": "step_count", "step": None})
+            mismatches.append(
+                {
+                    "repeat_index": repeat_index,
+                    "step": min(len(reference), len(rows)),
+                    "mismatched_fields": ["step_count"],
+                }
+            )
             continue
         for step, (left, right) in enumerate(zip(reference, rows, strict=True)):
-            if structured_hash(left) != structured_hash(right):
-                mismatches.append({"repeat_index": repeat_index, "reason": "step_state", "step": step})
+            mismatched_fields = [
+                field for field in PROBE_TRACE_COMPARISON_FIELDS if left.get(field) != right.get(field)
+            ]
+            if mismatched_fields:
+                mismatches.append(
+                    {
+                        "repeat_index": repeat_index,
+                        "step": step,
+                        "mismatched_fields": mismatched_fields,
+                    }
+                )
                 break
+    first = mismatches[0] if mismatches else None
     return {
         "repeat_count": len(repeats),
         "step_count": len(reference),
         "mismatches": mismatches,
+        "first_mismatch_repeat": None if first is None else first["repeat_index"],
+        "first_mismatch_step": None if first is None else first["step"],
+        "mismatched_fields": [] if first is None else first["mismatched_fields"],
         "passed": not mismatches,
     }
 
@@ -662,17 +822,46 @@ def compare_probe_repeats(repeats: Sequence[Sequence[Mapping[str, Any]]]) -> dic
 def task14r_r0_terminal_summary(task_audits: Sequence[Mapping[str, Any]]) -> dict[str, Any]:
     task_count = len(task_audits)
     passed = sum(bool(row.get("passed")) for row in task_audits)
-    status = TASK14R_R0_STATUS_PASSED if task_count == 40 and passed == 40 else TASK14R_R0_STATUS_FAILED
+    failed = task_count - passed
+    restore_count = sum(int(row.get("restore_transaction_count", 0)) for row in task_audits)
+    trajectory_count = sum(int(row.get("probe_trajectory_count", 0)) for row in task_audits)
+    step_count = sum(int(row.get("probe_step_count", 0)) for row in task_audits)
+    policy_query_count = sum(int(row.get("policy_query_count", 0)) for row in task_audits)
+    formal_case_count = sum(int(row.get("formal_case_count", 0)) for row in task_audits)
+    formal_outcome_count = sum(int(row.get("formal_outcome_rollout_count", 0)) for row in task_audits)
+    training_updates = any(bool(row.get("training_or_parameter_updates")) for row in task_audits)
+    automatic_next_phase = any(bool(row.get("automatic_next_phase")) for row in task_audits)
+    gate = {
+        "task_count": task_count == TASK14R_R0_EXPECTED_TASK_COUNT,
+        "passed_task_count": passed == TASK14R_R0_EXPECTED_TASK_COUNT,
+        "failed_task_count": failed == 0,
+        "restore_transaction_count": restore_count == TASK14R_R0_EXPECTED_RESTORE_TRANSACTION_COUNT,
+        "probe_trajectory_count": trajectory_count == TASK14R_R0_EXPECTED_PROBE_TRAJECTORY_COUNT,
+        "probe_step_count": step_count == TASK14R_R0_EXPECTED_PROBE_STEP_COUNT,
+        "policy_query_count": policy_query_count == 0,
+        "formal_case_count": formal_case_count == 0,
+        "formal_outcome_rollout_count": formal_outcome_count == 0,
+        "training_or_parameter_updates": not training_updates,
+        "automatic_next_phase": not automatic_next_phase,
+    }
+    status = TASK14R_R0_STATUS_PASSED if all(gate.values()) else TASK14R_R0_STATUS_FAILED
     return {
         "status": status,
         "task_count": task_count,
         "passed_task_count": passed,
-        "failed_task_count": task_count - passed,
-        "restore_transaction_count": sum(int(row.get("restore_transaction_count", 0)) for row in task_audits),
-        "probe_trajectory_count": sum(int(row.get("probe_trajectory_count", 0)) for row in task_audits),
-        "policy_query_count": 0,
-        "formal_case_count": 0,
-        "formal_outcome_rollout_count": 0,
-        "training_or_parameter_updates": False,
-        "automatic_next_phase": False,
+        "failed_task_count": failed,
+        "restore_transaction_count": restore_count,
+        "probe_trajectory_count": trajectory_count,
+        "probe_step_count": step_count,
+        "policy_query_count": policy_query_count,
+        "formal_case_count": formal_case_count,
+        "formal_outcome_rollout_count": formal_outcome_count,
+        "training_or_parameter_updates": training_updates,
+        "automatic_next_phase": automatic_next_phase,
+        "terminal_gate_checks": gate,
+        "expected_task_count": TASK14R_R0_EXPECTED_TASK_COUNT,
+        "expected_restore_transaction_count": TASK14R_R0_EXPECTED_RESTORE_TRANSACTION_COUNT,
+        "expected_probe_trajectory_count": TASK14R_R0_EXPECTED_PROBE_TRAJECTORY_COUNT,
+        "expected_probe_step_count": TASK14R_R0_EXPECTED_PROBE_STEP_COUNT,
+        "renderer_qualification_boundary": list(TASK14R_R0_RENDERER_QUALIFICATION_BOUNDARY),
     }

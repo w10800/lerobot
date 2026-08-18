@@ -7,11 +7,16 @@ LIBERO_ROOT="${REPOSITORY_ROOT}/third_party/libero-cf"
 OUTPUT_PARENT="${REPOSITORY_ROOT}/outputs/crp_vla/task14r_reset_transaction_recovery"
 OUTPUT_ROOT="${OUTPUT_PARENT}/r0_attempt001"
 CONSOLE_LOG="${OUTPUT_PARENT}/r0_attempt001.console.log"
+: "${TASK14R_R0_EXPECTED_COMMIT:?Set TASK14R_R0_EXPECTED_COMMIT to the reviewed artifact-bearing commit}"
 
 cd "${REPOSITORY_ROOT}"
 
-if [[ "$(git branch --show-current)" != "codex/task14r-reset-transaction-recovery" ]]; then
-    echo "Task14R R0 must run from codex/task14r-reset-transaction-recovery" >&2
+if [[ "$(git branch --show-current)" != "codex/task14r-r0-audit-hardening" ]]; then
+    echo "Task14R R0 must run from codex/task14r-r0-audit-hardening" >&2
+    exit 1
+fi
+if [[ "$(git rev-parse HEAD)" != "${TASK14R_R0_EXPECTED_COMMIT}" ]]; then
+    echo "Task14R R0 commit does not match TASK14R_R0_EXPECTED_COMMIT" >&2
     exit 1
 fi
 if [[ -n "$(git status --porcelain)" ]]; then

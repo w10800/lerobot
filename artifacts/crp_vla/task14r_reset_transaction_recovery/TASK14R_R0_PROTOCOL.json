@@ -5,9 +5,13 @@
     "RESET_DIAGNOSTIC_CONDITIONED",
     "NON_PRIMARY"
   ],
+  "expected_probe_step_count": 1800,
+  "expected_probe_trajectory_count": 120,
+  "expected_restore_transaction_count": 120,
+  "expected_task_count": 40,
   "formal_case_count": 0,
   "formal_outcome_rollout_count": 0,
-  "implementation_parent_commit": "5b426ea50d9a20e56ed6f118bc08554b0b452b47",
+  "implementation_parent_commit": "20757544607413c6ab1a3458092ceec6bc1fc85d",
   "libero_commit": "8460457bfca6e0ef2e856bc104e2c60b023ef2a7",
   "permitted_terminal_statuses": [
     "TASK14R_R0_RESTORE_TRANSACTION_PASSED",
@@ -26,7 +30,7 @@
       -1.0
     ],
     [
-      0.1,
+      0.05,
       0.0,
       0.0,
       0.0,
@@ -35,7 +39,7 @@
       -1.0
     ],
     [
-      -0.1,
+      -0.05,
       0.0,
       0.0,
       0.0,
@@ -45,7 +49,7 @@
     ],
     [
       0.0,
-      0.1,
+      0.05,
       0.0,
       0.0,
       0.0,
@@ -54,7 +58,7 @@
     ],
     [
       0.0,
-      -0.1,
+      -0.05,
       0.0,
       0.0,
       0.0,
@@ -64,10 +68,55 @@
     [
       0.0,
       0.0,
+      0.05,
       0.0,
       0.0,
       0.0,
-      0.1,
+      -1.0
+    ],
+    [
+      0.0,
+      0.0,
+      -0.05,
+      0.0,
+      0.0,
+      0.0,
+      -1.0
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      0.05,
+      0.0,
+      0.0,
+      -1.0
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      -0.05,
+      0.0,
+      0.0,
+      -1.0
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.05,
+      0.0,
+      -1.0
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      -0.05,
+      0.0,
       -1.0
     ],
     [
@@ -76,7 +125,16 @@
       0.0,
       0.0,
       0.0,
-      -0.1,
+      0.05,
+      -1.0
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      -0.05,
       -1.0
     ],
     [
@@ -96,24 +154,26 @@
       0.0,
       0.0,
       -1.0
-    ],
-    [
-      0.0,
-      0.0,
-      0.0,
-      0.0,
-      0.0,
-      0.0,
-      -1.0
     ]
   ],
+  "probe_steps_per_trajectory": 15,
   "renderer_contract": {
     "backend": "egl",
     "offsamples": 0,
     "pixel_gate": "EXACT"
   },
+  "renderer_qualification_boundary": [
+    "R0 pass qualifies only the no-MSAA complete-state transaction.",
+    "It does not authorize policy execution or establish equivalence to the standard LIBERO renderer.",
+    "A separate policy-free renderer-shift audit is required before R1."
+  ],
   "restore_repeats_per_task": 3,
-  "schema_version": "task14r.reset_transaction.protocol.v1",
+  "schema_version": "task14r.reset_transaction.protocol.v2",
+  "source_files_sha256": {
+    "scripts/research/crp_vla/launch_task14r_r0.sh": "3794050b8869477c82cf5f8ee51d2a8441407176dda8767eff533eba883a08b7",
+    "scripts/research/crp_vla/run_task14r_r0.py": "ba20bd915dc498734ee3c273aed1145ce4456b2808d8d32e31c9d96774e46788",
+    "scripts/research/crp_vla/task14r_reset_transaction.py": "40985f05d415a418f18d9eac6243d65a31f9a28f6a870cfa1ecde0585c79cecd"
+  },
   "status": "TASK14R_R0_PROTOCOL_FROZEN",
   "task_count": 40,
   "task_name": "TASK14R_RESET_TRANSACTION_RECOVERY",
