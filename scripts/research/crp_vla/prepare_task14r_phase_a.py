@@ -33,6 +33,18 @@ def file_sha256(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
+def portable_path(path: str | Path) -> str:
+    resolved = Path(path).resolve()
+    try:
+        return str(resolved.relative_to(Path.cwd().resolve()))
+    except ValueError:
+        return str(resolved)
+
+
+def portable_trace_manifest(record: dict[str, Any]) -> dict[str, Any]:
+    return {**record, "path": portable_path(record["path"])}
+
+
 def git_value(*args: str) -> str:
     return subprocess.check_output(["git", *args], text=True).strip()
 
@@ -97,9 +109,9 @@ def main() -> None:
                 "attempt002_snap_success": False,
                 "attempt002_base_action_stream_sha256": base["action_stream_sha256"],
                 "attempt002_snap_action_stream_sha256": snap["action_stream_sha256"],
-                "attempt002_base_trace_manifest": base["trace_manifest"],
-                "attempt002_snap_trace_manifest": snap["trace_manifest"],
-                "capsule_path": base["capsule_path"],
+                "attempt002_base_trace_manifest": portable_trace_manifest(base["trace_manifest"]),
+                "attempt002_snap_trace_manifest": portable_trace_manifest(snap["trace_manifest"]),
+                "capsule_path": portable_path(base["capsule_path"]),
                 "capsule_sha256": base["capsule_sha256"],
                 "noise_schedule_sha256": base["noise_schedule_sha256"],
             }
