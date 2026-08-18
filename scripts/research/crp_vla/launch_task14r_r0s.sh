@@ -3,6 +3,7 @@ set -euo pipefail
 
 REPOSITORY_ROOT="/root/crp-vla"
 PROTOCOL_PATH="${REPOSITORY_ROOT}/artifacts/crp_vla/task14r_reset_transaction_recovery/TASK14R_R0S_PROTOCOL.json"
+PROTOCOL_SHA256_PATH="${REPOSITORY_ROOT}/artifacts/crp_vla/task14r_reset_transaction_recovery/TASK14R_R0S_PROTOCOL.sha256"
 LIBERO_ROOT="${REPOSITORY_ROOT}/third_party/libero-cf"
 OUTPUT_PARENT="${REPOSITORY_ROOT}/outputs/crp_vla/task14r_reset_transaction_recovery"
 OUTPUT_ROOT="${OUTPUT_PARENT}/r0s_attempt001"
@@ -19,7 +20,7 @@ if [[ "$(git rev-parse HEAD)" != "${TASK14R_R0S_EXPECTED_COMMIT}" ]]; then
     echo "Task14R R0S commit does not match TASK14R_R0S_EXPECTED_COMMIT" >&2
     exit 1
 fi
-if [[ "$(git rev-parse HEAD^)" != "60fbf7370d8668316b34a9d0d1a334247f792cca" ]]; then
+if [[ "$(git rev-parse HEAD^)" != "609118b7016a411c52a0ce5a6bdd8dc36ab74d79" ]]; then
     echo "Task14R R0S parent commit drift" >&2
     exit 1
 fi
@@ -29,6 +30,10 @@ if [[ -n "$(git status --porcelain)" ]]; then
 fi
 if [[ ! -f "${PROTOCOL_PATH}" ]]; then
     echo "Frozen Task14R R0S protocol is missing" >&2
+    exit 1
+fi
+if [[ ! -f "${PROTOCOL_SHA256_PATH}" ]]; then
+    echo "Frozen Task14R R0S protocol SHA-256 sidecar is missing" >&2
     exit 1
 fi
 if [[ ! -d "${LIBERO_ROOT}" ]]; then

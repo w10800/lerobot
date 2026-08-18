@@ -33,8 +33,9 @@ def source_files_sha256() -> dict[str, str]:
 
 def main() -> None:
     args = parse_args()
-    if args.output.exists():
-        raise FileExistsError(args.output)
+    digest_output = args.output.with_suffix(".sha256")
+    if args.output.exists() or digest_output.exists():
+        raise FileExistsError(args.output if args.output.exists() else digest_output)
     hashes = source_files_sha256()
     protocol = build_task14r_r0s_protocol(
         implementation_parent_commit=TASK14R_R0S_IMPLEMENTATION_PARENT_COMMIT,
@@ -47,7 +48,18 @@ def main() -> None:
     )
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(protocol, indent=2, sort_keys=True) + "\n")
-    print(json.dumps({"status": protocol["status"], "output": str(args.output.resolve())}))
+    protocol_sha256 = hashlib.sha256(args.output.read_bytes()).hexdigest()
+    digest_output.write_text(f"{protocol_sha256}  {args.output.name}\n")
+    print(
+        json.dumps(
+            {
+                "status": protocol["status"],
+                "output": str(args.output.resolve()),
+                "sha256": protocol_sha256,
+                "sha256_file": str(digest_output.resolve()),
+            }
+        )
+    )
 
 
 if __name__ == "__main__":

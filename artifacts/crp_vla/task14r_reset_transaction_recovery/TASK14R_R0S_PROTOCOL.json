@@ -1,35 +1,165 @@
 {
+  "artifact_integrity_contract": {
+    "comparison_rows_recomputed_from_payloads": true,
+    "frame_records_cross_linked_to_trace_and_payload": true,
+    "frame_records_per_trajectory": 16,
+    "lossless_pixel_frames_per_payload": 16,
+    "partial_failure_artifacts_required": true,
+    "task_and_terminal_revalidation": true,
+    "trace_rows_per_trajectory": 15
+  },
   "automatic_next_phase": false,
   "camera_keys": [
     "image1",
     "image2"
   ],
+  "comparison_contract": {
+    "classes": [
+      "standard_msaa_within_repeat",
+      "no_msaa_within_repeat",
+      "standard_msaa_vs_no_msaa"
+    ],
+    "cross_renderer_repeat_pairs": [
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        2,
+        2
+      ]
+    ],
+    "dtype": "uint8",
+    "equality": "np.array_equal",
+    "post_hoc_thresholds": false,
+    "required_characterization_fields": [
+      "reference_image_sha256",
+      "actual_image_sha256",
+      "exact",
+      "changed_pixel_count",
+      "changed_channel_value_count",
+      "maximum_absolute_difference",
+      "mean_absolute_difference",
+      "per_channel_changed_counts",
+      "difference_bounding_box",
+      "first_differing_pixel_coordinate",
+      "first_differing_channel",
+      "reference_pixel_values",
+      "actual_pixel_values",
+      "reference_channel_value",
+      "actual_channel_value"
+    ],
+    "tolerance": null,
+    "verdict_depends_on_tolerance": false,
+    "within_renderer_repeat_pairs": [
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        2
+      ]
+    ]
+  },
   "evidence_labels": [
     "ENGINEERING_ONLY",
     "RENDERER_DIAGNOSTIC",
     "NON_PRIMARY"
   ],
+  "execution_order": {
+    "adaptive_reordering": false,
+    "algorithm": "standard_first_if_(task_index+repeat_index)_is_even",
+    "even_task": [
+      [
+        "standard_msaa",
+        "no_msaa"
+      ],
+      [
+        "no_msaa",
+        "standard_msaa"
+      ],
+      [
+        "standard_msaa",
+        "no_msaa"
+      ]
+    ],
+    "expected_no_msaa_first_pair_count": 60,
+    "expected_standard_first_pair_count": 60,
+    "odd_task": [
+      [
+        "no_msaa",
+        "standard_msaa"
+      ],
+      [
+        "standard_msaa",
+        "no_msaa"
+      ],
+      [
+        "no_msaa",
+        "standard_msaa"
+      ]
+    ]
+  },
   "expected_camera_comparison_count": 3840,
+  "expected_frame_payload_manifest_count": 240,
+  "expected_frame_record_manifest_count": 240,
+  "expected_no_msaa_first_pair_count": 60,
   "expected_no_msaa_repeat_camera_comparison_count": 2560,
   "expected_paired_frame_count": 1920,
+  "expected_pixel_comparison_count": 8960,
+  "expected_pixel_comparison_manifest_count": 120,
   "expected_probe_step_count": 3600,
   "expected_probe_trajectory_count": 240,
+  "expected_renderer_arm_count": 2,
   "expected_renderer_pair_count": 120,
+  "expected_repeats_per_renderer": 3,
   "expected_restore_transaction_count": 240,
+  "expected_standard_first_pair_count": 60,
   "expected_standard_repeat_camera_comparison_count": 2560,
+  "expected_task_audit_manifest_count": 40,
   "expected_task_count": 40,
+  "expected_trace_manifest_count": 240,
   "expected_within_renderer_physics_frame_count": 2560,
   "formal_case_count": 0,
   "formal_outcome_rollout_count": 0,
   "frames_per_trajectory": 16,
-  "implementation_parent_commit": "60fbf7370d8668316b34a9d0d1a334247f792cca",
+  "implementation_parent_commit": "609118b7016a411c52a0ce5a6bdd8dc36ab74d79",
   "libero_commit": "8460457bfca6e0ef2e856bc104e2c60b023ef2a7",
+  "model_difference_contract": {
+    "all_numeric_model_arrays_exact": true,
+    "canonical_offsamples": 4,
+    "full_mjb_identity_after_whitelist_restore": true,
+    "generic_fingerprint_normalization_is_sufficient": false,
+    "whitelisted_model_fields": [
+      "sim.model.vis.quality.offsamples"
+    ],
+    "whitelisted_runtime_provenance": [
+      "framebuffer_context",
+      "render_context"
+    ]
+  },
+  "non_image_state_contract": {
+    "excluded_render_array_keys": [
+      "agentview_image",
+      "robot0_eye_in_hand_image"
+    ],
+    "excluded_render_array_values_hash_manifested_per_frame": true,
+    "integration_controller_python_contact_action_terminal_success_exact": true,
+    "per_frame_model_physics_fingerprint_exact": true,
+    "unknown_camera_named_arrays_are_excluded": false
+  },
   "permitted_terminal_statuses": [
     "TASK14R_R0S_RENDERERS_EXACTLY_EQUIVALENT",
     "TASK14R_R0S_RENDERER_SHIFT_CHARACTERIZED",
     "TASK14R_R0S_RENDERER_AUDIT_FAILED"
   ],
   "phase": "R0S_POLICY_FREE_RENDERER_SHIFT_AUDIT",
+  "policy_impact_bridge_required": true,
   "policy_query_count": 0,
   "probe_actions": [
     [
@@ -170,18 +300,24 @@
   ],
   "probe_steps_per_trajectory": 15,
   "qualification_boundary": [
-    "R0S is policy-free and compares standard EGL MSAA with offsamples=0.",
+    "R0S is policy-free and compares standard EGL MSAA (offsamples=4) against EGL no-MSAA (offsamples=0).",
     "Only exact cross-render pixels establish exact renderer equivalence.",
     "A nonzero pixel shift is characterized without an outcome-tuned tolerance.",
+    "RENDERER_SHIFT_CHARACTERIZED does not authorize R1.",
+    "R0S does not establish policy-input or policy-output equivalence.",
+    "A separately frozen policy-impact bridge is required before policy execution.",
     "No R0S terminal status automatically authorizes R1, policy execution, or formal outcomes."
   ],
+  "r1_authorized": false,
   "renderer_contract": {
     "arms": [
       {
+        "backend": "egl",
         "name": "standard_msaa",
         "offsamples": 4
       },
       {
+        "backend": "egl",
         "name": "no_msaa",
         "offsamples": 0
       }
@@ -193,22 +329,48 @@
   },
   "repeats_per_renderer": 3,
   "required_r0_final": {
+    "automatic_next_phase": false,
     "failed_task_count": 0,
+    "formal_case_count": 0,
+    "formal_outcome_rollout_count": 0,
+    "libero_commit": "8460457bfca6e0ef2e856bc104e2c60b023ef2a7",
     "passed_task_count": 40,
+    "policy_query_count": 0,
     "probe_step_count": 1800,
     "probe_trajectory_count": 120,
+    "protocol_sha256": "2e6a2507b45444d998f456ea6f8a7e1438a8e94ab918f428cb02becb1f4aad16",
     "relative_path": "outputs/crp_vla/task14r_reset_transaction_recovery/r0_attempt001/TASK14R_R0_FINAL.json",
     "repository_commit": "60fbf7370d8668316b34a9d0d1a334247f792cca",
     "restore_transaction_count": 120,
     "sha256": "ae443481ec991f6c46cb74a8bf4adf90817cd528d5f1ff4e44d04f6727df1a3e",
+    "source_files_sha256": {
+      "scripts/research/crp_vla/launch_task14r_r0.sh": "3794050b8869477c82cf5f8ee51d2a8441407176dda8767eff533eba883a08b7",
+      "scripts/research/crp_vla/run_task14r_r0.py": "ba20bd915dc498734ee3c273aed1145ce4456b2808d8d32e31c9d96774e46788",
+      "scripts/research/crp_vla/task14r_reset_transaction.py": "40985f05d415a418f18d9eac6243d65a31f9a28f6a870cfa1ecde0585c79cecd"
+    },
     "status": "TASK14R_R0_RESTORE_TRANSACTION_PASSED",
-    "task_count": 40
+    "task_count": 40,
+    "terminal_gate_fields": [
+      "task_count",
+      "passed_task_count",
+      "failed_task_count",
+      "restore_transaction_count",
+      "probe_trajectory_count",
+      "probe_step_count",
+      "policy_query_count",
+      "formal_case_count",
+      "formal_outcome_rollout_count",
+      "training_or_parameter_updates",
+      "automatic_next_phase"
+    ],
+    "terminal_gate_values": "ALL_TRUE",
+    "training_or_parameter_updates": false
   },
-  "schema_version": "task14r.r0s.renderer_shift.protocol.v1",
+  "schema_version": "task14r.r0s.renderer_shift.protocol.v2",
   "source_files_sha256": {
-    "scripts/research/crp_vla/launch_task14r_r0s.sh": "cef831638cbe83bfb366c8c39c33f894080fc85a964cdac35206ac6e947aa2f0",
-    "scripts/research/crp_vla/run_task14r_r0s.py": "372be2c9bca5eb516e5ce4c75fdcdab5b32ed031fd836784a8f37d0dacbe44cf",
-    "scripts/research/crp_vla/task14r_renderer_shift.py": "6c6c982ac31da30d048cd4d9b0ebb6ae89c3337a57a09e554dfc6e1884fcde5f",
+    "scripts/research/crp_vla/launch_task14r_r0s.sh": "28429c5bc419ef795384704b22a65c7c552e222aa61a668e8084c9083ecd5456",
+    "scripts/research/crp_vla/run_task14r_r0s.py": "a6bf4ddf208ca0951c8e346cdf58e8e3142ab1142dec3c1e1894b32e67c56b77",
+    "scripts/research/crp_vla/task14r_renderer_shift.py": "8d9c21e763f29bbfcc8dbbf5efca3e88a7edc672f3bf518b9f0c350884056c9f",
     "scripts/research/crp_vla/task14r_reset_transaction.py": "40985f05d415a418f18d9eac6243d65a31f9a28f6a870cfa1ecde0585c79cecd"
   },
   "status": "TASK14R_R0S_PROTOCOL_FROZEN",
@@ -220,280 +382,320 @@
       "env_seed": 3466105097,
       "init_state_id": 0,
       "suite": "libero_spatial",
-      "task_id": 0
+      "task_id": 0,
+      "task_index": 0
     },
     {
       "case_id": "r0s-libero_spatial-task01-state00",
       "env_seed": 1155483428,
       "init_state_id": 0,
       "suite": "libero_spatial",
-      "task_id": 1
+      "task_id": 1,
+      "task_index": 1
     },
     {
       "case_id": "r0s-libero_spatial-task02-state00",
       "env_seed": 4224521881,
       "init_state_id": 0,
       "suite": "libero_spatial",
-      "task_id": 2
+      "task_id": 2,
+      "task_index": 2
     },
     {
       "case_id": "r0s-libero_spatial-task03-state00",
       "env_seed": 4163845650,
       "init_state_id": 0,
       "suite": "libero_spatial",
-      "task_id": 3
+      "task_id": 3,
+      "task_index": 3
     },
     {
       "case_id": "r0s-libero_spatial-task04-state00",
       "env_seed": 3214903901,
       "init_state_id": 0,
       "suite": "libero_spatial",
-      "task_id": 4
+      "task_id": 4,
+      "task_index": 4
     },
     {
       "case_id": "r0s-libero_spatial-task05-state00",
       "env_seed": 3121375652,
       "init_state_id": 0,
       "suite": "libero_spatial",
-      "task_id": 5
+      "task_id": 5,
+      "task_index": 5
     },
     {
       "case_id": "r0s-libero_spatial-task06-state00",
       "env_seed": 552621181,
       "init_state_id": 0,
       "suite": "libero_spatial",
-      "task_id": 6
+      "task_id": 6,
+      "task_index": 6
     },
     {
       "case_id": "r0s-libero_spatial-task07-state00",
       "env_seed": 1721206921,
       "init_state_id": 0,
       "suite": "libero_spatial",
-      "task_id": 7
+      "task_id": 7,
+      "task_index": 7
     },
     {
       "case_id": "r0s-libero_spatial-task08-state00",
       "env_seed": 3033162059,
       "init_state_id": 0,
       "suite": "libero_spatial",
-      "task_id": 8
+      "task_id": 8,
+      "task_index": 8
     },
     {
       "case_id": "r0s-libero_spatial-task09-state00",
       "env_seed": 1208372892,
       "init_state_id": 0,
       "suite": "libero_spatial",
-      "task_id": 9
+      "task_id": 9,
+      "task_index": 9
     },
     {
       "case_id": "r0s-libero_object-task00-state00",
       "env_seed": 3599495149,
       "init_state_id": 0,
       "suite": "libero_object",
-      "task_id": 0
+      "task_id": 0,
+      "task_index": 10
     },
     {
       "case_id": "r0s-libero_object-task01-state00",
       "env_seed": 778062919,
       "init_state_id": 0,
       "suite": "libero_object",
-      "task_id": 1
+      "task_id": 1,
+      "task_index": 11
     },
     {
       "case_id": "r0s-libero_object-task02-state00",
       "env_seed": 1821313687,
       "init_state_id": 0,
       "suite": "libero_object",
-      "task_id": 2
+      "task_id": 2,
+      "task_index": 12
     },
     {
       "case_id": "r0s-libero_object-task03-state00",
       "env_seed": 2625493645,
       "init_state_id": 0,
       "suite": "libero_object",
-      "task_id": 3
+      "task_id": 3,
+      "task_index": 13
     },
     {
       "case_id": "r0s-libero_object-task04-state00",
       "env_seed": 1917592244,
       "init_state_id": 0,
       "suite": "libero_object",
-      "task_id": 4
+      "task_id": 4,
+      "task_index": 14
     },
     {
       "case_id": "r0s-libero_object-task05-state00",
       "env_seed": 1834074503,
       "init_state_id": 0,
       "suite": "libero_object",
-      "task_id": 5
+      "task_id": 5,
+      "task_index": 15
     },
     {
       "case_id": "r0s-libero_object-task06-state00",
       "env_seed": 1933792593,
       "init_state_id": 0,
       "suite": "libero_object",
-      "task_id": 6
+      "task_id": 6,
+      "task_index": 16
     },
     {
       "case_id": "r0s-libero_object-task07-state00",
       "env_seed": 881381342,
       "init_state_id": 0,
       "suite": "libero_object",
-      "task_id": 7
+      "task_id": 7,
+      "task_index": 17
     },
     {
       "case_id": "r0s-libero_object-task08-state00",
       "env_seed": 1664059251,
       "init_state_id": 0,
       "suite": "libero_object",
-      "task_id": 8
+      "task_id": 8,
+      "task_index": 18
     },
     {
       "case_id": "r0s-libero_object-task09-state00",
       "env_seed": 435802141,
       "init_state_id": 0,
       "suite": "libero_object",
-      "task_id": 9
+      "task_id": 9,
+      "task_index": 19
     },
     {
       "case_id": "r0s-libero_goal-task00-state00",
       "env_seed": 3790983492,
       "init_state_id": 0,
       "suite": "libero_goal",
-      "task_id": 0
+      "task_id": 0,
+      "task_index": 20
     },
     {
       "case_id": "r0s-libero_goal-task01-state00",
       "env_seed": 3496946855,
       "init_state_id": 0,
       "suite": "libero_goal",
-      "task_id": 1
+      "task_id": 1,
+      "task_index": 21
     },
     {
       "case_id": "r0s-libero_goal-task02-state00",
       "env_seed": 3488436200,
       "init_state_id": 0,
       "suite": "libero_goal",
-      "task_id": 2
+      "task_id": 2,
+      "task_index": 22
     },
     {
       "case_id": "r0s-libero_goal-task03-state00",
       "env_seed": 2508188521,
       "init_state_id": 0,
       "suite": "libero_goal",
-      "task_id": 3
+      "task_id": 3,
+      "task_index": 23
     },
     {
       "case_id": "r0s-libero_goal-task04-state00",
       "env_seed": 758243519,
       "init_state_id": 0,
       "suite": "libero_goal",
-      "task_id": 4
+      "task_id": 4,
+      "task_index": 24
     },
     {
       "case_id": "r0s-libero_goal-task05-state00",
       "env_seed": 1392625941,
       "init_state_id": 0,
       "suite": "libero_goal",
-      "task_id": 5
+      "task_id": 5,
+      "task_index": 25
     },
     {
       "case_id": "r0s-libero_goal-task06-state00",
       "env_seed": 3330967637,
       "init_state_id": 0,
       "suite": "libero_goal",
-      "task_id": 6
+      "task_id": 6,
+      "task_index": 26
     },
     {
       "case_id": "r0s-libero_goal-task07-state00",
       "env_seed": 2831096133,
       "init_state_id": 0,
       "suite": "libero_goal",
-      "task_id": 7
+      "task_id": 7,
+      "task_index": 27
     },
     {
       "case_id": "r0s-libero_goal-task08-state00",
       "env_seed": 3964992943,
       "init_state_id": 0,
       "suite": "libero_goal",
-      "task_id": 8
+      "task_id": 8,
+      "task_index": 28
     },
     {
       "case_id": "r0s-libero_goal-task09-state00",
       "env_seed": 171516907,
       "init_state_id": 0,
       "suite": "libero_goal",
-      "task_id": 9
+      "task_id": 9,
+      "task_index": 29
     },
     {
       "case_id": "r0s-libero_10-task00-state00",
       "env_seed": 237366502,
       "init_state_id": 0,
       "suite": "libero_10",
-      "task_id": 0
+      "task_id": 0,
+      "task_index": 30
     },
     {
       "case_id": "r0s-libero_10-task01-state00",
       "env_seed": 2290975179,
       "init_state_id": 0,
       "suite": "libero_10",
-      "task_id": 1
+      "task_id": 1,
+      "task_index": 31
     },
     {
       "case_id": "r0s-libero_10-task02-state00",
       "env_seed": 3556761306,
       "init_state_id": 0,
       "suite": "libero_10",
-      "task_id": 2
+      "task_id": 2,
+      "task_index": 32
     },
     {
       "case_id": "r0s-libero_10-task03-state00",
       "env_seed": 4012310845,
       "init_state_id": 0,
       "suite": "libero_10",
-      "task_id": 3
+      "task_id": 3,
+      "task_index": 33
     },
     {
       "case_id": "r0s-libero_10-task04-state00",
       "env_seed": 3629222454,
       "init_state_id": 0,
       "suite": "libero_10",
-      "task_id": 4
+      "task_id": 4,
+      "task_index": 34
     },
     {
       "case_id": "r0s-libero_10-task05-state00",
       "env_seed": 1130499856,
       "init_state_id": 0,
       "suite": "libero_10",
-      "task_id": 5
+      "task_id": 5,
+      "task_index": 35
     },
     {
       "case_id": "r0s-libero_10-task06-state00",
       "env_seed": 4227724601,
       "init_state_id": 0,
       "suite": "libero_10",
-      "task_id": 6
+      "task_id": 6,
+      "task_index": 36
     },
     {
       "case_id": "r0s-libero_10-task07-state00",
       "env_seed": 1490033219,
       "init_state_id": 0,
       "suite": "libero_10",
-      "task_id": 7
+      "task_id": 7,
+      "task_index": 37
     },
     {
       "case_id": "r0s-libero_10-task08-state00",
       "env_seed": 181428375,
       "init_state_id": 0,
       "suite": "libero_10",
-      "task_id": 8
+      "task_id": 8,
+      "task_index": 38
     },
     {
       "case_id": "r0s-libero_10-task09-state00",
       "env_seed": 539550891,
       "init_state_id": 0,
       "suite": "libero_10",
-      "task_id": 9
+      "task_id": 9,
+      "task_index": 39
     }
   ],
   "training_or_parameter_updates": false
